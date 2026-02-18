@@ -1,0 +1,1904 @@
+2026-02-16 20:48:10 [info]: ✅ Database connected successfully
+2026-02-16 20:48:10 [info]: 🚀 Server running on port 3001
+2026-02-16 20:48:10 [info]: 📊 Environment: development
+2026-02-16 20:48:10 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-16 20:48:26 [info]: SIGINT received. Shutting down gracefully...
+2026-02-16 20:50:53 [info]: ✅ Database connected successfully
+2026-02-16 20:50:53 [info]: 🚀 Server running on port 3001
+2026-02-16 20:50:53 [info]: 📊 Environment: development
+2026-02-16 20:50:53 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-16 22:46:17 [info]: ✅ Database connected successfully
+2026-02-16 22:46:18 [info]: 🚀 Server running on port 3001
+2026-02-16 22:46:18 [info]: 📊 Environment: development
+2026-02-16 22:46:18 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-16 22:56:07 [info]: SIGINT received. Shutting down gracefully...
+2026-02-16 22:57:58 [info]: ✅ Database connected successfully
+2026-02-16 22:57:58 [info]: 🚀 Server running on port 3001
+2026-02-16 22:57:58 [info]: 📊 Environment: development
+2026-02-16 22:57:58 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-16 23:09:16 [info]: SIGINT received. Shutting down gracefully...
+2026-02-16 23:09:33 [info]: ✅ Database connected successfully
+2026-02-16 23:09:33 [info]: 🚀 Server running on port 3001
+2026-02-16 23:09:33 [info]: 📊 Environment: development
+2026-02-16 23:09:33 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-17 10:59:39 [info]: ✅ Database connected successfully
+2026-02-17 10:59:39 [info]: 🚀 Server running on port 3001
+2026-02-17 10:59:39 [info]: 📊 Environment: development
+2026-02-17 10:59:39 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-17 11:00:29 [info]: POST /api/auth/login
+2026-02-17 11:00:30 [info]: User logged in: matias@gmail.com
+2026-02-17 11:00:33 [info]: POST /api/auth/login
+2026-02-17 11:00:34 [info]: User logged in: matias@gmail.com
+2026-02-17 11:01:59 [info]: POST /api/auth/login
+2026-02-17 11:02:00 [info]: User logged in: matias@gmail.com
+2026-02-17 11:02:00 [info]: POST /api/auth/login
+2026-02-17 11:02:01 [info]: User logged in: matias@gmail.com
+2026-02-17 11:03:39 [info]: POST /api/auth/login
+2026-02-17 11:03:40 [info]: User logged in: matias@gmail.com
+2026-02-17 11:03:53 [info]: POST /api/auth/login
+2026-02-17 11:03:57 [info]: POST /api/auth/login
+2026-02-17 11:04:04 [info]: POST /api/auth/login
+2026-02-17 11:04:05 [info]: POST /api/auth/login
+2026-02-17 11:04:05 [info]: POST /api/auth/login
+2026-02-17 11:04:05 [info]: POST /api/auth/login
+2026-02-17 11:10:48 [info]: GET /api/services/types/all
+2026-02-17 11:10:48 [warn]: Invalid or expired token attempt
+2026-02-17 11:13:09 [info]: GET /api/services/types/all
+2026-02-17 11:13:09 [warn]: Invalid or expired token attempt
+2026-02-17 11:13:09 [info]: GET /api/services/types/all
+2026-02-17 11:13:09 [warn]: Invalid or expired token attempt
+2026-02-17 11:13:15 [info]: GET /api/services/types/all
+2026-02-17 11:13:15 [warn]: Invalid or expired token attempt
+2026-02-17 11:13:15 [info]: GET /api/services/types/all
+2026-02-17 11:13:15 [warn]: Invalid or expired token attempt
+2026-02-17 11:13:19 [info]: GET /api/services/types/all
+2026-02-17 11:13:19 [warn]: Invalid or expired token attempt
+2026-02-17 11:13:19 [info]: GET /api/services/types/all
+2026-02-17 11:13:19 [warn]: Invalid or expired token attempt
+2026-02-17 11:15:22 [info]: GET /api/services/types/all
+2026-02-17 11:15:22 [warn]: Invalid or expired token attempt
+2026-02-17 11:18:16 [info]: GET /api/services/types/all
+2026-02-17 11:18:16 [warn]: Invalid or expired token attempt
+2026-02-17 11:18:16 [info]: GET /api/services/types/all
+2026-02-17 11:18:16 [warn]: Invalid or expired token attempt
+2026-02-17 11:18:44 [info]: POST /api/auth/login
+2026-02-17 11:18:45 [warn]: Failed login attempt for: matias@gmail.com
+2026-02-17 11:18:45 [error]: Error: Credenciales inválidas
+    at Function.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\auth.service.ts:34:13)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\auth.controller.ts:44:20
+2026-02-17 11:20:15 [info]: GET /api/services/types/all
+2026-02-17 11:20:15 [warn]: Invalid or expired token attempt
+2026-02-17 11:20:15 [info]: GET /api/services/types/all
+2026-02-17 11:20:15 [warn]: Invalid or expired token attempt
+2026-02-17 11:27:16 [info]: GET /api/services/types/all
+2026-02-17 11:27:16 [warn]: Invalid or expired token attempt
+2026-02-17 11:27:16 [info]: GET /api/services/types/all
+2026-02-17 11:27:16 [warn]: Invalid or expired token attempt
+2026-02-17 11:30:02 [info]: GET /api/services/types/all
+2026-02-17 11:30:02 [warn]: Invalid or expired token attempt
+2026-02-17 11:30:02 [info]: GET /api/services/types/all
+2026-02-17 11:30:02 [warn]: Invalid or expired token attempt
+2026-02-17 11:31:05 [info]: GET /api/services/types/all
+2026-02-17 11:31:05 [warn]: Invalid or expired token attempt
+2026-02-17 11:31:05 [info]: GET /api/services/types/all
+2026-02-17 11:31:05 [warn]: Invalid or expired token attempt
+2026-02-17 11:31:12 [info]: GET /api/services/types/all
+2026-02-17 11:31:12 [warn]: Invalid or expired token attempt
+2026-02-17 11:31:12 [info]: GET /api/services/types/all
+2026-02-17 11:31:12 [warn]: Invalid or expired token attempt
+2026-02-17 11:31:29 [info]: GET /api/services/types/all
+2026-02-17 11:31:29 [warn]: Invalid or expired token attempt
+2026-02-17 11:31:29 [info]: GET /api/services/types/all
+2026-02-17 11:31:29 [warn]: Invalid or expired token attempt
+2026-02-17 11:32:08 [info]: POST /api/auth/login
+2026-02-17 11:32:09 [info]: User logged in: matias@gmail.com
+2026-02-17 11:35:30 [info]: POST /api/auth/login
+2026-02-17 11:35:31 [info]: User logged in: matias@gmail.com
+2026-02-17 11:35:33 [info]: POST /api/auth/login
+2026-02-17 11:35:33 [info]: User logged in: matias@gmail.com
+2026-02-17 11:35:44 [info]: POST /api/auth/login
+2026-02-17 11:35:45 [info]: User logged in: matias@gmail.com
+2026-02-17 11:36:00 [info]: POST /api/auth/login
+2026-02-17 11:36:01 [info]: User logged in: matias@gmail.com
+2026-02-17 11:36:19 [info]: POST /api/auth/login
+2026-02-17 11:36:20 [warn]: Failed login attempt for: matias@gmail.com
+2026-02-17 11:36:20 [error]: Error: Credenciales inválidas
+    at Function.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\auth.service.ts:34:13)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\auth.controller.ts:44:20
+2026-02-17 11:36:27 [info]: POST /api/auth/login
+2026-02-17 11:36:32 [info]: GET /api/services/types/all
+2026-02-17 11:36:32 [warn]: Invalid or expired token attempt
+2026-02-17 11:36:32 [info]: GET /api/services/types/all
+2026-02-17 11:36:32 [warn]: Invalid or expired token attempt
+2026-02-17 11:36:50 [info]: GET /api/services/types/all
+2026-02-17 11:36:50 [warn]: Invalid or expired token attempt
+2026-02-17 11:36:50 [info]: GET /api/services/types/all
+2026-02-17 11:36:50 [warn]: Invalid or expired token attempt
+2026-02-17 11:36:53 [info]: GET /api/services/types/all
+2026-02-17 11:36:53 [warn]: Invalid or expired token attempt
+2026-02-17 11:36:53 [info]: GET /api/services/types/all
+2026-02-17 11:36:53 [warn]: Invalid or expired token attempt
+2026-02-17 11:38:39 [info]: GET /api/services/types/all
+2026-02-17 11:38:39 [warn]: Invalid or expired token attempt
+2026-02-17 11:38:39 [info]: GET /api/services/types/all
+2026-02-17 11:38:39 [warn]: Invalid or expired token attempt
+2026-02-17 11:38:45 [info]: GET /api/services/types/all
+2026-02-17 11:38:45 [warn]: Invalid or expired token attempt
+2026-02-17 11:38:45 [info]: GET /api/services/types/all
+2026-02-17 11:38:45 [warn]: Invalid or expired token attempt
+2026-02-17 11:44:05 [info]: GET /api/services/types/all
+2026-02-17 11:44:05 [warn]: Invalid or expired token attempt
+2026-02-17 11:44:05 [info]: GET /api/services/types/all
+2026-02-17 11:44:05 [warn]: Invalid or expired token attempt
+2026-02-17 11:44:36 [info]: GET /api/services/types/all
+2026-02-17 11:44:36 [warn]: Invalid or expired token attempt
+2026-02-17 11:44:36 [info]: GET /api/services/types/all
+2026-02-17 11:44:36 [warn]: Invalid or expired token attempt
+2026-02-17 11:47:04 [info]: POST /api/auth/login
+2026-02-17 11:47:46 [info]: GET /api/services/types/all
+2026-02-17 11:47:46 [warn]: Invalid or expired token attempt
+2026-02-17 11:47:46 [info]: GET /api/services/types/all
+2026-02-17 11:47:46 [warn]: Invalid or expired token attempt
+2026-02-17 11:59:31 [info]: POST /api/auth/login
+2026-02-17 11:59:32 [info]: User logged in: matias@gmail.com
+2026-02-17 15:25:39 [info]: ✅ Database connected successfully
+2026-02-17 15:25:39 [info]: 🚀 Server running on port 3001
+2026-02-17 15:25:39 [info]: 📊 Environment: development
+2026-02-17 15:25:39 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-17 15:35:37 [info]: POST /api/auth/login
+2026-02-17 15:35:38 [info]: User logged in: matias@gmail.com
+2026-02-17 15:35:50 [info]: GET /api/employees
+2026-02-17 15:35:50 [warn]: Invalid or expired token attempt
+2026-02-17 15:35:50 [info]: GET /api/employees
+2026-02-17 15:35:50 [warn]: Invalid or expired token attempt
+2026-02-17 15:35:52 [info]: GET /api/services/types/all
+2026-02-17 15:35:52 [warn]: Invalid or expired token attempt
+2026-02-17 15:35:52 [info]: GET /api/services/types/all
+2026-02-17 15:35:52 [warn]: Invalid or expired token attempt
+2026-02-17 15:35:55 [info]: GET /api/employees
+2026-02-17 15:35:55 [warn]: Invalid or expired token attempt
+2026-02-17 15:35:55 [info]: GET /api/employees
+2026-02-17 15:35:55 [warn]: Invalid or expired token attempt
+2026-02-17 15:41:59 [info]: GET /api/services/types/all
+2026-02-17 15:41:59 [warn]: Invalid or expired token attempt
+2026-02-17 15:41:59 [info]: GET /api/services/types/all
+2026-02-17 15:41:59 [warn]: Invalid or expired token attempt
+2026-02-17 15:42:00 [info]: GET /api/employees
+2026-02-17 15:42:00 [warn]: Invalid or expired token attempt
+2026-02-17 15:42:00 [info]: GET /api/employees
+2026-02-17 15:42:00 [warn]: Invalid or expired token attempt
+2026-02-17 15:42:01 [info]: GET /api/employees
+2026-02-17 15:42:01 [warn]: Invalid or expired token attempt
+2026-02-17 15:42:01 [info]: GET /api/services/types/all
+2026-02-17 15:42:01 [warn]: Invalid or expired token attempt
+2026-02-17 15:42:01 [info]: GET /api/services
+2026-02-17 15:42:01 [warn]: Invalid or expired token attempt
+2026-02-17 15:42:01 [info]: GET /api/employees
+2026-02-17 15:42:01 [warn]: Invalid or expired token attempt
+2026-02-17 15:42:01 [info]: GET /api/services/types/all
+2026-02-17 15:42:01 [warn]: Invalid or expired token attempt
+2026-02-17 15:42:01 [info]: GET /api/services
+2026-02-17 15:42:01 [warn]: Invalid or expired token attempt
+2026-02-17 15:46:53 [info]: POST /api/auth/login
+2026-02-17 15:46:53 [info]: User logged in: matias@gmail.com
+2026-02-17 15:47:16 [info]: POST /api/auth/login
+2026-02-17 15:47:17 [info]: User logged in: matias@gmail.com
+2026-02-17 15:51:18 [info]: POST /api/auth/login
+2026-02-17 15:51:18 [info]: User logged in: matias@gmail.com
+2026-02-17 15:51:36 [info]: POST /api/auth/login
+2026-02-17 15:51:37 [info]: User logged in: matias@gmail.com
+2026-02-17 15:56:38 [info]: POST /api/auth/login
+2026-02-17 15:56:39 [info]: User logged in: matias@gmail.com
+2026-02-17 15:56:56 [info]: POST /api/auth/login
+2026-02-17 15:56:57 [info]: User logged in: matias@gmail.com
+2026-02-17 15:57:02 [info]: SIGINT received. Shutting down gracefully...
+2026-02-17 15:57:12 [info]: ✅ Database connected successfully
+2026-02-17 15:57:12 [info]: 🚀 Server running on port 3001
+2026-02-17 15:57:12 [info]: 📊 Environment: development
+2026-02-17 15:57:12 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-17 15:57:37 [info]: POST /api/auth/login
+2026-02-17 15:57:38 [info]: User logged in: matias@gmail.com
+2026-02-17 15:57:52 [info]: POST /api/auth/login
+2026-02-17 15:57:52 [info]: User logged in: matias@gmail.com
+2026-02-17 15:58:05 [info]: POST /api/auth/login
+2026-02-17 15:58:05 [info]: User logged in: matias@gmail.com
+2026-02-17 16:01:30 [info]: POST /api/auth/login
+2026-02-17 16:01:31 [info]: User logged in: matias@gmail.com
+2026-02-17 16:01:39 [info]: GET /api/services/types/all
+2026-02-17 16:01:39 [info]: GET /api/services/types/all
+2026-02-17 16:01:44 [info]: GET /api/services/types/all
+2026-02-17 16:01:44 [info]: GET /api/services/types/all
+2026-02-17 16:02:06 [info]: GET /api/services/types/all
+2026-02-17 16:02:06 [info]: GET /api/services/types/all
+2026-02-17 16:02:09 [info]: GET /api/services/types/all
+2026-02-17 16:02:09 [info]: GET /api/services/types/all
+2026-02-17 16:02:19 [info]: GET /api/services/types/all
+2026-02-17 16:02:19 [info]: GET /api/services/types/all
+2026-02-17 16:09:26 [info]: GET /api/services/types/all
+2026-02-17 16:09:26 [info]: GET /api/services/types/all
+2026-02-17 16:09:30 [info]: GET /api/services/types/all
+2026-02-17 16:09:30 [info]: GET /api/services/types/all
+2026-02-17 16:09:52 [info]: POST /api/auth/login
+2026-02-17 16:09:53 [info]: User logged in: matias@gmail.com
+2026-02-17 16:10:01 [info]: GET /api/employees
+2026-02-17 16:10:01 [info]: GET /api/employees
+2026-02-17 16:10:07 [info]: GET /api/services/types/all
+2026-02-17 16:10:07 [info]: GET /api/services/types/all
+2026-02-17 16:10:14 [info]: GET /api/employees
+2026-02-17 16:10:14 [info]: GET /api/employees
+2026-02-17 16:10:15 [info]: GET /api/services/types/all
+2026-02-17 16:10:15 [info]: GET /api/services/types/all
+2026-02-17 16:12:07 [info]: ✅ Database connected successfully
+2026-02-17 16:12:07 [info]: 🚀 Server running on port 3001
+2026-02-17 16:12:07 [info]: 📊 Environment: development
+2026-02-17 16:12:07 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-17 16:12:14 [info]: ✅ Database connected successfully
+2026-02-17 16:12:14 [info]: 🚀 Server running on port 3001
+2026-02-17 16:12:14 [info]: 📊 Environment: development
+2026-02-17 16:12:14 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-17 16:13:28 [info]: GET /api/services/types/public
+2026-02-17 16:13:28 [info]: GET /api/services/types/public
+2026-02-17 16:13:55 [info]: POST /api/auth/login
+2026-02-17 16:13:56 [info]: User logged in: matias@gmail.com
+2026-02-17 16:15:17 [info]: GET /api/services/types/all
+2026-02-17 16:15:17 [info]: GET /api/services/types/all
+2026-02-17 16:15:19 [info]: GET /api/employees
+2026-02-17 16:15:19 [info]: GET /api/employees
+2026-02-17 16:20:37 [info]: GET /api/employees
+2026-02-17 16:20:37 [info]: GET /api/employees
+2026-02-17 16:28:30 [info]: GET /api/services/types/all
+2026-02-17 16:28:30 [info]: GET /api/services/types/all
+2026-02-17 16:34:33 [info]: GET /api/services/types/all
+2026-02-17 16:34:33 [warn]: Invalid or expired token attempt
+2026-02-17 16:34:33 [info]: GET /api/services/types/all
+2026-02-17 16:34:33 [warn]: Invalid or expired token attempt
+2026-02-17 16:34:40 [info]: GET /api/employees
+2026-02-17 16:34:40 [warn]: Invalid or expired token attempt
+2026-02-17 16:34:40 [info]: GET /api/employees
+2026-02-17 16:34:40 [warn]: Invalid or expired token attempt
+2026-02-17 16:34:42 [info]: GET /api/services/types/all
+2026-02-17 16:34:42 [warn]: Invalid or expired token attempt
+2026-02-17 16:34:42 [info]: GET /api/services/types/all
+2026-02-17 16:34:42 [warn]: Invalid or expired token attempt
+2026-02-17 16:36:44 [info]: GET /api/employees
+2026-02-17 16:36:44 [warn]: Invalid or expired token attempt
+2026-02-17 16:36:44 [info]: GET /api/employees
+2026-02-17 16:36:44 [warn]: Invalid or expired token attempt
+2026-02-17 16:36:45 [info]: GET /api/services/types/all
+2026-02-17 16:36:45 [warn]: Invalid or expired token attempt
+2026-02-17 16:36:45 [info]: GET /api/services/types/all
+2026-02-17 16:36:45 [warn]: Invalid or expired token attempt
+2026-02-17 16:36:46 [info]: GET /api/employees
+2026-02-17 16:36:46 [warn]: Invalid or expired token attempt
+2026-02-17 16:36:46 [info]: GET /api/employees
+2026-02-17 16:36:46 [warn]: Invalid or expired token attempt
+2026-02-17 16:36:52 [info]: GET /api/services/types/all
+2026-02-17 16:36:52 [warn]: Invalid or expired token attempt
+2026-02-17 16:36:52 [info]: GET /api/services/types/all
+2026-02-17 16:36:52 [warn]: Invalid or expired token attempt
+2026-02-17 16:36:53 [info]: GET /api/employees
+2026-02-17 16:36:53 [warn]: Invalid or expired token attempt
+2026-02-17 16:36:53 [info]: GET /api/employees
+2026-02-17 16:36:53 [warn]: Invalid or expired token attempt
+2026-02-17 16:37:15 [info]: SIGINT received. Shutting down gracefully...
+2026-02-17 16:37:21 [info]: ✅ Database connected successfully
+2026-02-17 16:37:21 [info]: 🚀 Server running on port 3001
+2026-02-17 16:37:21 [info]: 📊 Environment: development
+2026-02-17 16:37:21 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-17 16:37:34 [info]: GET /api/employees
+2026-02-17 16:37:34 [warn]: Invalid or expired token attempt
+2026-02-17 16:37:34 [info]: GET /api/employees
+2026-02-17 16:37:34 [warn]: Invalid or expired token attempt
+2026-02-17 16:37:35 [info]: GET /api/services/types/all
+2026-02-17 16:37:35 [warn]: Invalid or expired token attempt
+2026-02-17 16:37:35 [info]: GET /api/services/types/all
+2026-02-17 16:37:35 [warn]: Invalid or expired token attempt
+2026-02-17 16:37:43 [info]: GET /api/employees
+2026-02-17 16:37:43 [warn]: Invalid or expired token attempt
+2026-02-17 16:37:43 [info]: GET /api/employees
+2026-02-17 16:37:43 [warn]: Invalid or expired token attempt
+2026-02-17 16:37:59 [info]: GET /api/services/types/all
+2026-02-17 16:37:59 [warn]: Invalid or expired token attempt
+2026-02-17 16:37:59 [info]: GET /api/services/types/all
+2026-02-17 16:37:59 [warn]: Invalid or expired token attempt
+2026-02-17 16:43:42 [info]: GET /api/employees
+2026-02-17 16:43:42 [warn]: Invalid or expired token attempt
+2026-02-17 16:43:42 [info]: GET /api/employees
+2026-02-17 16:43:42 [warn]: Invalid or expired token attempt
+2026-02-17 16:43:43 [info]: GET /api/services/types/all
+2026-02-17 16:43:43 [info]: GET /api/services/types/all
+2026-02-17 16:43:44 [info]: GET /api/employees
+2026-02-17 16:43:44 [info]: GET /api/employees
+2026-02-17 16:43:46 [info]: GET /api/services/types/all
+2026-02-17 16:43:46 [info]: GET /api/services/types/all
+2026-02-17 16:47:40 [info]: POST /api/auth/login
+2026-02-17 16:47:42 [info]: User logged in: matias@gmail.com
+2026-02-17 16:47:45 [info]: GET /api/services/types/all
+2026-02-17 16:47:45 [info]: GET /api/services/types/all
+2026-02-17 16:47:46 [info]: GET /api/employees
+2026-02-17 16:47:46 [info]: GET /api/employees
+2026-02-17 16:51:32 [info]: GET /api/employees
+2026-02-17 16:51:32 [info]: GET /api/services/types/all
+2026-02-17 16:51:32 [info]: GET /api/employees
+2026-02-17 16:51:32 [info]: GET /api/services/types/all
+2026-02-17 17:33:36 [info]: GET /api/employees
+2026-02-17 17:33:36 [warn]: Invalid or expired token attempt
+2026-02-17 17:33:36 [info]: GET /api/employees
+2026-02-17 17:33:36 [warn]: Invalid or expired token attempt
+2026-02-17 17:54:24 [info]: GET /api/employees
+2026-02-17 17:54:24 [warn]: Invalid or expired token attempt
+2026-02-17 17:54:24 [info]: GET /api/employees
+2026-02-17 17:54:24 [warn]: Invalid or expired token attempt
+2026-02-17 17:54:28 [info]: GET /api/employees
+2026-02-17 17:54:28 [warn]: Invalid or expired token attempt
+2026-02-17 17:54:28 [info]: GET /api/employees
+2026-02-17 17:54:28 [warn]: Invalid or expired token attempt
+2026-02-17 17:54:30 [info]: GET /api/services/types/all
+2026-02-17 17:54:30 [warn]: Invalid or expired token attempt
+2026-02-17 17:54:30 [info]: GET /api/services/types/all
+2026-02-17 17:54:30 [warn]: Invalid or expired token attempt
+2026-02-17 17:54:30 [info]: GET /api/employees
+2026-02-17 17:54:30 [warn]: Invalid or expired token attempt
+2026-02-17 17:54:30 [info]: GET /api/employees
+2026-02-17 17:54:30 [warn]: Invalid or expired token attempt
+2026-02-17 17:54:34 [info]: GET /api/employees
+2026-02-17 17:54:34 [warn]: Invalid or expired token attempt
+2026-02-17 17:54:34 [info]: GET /api/employees
+2026-02-17 17:54:34 [warn]: Invalid or expired token attempt
+2026-02-17 17:59:05 [info]: GET /api/employees
+2026-02-17 17:59:05 [warn]: Invalid or expired token attempt
+2026-02-17 17:59:05 [info]: GET /api/employees
+2026-02-17 17:59:05 [warn]: Invalid or expired token attempt
+2026-02-17 18:00:33 [info]: POST /api/auth/login
+2026-02-17 18:00:33 [info]: User logged in: matias@gmail.com
+2026-02-17 18:00:33 [info]: GET /api/employees
+2026-02-17 18:00:33 [info]: GET /api/employees
+2026-02-17 18:00:39 [info]: GET /api/employees
+2026-02-17 18:00:39 [info]: GET /api/employees
+2026-02-17 18:00:42 [info]: GET /api/services/types/all
+2026-02-17 18:00:42 [info]: GET /api/services/types/all
+2026-02-17 18:04:53 [info]: GET /api/employees
+2026-02-17 18:04:53 [info]: GET /api/employees
+2026-02-17 18:05:28 [info]: GET /api/services/types/all
+2026-02-17 18:05:28 [info]: GET /api/services/types/all
+2026-02-17 18:05:29 [info]: GET /api/employees
+2026-02-17 18:05:29 [info]: GET /api/employees
+2026-02-17 18:08:38 [info]: GET /api/employees
+2026-02-17 18:08:38 [info]: GET /api/employees
+2026-02-17 18:09:20 [info]: GET /api/employees
+2026-02-17 18:09:20 [info]: GET /api/employees
+2026-02-17 18:09:26 [info]: GET /api/employees
+2026-02-17 18:09:26 [info]: GET /api/services/types/all
+2026-02-17 18:09:26 [info]: GET /api/employees
+2026-02-17 18:09:26 [info]: GET /api/services/types/all
+2026-02-17 18:13:20 [info]: GET /api/employees
+2026-02-17 18:13:20 [info]: GET /api/services/types/all
+2026-02-17 18:13:20 [info]: GET /api/employees
+2026-02-17 18:13:20 [info]: GET /api/services/types/all
+2026-02-17 18:20:29 [info]: GET /api/employees
+2026-02-17 18:20:29 [warn]: Invalid or expired token attempt
+2026-02-17 18:20:29 [info]: GET /api/services/types/all
+2026-02-17 18:20:29 [warn]: Invalid or expired token attempt
+2026-02-17 18:20:29 [info]: POST /api/auth/refresh
+2026-02-17 18:20:29 [info]: GET /api/employees
+2026-02-17 18:20:29 [info]: GET /api/services/types/all
+2026-02-17 18:23:56 [info]: GET /api/employees
+2026-02-17 18:23:56 [info]: GET /api/employees
+2026-02-17 18:24:00 [info]: GET /api/employees
+2026-02-17 18:24:00 [info]: GET /api/services/types/all
+2026-02-17 18:24:00 [info]: GET /api/employees
+2026-02-17 18:24:00 [info]: GET /api/services/types/all
+2026-02-17 18:24:19 [info]: GET /api/employees
+2026-02-17 18:24:19 [info]: GET /api/employees
+2026-02-17 18:24:19 [info]: GET /api/services/types/all
+2026-02-17 18:24:19 [info]: GET /api/services/types/all
+2026-02-17 18:24:21 [info]: GET /api/employees
+2026-02-17 18:24:21 [info]: GET /api/services/types/all
+2026-02-17 18:24:21 [info]: GET /api/employees
+2026-02-17 18:24:21 [info]: GET /api/services/types/all
+2026-02-17 18:28:47 [info]: GET /api/employees
+2026-02-17 18:28:47 [info]: GET /api/employees
+2026-02-17 18:28:51 [info]: GET /api/employees
+2026-02-17 18:28:51 [info]: GET /api/services/types/all
+2026-02-17 18:28:51 [info]: GET /api/employees
+2026-02-17 18:28:51 [info]: GET /api/services/types/all
+2026-02-17 18:28:53 [info]: GET /api/services/types/all
+2026-02-17 18:28:53 [info]: GET /api/services/types/all
+2026-02-17 18:28:55 [info]: GET /api/services/types/all
+2026-02-17 18:28:55 [info]: GET /api/employees
+2026-02-17 18:28:55 [info]: GET /api/services/types/all
+2026-02-17 18:28:55 [info]: GET /api/employees
+2026-02-17 18:32:12 [info]: GET /api/employees
+2026-02-17 18:32:12 [info]: GET /api/employees
+2026-02-17 18:32:16 [info]: GET /api/employees
+2026-02-17 18:32:16 [info]: GET /api/services/types/all
+2026-02-17 18:32:16 [info]: GET /api/employees
+2026-02-17 18:32:16 [info]: GET /api/services/types/all
+2026-02-17 19:31:52 [info]: GET /api/employees
+2026-02-17 19:31:52 [warn]: Invalid or expired token attempt
+2026-02-17 19:31:52 [info]: GET /api/employees
+2026-02-17 19:31:52 [warn]: Invalid or expired token attempt
+2026-02-17 19:31:52 [info]: POST /api/auth/refresh
+2026-02-17 19:31:52 [info]: GET /api/employees
+2026-02-17 19:31:52 [info]: GET /api/employees
+2026-02-17 19:53:52 [info]: GET /api/employees
+2026-02-17 19:53:52 [warn]: Invalid or expired token attempt
+2026-02-17 19:53:53 [info]: GET /api/employees
+2026-02-17 19:53:53 [warn]: Invalid or expired token attempt
+2026-02-17 19:53:53 [info]: POST /api/auth/refresh
+2026-02-17 19:53:53 [info]: GET /api/employees
+2026-02-17 19:53:53 [info]: GET /api/employees
+2026-02-17 20:00:50 [info]: GET /api/employees
+2026-02-17 20:00:56 [info]: GET /api/employees
+2026-02-17 20:00:56 [info]: GET /api/employees
+2026-02-17 20:03:51 [info]: GET /api/employees
+2026-02-17 20:03:51 [info]: GET /api/employees
+2026-02-17 20:09:37 [info]: GET /api/employees
+2026-02-17 20:09:37 [warn]: Invalid or expired token attempt
+2026-02-17 20:09:37 [info]: GET /api/employees
+2026-02-17 20:09:37 [warn]: Invalid or expired token attempt
+2026-02-17 20:09:37 [info]: POST /api/auth/refresh
+2026-02-17 20:09:38 [info]: GET /api/employees
+2026-02-17 20:09:38 [info]: GET /api/employees
+2026-02-17 20:15:13 [info]: GET /api/employees
+2026-02-17 20:15:13 [info]: GET /api/employees
+2026-02-17 20:18:30 [info]: GET /api/employees
+2026-02-17 20:18:30 [info]: GET /api/employees
+2026-02-17 20:19:15 [info]: GET /api/employees
+2026-02-17 20:19:15 [info]: GET /api/employees
+2026-02-17 20:19:16 [info]: GET /api/services/types/all
+2026-02-17 20:19:16 [info]: GET /api/services/types/all
+2026-02-17 20:19:17 [info]: GET /api/employees
+2026-02-17 20:19:17 [info]: GET /api/services/types/all
+2026-02-17 20:19:17 [info]: GET /api/employees
+2026-02-17 20:19:17 [info]: GET /api/services/types/all
+2026-02-17 20:19:18 [info]: GET /api/employees
+2026-02-17 20:19:18 [info]: GET /api/services/types/all
+2026-02-17 20:19:18 [info]: GET /api/employees
+2026-02-17 20:19:18 [info]: GET /api/services/types/all
+2026-02-17 20:41:26 [info]: GET /api/employees
+2026-02-17 20:41:26 [warn]: Invalid or expired token attempt
+2026-02-17 20:41:26 [info]: GET /api/employees
+2026-02-17 20:41:26 [warn]: Invalid or expired token attempt
+2026-02-17 20:41:26 [info]: POST /api/auth/refresh
+2026-02-17 20:41:27 [info]: GET /api/employees
+2026-02-17 20:41:27 [info]: GET /api/employees
+2026-02-17 20:48:21 [info]: GET /api/services/types/public
+2026-02-17 20:48:21 [info]: GET /api/services/types/public
+2026-02-17 21:23:42 [info]: POST /api/auth/login
+2026-02-17 21:23:43 [info]: User logged in: matias@gmail.com
+2026-02-17 21:23:43 [info]: GET /api/employees
+2026-02-17 21:23:43 [info]: GET /api/employees
+2026-02-17 21:23:57 [info]: GET /api/employees
+2026-02-17 21:23:57 [info]: GET /api/employees
+2026-02-17 21:24:01 [info]: GET /api/services/types/all
+2026-02-17 21:24:01 [info]: GET /api/services/types/all
+2026-02-17 21:24:04 [info]: GET /api/employees
+2026-02-17 21:24:04 [info]: GET /api/employees
+2026-02-17 21:24:07 [info]: GET /api/employees
+2026-02-17 21:24:07 [info]: GET /api/services/types/all
+2026-02-17 21:24:07 [info]: GET /api/employees
+2026-02-17 21:24:07 [info]: GET /api/services/types/all
+2026-02-17 21:25:05 [info]: GET /api/employees
+2026-02-17 21:25:05 [info]: GET /api/employees
+2026-02-17 21:25:07 [info]: GET /api/employees
+2026-02-17 21:25:07 [info]: GET /api/services/types/all
+2026-02-17 21:25:07 [info]: GET /api/employees
+2026-02-17 21:25:07 [info]: GET /api/services/types/all
+2026-02-17 21:26:13 [info]: GET /api/employees
+2026-02-17 21:26:13 [info]: GET /api/services/types/all
+2026-02-17 21:26:13 [info]: GET /api/employees
+2026-02-17 21:26:13 [info]: GET /api/services/types/all
+2026-02-17 21:26:16 [info]: GET /api/services/types/all
+2026-02-17 21:26:16 [info]: GET /api/services/types/all
+2026-02-17 21:26:18 [info]: GET /api/employees
+2026-02-17 21:26:18 [info]: GET /api/employees
+2026-02-17 21:26:20 [info]: GET /api/employees
+2026-02-17 21:26:20 [info]: GET /api/services/types/all
+2026-02-17 21:26:20 [info]: GET /api/employees
+2026-02-17 21:26:20 [info]: GET /api/services/types/all
+2026-02-17 21:26:48 [info]: GET /api/employees
+2026-02-17 21:26:48 [info]: GET /api/services/types/all
+2026-02-17 21:26:48 [info]: GET /api/services/types/all
+2026-02-17 21:26:48 [info]: GET /api/employees
+2026-02-17 21:27:11 [info]: GET /api/services/types/public
+2026-02-17 21:27:11 [info]: GET /api/services/types/public
+2026-02-17 21:27:24 [info]: POST /api/auth/login
+2026-02-17 21:27:24 [info]: User logged in: matias@gmail.com
+2026-02-17 21:27:24 [info]: GET /api/employees
+2026-02-17 21:27:24 [info]: GET /api/employees
+2026-02-17 21:27:28 [info]: GET /api/employees
+2026-02-17 21:27:28 [info]: GET /api/services/types/all
+2026-02-17 21:27:28 [info]: GET /api/employees
+2026-02-17 21:27:28 [info]: GET /api/services/types/all
+2026-02-17 21:27:30 [info]: GET /api/services/types/all
+2026-02-17 21:27:30 [info]: GET /api/employees
+2026-02-17 21:27:30 [info]: GET /api/services/types/all
+2026-02-17 21:27:30 [info]: GET /api/employees
+2026-02-17 21:27:36 [info]: GET /api/employees
+2026-02-17 21:27:36 [info]: GET /api/employees
+2026-02-17 21:27:37 [info]: GET /api/services/types/all
+2026-02-17 21:27:37 [info]: GET /api/services/types/all
+2026-02-17 21:27:40 [info]: GET /api/employees
+2026-02-17 21:27:40 [info]: GET /api/services/types/all
+2026-02-17 21:27:40 [info]: GET /api/employees
+2026-02-17 21:27:40 [info]: GET /api/services/types/all
+2026-02-17 21:27:50 [info]: GET /api/services/types/all
+2026-02-17 21:27:50 [info]: GET /api/services/types/all
+2026-02-17 21:27:56 [info]: GET /api/services/types/all
+2026-02-17 21:27:56 [info]: GET /api/services/types/all
+2026-02-17 21:29:35 [info]: GET /api/services
+2026-02-17 21:32:02 [info]: GET /api/services/types/all
+2026-02-17 21:32:02 [info]: GET /api/services/types/all
+2026-02-17 21:32:04 [info]: GET /api/services
+2026-02-17 21:32:04 [info]: GET /api/services
+2026-02-17 21:32:06 [info]: GET /api/services/types/all
+2026-02-17 21:32:06 [info]: GET /api/services/types/all
+2026-02-17 21:35:01 [info]: GET /api/employees
+2026-02-17 21:35:01 [info]: GET /api/services
+2026-02-17 21:35:01 [info]: GET /api/employees
+2026-02-17 21:35:01 [info]: GET /api/services
+2026-02-17 21:36:09 [info]: GET /api/services
+2026-02-17 21:36:09 [info]: GET /api/services
+2026-02-17 21:36:26 [info]: GET /api/services
+2026-02-17 21:36:27 [info]: GET /api/services
+2026-02-17 21:36:33 [info]: GET /api/services
+2026-02-17 21:36:33 [info]: GET /api/services
+2026-02-17 21:36:46 [info]: GET /api/services
+2026-02-17 21:36:46 [info]: GET /api/services
+2026-02-17 21:36:47 [info]: GET /api/employees
+2026-02-17 21:36:47 [info]: GET /api/services/types/all
+2026-02-17 21:36:47 [info]: GET /api/employees
+2026-02-17 21:36:47 [info]: GET /api/services/types/all
+2026-02-17 21:36:52 [info]: POST /api/services/records
+2026-02-17 21:37:01 [info]: POST /api/services/records
+2026-02-17 21:37:01 [info]: POST /api/services/records
+2026-02-17 21:39:56 [info]: POST /api/services
+2026-02-17 21:39:56 [info]: POST /api/services
+2026-02-17 21:39:56 [info]: Service created: 297144e9-aec5-4b75-9f85-13e0d1707886 for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 21:39:56 [info]: Service created: 02eae6af-4541-4141-b791-01c2ed935e1e for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 21:43:00 [info]: GET /api/services
+2026-02-17 21:43:00 [warn]: Invalid or expired token attempt
+2026-02-17 21:43:00 [info]: GET /api/employees
+2026-02-17 21:43:00 [warn]: Invalid or expired token attempt
+2026-02-17 21:43:00 [info]: GET /api/reports/dashboard
+2026-02-17 21:43:00 [warn]: Invalid or expired token attempt
+2026-02-17 21:43:00 [info]: GET /api/reports/weekly
+2026-02-17 21:43:00 [warn]: Invalid or expired token attempt
+2026-02-17 21:43:00 [info]: GET /api/services
+2026-02-17 21:43:00 [warn]: Invalid or expired token attempt
+2026-02-17 21:43:00 [info]: GET /api/employees
+2026-02-17 21:43:00 [warn]: Invalid or expired token attempt
+2026-02-17 21:43:00 [info]: GET /api/reports/dashboard
+2026-02-17 21:43:00 [warn]: Invalid or expired token attempt
+2026-02-17 21:43:00 [info]: GET /api/reports/weekly
+2026-02-17 21:43:00 [warn]: Invalid or expired token attempt
+2026-02-17 21:43:00 [info]: POST /api/auth/refresh
+2026-02-17 21:43:01 [info]: GET /api/services
+2026-02-17 21:43:01 [info]: GET /api/employees
+2026-02-17 21:43:01 [info]: GET /api/reports/dashboard
+2026-02-17 21:43:01 [info]: GET /api/reports/weekly
+2026-02-17 21:43:01 [info]: GET /api/services
+2026-02-17 21:43:01 [info]: GET /api/employees
+2026-02-17 21:43:01 [info]: GET /api/reports/weekly
+2026-02-17 21:43:01 [info]: GET /api/reports/dashboard
+2026-02-17 21:44:33 [info]: GET /api/employees
+2026-02-17 21:44:33 [info]: GET /api/employees
+2026-02-17 21:44:33 [info]: GET /api/services/types/all
+2026-02-17 21:44:33 [info]: GET /api/services/types/all
+2026-02-17 21:44:34 [info]: GET /api/employees
+2026-02-17 21:44:34 [info]: GET /api/services/types/all
+2026-02-17 21:44:34 [info]: GET /api/employees
+2026-02-17 21:44:34 [info]: GET /api/services/types/all
+2026-02-17 21:44:39 [info]: POST /api/services
+2026-02-17 21:44:39 [info]: Service created: ae3f495f-f0f2-48bf-a85f-0137bc9fec8f for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 21:44:46 [info]: GET /api/employees
+2026-02-17 21:44:46 [info]: GET /api/services/types/all
+2026-02-17 21:44:46 [info]: GET /api/employees
+2026-02-17 21:44:46 [info]: GET /api/services/types/all
+2026-02-17 21:44:52 [info]: POST /api/services
+2026-02-17 21:44:52 [info]: Service created: 52fd8fd5-f1a5-4a3b-9874-022bd3c35239 for employee 21699bd1-d9c0-44b4-b334-5de0fb9b3c34
+2026-02-17 21:45:12 [info]: GET /api/employees
+2026-02-17 21:45:12 [info]: GET /api/services/types/all
+2026-02-17 21:45:12 [info]: GET /api/employees
+2026-02-17 21:45:12 [info]: GET /api/services/types/all
+2026-02-17 21:45:19 [info]: POST /api/services
+2026-02-17 21:45:19 [info]: POST /api/services
+2026-02-17 21:45:19 [info]: POST /api/services
+2026-02-17 21:45:19 [info]: POST /api/services
+2026-02-17 21:45:19 [info]: POST /api/services
+2026-02-17 21:45:19 [info]: POST /api/services
+2026-02-17 21:45:19 [info]: Service created: cdbd7a96-6345-4e58-9c5d-b230dc0b9a45 for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 21:45:19 [info]: Service created: 2d051c62-ac10-4531-b0e8-2c647eb8cd4f for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 21:45:19 [info]: Service created: 25d65145-b781-4c9e-9a2c-5c3e76740226 for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 21:45:19 [info]: POST /api/services
+2026-02-17 21:45:19 [info]: Service created: fc7819ad-a7de-4857-a0e6-4f2a12dbf5a8 for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 21:45:19 [info]: POST /api/services
+2026-02-17 21:45:19 [info]: Service created: f0769f99-668e-41e6-ae5e-d70898e1fe69 for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 21:45:19 [info]: Service created: b42171a4-ff57-4bc2-a479-4a2203be5bb4 for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 21:45:19 [info]: Service created: a7634487-abed-4fb1-a2f2-9f5d5c0c523d for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 21:45:19 [info]: Service created: a64afce3-c410-4613-834a-5fc02c45e832 for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 21:45:25 [info]: GET /api/services
+2026-02-17 21:45:25 [info]: GET /api/employees
+2026-02-17 21:45:25 [info]: GET /api/reports/dashboard
+2026-02-17 21:45:25 [info]: GET /api/reports/weekly
+2026-02-17 21:45:25 [info]: GET /api/services
+2026-02-17 21:45:25 [info]: GET /api/employees
+2026-02-17 21:45:25 [info]: GET /api/reports/weekly
+2026-02-17 21:45:25 [info]: GET /api/reports/dashboard
+2026-02-17 21:51:50 [info]: GET /api/employees
+2026-02-17 21:51:50 [info]: GET /api/services
+2026-02-17 21:51:50 [info]: GET /api/reports/dashboard
+2026-02-17 21:51:50 [info]: GET /api/reports/weekly
+2026-02-17 21:51:50 [info]: GET /api/employees
+2026-02-17 21:51:50 [info]: GET /api/services
+2026-02-17 21:51:50 [info]: GET /api/reports/weekly
+2026-02-17 21:51:51 [info]: GET /api/reports/dashboard
+2026-02-17 21:53:49 [info]: GET /api/employees
+2026-02-17 21:53:49 [info]: GET /api/services/types/all
+2026-02-17 21:53:49 [info]: GET /api/employees
+2026-02-17 21:53:49 [info]: GET /api/services/types/all
+2026-02-17 21:53:54 [info]: POST /api/services
+2026-02-17 21:53:54 [info]: POST /api/services
+2026-02-17 21:53:54 [info]: Service created: a28f2b3d-08eb-4c69-b6df-95f54ac7cb6d for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 21:53:54 [info]: Service created: cdf0760d-df1e-44ec-b77d-9a059c83e7d9 for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 21:53:54 [info]: GET /api/services
+2026-02-17 21:53:54 [info]: GET /api/employees
+2026-02-17 21:53:54 [info]: GET /api/reports/dashboard
+2026-02-17 21:53:54 [info]: GET /api/reports/weekly
+2026-02-17 21:53:56 [info]: GET /api/services
+2026-02-17 21:53:56 [info]: GET /api/reports/dashboard
+2026-02-17 21:53:56 [info]: GET /api/reports/weekly
+2026-02-17 21:53:56 [info]: GET /api/employees
+2026-02-17 21:54:08 [info]: GET /api/employees
+2026-02-17 21:54:08 [info]: GET /api/employees
+2026-02-17 21:54:10 [info]: GET /api/services/types/all
+2026-02-17 21:54:10 [info]: GET /api/services/types/all
+2026-02-17 21:54:12 [info]: GET /api/employees
+2026-02-17 21:54:12 [info]: GET /api/services/types/all
+2026-02-17 21:54:12 [info]: GET /api/employees
+2026-02-17 21:54:12 [info]: GET /api/services/types/all
+2026-02-17 21:54:13 [info]: GET /api/services
+2026-02-17 21:54:13 [info]: GET /api/services
+2026-02-17 21:58:07 [info]: GET /api/employees
+2026-02-17 21:58:07 [warn]: Invalid or expired token attempt
+2026-02-17 21:58:07 [info]: GET /api/services
+2026-02-17 21:58:07 [warn]: Invalid or expired token attempt
+2026-02-17 21:58:07 [info]: GET /api/employees
+2026-02-17 21:58:07 [warn]: Invalid or expired token attempt
+2026-02-17 21:58:07 [info]: GET /api/reports/dashboard
+2026-02-17 21:58:07 [warn]: Invalid or expired token attempt
+2026-02-17 21:58:07 [info]: GET /api/reports/weekly
+2026-02-17 21:58:07 [warn]: Invalid or expired token attempt
+2026-02-17 21:58:07 [info]: GET /api/services
+2026-02-17 21:58:07 [warn]: Invalid or expired token attempt
+2026-02-17 21:58:07 [info]: GET /api/employees
+2026-02-17 21:58:07 [warn]: Invalid or expired token attempt
+2026-02-17 21:58:07 [info]: GET /api/reports/dashboard
+2026-02-17 21:58:07 [warn]: Invalid or expired token attempt
+2026-02-17 21:58:07 [info]: GET /api/reports/weekly
+2026-02-17 21:58:07 [warn]: Invalid or expired token attempt
+2026-02-17 21:58:07 [info]: GET /api/services
+2026-02-17 21:58:07 [warn]: Invalid or expired token attempt
+2026-02-17 21:58:07 [info]: GET /api/employees
+2026-02-17 21:58:07 [warn]: Invalid or expired token attempt
+2026-02-17 21:58:07 [info]: GET /api/reports/dashboard
+2026-02-17 21:58:07 [warn]: Invalid or expired token attempt
+2026-02-17 21:58:07 [info]: GET /api/reports/weekly
+2026-02-17 21:58:07 [warn]: Invalid or expired token attempt
+2026-02-17 21:58:07 [info]: GET /api/services
+2026-02-17 21:58:07 [warn]: Invalid or expired token attempt
+2026-02-17 21:58:07 [info]: GET /api/reports/dashboard
+2026-02-17 21:58:07 [warn]: Invalid or expired token attempt
+2026-02-17 21:58:07 [info]: GET /api/reports/weekly
+2026-02-17 21:58:07 [warn]: Invalid or expired token attempt
+2026-02-17 21:58:08 [info]: POST /api/auth/refresh
+2026-02-17 21:58:09 [info]: GET /api/employees
+2026-02-17 21:58:09 [info]: GET /api/services
+2026-02-17 21:58:09 [info]: GET /api/reports/dashboard
+2026-02-17 21:58:09 [info]: GET /api/reports/weekly
+2026-02-17 21:58:09 [info]: GET /api/employees
+2026-02-17 21:58:09 [info]: GET /api/reports/weekly
+2026-02-17 21:58:09 [info]: GET /api/employees
+2026-02-17 21:58:09 [info]: GET /api/reports/weekly
+2026-02-17 21:58:09 [info]: GET /api/reports/weekly
+2026-02-17 21:58:09 [info]: GET /api/services
+2026-02-17 21:58:09 [info]: GET /api/employees
+2026-02-17 21:58:09 [info]: GET /api/services
+2026-02-17 21:58:09 [info]: GET /api/reports/dashboard
+2026-02-17 21:58:09 [info]: GET /api/services
+2026-02-17 21:58:10 [info]: GET /api/reports/dashboard
+2026-02-17 21:58:10 [info]: GET /api/reports/dashboard
+2026-02-17 22:00:36 [info]: GET /api/employees
+2026-02-17 22:00:36 [info]: GET /api/services
+2026-02-17 22:00:36 [info]: GET /api/reports/dashboard
+2026-02-17 22:00:36 [info]: GET /api/reports/weekly
+2026-02-17 22:00:36 [info]: GET /api/employees
+2026-02-17 22:00:36 [info]: GET /api/services
+2026-02-17 22:00:36 [info]: GET /api/reports/weekly
+2026-02-17 22:00:36 [info]: GET /api/employees
+2026-02-17 22:00:36 [info]: GET /api/services
+2026-02-17 22:00:36 [info]: GET /api/reports/dashboard
+2026-02-17 22:00:36 [info]: GET /api/reports/weekly
+2026-02-17 22:00:36 [info]: GET /api/employees
+2026-02-17 22:00:36 [info]: GET /api/services
+2026-02-17 22:00:36 [info]: GET /api/reports/weekly
+2026-02-17 22:00:36 [info]: GET /api/reports/dashboard
+2026-02-17 22:00:36 [info]: GET /api/reports/dashboard
+2026-02-17 22:04:06 [info]: GET /api/reports/weekly
+2026-02-17 22:04:06 [info]: GET /api/services
+2026-02-17 22:04:06 [info]: GET /api/reports/employees/comparison
+2026-02-17 22:04:06 [info]: GET /api/reports/employees/comparison
+2026-02-17 22:04:06 [info]: GET /api/reports/weekly
+2026-02-17 22:04:06 [info]: GET /api/services
+2026-02-17 22:04:10 [info]: GET /api/employees
+2026-02-17 22:04:10 [info]: GET /api/services
+2026-02-17 22:04:10 [info]: GET /api/reports/dashboard
+2026-02-17 22:04:10 [info]: GET /api/reports/weekly
+2026-02-17 22:04:10 [info]: GET /api/employees
+2026-02-17 22:04:10 [info]: GET /api/employees
+2026-02-17 22:04:10 [info]: GET /api/services/types/all
+2026-02-17 22:04:11 [info]: GET /api/services/types/all
+2026-02-17 22:04:17 [info]: POST /api/services
+2026-02-17 22:04:17 [info]: POST /api/services
+2026-02-17 22:04:17 [info]: POST /api/services
+2026-02-17 22:04:17 [info]: POST /api/services
+2026-02-17 22:04:17 [info]: POST /api/services
+2026-02-17 22:04:17 [info]: Service created: b5518a1d-6836-4b61-b3a2-ea49a14948a5 for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 22:04:17 [info]: Service created: 8e1cbb4c-4921-4edf-8fad-2b2e5010ebad for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 22:04:17 [info]: Service created: 46acc6ac-b8f9-4afc-8edd-cc7c12ca8e5e for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 22:04:17 [info]: Service created: 0a8723e6-e28e-4bfe-acf7-b5761b7d0c89 for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 22:04:17 [info]: Service created: b3aed8cb-1661-4ce0-a80d-eaf25ff92078 for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 22:04:17 [info]: GET /api/services
+2026-02-17 22:04:17 [info]: GET /api/employees
+2026-02-17 22:04:17 [info]: GET /api/reports/dashboard
+2026-02-17 22:04:17 [info]: GET /api/reports/weekly
+2026-02-17 22:04:19 [info]: GET /api/services/types/all
+2026-02-17 22:04:19 [info]: GET /api/services/types/all
+2026-02-17 22:04:20 [info]: GET /api/reports/weekly
+2026-02-17 22:04:20 [info]: GET /api/services
+2026-02-17 22:04:20 [info]: GET /api/reports/employees/comparison
+2026-02-17 22:04:20 [info]: GET /api/reports/weekly
+2026-02-17 22:04:20 [info]: GET /api/reports/employees/comparison
+2026-02-17 22:04:20 [info]: GET /api/services
+2026-02-17 22:04:23 [info]: GET /api/employees
+2026-02-17 22:04:23 [info]: GET /api/employees
+2026-02-17 22:04:24 [info]: GET /api/services/types/all
+2026-02-17 22:04:24 [info]: GET /api/services/types/all
+2026-02-17 22:04:26 [info]: GET /api/reports/weekly
+2026-02-17 22:04:26 [info]: GET /api/services
+2026-02-17 22:04:26 [info]: GET /api/reports/employees/comparison
+2026-02-17 22:04:26 [info]: GET /api/reports/weekly
+2026-02-17 22:04:26 [info]: GET /api/reports/employees/comparison
+2026-02-17 22:04:26 [info]: GET /api/services
+2026-02-17 22:04:28 [info]: GET /api/employees
+2026-02-17 22:04:28 [info]: GET /api/employees
+2026-02-17 22:04:28 [info]: GET /api/employees
+2026-02-17 22:04:28 [info]: GET /api/services
+2026-02-17 22:04:28 [info]: GET /api/reports/dashboard
+2026-02-17 22:04:28 [info]: GET /api/reports/weekly
+2026-02-17 22:04:28 [info]: GET /api/reports/weekly
+2026-02-17 22:04:28 [info]: GET /api/employees
+2026-02-17 22:04:28 [info]: GET /api/services
+2026-02-17 22:04:28 [info]: GET /api/reports/weekly
+2026-02-17 22:05:00 [info]: SIGINT received. Shutting down gracefully...
+2026-02-17 22:05:15 [info]: ✅ Database connected successfully
+2026-02-17 22:05:15 [info]: 🚀 Server running on port 3001
+2026-02-17 22:05:15 [info]: 📊 Environment: development
+2026-02-17 22:05:15 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-17 22:05:19 [info]: GET /api/employees
+2026-02-17 22:05:19 [info]: GET /api/reports/dashboard
+2026-02-17 22:05:19 [info]: GET /api/services
+2026-02-17 22:05:19 [info]: GET /api/reports/weekly
+2026-02-17 22:05:19 [info]: GET /api/employees
+2026-02-17 22:05:19 [info]: GET /api/reports/weekly
+2026-02-17 22:05:19 [info]: GET /api/employees
+2026-02-17 22:05:19 [info]: GET /api/reports/weekly
+2026-02-17 22:05:19 [info]: GET /api/employees
+2026-02-17 22:05:19 [info]: GET /api/reports/weekly
+2026-02-17 22:05:19 [info]: GET /api/services
+2026-02-17 22:05:19 [info]: GET /api/services
+2026-02-17 22:05:19 [info]: GET /api/services
+2026-02-17 22:05:19 [info]: GET /api/reports/dashboard
+2026-02-17 22:05:20 [info]: GET /api/reports/dashboard
+2026-02-17 22:05:20 [info]: GET /api/reports/dashboard
+2026-02-17 22:05:25 [info]: GET /api/employees
+2026-02-17 22:05:25 [info]: GET /api/services/types/all
+2026-02-17 22:05:25 [info]: GET /api/employees
+2026-02-17 22:05:25 [info]: GET /api/services/types/all
+2026-02-17 22:05:26 [info]: GET /api/reports/weekly
+2026-02-17 22:05:26 [info]: GET /api/services
+2026-02-17 22:05:26 [info]: GET /api/reports/employees/comparison
+2026-02-17 22:05:26 [info]: GET /api/reports/employees/comparison
+2026-02-17 22:05:26 [info]: GET /api/reports/weekly
+2026-02-17 22:05:26 [info]: GET /api/services
+2026-02-17 22:05:28 [info]: GET /api/employees
+2026-02-17 22:05:28 [info]: GET /api/services
+2026-02-17 22:05:28 [info]: GET /api/reports/dashboard
+2026-02-17 22:05:28 [info]: GET /api/reports/weekly
+2026-02-17 22:05:28 [info]: GET /api/employees
+2026-02-17 22:05:28 [info]: GET /api/employees
+2026-02-17 22:05:29 [info]: GET /api/services/types/all
+2026-02-17 22:05:29 [info]: GET /api/services/types/all
+2026-02-17 22:05:30 [info]: GET /api/employees
+2026-02-17 22:05:30 [info]: GET /api/services/types/all
+2026-02-17 22:05:30 [info]: GET /api/employees
+2026-02-17 22:05:30 [info]: GET /api/services/types/all
+2026-02-17 22:05:32 [info]: GET /api/reports/weekly
+2026-02-17 22:05:32 [info]: GET /api/services
+2026-02-17 22:05:32 [info]: GET /api/reports/employees/comparison
+2026-02-17 22:05:32 [info]: GET /api/reports/weekly
+2026-02-17 22:05:32 [info]: GET /api/reports/employees/comparison
+2026-02-17 22:05:32 [info]: GET /api/services
+2026-02-17 22:05:33 [info]: GET /api/employees
+2026-02-17 22:05:33 [info]: GET /api/employees
+2026-02-17 22:05:35 [info]: GET /api/services/types/all
+2026-02-17 22:05:35 [info]: GET /api/services/types/all
+2026-02-17 22:05:37 [info]: GET /api/employees
+2026-02-17 22:05:37 [info]: GET /api/services/types/all
+2026-02-17 22:05:37 [info]: GET /api/employees
+2026-02-17 22:05:37 [info]: GET /api/services/types/all
+2026-02-17 22:05:38 [info]: GET /api/reports/weekly
+2026-02-17 22:05:38 [info]: GET /api/services
+2026-02-17 22:05:38 [info]: GET /api/reports/employees/comparison
+2026-02-17 22:05:38 [info]: GET /api/reports/weekly
+2026-02-17 22:05:38 [info]: GET /api/reports/employees/comparison
+2026-02-17 22:05:38 [info]: GET /api/services
+2026-02-17 22:15:28 [info]: GET /api/reports/weekly
+2026-02-17 22:15:28 [warn]: Invalid or expired token attempt
+2026-02-17 22:15:28 [info]: GET /api/services
+2026-02-17 22:15:28 [warn]: Invalid or expired token attempt
+2026-02-17 22:15:28 [info]: POST /api/auth/refresh
+2026-02-17 22:15:28 [info]: GET /api/reports/weekly
+2026-02-17 22:15:29 [info]: GET /api/services
+2026-02-17 22:16:27 [info]: ✅ Database connected successfully
+2026-02-17 22:16:27 [info]: 🚀 Server running on port 3001
+2026-02-17 22:16:27 [info]: 📊 Environment: development
+2026-02-17 22:16:27 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-17 22:17:53 [info]: GET /api/employees
+2026-02-17 22:17:53 [info]: GET /api/services
+2026-02-17 22:17:53 [info]: GET /api/reports/dashboard
+2026-02-17 22:17:53 [info]: GET /api/reports/weekly
+2026-02-17 22:17:53 [info]: GET /api/employees
+2026-02-17 22:17:53 [info]: GET /api/reports/weekly
+2026-02-17 22:17:53 [info]: GET /api/employees
+2026-02-17 22:17:53 [info]: GET /api/reports/weekly
+2026-02-17 22:17:53 [info]: GET /api/employees
+2026-02-17 22:17:53 [info]: GET /api/reports/weekly
+2026-02-17 22:17:53 [info]: GET /api/services
+2026-02-17 22:17:53 [info]: GET /api/services
+2026-02-17 22:17:53 [info]: GET /api/reports/dashboard
+2026-02-17 22:17:53 [info]: GET /api/services
+2026-02-17 22:17:53 [info]: GET /api/reports/dashboard
+2026-02-17 22:17:53 [info]: GET /api/reports/dashboard
+2026-02-17 22:17:56 [info]: GET /api/reports/weekly
+2026-02-17 22:17:56 [info]: GET /api/services
+2026-02-17 22:17:56 [info]: GET /api/reports/weekly
+2026-02-17 22:17:56 [info]: GET /api/services
+2026-02-17 22:18:01 [info]: GET /api/employees
+2026-02-17 22:18:01 [info]: GET /api/services/types/all
+2026-02-17 22:18:01 [info]: GET /api/services/types/all
+2026-02-17 22:18:01 [info]: GET /api/employees
+2026-02-17 22:18:05 [info]: POST /api/services
+2026-02-17 22:18:05 [info]: POST /api/services
+2026-02-17 22:18:05 [info]: POST /api/services
+2026-02-17 22:18:05 [info]: Service created: 3a43580b-54de-470e-a176-ac141dad159e for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 22:18:05 [info]: Service created: 2ba8cb9f-c3c7-46da-a036-9ba24530ca0c for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 22:18:05 [info]: Service created: 1ecf68b5-f3c5-499b-93b9-a963acf1a1bd for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 22:18:05 [info]: GET /api/employees
+2026-02-17 22:18:05 [info]: GET /api/services
+2026-02-17 22:18:05 [info]: GET /api/reports/dashboard
+2026-02-17 22:18:05 [info]: GET /api/reports/weekly
+2026-02-17 22:18:07 [info]: GET /api/reports/weekly
+2026-02-17 22:18:07 [info]: GET /api/services
+2026-02-17 22:18:07 [info]: GET /api/reports/weekly
+2026-02-17 22:18:07 [info]: GET /api/services
+2026-02-17 22:18:10 [info]: GET /api/employees
+2026-02-17 22:18:10 [info]: GET /api/services/types/all
+2026-02-17 22:18:10 [info]: GET /api/employees
+2026-02-17 22:18:10 [info]: GET /api/services/types/all
+2026-02-17 22:18:20 [info]: GET /api/reports/weekly
+2026-02-17 22:18:20 [info]: GET /api/services
+2026-02-17 22:18:20 [info]: GET /api/reports/weekly
+2026-02-17 22:18:20 [info]: GET /api/services
+2026-02-17 22:18:21 [info]: GET /api/employees
+2026-02-17 22:18:21 [info]: GET /api/services
+2026-02-17 22:18:21 [info]: GET /api/reports/dashboard
+2026-02-17 22:18:21 [info]: GET /api/reports/weekly
+2026-02-17 22:18:30 [info]: GET /api/reports/weekly
+2026-02-17 22:18:30 [info]: GET /api/services
+2026-02-17 22:18:30 [info]: GET /api/reports/weekly
+2026-02-17 22:18:30 [info]: GET /api/services
+2026-02-17 22:18:32 [info]: GET /api/employees
+2026-02-17 22:18:32 [info]: GET /api/services
+2026-02-17 22:18:32 [info]: GET /api/reports/dashboard
+2026-02-17 22:18:32 [info]: GET /api/reports/weekly
+2026-02-17 22:20:24 [info]: GET /api/employees
+2026-02-17 22:20:24 [info]: GET /api/services
+2026-02-17 22:20:24 [info]: GET /api/reports/dashboard
+2026-02-17 22:20:24 [info]: GET /api/reports/weekly
+2026-02-17 22:20:25 [info]: GET /api/services
+2026-02-17 22:20:25 [info]: GET /api/employees
+2026-02-17 22:20:25 [info]: GET /api/reports/weekly
+2026-02-17 22:20:25 [info]: GET /api/reports/dashboard
+2026-02-17 22:21:22 [info]: GET /api/employees
+2026-02-17 22:21:22 [info]: GET /api/services/types/all
+2026-02-17 22:21:23 [info]: GET /api/employees
+2026-02-17 22:21:23 [info]: GET /api/services/types/all
+2026-02-17 22:21:29 [info]: POST /api/services
+2026-02-17 22:21:29 [info]: POST /api/services
+2026-02-17 22:21:29 [info]: Service created: 1e9124f3-dc73-4120-bb49-a876cca97b9e for employee 21699bd1-d9c0-44b4-b334-5de0fb9b3c34
+2026-02-17 22:21:29 [info]: Service created: d617f882-6a47-4bc3-aaba-007c9d064e2b for employee 21699bd1-d9c0-44b4-b334-5de0fb9b3c34
+2026-02-17 22:21:29 [info]: GET /api/services
+2026-02-17 22:21:29 [info]: GET /api/employees
+2026-02-17 22:21:29 [info]: GET /api/reports/dashboard
+2026-02-17 22:21:29 [info]: GET /api/reports/weekly
+2026-02-17 22:21:31 [info]: GET /api/employees
+2026-02-17 22:21:31 [info]: GET /api/services
+2026-02-17 22:21:31 [info]: GET /api/reports/dashboard
+2026-02-17 22:21:31 [info]: GET /api/reports/weekly
+2026-02-17 22:21:38 [info]: GET /api/employees
+2026-02-17 22:21:38 [info]: GET /api/services/types/all
+2026-02-17 22:21:38 [info]: GET /api/employees
+2026-02-17 22:21:38 [info]: GET /api/services/types/all
+2026-02-17 22:21:48 [info]: POST /api/services
+2026-02-17 22:21:48 [info]: POST /api/services
+2026-02-17 22:21:48 [info]: Service created: c43998fa-03a7-472f-85e5-6f022f1189ff for employee 07f83575-e728-4fc9-a093-0b75d4c279f6
+2026-02-17 22:21:48 [info]: Service created: f7e16b0d-2f39-4e3b-b5cd-efa7ebbc020f for employee 07f83575-e728-4fc9-a093-0b75d4c279f6
+2026-02-17 22:21:48 [info]: GET /api/services
+2026-02-17 22:21:48 [info]: GET /api/employees
+2026-02-17 22:21:48 [info]: GET /api/reports/dashboard
+2026-02-17 22:21:48 [info]: GET /api/reports/weekly
+2026-02-17 22:21:50 [info]: GET /api/employees
+2026-02-17 22:21:50 [info]: GET /api/services
+2026-02-17 22:21:50 [info]: GET /api/reports/dashboard
+2026-02-17 22:21:50 [info]: GET /api/reports/weekly
+2026-02-17 22:22:02 [info]: GET /api/employees
+2026-02-17 22:22:02 [info]: GET /api/employees
+2026-02-17 22:22:04 [info]: GET /api/services/types/all
+2026-02-17 22:22:04 [info]: GET /api/services/types/all
+2026-02-17 22:22:05 [info]: GET /api/employees
+2026-02-17 22:22:05 [info]: GET /api/services/types/all
+2026-02-17 22:22:05 [info]: GET /api/employees
+2026-02-17 22:22:05 [info]: GET /api/services/types/all
+2026-02-17 22:24:00 [info]: ✅ Database connected successfully
+2026-02-17 22:24:00 [info]: 🚀 Server running on port 3001
+2026-02-17 22:24:00 [info]: 📊 Environment: development
+2026-02-17 22:24:00 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-17 22:25:54 [info]: GET /api/employees
+2026-02-17 22:25:54 [info]: GET /api/services
+2026-02-17 22:25:54 [info]: GET /api/reports/weekly
+2026-02-17 22:25:54 [info]: GET /api/reports/dashboard
+2026-02-17 22:25:54 [info]: GET /api/services
+2026-02-17 22:25:54 [info]: GET /api/employees
+2026-02-17 22:25:54 [info]: GET /api/reports/weekly
+2026-02-17 22:25:54 [info]: GET /api/services
+2026-02-17 22:25:54 [info]: GET /api/employees
+2026-02-17 22:25:54 [info]: GET /api/reports/weekly
+2026-02-17 22:25:54 [info]: GET /api/services
+2026-02-17 22:25:54 [info]: GET /api/employees
+2026-02-17 22:25:54 [info]: GET /api/reports/dashboard
+2026-02-17 22:25:54 [info]: GET /api/reports/weekly
+2026-02-17 22:25:54 [info]: GET /api/reports/dashboard
+2026-02-17 22:25:54 [info]: GET /api/reports/dashboard
+2026-02-17 22:25:58 [info]: GET /api/employees
+2026-02-17 22:25:58 [info]: GET /api/employees
+2026-02-17 22:25:59 [info]: GET /api/services/types/all
+2026-02-17 22:25:59 [info]: GET /api/services/types/all
+2026-02-17 22:26:00 [info]: GET /api/employees
+2026-02-17 22:26:00 [info]: GET /api/services/types/all
+2026-02-17 22:26:00 [info]: GET /api/employees
+2026-02-17 22:26:00 [info]: GET /api/services/types/all
+2026-02-17 22:26:15 [info]: GET /api/services/types/all
+2026-02-17 22:26:15 [info]: GET /api/services/types/all
+2026-02-17 22:26:18 [info]: GET /api/employees
+2026-02-17 22:26:18 [info]: GET /api/employees
+2026-02-17 22:26:24 [info]: PUT /api/employees/defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 22:26:25 [info]: Employee updated: defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 22:26:25 [info]: GET /api/employees
+2026-02-17 22:26:26 [info]: GET /api/services/types/all
+2026-02-17 22:26:26 [info]: GET /api/services/types/all
+2026-02-17 22:26:28 [info]: GET /api/employees
+2026-02-17 22:26:28 [info]: GET /api/services/types/all
+2026-02-17 22:26:28 [info]: GET /api/employees
+2026-02-17 22:26:28 [info]: GET /api/services/types/all
+2026-02-17 22:28:30 [info]: GET /api/employees
+2026-02-17 22:28:30 [info]: GET /api/services/types/all
+2026-02-17 22:32:58 [info]: GET /api/services/types/all
+2026-02-17 22:32:58 [warn]: Invalid or expired token attempt
+2026-02-17 22:32:58 [info]: GET /api/services/types/all
+2026-02-17 22:32:58 [warn]: Invalid or expired token attempt
+2026-02-17 22:32:58 [info]: POST /api/auth/refresh
+2026-02-17 22:32:59 [info]: GET /api/services/types/all
+2026-02-17 22:32:59 [info]: GET /api/services/types/all
+2026-02-17 22:33:06 [info]: GET /api/employees
+2026-02-17 22:33:06 [info]: GET /api/services
+2026-02-17 22:33:06 [info]: GET /api/reports/dashboard
+2026-02-17 22:33:06 [info]: GET /api/reports/weekly
+2026-02-17 22:33:06 [info]: GET /api/employees
+2026-02-17 22:33:06 [info]: GET /api/services
+2026-02-17 22:33:07 [info]: GET /api/reports/weekly
+2026-02-17 22:33:07 [info]: GET /api/employees
+2026-02-17 22:33:07 [info]: GET /api/services
+2026-02-17 22:33:07 [info]: GET /api/reports/weekly
+2026-02-17 22:33:07 [info]: GET /api/employees
+2026-02-17 22:33:07 [info]: GET /api/services
+2026-02-17 22:33:07 [info]: GET /api/reports/weekly
+2026-02-17 22:33:07 [info]: GET /api/reports/dashboard
+2026-02-17 22:33:07 [info]: GET /api/reports/dashboard
+2026-02-17 22:33:07 [info]: GET /api/reports/dashboard
+2026-02-17 22:33:10 [info]: GET /api/services/types/all
+2026-02-17 22:33:10 [info]: GET /api/services/types/all
+2026-02-17 22:33:11 [info]: GET /api/employees
+2026-02-17 22:33:11 [info]: GET /api/employees
+2026-02-17 22:33:13 [info]: GET /api/employees
+2026-02-17 22:33:13 [info]: GET /api/services/types/all
+2026-02-17 22:33:13 [info]: GET /api/employees
+2026-02-17 22:33:13 [info]: GET /api/services/types/all
+2026-02-17 22:33:47 [info]: POST /api/services
+2026-02-17 22:33:47 [info]: POST /api/services
+2026-02-17 22:33:47 [info]: POST /api/services
+2026-02-17 22:33:47 [info]: POST /api/services
+2026-02-17 22:33:47 [info]: POST /api/services
+2026-02-17 22:33:47 [info]: Service created: 15e2cc33-4665-4f90-b0be-d12d3ee79b52 for employee 21699bd1-d9c0-44b4-b334-5de0fb9b3c34
+2026-02-17 22:33:47 [info]: Service created: 7cf6da16-000a-4406-b57f-a6f4ac362a99 for employee 21699bd1-d9c0-44b4-b334-5de0fb9b3c34
+2026-02-17 22:33:47 [info]: Service created: 38a91ca5-720c-47c9-9b8a-6e39ce021f88 for employee 21699bd1-d9c0-44b4-b334-5de0fb9b3c34
+2026-02-17 22:33:47 [info]: Service created: a105832c-da8f-4139-ba39-bb4fdb630269 for employee 21699bd1-d9c0-44b4-b334-5de0fb9b3c34
+2026-02-17 22:33:47 [info]: Service created: be322b64-d23a-4527-8dbf-4fdb4c69e963 for employee 21699bd1-d9c0-44b4-b334-5de0fb9b3c34
+2026-02-17 22:33:47 [info]: GET /api/services
+2026-02-17 22:33:47 [info]: GET /api/employees
+2026-02-17 22:33:47 [info]: GET /api/reports/dashboard
+2026-02-17 22:33:47 [info]: GET /api/reports/weekly
+2026-02-17 22:33:50 [info]: GET /api/services/types/all
+2026-02-17 22:33:50 [info]: GET /api/services/types/all
+2026-02-17 22:33:54 [info]: GET /api/services
+2026-02-17 22:33:54 [info]: GET /api/reports/weekly
+2026-02-17 22:33:54 [info]: GET /api/services
+2026-02-17 22:33:54 [info]: GET /api/reports/weekly
+2026-02-17 22:33:58 [info]: GET /api/employees
+2026-02-17 22:33:58 [info]: GET /api/employees
+2026-02-17 22:33:59 [info]: GET /api/services/types/all
+2026-02-17 22:33:59 [info]: GET /api/services/types/all
+2026-02-17 22:34:00 [info]: GET /api/employees
+2026-02-17 22:34:00 [info]: GET /api/services/types/all
+2026-02-17 22:34:00 [info]: GET /api/employees
+2026-02-17 22:34:00 [info]: GET /api/services/types/all
+2026-02-17 22:35:11 [info]: GET /api/services/types/all
+2026-02-17 22:35:12 [info]: GET /api/services/types/all
+2026-02-17 22:35:13 [info]: GET /api/employees
+2026-02-17 22:35:13 [info]: GET /api/employees
+2026-02-17 22:35:16 [info]: GET /api/employees
+2026-02-17 22:35:16 [info]: GET /api/services/types/all
+2026-02-17 22:35:16 [info]: GET /api/employees
+2026-02-17 22:35:16 [info]: GET /api/services/types/all
+2026-02-17 22:35:37 [info]: POST /api/services
+2026-02-17 22:35:37 [info]: Service created: eabc4b00-0208-4730-99d3-41518e6a8fbb for employee 21699bd1-d9c0-44b4-b334-5de0fb9b3c34
+2026-02-17 22:37:11 [info]: SIGINT received. Shutting down gracefully...
+2026-02-17 22:37:18 [info]: ✅ Database connected successfully
+2026-02-17 22:37:18 [info]: 🚀 Server running on port 3001
+2026-02-17 22:37:18 [info]: 📊 Environment: development
+2026-02-17 22:37:18 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-17 22:37:33 [info]: GET /api/employees
+2026-02-17 22:37:33 [info]: GET /api/services
+2026-02-17 22:37:33 [info]: GET /api/reports/dashboard
+2026-02-17 22:37:33 [info]: GET /api/reports/weekly
+2026-02-17 22:37:33 [info]: GET /api/employees
+2026-02-17 22:37:34 [info]: GET /api/employees
+2026-02-17 22:37:34 [info]: GET /api/reports/weekly
+2026-02-17 22:37:34 [info]: GET /api/employees
+2026-02-17 22:37:34 [info]: GET /api/reports/weekly
+2026-02-17 22:37:34 [info]: GET /api/reports/weekly
+2026-02-17 22:37:34 [info]: GET /api/services
+2026-02-17 22:37:34 [info]: GET /api/services
+2026-02-17 22:37:34 [info]: GET /api/services
+2026-02-17 22:37:34 [info]: GET /api/reports/dashboard
+2026-02-17 22:37:34 [info]: GET /api/reports/dashboard
+2026-02-17 22:37:34 [info]: GET /api/reports/dashboard
+2026-02-17 22:37:43 [info]: GET /api/employees
+2026-02-17 22:37:43 [info]: GET /api/employees
+2026-02-17 22:37:45 [info]: GET /api/services/types/all
+2026-02-17 22:37:45 [info]: GET /api/services/types/all
+2026-02-17 22:37:46 [info]: GET /api/employees
+2026-02-17 22:37:46 [info]: GET /api/services/types/all
+2026-02-17 22:37:46 [info]: GET /api/employees
+2026-02-17 22:37:46 [info]: GET /api/services/types/all
+2026-02-17 22:37:59 [info]: POST /api/services
+2026-02-17 22:37:59 [info]: POST /api/services
+2026-02-17 22:37:59 [info]: Service created: c1ef0b3d-5695-4d50-815d-03cfcb583234 for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 22:37:59 [info]: Service created: 05396f9c-3ee3-461c-b231-0c001e320fb5 for employee defc5cec-356b-41f6-9aa7-6bb44e595f29
+2026-02-17 22:37:59 [info]: GET /api/services
+2026-02-17 22:37:59 [info]: GET /api/employees
+2026-02-17 22:37:59 [info]: GET /api/reports/dashboard
+2026-02-17 22:37:59 [info]: GET /api/reports/weekly
+2026-02-17 22:38:03 [info]: GET /api/services/types/all
+2026-02-17 22:38:03 [info]: GET /api/services/types/all
+2026-02-17 22:38:05 [info]: GET /api/employees
+2026-02-17 22:38:05 [info]: GET /api/employees
+2026-02-17 22:38:08 [info]: GET /api/employees
+2026-02-17 22:38:08 [info]: GET /api/services/types/all
+2026-02-17 22:38:08 [info]: GET /api/employees
+2026-02-17 22:38:08 [info]: GET /api/services/types/all
+2026-02-17 22:38:09 [info]: GET /api/reports/weekly
+2026-02-17 22:38:09 [info]: GET /api/services
+2026-02-17 22:38:09 [info]: GET /api/reports/weekly
+2026-02-17 22:38:09 [info]: GET /api/services
+2026-02-17 22:38:13 [info]: GET /api/employees
+2026-02-17 22:38:13 [info]: GET /api/services
+2026-02-17 22:38:13 [info]: GET /api/reports/dashboard
+2026-02-17 22:38:13 [info]: GET /api/reports/weekly
+2026-02-17 22:38:16 [info]: GET /api/employees
+2026-02-17 22:38:16 [info]: GET /api/services/types/all
+2026-02-17 22:38:16 [info]: GET /api/employees
+2026-02-17 22:38:16 [info]: GET /api/services/types/all
+2026-02-17 22:38:18 [info]: GET /api/reports/weekly
+2026-02-17 22:38:18 [info]: GET /api/services
+2026-02-17 22:38:18 [info]: GET /api/reports/weekly
+2026-02-17 22:38:18 [info]: GET /api/services
+2026-02-17 22:38:20 [info]: GET /api/services/types/all
+2026-02-17 22:38:20 [info]: GET /api/employees
+2026-02-17 22:38:20 [info]: GET /api/services/types/all
+2026-02-17 22:38:20 [info]: GET /api/employees
+2026-02-17 22:38:30 [info]: POST /api/services
+2026-02-17 22:38:30 [info]: POST /api/services
+2026-02-17 22:38:30 [info]: Service created: fdd7e0cf-5e3d-40d7-a15a-a4f90f82e88f for employee 21699bd1-d9c0-44b4-b334-5de0fb9b3c34
+2026-02-17 22:38:30 [info]: Service created: 0f2296a5-0dbe-4bdd-9963-7c03b599ac18 for employee 21699bd1-d9c0-44b4-b334-5de0fb9b3c34
+2026-02-17 22:38:30 [info]: GET /api/services
+2026-02-17 22:38:30 [info]: GET /api/employees
+2026-02-17 22:38:31 [info]: GET /api/reports/dashboard
+2026-02-17 22:38:31 [info]: GET /api/reports/weekly
+2026-02-17 22:38:32 [info]: GET /api/reports/weekly
+2026-02-17 22:38:32 [info]: GET /api/services
+2026-02-17 22:38:32 [info]: GET /api/reports/weekly
+2026-02-17 22:38:32 [info]: GET /api/services
+2026-02-17 22:38:42 [info]: GET /api/employees
+2026-02-17 22:38:42 [info]: GET /api/services
+2026-02-17 22:38:42 [info]: GET /api/reports/dashboard
+2026-02-17 22:38:42 [info]: GET /api/reports/weekly
+2026-02-17 22:38:42 [info]: GET /api/employees
+2026-02-17 22:38:42 [info]: GET /api/services
+2026-02-17 22:38:42 [info]: GET /api/reports/weekly
+2026-02-17 22:38:42 [info]: GET /api/employees
+2026-02-17 22:38:42 [info]: GET /api/reports/dashboard
+2026-02-17 22:38:42 [info]: GET /api/services
+2026-02-17 22:38:42 [info]: GET /api/reports/weekly
+2026-02-17 22:38:42 [info]: GET /api/employees
+2026-02-17 22:38:42 [info]: GET /api/services
+2026-02-17 22:38:42 [info]: GET /api/reports/weekly
+2026-02-17 22:38:42 [info]: GET /api/reports/dashboard
+2026-02-17 22:38:42 [info]: GET /api/reports/dashboard
+2026-02-17 22:38:46 [info]: GET /api/reports/weekly
+2026-02-17 22:38:46 [info]: GET /api/services
+2026-02-17 22:38:46 [info]: GET /api/reports/weekly
+2026-02-17 22:38:46 [info]: GET /api/services
+2026-02-17 22:38:49 [info]: GET /api/employees
+2026-02-17 22:38:49 [info]: GET /api/services/types/all
+2026-02-17 22:38:49 [info]: GET /api/employees
+2026-02-17 22:38:49 [info]: GET /api/services/types/all
+2026-02-17 22:38:50 [info]: GET /api/services/types/all
+2026-02-17 22:38:50 [info]: GET /api/services/types/all
+2026-02-17 22:38:52 [info]: GET /api/employees
+2026-02-17 22:38:52 [info]: GET /api/employees
+2026-02-17 22:38:58 [info]: PUT /api/employees/07f83575-e728-4fc9-a093-0b75d4c279f6
+2026-02-17 22:38:58 [info]: Employee updated: 07f83575-e728-4fc9-a093-0b75d4c279f6
+2026-02-17 22:38:58 [info]: GET /api/employees
+2026-02-17 22:38:59 [info]: GET /api/reports/weekly
+2026-02-17 22:41:17 [info]: ✅ Database connected successfully
+2026-02-17 22:41:17 [info]: 🚀 Server running on port 3001
+2026-02-17 22:41:17 [info]: 📊 Environment: development
+2026-02-17 22:41:17 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-17 22:45:24 [info]: GET /api/employees
+2026-02-17 22:45:24 [info]: GET /api/services
+2026-02-17 22:45:24 [info]: GET /api/reports/dashboard
+2026-02-17 22:45:24 [info]: GET /api/reports/weekly
+2026-02-17 22:45:24 [info]: GET /api/employees
+2026-02-17 22:45:24 [info]: GET /api/services
+2026-02-17 22:45:25 [info]: GET /api/employees
+2026-02-17 22:45:25 [info]: GET /api/reports/weekly
+2026-02-17 22:45:25 [info]: GET /api/services
+2026-02-17 22:45:25 [info]: GET /api/employees
+2026-02-17 22:45:25 [info]: GET /api/reports/dashboard
+2026-02-17 22:45:25 [info]: GET /api/reports/weekly
+2026-02-17 22:45:25 [info]: GET /api/services
+2026-02-17 22:45:25 [info]: GET /api/reports/weekly
+2026-02-17 22:45:25 [info]: GET /api/reports/dashboard
+2026-02-17 22:45:25 [info]: GET /api/reports/dashboard
+2026-02-17 22:45:29 [info]: GET /api/services/types/all
+2026-02-17 22:45:29 [info]: GET /api/services/types/all
+2026-02-17 22:45:30 [info]: GET /api/employees
+2026-02-17 22:45:30 [info]: GET /api/services/types/all
+2026-02-17 22:45:30 [info]: GET /api/employees
+2026-02-17 22:45:30 [info]: GET /api/services/types/all
+2026-02-17 22:45:31 [info]: GET /api/services/types/all
+2026-02-17 22:45:31 [info]: GET /api/services/types/all
+2026-02-17 22:45:32 [info]: GET /api/employees
+2026-02-17 22:45:32 [info]: GET /api/employees
+2026-02-17 22:45:34 [info]: GET /api/services/types/all
+2026-02-17 22:45:34 [info]: GET /api/services/types/all
+2026-02-17 22:45:35 [info]: GET /api/employees
+2026-02-17 22:45:35 [info]: GET /api/services/types/all
+2026-02-17 22:45:35 [info]: GET /api/employees
+2026-02-17 22:45:35 [info]: GET /api/services/types/all
+2026-02-17 22:45:47 [info]: GET /api/reports/weekly
+2026-02-17 22:45:47 [info]: GET /api/services
+2026-02-17 22:45:47 [info]: GET /api/reports/weekly
+2026-02-17 22:45:47 [info]: GET /api/services
+2026-02-17 22:45:50 [info]: GET /api/employees
+2026-02-17 22:45:50 [info]: GET /api/services/types/all
+2026-02-17 22:45:50 [info]: GET /api/services/types/all
+2026-02-17 22:45:50 [info]: GET /api/employees
+2026-02-17 22:45:56 [info]: POST /api/services
+2026-02-17 22:45:56 [info]: Service created: f232efdb-2d52-4014-9ca8-47f982a8b0e4 for employee 21699bd1-d9c0-44b4-b334-5de0fb9b3c34
+2026-02-17 22:45:56 [info]: GET /api/services
+2026-02-17 22:45:56 [info]: GET /api/employees
+2026-02-17 22:45:56 [info]: GET /api/reports/dashboard
+2026-02-17 22:45:56 [info]: GET /api/reports/weekly
+2026-02-17 22:45:59 [info]: GET /api/reports/weekly
+2026-02-17 22:45:59 [info]: GET /api/services
+2026-02-17 22:45:59 [info]: GET /api/reports/weekly
+2026-02-17 22:45:59 [info]: GET /api/services
+2026-02-17 22:46:18 [info]: GET /api/employees
+2026-02-17 22:46:18 [info]: GET /api/services/types/all
+2026-02-17 22:46:18 [info]: GET /api/employees
+2026-02-17 22:46:18 [info]: GET /api/services/types/all
+2026-02-17 22:46:22 [info]: POST /api/services
+2026-02-17 22:46:23 [info]: Service created: 3a0aa921-ec8b-46ed-862d-2a9dda3a7e38 for employee 21699bd1-d9c0-44b4-b334-5de0fb9b3c34
+2026-02-17 22:46:23 [info]: GET /api/services
+2026-02-17 22:46:23 [info]: GET /api/employees
+2026-02-17 22:46:23 [info]: GET /api/reports/dashboard
+2026-02-17 22:46:23 [info]: GET /api/reports/weekly
+2026-02-17 22:46:24 [info]: GET /api/reports/weekly
+2026-02-17 22:46:24 [info]: GET /api/services
+2026-02-17 22:46:24 [info]: GET /api/reports/weekly
+2026-02-17 22:46:24 [info]: GET /api/services
+2026-02-17 22:48:05 [info]: GET /api/services/types/all
+2026-02-17 22:48:05 [warn]: Invalid or expired token attempt
+2026-02-17 22:48:05 [info]: GET /api/services/types/all
+2026-02-17 22:48:05 [warn]: Invalid or expired token attempt
+2026-02-17 22:48:05 [info]: POST /api/auth/refresh
+2026-02-17 22:48:05 [info]: GET /api/services/types/all
+2026-02-17 22:48:05 [info]: GET /api/services/types/all
+2026-02-17 22:48:06 [info]: GET /api/employees
+2026-02-17 22:48:06 [info]: GET /api/services/types/all
+2026-02-17 22:48:06 [info]: GET /api/employees
+2026-02-17 22:48:06 [info]: GET /api/services/types/all
+2026-02-17 22:51:05 [info]: GET /api/employees
+2026-02-17 22:51:05 [info]: GET /api/services
+2026-02-17 22:51:05 [info]: GET /api/reports/dashboard
+2026-02-17 22:51:05 [info]: GET /api/reports/weekly
+2026-02-17 22:51:05 [info]: GET /api/employees
+2026-02-17 22:51:05 [info]: GET /api/employees
+2026-02-17 22:51:06 [info]: GET /api/services
+2026-02-17 22:51:06 [info]: GET /api/employees
+2026-02-17 22:51:06 [info]: GET /api/services
+2026-02-17 22:51:06 [info]: GET /api/services
+2026-02-17 22:51:06 [info]: GET /api/reports/dashboard
+2026-02-17 22:51:06 [info]: GET /api/reports/weekly
+2026-02-17 22:51:06 [info]: GET /api/reports/weekly
+2026-02-17 22:51:06 [info]: GET /api/reports/dashboard
+2026-02-17 22:51:06 [info]: GET /api/reports/weekly
+2026-02-17 22:51:06 [info]: GET /api/reports/dashboard
+2026-02-17 22:51:08 [info]: GET /api/employees
+2026-02-17 22:51:08 [info]: GET /api/services/types/all
+2026-02-17 22:51:08 [info]: GET /api/employees
+2026-02-17 22:51:08 [info]: GET /api/services/types/all
+2026-02-17 22:51:25 [info]: GET /api/reports/weekly
+2026-02-17 22:51:25 [info]: GET /api/services
+2026-02-17 22:51:25 [info]: GET /api/reports/weekly
+2026-02-17 22:51:25 [info]: GET /api/services
+2026-02-17 22:51:34 [info]: GET /api/employees
+2026-02-17 22:51:34 [info]: GET /api/employees
+2026-02-17 22:51:37 [info]: GET /api/employees
+2026-02-17 22:51:37 [info]: GET /api/services/types/all
+2026-02-17 22:51:37 [info]: GET /api/employees
+2026-02-17 22:51:37 [info]: GET /api/services/types/all
+2026-02-17 22:51:38 [info]: GET /api/services/types/all
+2026-02-17 22:51:38 [info]: GET /api/services/types/all
+2026-02-17 22:51:39 [info]: GET /api/reports/weekly
+2026-02-17 22:51:39 [info]: GET /api/services
+2026-02-17 22:51:39 [info]: GET /api/reports/weekly
+2026-02-17 22:51:39 [info]: GET /api/services
+2026-02-17 22:51:50 [info]: GET /api/employees
+2026-02-17 22:51:50 [info]: GET /api/employees
+2026-02-17 22:51:56 [info]: GET /api/employees
+2026-02-17 22:51:56 [info]: GET /api/services/types/all
+2026-02-17 22:51:56 [info]: GET /api/employees
+2026-02-17 22:51:56 [info]: GET /api/services/types/all
+2026-02-17 22:52:17 [info]: GET /api/employees
+2026-02-17 22:52:17 [info]: GET /api/employees
+2026-02-17 22:53:15 [info]: GET /api/reports/weekly
+2026-02-17 22:53:15 [info]: GET /api/services
+2026-02-17 22:53:15 [info]: GET /api/reports/weekly
+2026-02-17 22:53:15 [info]: GET /api/services
+2026-02-17 22:53:16 [info]: GET /api/employees
+2026-02-17 22:53:16 [info]: GET /api/services/types/all
+2026-02-17 22:53:17 [info]: GET /api/employees
+2026-02-17 22:53:17 [info]: GET /api/services/types/all
+2026-02-17 22:56:29 [info]: GET /api/employees
+2026-02-17 22:56:29 [info]: GET /api/services
+2026-02-17 22:56:29 [info]: GET /api/reports/dashboard
+2026-02-17 22:56:29 [info]: GET /api/reports/weekly
+2026-02-17 22:56:30 [info]: GET /api/employees
+2026-02-17 22:56:30 [info]: GET /api/services
+2026-02-17 22:56:30 [info]: GET /api/employees
+2026-02-17 22:56:30 [info]: GET /api/services
+2026-02-17 22:56:30 [info]: GET /api/employees
+2026-02-17 22:56:30 [info]: GET /api/services
+2026-02-17 22:56:30 [info]: GET /api/reports/weekly
+2026-02-17 22:56:30 [info]: GET /api/reports/weekly
+2026-02-17 22:56:30 [info]: GET /api/reports/dashboard
+2026-02-17 22:56:30 [info]: GET /api/reports/weekly
+2026-02-17 22:56:30 [info]: GET /api/reports/dashboard
+2026-02-17 22:56:30 [info]: GET /api/reports/dashboard
+2026-02-17 22:56:35 [info]: GET /api/employees
+2026-02-17 22:56:35 [info]: GET /api/services/types/all
+2026-02-17 22:56:35 [info]: GET /api/employees
+2026-02-17 22:56:35 [info]: GET /api/services/types/all
+2026-02-17 22:56:40 [info]: GET /api/reports/weekly
+2026-02-17 22:56:40 [info]: GET /api/services
+2026-02-17 22:56:40 [info]: GET /api/reports/weekly
+2026-02-17 22:56:40 [info]: GET /api/services
+2026-02-17 22:56:44 [info]: GET /api/employees
+2026-02-17 22:56:44 [info]: GET /api/services/types/all
+2026-02-17 22:56:44 [info]: GET /api/employees
+2026-02-17 22:56:44 [info]: GET /api/services/types/all
+2026-02-17 22:57:00 [info]: POST /api/services
+2026-02-17 22:57:01 [info]: Service created: 915a6daa-bf23-4b6d-ac1a-2961dc557f71 for employee 21699bd1-d9c0-44b4-b334-5de0fb9b3c34
+2026-02-17 22:57:01 [info]: GET /api/services
+2026-02-17 22:57:01 [info]: GET /api/employees
+2026-02-17 22:57:01 [info]: GET /api/reports/dashboard
+2026-02-17 22:57:01 [info]: GET /api/reports/weekly
+2026-02-17 22:57:02 [info]: GET /api/reports/weekly
+2026-02-17 22:57:02 [info]: GET /api/services
+2026-02-17 22:57:02 [info]: GET /api/reports/weekly
+2026-02-17 22:57:02 [info]: GET /api/services
+2026-02-17 22:57:05 [info]: GET /api/employees
+2026-02-17 22:57:05 [info]: GET /api/services
+2026-02-17 22:57:05 [info]: GET /api/reports/dashboard
+2026-02-17 22:57:05 [info]: GET /api/reports/weekly
+2026-02-17 22:57:05 [info]: GET /api/employees
+2026-02-17 22:57:05 [info]: GET /api/services
+2026-02-17 22:57:05 [info]: GET /api/reports/weekly
+2026-02-17 22:57:05 [info]: GET /api/employees
+2026-02-17 22:57:05 [info]: GET /api/services
+2026-02-17 22:57:05 [info]: GET /api/reports/weekly
+2026-02-17 22:57:05 [info]: GET /api/reports/dashboard
+2026-02-17 22:57:05 [info]: GET /api/employees
+2026-02-17 22:57:05 [info]: GET /api/services
+2026-02-17 22:57:05 [info]: GET /api/reports/weekly
+2026-02-17 22:57:05 [info]: GET /api/reports/dashboard
+2026-02-17 22:57:05 [info]: GET /api/reports/dashboard
+2026-02-17 22:57:08 [info]: GET /api/reports/weekly
+2026-02-17 22:57:08 [info]: GET /api/services
+2026-02-17 22:57:08 [info]: GET /api/reports/weekly
+2026-02-17 22:57:09 [info]: GET /api/services
+2026-02-17 22:57:13 [info]: GET /api/employees
+2026-02-17 22:57:13 [info]: GET /api/services/types/all
+2026-02-17 22:57:13 [info]: GET /api/employees
+2026-02-17 22:57:13 [info]: GET /api/services/types/all
+2026-02-17 22:57:22 [info]: POST /api/services
+2026-02-17 22:57:22 [info]: Service created: bd6e12d5-b5d5-45d0-b148-8e63a6f53003 for employee 07f83575-e728-4fc9-a093-0b75d4c279f6
+2026-02-17 22:57:22 [info]: GET /api/services
+2026-02-17 22:57:23 [info]: GET /api/employees
+2026-02-17 22:57:23 [info]: GET /api/reports/dashboard
+2026-02-17 22:57:23 [info]: GET /api/reports/weekly
+2026-02-17 22:57:24 [info]: GET /api/reports/weekly
+2026-02-17 22:57:24 [info]: GET /api/services
+2026-02-17 22:57:24 [info]: GET /api/reports/weekly
+2026-02-17 22:57:24 [info]: GET /api/services
+2026-02-17 22:57:33 [info]: GET /api/employees
+2026-02-17 22:57:33 [info]: GET /api/services/types/all
+2026-02-17 22:57:33 [info]: GET /api/employees
+2026-02-17 22:57:33 [info]: GET /api/services/types/all
+2026-02-17 22:57:39 [info]: POST /api/services
+2026-02-17 22:57:39 [info]: Service created: 7b1ef681-9c87-4ce8-8a98-1a707d9b8df1 for employee 07f83575-e728-4fc9-a093-0b75d4c279f6
+2026-02-17 22:57:39 [info]: GET /api/services
+2026-02-17 22:57:39 [info]: GET /api/employees
+2026-02-17 22:57:39 [info]: GET /api/reports/dashboard
+2026-02-17 22:57:39 [info]: GET /api/reports/weekly
+2026-02-17 22:57:42 [info]: GET /api/reports/weekly
+2026-02-17 22:57:42 [info]: GET /api/services
+2026-02-17 22:57:42 [info]: GET /api/reports/weekly
+2026-02-17 22:57:42 [info]: GET /api/services
+2026-02-17 22:58:41 [info]: GET /api/employees
+2026-02-17 22:58:41 [info]: GET /api/services/types/all
+2026-02-17 22:58:42 [info]: GET /api/employees
+2026-02-17 22:58:42 [info]: GET /api/services/types/all
+2026-02-17 23:02:29 [info]: GET /api/reports/weekly
+2026-02-17 23:02:29 [info]: GET /api/services
+2026-02-17 23:02:30 [info]: GET /api/reports/weekly
+2026-02-17 23:02:30 [info]: GET /api/services
+2026-02-17 23:02:37 [info]: GET /api/employees
+2026-02-17 23:02:37 [info]: GET /api/services/types/all
+2026-02-17 23:02:37 [info]: GET /api/services/types/all
+2026-02-17 23:02:37 [info]: GET /api/employees
+2026-02-17 23:02:38 [info]: GET /api/reports/weekly
+2026-02-17 23:02:38 [info]: GET /api/services
+2026-02-17 23:02:38 [info]: GET /api/reports/weekly
+2026-02-17 23:02:38 [info]: GET /api/services
+2026-02-17 23:02:40 [info]: GET /api/employees
+2026-02-17 23:02:40 [info]: GET /api/services/types/all
+2026-02-17 23:02:40 [info]: GET /api/employees
+2026-02-17 23:02:40 [info]: GET /api/services/types/all
+2026-02-17 23:02:45 [info]: POST /api/services
+2026-02-17 23:02:45 [info]: Service created: f5cff81e-7384-4699-80f3-bd7a4223c03e for employee 21699bd1-d9c0-44b4-b334-5de0fb9b3c34
+2026-02-17 23:02:45 [info]: GET /api/services
+2026-02-17 23:02:45 [info]: GET /api/employees
+2026-02-17 23:02:45 [info]: GET /api/reports/dashboard
+2026-02-17 23:02:45 [info]: GET /api/reports/weekly
+2026-02-17 23:02:46 [info]: GET /api/reports/weekly
+2026-02-17 23:02:46 [info]: GET /api/services
+2026-02-17 23:02:46 [info]: GET /api/reports/weekly
+2026-02-17 23:02:46 [info]: GET /api/services
+2026-02-17 23:03:16 [info]: GET /api/employees
+2026-02-17 23:03:16 [warn]: Invalid or expired token attempt
+2026-02-17 23:03:16 [info]: GET /api/services/types/all
+2026-02-17 23:03:16 [warn]: Invalid or expired token attempt
+2026-02-17 23:03:16 [info]: GET /api/employees
+2026-02-17 23:03:16 [warn]: Invalid or expired token attempt
+2026-02-17 23:03:16 [info]: GET /api/services/types/all
+2026-02-17 23:03:16 [warn]: Invalid or expired token attempt
+2026-02-17 23:03:16 [info]: POST /api/auth/refresh
+2026-02-17 23:03:16 [info]: GET /api/employees
+2026-02-17 23:03:16 [info]: GET /api/services/types/all
+2026-02-17 23:03:16 [info]: GET /api/employees
+2026-02-17 23:03:16 [info]: GET /api/services/types/all
+2026-02-17 23:03:17 [info]: GET /api/services/types/all
+2026-02-17 23:03:17 [info]: GET /api/services/types/all
+2026-02-17 23:03:18 [info]: GET /api/employees
+2026-02-17 23:03:18 [info]: GET /api/employees
+2026-02-17 23:03:34 [info]: GET /api/employees
+2026-02-17 23:03:34 [info]: GET /api/services
+2026-02-17 23:03:34 [info]: GET /api/reports/dashboard
+2026-02-17 23:03:34 [info]: GET /api/reports/weekly
+2026-02-17 23:03:46 [info]: GET /api/employees
+2026-02-17 23:03:46 [info]: GET /api/employees
+2026-02-17 23:03:59 [info]: GET /api/reports/weekly
+2026-02-17 23:03:59 [info]: GET /api/services
+2026-02-17 23:03:59 [info]: GET /api/reports/weekly
+2026-02-17 23:03:59 [info]: GET /api/services
+2026-02-17 23:05:45 [info]: GET /api/employees
+2026-02-17 23:05:45 [info]: GET /api/services/types/all
+2026-02-17 23:05:45 [info]: GET /api/employees
+2026-02-17 23:05:45 [info]: GET /api/services/types/all
+2026-02-17 23:05:47 [info]: GET /api/services/types/all
+2026-02-17 23:05:47 [info]: GET /api/services/types/all
+2026-02-17 23:05:48 [info]: GET /api/employees
+2026-02-17 23:05:48 [info]: GET /api/services
+2026-02-17 23:05:48 [info]: GET /api/reports/dashboard
+2026-02-17 23:05:48 [info]: GET /api/reports/weekly
+2026-02-17 23:08:44 [info]: GET /api/employees
+2026-02-17 23:08:44 [info]: GET /api/services
+2026-02-17 23:08:44 [info]: GET /api/reports/dashboard
+2026-02-17 23:08:44 [info]: GET /api/reports/weekly
+2026-02-17 23:08:44 [info]: GET /api/services
+2026-02-17 23:08:44 [info]: GET /api/employees
+2026-02-17 23:08:44 [info]: GET /api/services
+2026-02-17 23:08:44 [info]: GET /api/employees
+2026-02-17 23:08:44 [info]: GET /api/reports/weekly
+2026-02-17 23:08:44 [info]: GET /api/reports/dashboard
+2026-02-17 23:08:44 [info]: GET /api/services
+2026-02-17 23:08:44 [info]: GET /api/employees
+2026-02-17 23:08:44 [info]: GET /api/reports/weekly
+2026-02-17 23:08:44 [info]: GET /api/reports/dashboard
+2026-02-17 23:08:44 [info]: GET /api/reports/weekly
+2026-02-17 23:08:44 [info]: GET /api/reports/dashboard
+2026-02-17 23:08:52 [info]: GET /api/employees
+2026-02-17 23:08:52 [info]: GET /api/employees
+2026-02-17 23:08:53 [info]: GET /api/reports/weekly
+2026-02-17 23:08:53 [info]: GET /api/services
+2026-02-17 23:08:53 [info]: GET /api/reports/weekly
+2026-02-17 23:08:53 [info]: GET /api/services
+2026-02-17 23:08:56 [info]: GET /api/services/types/all
+2026-02-17 23:08:56 [info]: GET /api/services/types/all
+2026-02-17 23:08:57 [info]: GET /api/employees
+2026-02-17 23:08:57 [info]: GET /api/services/types/all
+2026-02-17 23:08:57 [info]: GET /api/services/types/all
+2026-02-17 23:08:57 [info]: GET /api/employees
+2026-02-17 23:09:01 [info]: POST /api/services
+2026-02-17 23:09:01 [info]: Service created: 6100e98e-9dc2-4d0c-a84d-cf910ca2f13e for employee 21699bd1-d9c0-44b4-b334-5de0fb9b3c34
+2026-02-17 23:09:01 [info]: GET /api/services
+2026-02-17 23:09:01 [info]: GET /api/employees
+2026-02-17 23:09:01 [info]: GET /api/reports/dashboard
+2026-02-17 23:09:01 [info]: GET /api/reports/weekly
+2026-02-17 23:09:03 [info]: GET /api/reports/weekly
+2026-02-17 23:09:03 [info]: GET /api/services
+2026-02-17 23:09:03 [info]: GET /api/reports/weekly
+2026-02-17 23:09:03 [info]: GET /api/services
+2026-02-17 23:09:05 [info]: GET /api/services
+2026-02-17 23:09:05 [info]: GET /api/reports/dashboard
+2026-02-17 23:09:05 [info]: GET /api/reports/weekly
+2026-02-17 23:09:05 [info]: GET /api/employees
+2026-02-17 23:10:23 [info]: GET /api/employees
+2026-02-17 23:10:23 [info]: GET /api/employees
+2026-02-17 23:10:24 [info]: GET /api/reports/weekly
+2026-02-17 23:10:24 [info]: GET /api/services
+2026-02-17 23:10:24 [info]: GET /api/reports/weekly
+2026-02-17 23:10:24 [info]: GET /api/services
+2026-02-17 23:10:45 [info]: GET /api/employees
+2026-02-17 23:10:45 [info]: GET /api/services
+2026-02-17 23:10:45 [info]: GET /api/reports/dashboard
+2026-02-17 23:10:45 [info]: GET /api/reports/weekly
+2026-02-17 23:10:53 [info]: GET /api/reports/weekly
+2026-02-17 23:10:53 [info]: GET /api/services
+2026-02-17 23:10:53 [info]: GET /api/reports/weekly
+2026-02-17 23:10:53 [info]: GET /api/services
+2026-02-17 23:13:01 [info]: GET /api/reports/weekly
+2026-02-17 23:13:01 [info]: GET /api/services
+2026-02-17 23:14:39 [info]: GET /api/employees
+2026-02-17 23:14:39 [info]: GET /api/services
+2026-02-17 23:14:39 [info]: GET /api/reports/dashboard
+2026-02-17 23:14:39 [info]: GET /api/reports/weekly
+2026-02-17 23:14:39 [info]: GET /api/services
+2026-02-17 23:14:39 [info]: GET /api/services
+2026-02-17 23:14:39 [info]: GET /api/reports/weekly
+2026-02-17 23:14:39 [info]: GET /api/reports/dashboard
+2026-02-17 23:14:39 [info]: GET /api/services
+2026-02-17 23:14:39 [info]: GET /api/reports/weekly
+2026-02-17 23:14:39 [info]: GET /api/employees
+2026-02-17 23:14:39 [info]: GET /api/reports/dashboard
+2026-02-17 23:14:39 [info]: GET /api/reports/weekly
+2026-02-17 23:14:39 [info]: GET /api/employees
+2026-02-17 23:14:39 [info]: GET /api/employees
+2026-02-17 23:14:39 [info]: GET /api/reports/dashboard
+2026-02-17 23:14:44 [info]: GET /api/reports/weekly
+2026-02-17 23:14:44 [info]: GET /api/services
+2026-02-17 23:14:44 [info]: GET /api/reports/weekly
+2026-02-17 23:14:44 [info]: GET /api/services
+2026-02-17 23:14:47 [info]: GET /api/employees
+2026-02-17 23:14:47 [info]: GET /api/services/types/all
+2026-02-17 23:14:47 [info]: GET /api/employees
+2026-02-17 23:14:47 [info]: GET /api/services/types/all
+2026-02-17 23:14:48 [info]: GET /api/services/types/all
+2026-02-17 23:14:48 [info]: GET /api/services/types/all
+2026-02-17 23:14:49 [info]: GET /api/employees
+2026-02-17 23:14:49 [info]: GET /api/employees
+2026-02-17 23:14:49 [info]: GET /api/employees
+2026-02-17 23:14:49 [info]: GET /api/services
+2026-02-17 23:14:49 [info]: GET /api/reports/dashboard
+2026-02-17 23:14:49 [info]: GET /api/reports/weekly
+2026-02-17 23:14:50 [info]: GET /api/reports/weekly
+2026-02-17 23:14:50 [info]: GET /api/services
+2026-02-17 23:14:50 [info]: GET /api/reports/weekly
+2026-02-17 23:14:50 [info]: GET /api/services
+2026-02-17 23:14:55 [info]: GET /api/reports/daily
+2026-02-17 23:14:55 [info]: GET /api/services
+2026-02-17 23:14:56 [info]: GET /api/reports/monthly
+2026-02-17 23:14:56 [info]: GET /api/services
+2026-02-17 23:14:58 [info]: GET /api/reports/weekly
+2026-02-17 23:14:58 [info]: GET /api/services
+2026-02-17 23:17:48 [info]: GET /api/reports/weekly
+2026-02-17 23:17:48 [info]: GET /api/services
+2026-02-17 23:18:44 [info]: GET /api/reports/weekly
+2026-02-17 23:18:44 [warn]: Invalid or expired token attempt
+2026-02-17 23:18:44 [info]: GET /api/services
+2026-02-17 23:18:44 [warn]: Invalid or expired token attempt
+2026-02-17 23:18:44 [info]: GET /api/services
+2026-02-17 23:18:44 [warn]: Invalid or expired token attempt
+2026-02-17 23:18:44 [info]: POST /api/auth/refresh
+2026-02-17 23:18:44 [info]: GET /api/reports/weekly
+2026-02-17 23:18:44 [info]: GET /api/services
+2026-02-17 23:18:44 [info]: GET /api/services
+2026-02-17 23:19:24 [info]: GET /api/employees
+2026-02-17 23:19:24 [info]: GET /api/services
+2026-02-17 23:19:24 [info]: GET /api/reports/dashboard
+2026-02-17 23:19:24 [info]: GET /api/reports/weekly
+2026-02-17 23:19:24 [info]: GET /api/employees
+2026-02-17 23:19:24 [info]: GET /api/services
+2026-02-17 23:19:24 [info]: GET /api/reports/weekly
+2026-02-17 23:19:24 [info]: GET /api/employees
+2026-02-17 23:19:24 [info]: GET /api/reports/dashboard
+2026-02-17 23:19:24 [info]: GET /api/services
+2026-02-17 23:19:24 [info]: GET /api/reports/weekly
+2026-02-17 23:19:24 [info]: GET /api/employees
+2026-02-17 23:19:24 [info]: GET /api/services
+2026-02-17 23:19:24 [info]: GET /api/reports/weekly
+2026-02-17 23:19:24 [info]: GET /api/reports/dashboard
+2026-02-17 23:19:25 [info]: GET /api/reports/dashboard
+2026-02-17 23:20:22 [info]: GET /api/reports/weekly
+2026-02-17 23:20:22 [info]: GET /api/services
+2026-02-17 23:20:22 [info]: GET /api/services
+2026-02-17 23:20:22 [info]: GET /api/reports/weekly
+2026-02-17 23:20:22 [info]: GET /api/services
+2026-02-17 23:20:22 [info]: GET /api/services
+2026-02-17 23:20:31 [info]: GET /api/employees
+2026-02-17 23:20:31 [info]: GET /api/services/types/all
+2026-02-17 23:20:31 [info]: GET /api/services/types/all
+2026-02-17 23:20:31 [info]: GET /api/employees
+2026-02-17 23:20:32 [info]: GET /api/services/types/all
+2026-02-17 23:20:32 [info]: GET /api/services/types/all
+2026-02-17 23:20:33 [info]: GET /api/employees
+2026-02-17 23:20:33 [info]: GET /api/employees
+2026-02-17 23:20:34 [info]: GET /api/employees
+2026-02-17 23:20:34 [info]: GET /api/services
+2026-02-17 23:20:34 [info]: GET /api/reports/dashboard
+2026-02-17 23:20:34 [info]: GET /api/reports/weekly
+2026-02-17 23:20:37 [info]: GET /api/services
+2026-02-17 23:20:37 [info]: GET /api/reports/weekly
+2026-02-17 23:20:37 [info]: GET /api/services
+2026-02-17 23:20:37 [info]: GET /api/services
+2026-02-17 23:20:37 [info]: GET /api/reports/weekly
+2026-02-17 23:20:37 [info]: GET /api/services
+2026-02-17 23:22:05 [info]: GET /api/employees
+2026-02-17 23:22:05 [info]: GET /api/services/types/all
+2026-02-17 23:22:05 [info]: GET /api/services/types/all
+2026-02-17 23:22:05 [info]: GET /api/employees
+2026-02-17 23:22:06 [info]: GET /api/services/types/all
+2026-02-17 23:22:06 [info]: GET /api/services/types/all
+2026-02-17 23:22:08 [info]: GET /api/employees
+2026-02-17 23:22:08 [info]: GET /api/services
+2026-02-17 23:22:08 [info]: GET /api/reports/dashboard
+2026-02-17 23:22:08 [info]: GET /api/reports/weekly
+2026-02-17 23:25:29 [info]: GET /api/employees
+2026-02-17 23:25:29 [info]: GET /api/services/types/all
+2026-02-17 23:25:29 [info]: GET /api/employees
+2026-02-17 23:25:29 [info]: GET /api/services/types/all
+2026-02-17 23:25:30 [info]: GET /api/reports/weekly
+2026-02-17 23:25:30 [info]: GET /api/services
+2026-02-17 23:25:30 [info]: GET /api/services
+2026-02-17 23:25:31 [info]: GET /api/services
+2026-02-17 23:25:31 [info]: GET /api/reports/weekly
+2026-02-17 23:25:31 [info]: GET /api/services
+2026-02-17 23:25:51 [info]: GET /api/employees
+2026-02-17 23:25:51 [info]: GET /api/services/types/all
+2026-02-17 23:25:51 [info]: GET /api/employees
+2026-02-17 23:25:51 [info]: GET /api/services/types/all
+2026-02-17 23:25:52 [info]: GET /api/employees
+2026-02-17 23:25:52 [info]: GET /api/employees
+2026-02-17 23:25:53 [info]: GET /api/employees
+2026-02-17 23:25:53 [info]: GET /api/services
+2026-02-17 23:25:53 [info]: GET /api/reports/dashboard
+2026-02-17 23:25:53 [info]: GET /api/reports/weekly
+2026-02-17 23:25:54 [info]: GET /api/services/types/all
+2026-02-17 23:25:54 [info]: GET /api/services/types/all
+2026-02-17 23:26:04 [info]: GET /api/employees
+2026-02-17 23:26:04 [info]: GET /api/employees
+2026-02-17 23:26:44 [info]: GET /api/services/types/public
+2026-02-17 23:26:44 [info]: GET /api/services/types/public
+2026-02-17 23:35:16 [info]: GET /api/services/types/public
+2026-02-17 23:35:16 [info]: GET /api/services/types/public
+2026-02-17 23:35:35 [info]: GET /api/services/types/public
+2026-02-17 23:35:35 [info]: GET /api/services/types/public
+2026-02-17 23:41:01 [info]: GET /api/employees
+2026-02-17 23:41:01 [info]: GET /api/services
+2026-02-17 23:41:01 [info]: GET /api/reports/dashboard
+2026-02-17 23:41:01 [info]: GET /api/reports/weekly
+2026-02-17 23:41:01 [info]: GET /api/employees
+2026-02-17 23:41:01 [info]: GET /api/services
+2026-02-17 23:41:01 [info]: GET /api/reports/dashboard
+2026-02-17 23:41:01 [info]: GET /api/reports/weekly
+2026-02-17 23:41:04 [info]: GET /api/employees
+2026-02-17 23:41:04 [info]: GET /api/services
+2026-02-17 23:41:04 [info]: GET /api/reports/dashboard
+2026-02-17 23:41:04 [info]: GET /api/reports/weekly
+2026-02-17 23:41:04 [info]: GET /api/employees
+2026-02-17 23:41:04 [info]: GET /api/services
+2026-02-17 23:41:04 [info]: GET /api/reports/dashboard
+2026-02-17 23:41:04 [info]: GET /api/reports/weekly
+2026-02-17 23:41:12 [info]: GET /api/services/types/public
+2026-02-17 23:41:12 [info]: GET /api/services/types/public
+2026-02-17 23:41:16 [info]: GET /api/employees
+2026-02-17 23:41:16 [info]: GET /api/services
+2026-02-17 23:41:16 [info]: GET /api/reports/dashboard
+2026-02-17 23:41:16 [info]: GET /api/reports/weekly
+2026-02-17 23:41:16 [info]: GET /api/reports/dashboard
+2026-02-17 23:41:16 [info]: GET /api/employees
+2026-02-17 23:41:16 [info]: GET /api/services
+2026-02-17 23:41:16 [info]: GET /api/reports/weekly
+2026-02-18 00:37:30 [info]: GET /api/employees
+2026-02-18 00:37:30 [info]: GET /api/reports/dashboard
+2026-02-18 00:37:30 [info]: GET /api/services
+2026-02-18 00:37:30 [info]: GET /api/reports/weekly
+2026-02-18 00:37:30 [info]: GET /api/employees
+2026-02-18 00:37:30 [info]: GET /api/reports/dashboard
+2026-02-18 00:37:30 [info]: GET /api/services
+2026-02-18 00:37:30 [info]: GET /api/reports/weekly
+2026-02-18 12:08:25 [info]: ✅ Database connected successfully
+2026-02-18 12:08:25 [info]: 🚀 Server running on port 3001
+2026-02-18 12:08:25 [info]: 📊 Environment: development
+2026-02-18 12:08:25 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-18 12:28:37 [info]: GET /api/services/types/public
+2026-02-18 12:28:38 [info]: GET /api/services/types/public
+2026-02-18 12:28:46 [info]: GET /api/services/types/public
+2026-02-18 12:28:46 [info]: GET /api/services/types/public
+2026-02-18 12:34:11 [info]: POST /api/auth/login
+2026-02-18 12:34:12 [info]: User logged in: matias@gmail.com
+2026-02-18 12:34:12 [info]: GET /api/employees
+2026-02-18 12:34:12 [info]: GET /api/reports/weekly
+2026-02-18 12:34:12 [info]: GET /api/services
+2026-02-18 12:34:12 [info]: GET /api/reports/dashboard
+2026-02-18 12:34:12 [info]: GET /api/employees
+2026-02-18 12:34:12 [info]: GET /api/services
+2026-02-18 12:34:12 [info]: GET /api/services
+2026-02-18 12:34:12 [info]: GET /api/services
+2026-02-18 12:34:12 [info]: GET /api/reports/weekly
+2026-02-18 12:34:12 [info]: GET /api/employees
+2026-02-18 12:34:12 [info]: GET /api/reports/weekly
+2026-02-18 12:34:12 [info]: GET /api/employees
+2026-02-18 12:34:12 [info]: GET /api/reports/weekly
+2026-02-18 12:34:12 [info]: GET /api/reports/dashboard
+2026-02-18 12:34:12 [info]: GET /api/reports/dashboard
+2026-02-18 12:34:12 [info]: GET /api/reports/dashboard
+2026-02-18 12:35:15 [info]: POST /api/auth/login
+2026-02-18 12:35:16 [info]: User logged in: matias@gmail.com
+2026-02-18 12:35:16 [info]: GET /api/employees
+2026-02-18 12:35:16 [info]: GET /api/services
+2026-02-18 12:35:16 [info]: GET /api/reports/dashboard
+2026-02-18 12:35:16 [info]: GET /api/reports/weekly
+2026-02-18 12:35:16 [info]: GET /api/employees
+2026-02-18 12:35:16 [info]: GET /api/services
+2026-02-18 12:35:16 [info]: GET /api/reports/weekly
+2026-02-18 12:35:16 [info]: GET /api/employees
+2026-02-18 12:35:16 [info]: GET /api/reports/dashboard
+2026-02-18 12:35:16 [info]: GET /api/reports/weekly
+2026-02-18 12:35:16 [info]: GET /api/services
+2026-02-18 12:35:16 [info]: GET /api/employees
+2026-02-18 12:35:16 [info]: GET /api/reports/weekly
+2026-02-18 12:35:16 [info]: GET /api/services
+2026-02-18 12:35:16 [info]: GET /api/reports/dashboard
+2026-02-18 12:35:16 [info]: GET /api/reports/dashboard
+2026-02-18 12:35:24 [info]: GET /api/employees
+2026-02-18 12:35:24 [info]: GET /api/employees
+2026-02-18 12:36:00 [info]: POST /api/employees
+2026-02-18 12:36:00 [error]: Error: La contraseña debe contener al menos una mayúscula
+    at Function.createEmployee (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\employee.service.ts:27:13)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\employee.controller.ts:54:22
+2026-02-18 12:39:22 [info]: ✅ Database connected successfully
+2026-02-18 12:39:22 [info]: 🚀 Server running on port 3001
+2026-02-18 12:39:22 [info]: 📊 Environment: development
+2026-02-18 12:39:22 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-18 12:49:56 [info]: POST /api/employees
+2026-02-18 12:49:56 [error]: Error: La contraseña debe contener al menos una mayúscula
+    at Function.createEmployee (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\employee.service.ts:27:13)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\employee.controller.ts:67:22
+2026-02-18 12:50:32 [info]: POST /api/employees
+2026-02-18 12:50:32 [warn]: Invalid or expired token attempt
+2026-02-18 12:50:32 [info]: POST /api/auth/refresh
+2026-02-18 12:50:32 [info]: POST /api/employees
+2026-02-18 12:50:32 [error]: ZodError: [
+  {
+    "code": "too_small",
+    "minimum": 2,
+    "type": "string",
+    "inclusive": true,
+    "exact": false,
+    "message": "El nombre es requerido",
+    "path": [
+      "body",
+      "firstName"
+    ]
+  }
+]
+    at Object.get error [as error] (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\zod\v3\types.cjs:45:31)
+    at ZodObject.parse (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\zod\v3\types.cjs:120:22)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\employee.controller.ts:64:39
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\middleware\error.middleware.ts:90:21
+    at Layer.handle [as handle_request] (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\express\lib\router\route.js:149:13)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\express-rate-limit\dist\index.cjs:706:9
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\express-rate-limit\dist\index.cjs:691:5
+2026-02-18 12:50:52 [info]: POST /api/employees
+2026-02-18 12:50:52 [error]: Error: La contraseña debe contener al menos un carácter especial
+    at Function.createEmployee (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\employee.service.ts:27:13)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\employee.controller.ts:67:22
+2026-02-18 12:51:15 [info]: POST /api/employees
+2026-02-18 12:51:16 [info]: Employee created: Marlon Ttito
+2026-02-18 12:51:16 [info]: GET /api/employees
+2026-02-18 12:53:54 [info]: GET /api/employees
+2026-02-18 12:55:11 [info]: POST /api/employees
+2026-02-18 12:55:11 [error]: Error: La contraseña debe contener al menos una mayúscula
+    at Function.createEmployee (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\employee.service.ts:27:13)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\employee.controller.ts:67:22
+2026-02-18 12:55:34 [info]: POST /api/auth/login
+2026-02-18 12:55:35 [info]: User logged in: marlon@gmail.com
+2026-02-18 13:00:44 [info]: GET /api/services/types/public
+2026-02-18 13:00:44 [info]: GET /api/services/types/public
+2026-02-18 13:13:56 [info]: ✅ Database connected successfully
+2026-02-18 13:13:56 [info]: 🚀 Server running on port 3001
+2026-02-18 13:13:56 [info]: 📊 Environment: development
+2026-02-18 13:13:56 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-18 13:14:34 [info]: ✅ Database connected successfully
+2026-02-18 13:14:34 [info]: 🚀 Server running on port 3001
+2026-02-18 13:14:34 [info]: 📊 Environment: development
+2026-02-18 13:14:34 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-18 13:16:04 [info]: GET /api/employees/me/profile
+2026-02-18 13:16:04 [warn]: Invalid or expired token attempt
+2026-02-18 13:16:04 [info]: GET /api/employees/me/services
+2026-02-18 13:16:04 [warn]: Invalid or expired token attempt
+2026-02-18 13:16:04 [info]: GET /api/employees/me/report
+2026-02-18 13:16:04 [warn]: Invalid or expired token attempt
+2026-02-18 13:16:04 [info]: GET /api/employees/me/report
+2026-02-18 13:16:04 [warn]: Invalid or expired token attempt
+2026-02-18 13:16:04 [info]: GET /api/employees/me/earnings
+2026-02-18 13:16:04 [warn]: Invalid or expired token attempt
+2026-02-18 13:16:04 [info]: POST /api/auth/refresh
+2026-02-18 13:16:04 [info]: GET /api/employees/me/profile
+2026-02-18 13:16:04 [info]: GET /api/employees/me/services
+2026-02-18 13:16:04 [info]: GET /api/employees/me/report
+2026-02-18 13:16:04 [info]: GET /api/employees/me/report
+2026-02-18 13:16:04 [info]: GET /api/employees/me/earnings
+2026-02-18 13:22:55 [info]: ✅ Database connected successfully
+2026-02-18 13:22:55 [info]: 🚀 Server running on port 3001
+2026-02-18 13:22:55 [info]: 📊 Environment: development
+2026-02-18 13:22:55 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-18 13:23:06 [info]: ✅ Database connected successfully
+2026-02-18 13:23:06 [info]: 🚀 Server running on port 3001
+2026-02-18 13:23:06 [info]: 📊 Environment: development
+2026-02-18 13:23:06 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-18 13:24:22 [info]: GET /api/employees/me/profile
+2026-02-18 13:24:22 [info]: GET /api/employees/me/services
+2026-02-18 13:24:22 [info]: GET /api/employees/me/report
+2026-02-18 13:24:22 [info]: GET /api/employees/me/report
+2026-02-18 13:24:22 [info]: GET /api/employees/me/earnings
+2026-02-18 13:42:29 [info]: GET /api/employees/me/profile
+2026-02-18 13:42:29 [warn]: Invalid or expired token attempt
+2026-02-18 13:42:29 [info]: GET /api/employees/me/services
+2026-02-18 13:42:29 [warn]: Invalid or expired token attempt
+2026-02-18 13:42:29 [info]: GET /api/employees/me/report
+2026-02-18 13:42:29 [warn]: Invalid or expired token attempt
+2026-02-18 13:42:29 [info]: GET /api/employees/me/report
+2026-02-18 13:42:29 [warn]: Invalid or expired token attempt
+2026-02-18 13:42:29 [info]: GET /api/employees/me/earnings
+2026-02-18 13:42:29 [warn]: Invalid or expired token attempt
+2026-02-18 13:42:29 [info]: GET /api/employees/me/profile
+2026-02-18 13:42:29 [warn]: Invalid or expired token attempt
+2026-02-18 13:42:29 [info]: GET /api/employees/me/services
+2026-02-18 13:42:29 [warn]: Invalid or expired token attempt
+2026-02-18 13:42:29 [info]: GET /api/employees/me/report
+2026-02-18 13:42:29 [warn]: Invalid or expired token attempt
+2026-02-18 13:42:29 [info]: GET /api/employees/me/report
+2026-02-18 13:42:29 [warn]: Invalid or expired token attempt
+2026-02-18 13:42:29 [info]: GET /api/employees/me/earnings
+2026-02-18 13:42:29 [warn]: Invalid or expired token attempt
+2026-02-18 13:42:30 [info]: POST /api/auth/refresh
+2026-02-18 13:42:30 [info]: GET /api/employees/me/profile
+2026-02-18 13:42:30 [info]: GET /api/employees/me/services
+2026-02-18 13:42:30 [info]: GET /api/employees/me/report
+2026-02-18 13:42:30 [info]: GET /api/employees/me/report
+2026-02-18 13:42:30 [info]: GET /api/employees/me/earnings
+2026-02-18 13:42:30 [info]: GET /api/employees/me/profile
+2026-02-18 13:42:30 [info]: GET /api/employees/me/services
+2026-02-18 13:42:30 [info]: GET /api/employees/me/report
+2026-02-18 13:42:30 [info]: GET /api/employees/me/report
+2026-02-18 13:42:30 [info]: GET /api/employees/me/earnings
+2026-02-18 15:00:15 [info]: GET /api/employees/me/profile
+2026-02-18 15:00:15 [warn]: Invalid or expired token attempt
+2026-02-18 15:00:15 [info]: GET /api/employees/me/services
+2026-02-18 15:00:15 [warn]: Invalid or expired token attempt
+2026-02-18 15:00:15 [info]: GET /api/employees/me/report
+2026-02-18 15:00:15 [warn]: Invalid or expired token attempt
+2026-02-18 15:00:15 [info]: GET /api/employees/me/report
+2026-02-18 15:00:15 [warn]: Invalid or expired token attempt
+2026-02-18 15:00:15 [info]: GET /api/employees/me/earnings
+2026-02-18 15:00:15 [warn]: Invalid or expired token attempt
+2026-02-18 15:00:15 [info]: GET /api/employees/me/profile
+2026-02-18 15:00:15 [warn]: Invalid or expired token attempt
+2026-02-18 15:00:15 [info]: GET /api/employees/me/services
+2026-02-18 15:00:15 [warn]: Invalid or expired token attempt
+2026-02-18 15:00:15 [info]: GET /api/employees/me/report
+2026-02-18 15:00:15 [warn]: Invalid or expired token attempt
+2026-02-18 15:00:15 [info]: GET /api/employees/me/report
+2026-02-18 15:00:15 [warn]: Invalid or expired token attempt
+2026-02-18 15:00:15 [info]: GET /api/employees/me/earnings
+2026-02-18 15:00:15 [warn]: Invalid or expired token attempt
+2026-02-18 15:00:16 [info]: POST /api/auth/refresh
+2026-02-18 15:00:16 [info]: GET /api/employees/me/profile
+2026-02-18 15:00:16 [info]: GET /api/employees/me/services
+2026-02-18 15:00:16 [info]: GET /api/employees/me/report
+2026-02-18 15:00:16 [info]: GET /api/employees/me/report
+2026-02-18 15:00:16 [info]: GET /api/employees/me/earnings
+2026-02-18 15:00:16 [info]: GET /api/employees/me/profile
+2026-02-18 15:00:16 [info]: GET /api/employees/me/report
+2026-02-18 15:00:16 [info]: GET /api/employees/me/services
+2026-02-18 15:00:16 [info]: GET /api/employees/me/report
+2026-02-18 15:00:16 [info]: GET /api/employees/me/earnings
+2026-02-18 15:12:23 [info]: GET /api/employees/me/profile
+2026-02-18 15:12:23 [info]: GET /api/employees/me/report
+2026-02-18 15:12:23 [info]: GET /api/employees/me/services
+2026-02-18 15:12:23 [info]: GET /api/employees/me/report
+2026-02-18 15:12:23 [info]: GET /api/employees/me/earnings
+2026-02-18 15:12:23 [info]: GET /api/employees/me/profile
+2026-02-18 15:12:23 [info]: GET /api/employees/me/report
+2026-02-18 15:12:23 [info]: GET /api/employees/me/services
+2026-02-18 15:12:23 [info]: GET /api/employees/me/earnings
+2026-02-18 15:12:23 [info]: GET /api/employees/me/report

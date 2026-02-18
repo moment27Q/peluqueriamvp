@@ -1,0 +1,41 @@
+2026-02-17 11:18:45 [error]: Error: Credenciales inválidas
+    at Function.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\auth.service.ts:34:13)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\auth.controller.ts:44:20
+2026-02-17 11:36:20 [error]: Error: Credenciales inválidas
+    at Function.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\auth.service.ts:34:13)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\auth.controller.ts:44:20
+2026-02-18 12:36:00 [error]: Error: La contraseña debe contener al menos una mayúscula
+    at Function.createEmployee (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\employee.service.ts:27:13)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\employee.controller.ts:54:22
+2026-02-18 12:49:56 [error]: Error: La contraseña debe contener al menos una mayúscula
+    at Function.createEmployee (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\employee.service.ts:27:13)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\employee.controller.ts:67:22
+2026-02-18 12:50:32 [error]: ZodError: [
+  {
+    "code": "too_small",
+    "minimum": 2,
+    "type": "string",
+    "inclusive": true,
+    "exact": false,
+    "message": "El nombre es requerido",
+    "path": [
+      "body",
+      "firstName"
+    ]
+  }
+]
+    at Object.get error [as error] (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\zod\v3\types.cjs:45:31)
+    at ZodObject.parse (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\zod\v3\types.cjs:120:22)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\employee.controller.ts:64:39
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\middleware\error.middleware.ts:90:21
+    at Layer.handle [as handle_request] (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\express\lib\router\route.js:149:13)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\express-rate-limit\dist\index.cjs:706:9
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\express-rate-limit\dist\index.cjs:691:5
+2026-02-18 12:50:52 [error]: Error: La contraseña debe contener al menos un carácter especial
+    at Function.createEmployee (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\employee.service.ts:27:13)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\employee.controller.ts:67:22
+2026-02-18 12:55:11 [error]: Error: La contraseña debe contener al menos una mayúscula
+    at Function.createEmployee (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\employee.service.ts:27:13)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\employee.controller.ts:67:22

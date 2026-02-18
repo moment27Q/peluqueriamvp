@@ -1,0 +1,11 @@
+2026-02-18 13:13:41 [error]: Error: Route.get() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as get] (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\express\lib\router\route.js:216:15)
+    at Function.proto.<computed> [as get] (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\express\lib\router\index.js:521:19)
+    at Object.<anonymous> (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\routes\employee.routes.ts:9:8)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1706:14)
+    at Module._compile (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\matia\AppData\Local\Temp\ts-node-dev-hook-4112139182364998.js:69:33)
+    at node:internal/modules/cjs/loader:1839:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\matia\AppData\Local\Temp\ts-node-dev-hook-4112139182364998.js:114:20)
+    at require.extensions.<computed> (C:\Users\matia\AppData\Local\Temp\ts-node-dev-hook-4112139182364998.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\ts-node-dev\lib\hook.js:63:13)
