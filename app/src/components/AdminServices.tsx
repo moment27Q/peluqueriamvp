@@ -176,7 +176,7 @@ export const AdminServices: React.FC = () => {
                         <div className="flex justify-between items-start mb-4">
                             <h3 className="text-xl font-bold text-gray-900">{service.name}</h3>
                             <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-black">
-                                ${Number(service.defaultPrice).toFixed(2)}
+                                S/ {Number(service.defaultPrice).toFixed(2)}
                             </span>
                         </div>
 
@@ -246,7 +246,7 @@ export const AdminServices: React.FC = () => {
 
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label className="block text-xs font-bold text-gray-700 mb-1">Precio ($)</label>
+                                    <label className="block text-xs font-bold text-gray-700 mb-1">Precio (S/)</label>
                                     <input
                                         type="number"
                                         required
@@ -309,3 +309,4 @@ export const AdminServices: React.FC = () => {
         </div>
     );
 };
+

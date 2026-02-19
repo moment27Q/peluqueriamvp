@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Header } from './Header';
 import { Footer } from './Footer';
 
@@ -48,7 +48,7 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                 response?.user;
 
             if (!accessToken) {
-                throw new Error('Respuesta del servidor inválida');
+                throw new Error('Respuesta del servidor invÃ¡lida');
             }
 
             localStorage.setItem('token', accessToken);
@@ -64,7 +64,7 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
             onNavigate(role === 'EMPLOYEE' ? 'employee' : 'admin');
         } catch (err: any) {
             console.error('Login error:', err);
-            setError(err.message || 'Credenciales inválidas. Inténtalo de nuevo.');
+            setError(err.message || 'Credenciales invÃ¡lidas. IntÃ©ntalo de nuevo.');
             setLoading(false); // Only stop loading on error, keep it if success to prevent flicker before unmount? Or just standard finally?
             // If I navigate, component unmounts. If I don't, I need to stop loading.
             // Let's stop loading only on error to avoid button enabling again before redirect?
@@ -182,7 +182,7 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                             </form>
 
                             <p className="text-center text-[11px] text-gray-400 mt-6 leading-tight">
-                                Al registrarte, aceptas nuestros <a href="#" className="text-primary hover:underline font-bold">Términos de Servicio</a> y <a href="#" className="text-primary hover:underline font-bold">Política de Privacidad</a>.
+                                Al registrarte, aceptas nuestros <a href="#" className="text-primary hover:underline font-bold">TÃ©rminos de Servicio</a> y <a href="#" className="text-primary hover:underline font-bold">PolÃ­tica de Privacidad</a>.
                             </p>
                         </div>
                     </div>
@@ -198,8 +198,8 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                                 <span className="material-symbols-outlined text-primary text-3xl">content_cut</span>
                             </div>
                             <div>
-                                <p className="font-bold text-gray-900 text-lg">Corte Clásico</p>
-                                <p className="text-xs text-gray-500 mt-1 uppercase tracking-wide">Técnicas tradicionales</p>
+                                <p className="font-bold text-gray-900 text-lg">Corte ClÃ¡sico</p>
+                                <p className="text-xs text-gray-500 mt-1 uppercase tracking-wide">TÃ©cnicas tradicionales</p>
                             </div>
                         </div>
                         <div className="flex flex-col items-center text-center gap-4 group cursor-default">
@@ -247,7 +247,10 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                             <p className="text-lg text-gray-500 mb-10 leading-relaxed font-medium">
                                 Aqui, cada cambio de look puede volverse inolvidable. Los profesionales del sector nos eligen para gestionar reservas, optimizar pagos y aumentar su facturacion mientras fidelizan clientes y hacen crecer su salon.
                             </p>
-                            <button className="bg-[#FF4D00] hover:bg-[#E04400] text-white px-8 py-4 rounded-xl font-bold text-sm tracking-widest uppercase transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                            <button
+                                onClick={() => document.getElementById('contactanos')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+                                className="bg-[#FF4D00] hover:bg-[#E04400] text-white px-8 py-4 rounded-xl font-bold text-sm tracking-widest uppercase transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                            >
                                 Quiero unirme
                             </button>
                         </div>
@@ -270,7 +273,7 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                                 <div className="bg-[#141414] rounded-3xl p-4 shadow-xl border border-gray-800 max-w-sm mx-auto transform rotate-[2deg]">
                                     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Usuario" className="w-full h-[400px] object-cover rounded-2xl mb-4 opacity-90" />
                                     <div className="text-center">
-                                        <h4 className="font-bold text-xl text-white">Ana María</h4>
+                                        <h4 className="font-bold text-xl text-white">Ana MarÃ­a</h4>
                                     </div>
                                 </div>
                                 {/* Card 3 */}
@@ -290,7 +293,7 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                                 <div className="bg-[#141414] rounded-3xl p-4 shadow-xl border border-gray-800 max-w-sm mx-auto transform rotate-[2deg]">
                                     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Usuario" className="w-full h-[400px] object-cover rounded-2xl mb-4 opacity-90" />
                                     <div className="text-center">
-                                        <h4 className="font-bold text-xl text-white">Ana María</h4>
+                                        <h4 className="font-bold text-xl text-white">Ana MarÃ­a</h4>
                                     </div>
                                 </div>
                             </div>
@@ -307,12 +310,15 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                         <div className="bg-[#111] rounded-[2rem] p-10 flex flex-col justify-center border border-white/10 relative overflow-hidden group">
                             <div className="absolute top-0 right-0 w-64 h-64 bg-[#FF4D00]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                             <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-8 relative z-10">
-                                Tú creas el <br />
-                                contenido. <br />
-                                <span className="text-white">Nosotros aumentamos las conversiones.</span>
+                                Tu elevas el <br />
+                                estilo. <br />
+                                <span className="text-white">Nosotros hacemos crecer tus reservas.</span>
                             </h2>
-                            <button className="bg-[#FF4D00] hover:bg-[#E04400] text-white px-8 py-4 rounded-xl font-bold text-sm tracking-widest uppercase transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full md:w-auto self-start relative z-10">
-                                Vender más ahora
+                            <button
+                                onClick={() => document.getElementById('contactanos')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+                                className="bg-[#FF4D00] hover:bg-[#E04400] text-white px-8 py-4 rounded-xl font-bold text-sm tracking-widest uppercase transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full md:w-auto self-start relative z-10"
+                            >
+                                Aumentar citas ahora
                             </button>
                         </div>
 
@@ -324,8 +330,8 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                                 className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-all duration-700"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-10 flex flex-col justify-end">
-                                <h3 className="text-3xl font-bold mb-4">+7 % en ventas con nuestro autocompletado.</h3>
-                                <p className="text-gray-300 text-lg max-w-xl">Tu cliente compra rápido con nuestro proceso de pago que rellena todo automáticamente y tú aumentas tus ventas sin esfuerzo.</p>
+                                <h3 className="text-3xl font-bold mb-4">+7 % en reservas con agenda rapida.</h3>
+                                <p className="text-gray-300 text-lg max-w-xl">Tus clientes agendan en segundos con datos guardados y confirmacion automatica para no perder turnos.</p>
                             </div>
                         </div>
 
@@ -333,7 +339,7 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                         <div className="bg-[#1A1A1A] rounded-[2rem] overflow-hidden relative group min-h-[500px]">
                             <img
                                 src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                alt="Recomendación"
+                                alt="RecomendaciÃ³n"
                                 className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent p-8 flex flex-col justify-end">
@@ -341,13 +347,13 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                                     <div className="flex items-center gap-3 mb-2">
                                         <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-xs">PDF</div>
                                         <div className="text-xs">
-                                            <div className="font-bold text-white">E-book</div>
-                                            <div className="text-gray-300">Introducción</div>
+                                            <div className="font-bold text-white">Guia</div>
+                                            <div className="text-gray-300">Cuidado capilar</div>
                                         </div>
                                     </div>
                                 </div>
-                                <h3 className="text-2xl font-bold mb-4">+48 % en tu ticket medio gracias a nuestra recomendación.</h3>
-                                <p className="text-gray-400 text-sm leading-relaxed">Tu cliente compra un producto y nosotros le recomendamos automáticamente el siguiente, en el momento ideal para la conversión.</p>
+                                <h3 className="text-2xl font-bold mb-4">+48 % en ticket medio con recomendacion de servicios.</h3>
+                                <p className="text-gray-400 text-sm leading-relaxed">Despues de cada cita sugerimos tratamientos, color o productos de mantenimiento en el momento ideal.</p>
                             </div>
                         </div>
 
@@ -359,8 +365,8 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                                 className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent p-8 flex flex-col justify-end">
-                                <h3 className="text-2xl font-bold mb-4">Un checkout diseñado para que nadie abandone.</h3>
-                                <p className="text-gray-400 text-sm leading-relaxed">Nuestro proceso de pago admite millones de transacciones simultáneas y se carga en 1 segundo para que vendas mucho más y en todo momento.</p>
+                                <h3 className="text-2xl font-bold mb-4">Un cobro en salon pensado para cerrar cada servicio.</h3>
+                                <p className="text-gray-400 text-sm leading-relaxed">Cobro rapido en caja o link de pago, con confirmacion instantanea para reducir cancelaciones y ausencias.</p>
                             </div>
                         </div>
 
@@ -374,22 +380,22 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent p-8 flex flex-col justify-end">
                                 <div className="space-y-2 mb-6">
                                     <div className="bg-white rounded-lg p-3 flex items-center gap-3 shadow-lg transform translate-x-4">
-                                        <div className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center text-white text-xs font-bold">✓</div>
+                                        <div className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center text-white text-xs font-bold">âœ“</div>
                                         <div>
-                                            <div className="text-[10px] text-gray-500 font-bold uppercase">Venda realizada</div>
-                                            <div className="text-xs font-bold text-gray-900">R$ 1.200,00</div>
+                                            <div className="text-[10px] text-gray-500 font-bold uppercase">Servicio completado</div>
+                                            <div className="text-xs font-bold text-gray-900">Corte + Barba S/ 25.00</div>
                                         </div>
                                     </div>
                                     <div className="bg-white rounded-lg p-3 flex items-center gap-3 shadow-lg transform -translate-x-2">
-                                        <div className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center text-white text-xs font-bold">✓</div>
+                                        <div className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center text-white text-xs font-bold">âœ“</div>
                                         <div>
-                                            <div className="text-[10px] text-gray-500 font-bold uppercase">Sale completed</div>
-                                            <div className="text-xs font-bold text-gray-900">USD 120.00</div>
+                                            <div className="text-[10px] text-gray-500 font-bold uppercase">Producto vendido</div>
+                                            <div className="text-xs font-bold text-gray-900">Kit capilar S/ 40.00</div>
                                         </div>
                                     </div>
                                 </div>
-                                <h3 className="text-2xl font-bold mb-4">Tu producto habla en varios idiomas.</h3>
-                                <p className="text-gray-400 text-sm leading-relaxed">Vende en todo el mundo con traducciones y conversiones automáticas a 22 monedas, más de 40 métodos de pago locales y más de 70 idiomas.</p>
+                                <h3 className="text-2xl font-bold mb-4">Tu salon conecta con clientes de todos los perfiles.</h3>
+                                <p className="text-gray-400 text-sm leading-relaxed">Gestiona citas, servicios y ventas en una sola plataforma para peluqueria y barberia, desde cualquier sede.</p>
                             </div>
                         </div>
                     </div>
@@ -401,11 +407,14 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="mb-16">
                         <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 leading-[1.1] mb-6">
-                            <span className="text-[#FF4D00]">Tu próximo paso digital ocurre aquí.</span><br />
-                            Y el siguiente. Y el siguiente...
+                            <span className="text-[#FF4D00]">Tu proximo paso para tu salon comienza aqui.</span><br />
+                            Y el siguiente corte. Y la siguiente reserva...
                         </h2>
-                        <button className="bg-[#FF4D00] hover:bg-[#E04400] text-white px-8 py-4 rounded-xl font-bold text-sm tracking-widest uppercase transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 mt-4">
-                            Registrarme ahora
+                        <button
+                            onClick={() => document.getElementById('contactanos')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+                            className="bg-[#FF4D00] hover:bg-[#E04400] text-white px-8 py-4 rounded-xl font-bold text-sm tracking-widest uppercase transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 mt-4"
+                        >
+                            Llevar mi salon al siguiente nivel
                         </button>
                     </div>
 
@@ -414,15 +423,15 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                         <div className="relative group cursor-pointer overflow-hidden rounded-3xl transition-all duration-500 ease-in-out flex-[1] hover:flex-[3] h-[300px] lg:h-full">
                             <img
                                 src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                                alt="Crea lo que quieras"
+                                alt="Disena la experiencia de tu salon"
                                 className="absolute inset-0 w-full h-full object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
                                 <h3 className="text-xl font-bold text-white mb-2 transform transition-transform duration-500 group-hover:-translate-y-2">
-                                    Crea lo que quieras, a tu manera
+                                    Diseña la experiencia de tu salon
                                 </h3>
                                 <p className="text-gray-200 text-sm opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 overflow-hidden leading-relaxed">
-                                    Tú eliges el formato, nosotros preparamos todo para que tu venta se haga realidad. Crea tu producto, páginas de ventas, automatiza correos electrónicos y lanza tu producto. ¡Así de fácil!
+                                    Configura servicios, tiempos y precios para que cada cita se adapte a tu estilo de trabajo.
                                 </p>
                             </div>
                         </div>
@@ -431,15 +440,15 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                         <div className="relative group cursor-pointer overflow-hidden rounded-3xl transition-all duration-500 ease-in-out flex-[1] hover:flex-[3] h-[300px] lg:h-full">
                             <img
                                 src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                                alt="Vende mucho más"
+                                alt="Vende mas servicios"
                                 className="absolute inset-0 w-full h-full object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
                                 <h3 className="text-xl font-bold text-white mb-2 transform transition-transform duration-500 group-hover:-translate-y-2">
-                                    Vende mucho más con cada clic
+                                    Vende mas con cada visita
                                 </h3>
                                 <p className="text-gray-200 text-sm opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 overflow-hidden leading-relaxed">
-                                    Optimiza tus conversiones con herramientas avanzadas de análisis y marketing diseñadas para maximizar tus ingresos en cada interacción.
+                                    Ofrece combos de corte, barba y tratamientos para aumentar el ticket promedio de forma natural.
                                 </p>
                             </div>
                         </div>
@@ -448,15 +457,15 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                         <div className="relative group cursor-pointer overflow-hidden rounded-3xl transition-all duration-500 ease-in-out flex-[1] hover:flex-[3] h-[300px] lg:h-full">
                             <img
                                 src="https://images.unsplash.com/photo-1596704017254-9b121068fb31?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                alt="Convierte a tus clientes"
+                                alt="Fideliza a tus clientes"
                                 className="absolute inset-0 w-full h-full object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
                                 <h3 className="text-xl font-bold text-white mb-2 transform transition-transform duration-500 group-hover:-translate-y-2">
-                                    Convierte a tus clientes en fans
+                                    Convierte clientes en habituales
                                 </h3>
                                 <p className="text-gray-200 text-sm opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 overflow-hidden leading-relaxed">
-                                    Construye relaciones duraderas y fideliza a tu audiencia con experiencias personalizadas y soporte de primer nivel.
+                                    Crea relaciones duraderas con recordatorios, atencion personalizada y seguimiento despues de cada cita.
                                 </p>
                             </div>
                         </div>
@@ -465,15 +474,15 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                         <div className="relative group cursor-pointer overflow-hidden rounded-3xl transition-all duration-500 ease-in-out flex-[1] hover:flex-[3] h-[300px] lg:h-full">
                             <img
                                 src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                                alt="Gestiona con datos"
+                                alt="Gestiona tu peluqueria con datos"
                                 className="absolute inset-0 w-full h-full object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
                                 <h3 className="text-xl font-bold text-white mb-2 transform transition-transform duration-500 group-hover:-translate-y-2">
-                                    Gestiona con datos al instante
+                                    Gestiona tu peluqueria con datos
                                 </h3>
                                 <p className="text-gray-200 text-sm opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-40 transition-all duration-500 overflow-hidden leading-relaxed">
-                                    Toma decisiones informadas con paneles de control en tiempo real y métricas detalladas sobre el rendimiento de tu negocio.
+                                    Toma decisiones con reportes en tiempo real sobre ingresos, servicios mas pedidos y rendimiento del equipo.
                                 </p>
                             </div>
                         </div>
@@ -481,10 +490,111 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                 </div>
             </section>
 
+
+            {/* Contact Section */}
+            <section id="contactanos" className="py-24 bg-[#f3f6f3]">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="text-center mb-14">
+                        <p className="text-primary text-xs font-bold uppercase tracking-[0.25em] mb-3">Contactanos</p>
+                        <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 mb-4">
+                            Nos encantara atenderte
+                        </h2>
+                        <p className="text-gray-500 max-w-2xl mx-auto">
+                            Si buscas un nuevo estilo, un cambio completo o solo resolver una duda, nuestro equipo esta listo para ayudarte.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div className="bg-white rounded-2xl border border-gray-100 p-7 shadow-sm">
+                            <h3 className="text-2xl font-bold text-gray-900 mb-6">Envianos un mensaje</h3>
+                            <form className="space-y-4">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="block text-xs font-bold text-gray-700 mb-1">Nombre completo</label>
+                                        <input
+                                            type="text"
+                                            placeholder="Juan Perez"
+                                            className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium outline-none focus:border-primary"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block text-xs font-bold text-gray-700 mb-1">Correo electronico</label>
+                                        <input
+                                            type="email"
+                                            placeholder="correo@ejemplo.com"
+                                            className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium outline-none focus:border-primary"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-700 mb-1">Servicio de interes</label>
+                                    <select className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium outline-none focus:border-primary">
+                                        <option value="">Selecciona un servicio</option>
+                                        <option>Corte clasico</option>
+                                        <option>Corte + barba</option>
+                                        <option>Color y tratamientos</option>
+                                        <option>Asesoria de imagen</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-700 mb-1">Tu mensaje</label>
+                                    <textarea
+                                        rows={5}
+                                        placeholder="Cuentanos como podemos ayudarte..."
+                                        className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium outline-none focus:border-primary resize-none"
+                                    />
+                                </div>
+
+                                <button
+                                    type="button"
+                                    className="w-full bg-primary hover:bg-primary/90 text-gray-900 font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-primary/20"
+                                >
+                                    Enviar mensaje
+                                </button>
+                            </form>
+                        </div>
+
+                        <div className="space-y-4">
+                            <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <p className="text-sm font-bold text-gray-900 mb-2">Visitanos</p>
+                                        <p className="text-sm text-gray-600">Av. Principal 123, Local 4</p>
+                                        <p className="text-sm text-gray-600">Lima, Peru</p>
+                                    </div>
+                                    <div>
+                                        <p className="text-sm font-bold text-gray-900 mb-2">Llamanos</p>
+                                        <p className="text-sm text-gray-600">Principal: +51 941 147 507</p>
+                                        <p className="text-sm text-gray-600">Reservas: +51 941 147 507</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="bg-[#eaf4e5] rounded-2xl border border-[#dbead2] p-6">
+                                <p className="text-lg font-bold text-gray-900 mb-4">Horario de atencion</p>
+                                <div className="space-y-2 text-sm text-gray-700">
+                                    <div className="flex items-center justify-between"><span>Lunes a Viernes</span><span>9:00 AM - 8:00 PM</span></div>
+                                    <div className="flex items-center justify-between"><span>Sabado</span><span>10:00 AM - 6:00 PM</span></div>
+                                    <div className="flex items-center justify-between"><span>Domingo</span><span>Cerrado</span></div>
+                                </div>
+                            </div>
+
+                            <div className="bg-white rounded-2xl border border-gray-100 p-4 shadow-sm">
+                                <div className="w-full h-52 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-gray-500 text-sm font-semibold">
+                                    Ubicacion del salon
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             {/* Footer */}
             <Footer />
         </div >
     );
 };
+
 
 

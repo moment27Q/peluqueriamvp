@@ -233,14 +233,14 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
                     </div>
                     <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
                         <p className="text-[10px] text-gray-500 font-bold uppercase tracking-wider mb-1">Ventas Hoy</p>
-                        <h3 className="text-3xl font-black text-gray-900">${todayRevenue.toFixed(2)}</h3>
+                        <h3 className="text-3xl font-black text-gray-900">S/ {todayRevenue.toFixed(2)}</h3>
                     </div>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
                     <div className="lg:col-span-2 bg-white rounded-3xl border border-gray-100 p-8 shadow-sm min-h-[280px]">
                         <h3 className="text-lg font-bold text-gray-900">Ingresos Semanales</h3>
-                        <p className="text-gray-500 text-xs mt-1">Total semanal: ${weeklyRevenueTotal.toFixed(2)}</p>
+                        <p className="text-gray-500 text-xs mt-1">Total semanal: S/ {weeklyRevenueTotal.toFixed(2)}</p>
                         <div className="h-48 mt-6 flex items-end justify-between gap-3">
                             {weeklyChart.map((item, i) => {
                                 const height = Math.max(6, Math.round((item.earnings / maxWeeklyRevenue) * 100));
@@ -252,7 +252,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
                                                 style={{ height: `${height}%` }}
                                             >
                                                 <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                                                    ${item.earnings.toFixed(2)}
+                                                    S/ {item.earnings.toFixed(2)}
                                                 </div>
                                             </div>
                                         </div>
@@ -318,7 +318,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
                                     </p>
                                 </div>
                                 <div className="md:text-right">
-                                    <p className="text-sm font-black text-gray-900">${Number(sale.price || 0).toFixed(2)}</p>
+                                    <p className="text-sm font-black text-gray-900">S/ {Number(sale.price || 0).toFixed(2)}</p>
                                     <p className="text-xs text-gray-500">
                                         {new Date(sale.date).toLocaleString('es-ES')}
                                     </p>
@@ -395,3 +395,4 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
         </div>
     );
 };
+

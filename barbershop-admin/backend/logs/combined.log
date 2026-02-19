@@ -1902,3 +1902,51 @@
 2026-02-18 15:12:23 [info]: GET /api/employees/me/services
 2026-02-18 15:12:23 [info]: GET /api/employees/me/earnings
 2026-02-18 15:12:23 [info]: GET /api/employees/me/report
+2026-02-18 16:49:56 [info]: POST /api/auth/login
+2026-02-18 16:50:01 [info]: User logged in: matias@gmail.com
+2026-02-18 16:50:02 [info]: GET /api/employees
+2026-02-18 16:50:02 [info]: GET /api/services
+2026-02-18 16:50:02 [info]: GET /api/reports/dashboard
+2026-02-18 16:50:02 [info]: GET /api/reports/weekly
+2026-02-18 16:50:03 [info]: GET /api/employees
+2026-02-18 16:50:03 [info]: GET /api/reports/weekly
+2026-02-18 16:50:03 [info]: GET /api/employees
+2026-02-18 16:50:03 [info]: GET /api/services
+2026-02-18 16:50:03 [info]: GET /api/reports/weekly
+2026-02-18 16:50:03 [info]: GET /api/employees
+2026-02-18 16:50:03 [info]: GET /api/services
+2026-02-18 16:50:03 [info]: GET /api/reports/dashboard
+2026-02-18 16:50:04 [info]: GET /api/reports/weekly
+2026-02-18 16:50:04 [info]: GET /api/services
+2026-02-18 16:50:04 [info]: GET /api/reports/dashboard
+2026-02-18 16:50:04 [info]: GET /api/reports/dashboard
+2026-02-18 16:50:11 [info]: GET /api/services/types/all
+2026-02-18 16:50:11 [info]: GET /api/employees
+2026-02-18 16:50:11 [info]: GET /api/services/types/all
+2026-02-18 16:50:11 [info]: GET /api/employees
+2026-02-18 16:50:27 [info]: POST /api/services
+2026-02-18 16:50:27 [info]: POST /api/services
+2026-02-18 16:50:27 [info]: Service created: 3a4e019e-7a66-4cb4-99e9-cc4f58293e99 for employee c431387d-45c4-4ac9-97ee-6cd5c653f0cf
+2026-02-18 16:50:27 [info]: Service created: 7ff96673-3c7a-472b-91ad-e4bfa6a671af for employee c431387d-45c4-4ac9-97ee-6cd5c653f0cf
+2026-02-18 16:50:27 [info]: GET /api/employees
+2026-02-18 16:50:27 [info]: GET /api/services
+2026-02-18 16:50:27 [info]: GET /api/reports/dashboard
+2026-02-18 16:50:27 [info]: GET /api/reports/weekly
+2026-02-18 16:50:29 [info]: GET /api/employees
+2026-02-18 16:50:29 [info]: GET /api/services
+2026-02-18 16:50:29 [info]: GET /api/reports/dashboard
+2026-02-18 16:50:29 [info]: GET /api/reports/weekly
+2026-02-18 16:50:53 [info]: POST /api/auth/login
+2026-02-18 16:50:56 [info]: User logged in: marlon@gmail.com
+2026-02-18 16:50:56 [info]: GET /api/employees/me/earnings
+2026-02-18 16:50:56 [info]: GET /api/employees/me/profile
+2026-02-18 16:50:56 [info]: GET /api/employees/me/services
+2026-02-18 16:50:56 [info]: GET /api/employees/me/report
+2026-02-18 16:50:56 [info]: GET /api/employees/me/report
+2026-02-18 16:50:56 [info]: GET /api/employees/me/profile
+2026-02-18 16:50:56 [info]: GET /api/employees/me/services
+2026-02-18 16:50:56 [info]: GET /api/employees/me/report
+2026-02-18 16:50:56 [info]: GET /api/employees/me/report
+2026-02-18 16:50:56 [info]: GET /api/employees/me/earnings
+2026-02-18 16:56:25 [info]: GET /api/services/types/public
+2026-02-18 16:56:25 [info]: GET /api/services/types/public

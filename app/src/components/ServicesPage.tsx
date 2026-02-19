@@ -114,7 +114,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                                     <div>
                                         <div className="flex justify-between items-start mb-2">
                                             <h3 className="text-xl font-bold tracking-tight text-gray-900">{service.name}</h3>
-                                            <span className="text-primary font-bold text-lg">${Number(service.defaultPrice)}</span>
+                                            <span className="text-primary font-bold text-lg">S/ {Number(service.defaultPrice)}</span>
                                         </div>
                                         <p className="text-gray-500 text-sm leading-relaxed mb-4">
                                             {service.description || 'Consulta los detalles con tu barbero.'}
@@ -140,3 +140,4 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
         </div>
     );
 };
+

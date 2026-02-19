@@ -196,7 +196,7 @@ export const EmployeeDashboard: React.FC<EmployeeDashboardProps> = ({ onNavigate
                         Solo puedes retirar saldo disponible de tu propia cuenta.
                     </p>
                     <p className="mt-2 text-sm font-semibold text-gray-700">
-                        Saldo disponible: ${Number(monthlyEarnings?.totalCommission || 0).toFixed(2)}
+                        Saldo disponible: S/ {Number(monthlyEarnings?.totalCommission || 0).toFixed(2)}
                     </p>
                     <form onSubmit={handleWithdraw} className="mt-5 space-y-4">
                         <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
@@ -274,7 +274,7 @@ export const EmployeeDashboard: React.FC<EmployeeDashboardProps> = ({ onNavigate
                 <section className="rounded-3xl border border-gray-100 bg-white p-7 shadow-sm">
                     <div className="mb-4 flex items-center justify-between gap-3">
                         <h2 className="text-2xl font-bold tracking-tight">Historial de Servicios</h2>
-                        <span className="text-sm font-semibold text-gray-500">Total generado: ${totalHistoryAmount.toFixed(2)}</span>
+                        <span className="text-sm font-semibold text-gray-500">Total generado: S/ {totalHistoryAmount.toFixed(2)}</span>
                     </div>
                     <div className="overflow-x-auto">
                         <table className="w-full border-collapse text-left">
@@ -292,7 +292,7 @@ export const EmployeeDashboard: React.FC<EmployeeDashboardProps> = ({ onNavigate
                                         <td className="px-3 py-3 text-sm text-gray-700">{new Date(item.date).toLocaleDateString('es-ES')}</td>
                                         <td className="px-3 py-3 text-sm font-semibold text-gray-900">{item.clientName}</td>
                                         <td className="px-3 py-3 text-sm text-gray-700">{item.serviceName}</td>
-                                        <td className="px-3 py-3 text-sm font-bold text-gray-900">${Number(item.price).toFixed(2)}</td>
+                                        <td className="px-3 py-3 text-sm font-bold text-gray-900">S/ {Number(item.price).toFixed(2)}</td>
                                     </tr>
                                 ))}
                                 {serviceHistory.length === 0 && (
@@ -340,9 +340,9 @@ export const EmployeeDashboard: React.FC<EmployeeDashboardProps> = ({ onNavigate
                     {generatedReport && (
                         <div className="mt-5 rounded-xl border border-gray-100 bg-gray-50 p-4 text-sm">
                             <p className="font-semibold text-gray-900">Servicios: {generatedReport.summary.totalServices}</p>
-                            <p className="text-gray-700">Ingresos: ${Number(generatedReport.summary.totalRevenue).toFixed(2)}</p>
-                            <p className="text-gray-700">Comision: ${Number(generatedReport.summary.totalCommission).toFixed(2)}</p>
-                            <p className="text-gray-700">Ganancia salon: ${Number(generatedReport.summary.totalSalonEarnings).toFixed(2)}</p>
+                            <p className="text-gray-700">Ingresos: S/ {Number(generatedReport.summary.totalRevenue).toFixed(2)}</p>
+                            <p className="text-gray-700">Comision: S/ {Number(generatedReport.summary.totalCommission).toFixed(2)}</p>
+                            <p className="text-gray-700">Ganancia salon: S/ {Number(generatedReport.summary.totalSalonEarnings).toFixed(2)}</p>
                         </div>
                     )}
                 </section>
@@ -364,7 +364,7 @@ export const EmployeeDashboard: React.FC<EmployeeDashboardProps> = ({ onNavigate
                     </article>
                     <article className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
                         <p className="text-xs font-bold uppercase tracking-wider text-gray-400">Comision Estimada</p>
-                        <p className="mt-2 text-4xl font-black text-[#62c533]">${Number(monthlyEarnings?.totalCommission || 0).toFixed(2)}</p>
+                        <p className="mt-2 text-4xl font-black text-[#62c533]">S/ {Number(monthlyEarnings?.totalCommission || 0).toFixed(2)}</p>
                         <p className="mt-2 text-sm text-gray-500">Comision calculada de tu propia cuenta.</p>
                     </article>
                 </div>
@@ -458,3 +458,4 @@ export const EmployeeDashboard: React.FC<EmployeeDashboardProps> = ({ onNavigate
         </div>
     );
 };
+

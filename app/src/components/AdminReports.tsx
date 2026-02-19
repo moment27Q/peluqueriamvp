@@ -135,7 +135,7 @@ export const AdminReports: React.FC = () => {
                     name,
                     count: info.count,
                     revenueValue: info.revenue,
-                    revenueLabel: `$${info.revenue.toLocaleString('en-US')}`,
+                    revenueLabel: `S/ ${info.revenue.toLocaleString('en-US')}`,
                 }))
                 .sort((a, b) => b.count - a.count)
                 .slice(0, 6);
@@ -146,7 +146,7 @@ export const AdminReports: React.FC = () => {
                     name: emp.employeeName,
                     services: emp.servicesCount,
                     revenueValue: Number(emp.commission ?? emp.revenue ?? 0),
-                    revenueLabel: `$${Number(emp.commission ?? emp.revenue ?? 0).toLocaleString('en-US')}`,
+                    revenueLabel: `S/ ${Number(emp.commission ?? emp.revenue ?? 0).toLocaleString('en-US')}`,
                     rating: Number((4.9 - idx * 0.1).toFixed(1)),
                 }))
                 .sort((a, b) => b.revenueValue - a.revenueValue)
@@ -165,7 +165,7 @@ export const AdminReports: React.FC = () => {
                 const employeeName = service.employee
                     ? `${service.employee.firstName} ${service.employee.lastName}`
                     : 'Sin asignar';
-                const serviceDate = service.serviceDate || '';
+                const serviceDate = service.serviceDate || 'S/ 0';
                 if (!serviceDate) continue;
                 const gain = Number(service.commissionAmount ?? 0);
 
@@ -193,14 +193,14 @@ export const AdminReports: React.FC = () => {
 
                 const lastIncome = sortedEntries[0];
                 const lastIncomeLabel = lastIncome
-                    ? `${new Date(lastIncome.date).toLocaleString('es-ES')} · $${lastIncome.amount.toFixed(2)}`
+                    ? `${new Date(lastIncome.date).toLocaleString('es-ES')} · S/ ${lastIncome.amount.toFixed(2)}`
                     : 'Sin ingresos';
 
                 const recentIncomeLabel = sortedEntries
                     .slice(0, 5)
                     .map((entry) => {
                         const d = new Date(entry.date);
-                        return `${d.getDate()}/${d.getMonth() + 1}: $${entry.amount.toFixed(2)}`;
+                        return `${d.getDate()}/${d.getMonth() + 1}: S/ ${entry.amount.toFixed(2)}`;
                     });
                 historyLabels[employeeName] = {
                     totalEarnings: history.totalEarnings,
@@ -239,7 +239,7 @@ export const AdminReports: React.FC = () => {
         doc.text(`Reporte de Negocio - ${period}`, 14, 20);
         doc.setFontSize(11);
         doc.setTextColor(90);
-        doc.text(`Generado el: ${new Date().toLocaleDateString()}`, 14, 28);
+        doc.text(`Generado el: S/ {new Date().toLocaleDateString()}`, 14, 28);
 
         doc.setTextColor(0);
         doc.setFontSize(13);
@@ -249,7 +249,7 @@ export const AdminReports: React.FC = () => {
             startY: 44,
             head: [['Metrica', 'Valor']],
             body: [
-                ['Ventas Totales', `$${salesValue.toLocaleString('en-US')}`],
+                ['Ventas Totales', `S/ ${salesValue.toLocaleString('en-US')}`],
                 ['Servicios Realizados', String(servicesCount)],
             ],
             styles: { fontSize: 10 },
@@ -267,7 +267,7 @@ export const AdminReports: React.FC = () => {
             head: [['Servicio', 'Ventas', 'Ingresos']],
             body: topServices.length
                 ? topServices.map((s) => [s.name, String(s.count), s.revenueLabel])
-                : [['Sin datos', '0', '$0']],
+                : [['Sin datos', '0', 'S/ 0']],
             styles: { fontSize: 10 },
             headStyles: { fillColor: [30, 30, 30] },
         });
@@ -282,7 +282,7 @@ export const AdminReports: React.FC = () => {
             head: [['Empleado', 'Servicios', 'Ingresos', 'Calificacion']],
             body: topEmployees.length
                 ? topEmployees.map((e) => [e.name, String(e.services), e.revenueLabel, String(e.rating)])
-                : [['Sin datos', '0', '$0', '-']],
+                : [['Sin datos', '0', 'S/ 0', '-']],
             styles: { fontSize: 10 },
             headStyles: { fillColor: [30, 30, 30] },
         });
@@ -301,28 +301,28 @@ export const AdminReports: React.FC = () => {
     const rowXml = (cells: Array<string | number>) =>
         `<Row>${cells
             .map((cell) => `<Cell><Data ss:Type="String">${escapeXml(String(cell))}</Data></Cell>`)
-            .join('')}</Row>`;
+            .join('S/ 0')}</Row>`;
 
     const exportExcel = (period: string) => {
         const summaryRows = [
             rowXml(['Metrica', 'Valor']),
-            rowXml(['Ventas Totales', `$${salesValue.toLocaleString('en-US')}`]),
+            rowXml(['Ventas Totales', `S/ ${salesValue.toLocaleString('en-US')}`]),
             rowXml(['Servicios Realizados', String(servicesCount)]),
-        ].join('');
+        ].join('S/ 0');
 
         const servicesRows = [
             rowXml(['Servicio', 'Ventas', 'Ingresos']),
             ...(topServices.length
                 ? topServices.map((s) => rowXml([s.name, s.count, s.revenueLabel]))
-                : [rowXml(['Sin datos', 0, '$0'])]),
-        ].join('');
+                : [rowXml(['Sin datos', 0, 'S/ 0'])]),
+        ].join('S/ 0');
 
         const employeesRows = [
             rowXml(['Empleado', 'Servicios', 'Ingresos', 'Calificacion']),
             ...(topEmployees.length
                 ? topEmployees.map((e) => rowXml([e.name, e.services, e.revenueLabel, e.rating]))
-                : [rowXml(['Sin datos', 0, '$0', '-'])]),
-        ].join('');
+                : [rowXml(['Sin datos', 0, 'S/ 0', '-'])]),
+        ].join('S/ 0');
 
         const workbookXml = `<?xml version="1.0"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
@@ -387,7 +387,7 @@ export const AdminReports: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                     <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm">
                         <p className="text-gray-500 text-xs font-bold uppercase tracking-wider mb-1">Ventas Totales</p>
-                        <h3 className="text-3xl font-black text-gray-900">${salesValue.toLocaleString('en-US')}</h3>
+                        <h3 className="text-3xl font-black text-gray-900">S/ {salesValue.toLocaleString('en-US')}</h3>
                     </div>
                     <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm">
                         <p className="text-gray-500 text-xs font-bold uppercase tracking-wider mb-1">Servicios Realizados</p>
@@ -451,7 +451,7 @@ export const AdminReports: React.FC = () => {
                                             {employeeHistory[emp.name] && (
                                                 <>
                                                     <p className="text-[11px] text-gray-500 mt-1">
-                                                        Total histórico: ${employeeHistory[emp.name].totalEarnings.toFixed(2)} ({employeeHistory[emp.name].totalServices} servicios)
+                                                        Total histórico: S/ {employeeHistory[emp.name].totalEarnings.toFixed(2)} ({employeeHistory[emp.name].totalServices} servicios)
                                                     </p>
                                                     <p className="text-[11px] text-gray-400">
                                                         Último ingreso: {employeeHistory[emp.name].lastIncomeLabel}
@@ -475,3 +475,4 @@ export const AdminReports: React.FC = () => {
         </div>
     );
 };
+

@@ -298,7 +298,7 @@ export const AdminSales: React.FC = () => {
                                         }}
                                     />
                                     <div className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-lg text-xs font-black text-gray-900 shadow-sm">
-                                        ${Number(service.defaultPrice).toFixed(0)}
+                                        S/ {Number(service.defaultPrice).toFixed(0)}
                                     </div>
                                 </div>
                                 <h3 className="font-bold text-gray-900 leading-tight mb-1">{service.name}</h3>
@@ -351,7 +351,7 @@ export const AdminSales: React.FC = () => {
                                 <div className="flex-1 min-w-0 py-1">
                                     <div className="flex justify-between items-start">
                                         <h4 className="font-bold text-gray-900 text-sm truncate">{item.service.name}</h4>
-                                        <span className="font-bold text-gray-900 text-sm ml-2">${item.price.toFixed(2)}</span>
+                                        <span className="font-bold text-gray-900 text-sm ml-2">S/ {item.price.toFixed(2)}</span>
                                     </div>
                                     <p className="text-xs text-gray-500 mt-0.5">Barbero: {selectedBarberObj?.firstName || 'Sin asignar'}</p>
                                     <button
@@ -409,23 +409,23 @@ export const AdminSales: React.FC = () => {
                     <div className="space-y-2 mb-6 text-sm">
                         <div className="flex justify-between text-gray-500">
                             <span>Subtotal</span>
-                            <span>${subtotal.toFixed(2)}</span>
+                            <span>S/ {subtotal.toFixed(2)}</span>
                         </div>
                         <div className="flex justify-between text-red-500">
                             <span>Descuento ({discountPercent}%)</span>
-                            <span>-${discountAmount.toFixed(2)}</span>
+                            <span>-S/ {discountAmount.toFixed(2)}</span>
                         </div>
                         <div className="flex justify-between text-amber-600">
                             <span>Comisión ({selectedBarberCommissionRate.toFixed(0)}%)</span>
-                            <span>-${barberEarnings.toFixed(2)}</span>
+                            <span>-S/ {barberEarnings.toFixed(2)}</span>
                         </div>
                         <div className="flex justify-between text-blue-600">
                             <span>Gana {selectedBarberObj?.firstName || 'Peluquero'}</span>
-                            <span>${barberEarnings.toFixed(2)}</span>
+                            <span>S/ {barberEarnings.toFixed(2)}</span>
                         </div>
                         <div className="flex justify-between text-gray-900 font-extrabold text-xl pt-2 border-t border-gray-100">
                             <span>Total a Pagar</span>
-                            <span className="text-green-600">${total.toFixed(2)}</span>
+                            <span className="text-green-600">S/ {total.toFixed(2)}</span>
                         </div>
                     </div>
 
@@ -475,4 +475,5 @@ export const AdminSales: React.FC = () => {
         </div>
     );
 };
+
 

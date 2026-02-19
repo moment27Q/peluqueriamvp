@@ -146,7 +146,7 @@ export const servicesShowcaseConfig: ServicesShowcaseConfig = {
       id: "corte",
       name: "Corte de Cabello",
       subtitle: "Clásico o Moderno",
-      price: "$25",
+      price: "S/ 25",
       image: "/images/barber-1.jpg",
       description: "Corte personalizado según tu estilo y tipo de rostro. Incluye lavado y peinado.",
       features: ["Consulta de estilo", "Lavado premium", "Peinado incluido"],
@@ -155,7 +155,7 @@ export const servicesShowcaseConfig: ServicesShowcaseConfig = {
       id: "afeitado",
       name: "Afeitado Tradicional",
       subtitle: "Con Navaja",
-      price: "$15",
+      price: "S/ 15",
       image: "/images/barber-2.jpg",
       description: "Afeitado clásico con toalla caliente, espuma premium y navaja de filo.",
       features: ["Toalla caliente", "Productos premium", "Acabado perfecto"],
@@ -164,10 +164,10 @@ export const servicesShowcaseConfig: ServicesShowcaseConfig = {
       id: "combo",
       name: "Corte y Afeitado",
       subtitle: "Combo Completo",
-      price: "$35",
+      price: "S/ 35",
       image: "/images/barber-3.jpg",
       description: "La experiencia completa de barbería con corte y afeitado tradicional.",
-      features: ["Ahorra $5", "Experiencia VIP", "Bebida incluida"],
+      features: ["Ahorra S/ 5", "Experiencia VIP", "Bebida incluida"],
     },
   ],
   features: [
@@ -472,3 +472,4 @@ export interface ScrollToTopConfig {
 export const scrollToTopConfig: ScrollToTopConfig = {
   ariaLabel: "Volver arriba",
 };
+

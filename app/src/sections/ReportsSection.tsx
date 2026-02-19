@@ -104,9 +104,9 @@ export function ReportsSection() {
               {/* Stats Row */}
               <div className="grid grid-cols-4 gap-4 mb-6">
                 {[
-                  { label: 'Ingresos Hoy', value: '$1,250', change: '+12%' },
+                  { label: 'Ingresos Hoy', value: 'S/ 1,250', change: '+12%' },
                   { label: 'Servicios', value: '24', change: '+5%' },
-                  { label: 'Comisiones', value: '$625', change: '+12%' },
+                  { label: 'Comisiones', value: 'S/ 625', change: '+12%' },
                   { label: 'Clientes', value: '18', change: '+8%' },
                 ].map((stat, i) => (
                   <div key={i} className="p-4 rounded-lg bg-white/[0.03] border border-white/5">
@@ -137,9 +137,9 @@ export function ReportsSection() {
                   <span>Comisión</span>
                 </div>
                 {[
-                  { name: 'Juan Pérez', services: 8, revenue: '$400', commission: '$200' },
-                  { name: 'María García', services: 6, revenue: '$300', commission: '$135' },
-                  { name: 'Carlos López', services: 10, revenue: '$550', commission: '$302' },
+                  { name: 'Juan Pérez', services: 8, revenue: 'S/ 400', commission: 'S/ 200' },
+                  { name: 'María García', services: 6, revenue: 'S/ 300', commission: 'S/ 135' },
+                  { name: 'Carlos López', services: 10, revenue: 'S/ 550', commission: 'S/ 302' },
                 ].map((row, i) => (
                   <div key={i} className="grid grid-cols-4 gap-4 px-4 py-3 border-b border-white/5 text-white/70 text-sm">
                     <span>{row.name}</span>
@@ -175,3 +175,4 @@ export function ReportsSection() {
     </section>
   );
 }
+
