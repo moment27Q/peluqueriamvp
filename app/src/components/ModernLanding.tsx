@@ -182,7 +182,23 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                             </form>
 
                             <p className="text-center text-[11px] text-gray-400 mt-6 leading-tight">
-                                Al registrarte, aceptas nuestros <a href="#" className="text-primary hover:underline font-bold">TÃ©rminos de Servicio</a> y <a href="#" className="text-primary hover:underline font-bold">PolÃ­tica de Privacidad</a>.
+                                Al registrarte, aceptas nuestros{' '}
+                                <button
+                                    type="button"
+                                    onClick={() => onNavigate('terms')}
+                                    className="text-primary hover:underline font-bold"
+                                >
+                                    Términos de Servicio
+                                </button>{' '}
+                                y{' '}
+                                <button
+                                    type="button"
+                                    onClick={() => onNavigate('privacy')}
+                                    className="text-primary hover:underline font-bold"
+                                >
+                                    Política de Privacidad
+                                </button>
+                                .
                             </p>
                         </div>
                     </div>
@@ -549,6 +565,7 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
 
                                 <button
                                     type="button"
+                                    onClick={() => window.open('https://wa.me/51941147507', '_blank', 'noopener,noreferrer')}
                                     className="w-full bg-primary hover:bg-primary/90 text-gray-900 font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-primary/20"
                                 >
                                     Enviar mensaje

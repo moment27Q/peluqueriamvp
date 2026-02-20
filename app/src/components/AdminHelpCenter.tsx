@@ -50,8 +50,8 @@ export const AdminHelpCenter: React.FC = () => {
                 <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
                     <h3 className="font-bold text-gray-900 mb-2">Contacto Soporte</h3>
                     <p className="text-sm text-gray-600 mb-2">Canales recomendados para incidencias:</p>
-                    <p className="text-sm font-semibold text-gray-800">Email: soporte@mipagina.com</p>
-                    <p className="text-sm font-semibold text-gray-800">WhatsApp: +56 9 0000 0000</p>
+                    <p className="text-sm font-semibold text-gray-800">Email: oropezafernando07@gmail.com</p>
+                    <p className="text-sm font-semibold text-gray-800">WhatsApp: +51 941 147 507</p>
                     <p className="text-xs text-gray-400 mt-2">Horario: Lun a Vie, 09:00 a 18:00</p>
                 </div>
             </div>

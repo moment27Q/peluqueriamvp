@@ -7,6 +7,8 @@ import { LoginPage } from './components/LoginPage';
 import { AdminDashboard } from './components/AdminDashboard';
 import { HelpCenterPage } from './components/HelpCenterPage';
 import { EmployeeDashboard } from './components/EmployeeDashboard';
+import { TermsPage } from './components/TermsPage';
+import { PrivacyPage } from './components/PrivacyPage';
 
 const getStoredUserRole = () => {
   try {
@@ -83,6 +85,8 @@ function App() {
         {currentPage === 'admin' && <AdminDashboard onNavigate={handleNavigate} initialView="dashboard" />}
         {currentPage === 'employee' && <EmployeeDashboard onNavigate={handleNavigate} />}
         {currentPage === 'admin-help' && <HelpCenterPage onNavigate={handleNavigate} />}
+        {currentPage === 'terms' && <TermsPage onNavigate={handleNavigate} />}
+        {currentPage === 'privacy' && <PrivacyPage onNavigate={handleNavigate} />}
       </div>
     </>
   );

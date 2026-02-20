@@ -53,7 +53,19 @@ const faqItems = [
 ];
 
 export const HelpCenterPage: React.FC<HelpCenterPageProps> = ({ onNavigate }) => {
-    const [openFaq, setOpenFaq] = useState(0);
+    const [openFaqQuestion, setOpenFaqQuestion] = useState<string | null>(faqItems[0]?.question ?? null);
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const normalizedSearch = searchTerm.trim().toLowerCase();
+    const filteredCategories = categories.filter((category) => {
+        const searchableText = `${category.title} ${category.description}`.toLowerCase();
+        return searchableText.includes(normalizedSearch);
+    });
+    const filteredFaqItems = faqItems.filter((item) => {
+        const searchableText = `${item.question} ${item.answer}`.toLowerCase();
+        return searchableText.includes(normalizedSearch);
+    });
+    const hasResults = filteredCategories.length > 0 || filteredFaqItems.length > 0;
 
     return (
         <div className="min-h-screen bg-[#f5f6f5] text-gray-900 font-sans">
@@ -72,6 +84,8 @@ export const HelpCenterPage: React.FC<HelpCenterPageProps> = ({ onNavigate }) =>
                             <input
                                 type="text"
                                 placeholder="Busca temas, servicios o dudas frecuentes..."
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
                                 className="h-full w-full bg-transparent pl-3 text-lg text-gray-700 placeholder:text-gray-400 focus:outline-none"
                             />
                         </div>
@@ -81,7 +95,7 @@ export const HelpCenterPage: React.FC<HelpCenterPageProps> = ({ onNavigate }) =>
 
                 <section className="mx-auto w-full max-w-7xl px-6 py-14">
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
-                    {categories.map((category) => (
+                    {filteredCategories.map((category) => (
                         <article key={category.title} className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
                             <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-[#e8f3e3]">
                                 <span className="material-symbols-outlined text-[#6ccb3b]">{category.icon}</span>
@@ -101,12 +115,12 @@ export const HelpCenterPage: React.FC<HelpCenterPageProps> = ({ onNavigate }) =>
                     </div>
 
                     <div className="space-y-4">
-                        {faqItems.map((item, index) => {
-                            const isOpen = index === openFaq;
+                        {filteredFaqItems.map((item) => {
+                            const isOpen = item.question === openFaqQuestion;
                             return (
                                 <article key={item.question} className="overflow-hidden rounded-2xl border border-gray-100 bg-white">
                                     <button
-                                        onClick={() => setOpenFaq(isOpen ? -1 : index)}
+                                        onClick={() => setOpenFaqQuestion(isOpen ? null : item.question)}
                                         className="flex w-full items-center justify-between px-7 py-6 text-left"
                                     >
                                         <span className="text-2xl font-semibold tracking-tight">{item.question}</span>
@@ -123,6 +137,12 @@ export const HelpCenterPage: React.FC<HelpCenterPageProps> = ({ onNavigate }) =>
                             );
                         })}
                     </div>
+
+                    {!hasResults && (
+                        <div className="rounded-2xl border border-gray-100 bg-gray-50 px-6 py-8 text-center text-gray-600">
+                            No encontramos resultados para "{searchTerm}". Prueba con "citas", "precios" o "cuenta".
+                        </div>
+                    )}
                 </div>
                 </section>
 

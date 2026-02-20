@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { api } from '../services/api';
+import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
 interface EmployeeDashboardProps {
     onNavigate: (page: string) => void;
@@ -40,6 +41,13 @@ interface MyEarnings {
     totalCommission: number;
 }
 
+interface DailyIncomePoint {
+    key: string;
+    day: string;
+    fullDate: string;
+    income: number;
+}
+
 interface WithdrawalBankAccount {
     accountHolder: string;
     bankName: string;
@@ -75,6 +83,47 @@ export const EmployeeDashboard: React.FC<EmployeeDashboardProps> = ({ onNavigate
     const totalHistoryAmount = useMemo(
         () => serviceHistory.reduce((acc, item) => acc + Number(item.price || 0), 0),
         [serviceHistory]
+    );
+
+    const dailyIncomeData = useMemo<DailyIncomePoint[]>(() => {
+        const today = new Date();
+        const startDate = new Date(today);
+        startDate.setDate(today.getDate() - 6);
+
+        const base: DailyIncomePoint[] = Array.from({ length: 7 }, (_, index) => {
+            const date = new Date(startDate);
+            date.setDate(startDate.getDate() + index);
+            const key = date.toISOString().split('T')[0];
+
+            return {
+                key,
+                day: date.toLocaleDateString('es-PE', { weekday: 'short' }).replace('.', ''),
+                fullDate: date.toLocaleDateString('es-PE', { day: '2-digit', month: '2-digit' }),
+                income: 0,
+            };
+        });
+
+        const dataByKey = base.reduce<Record<string, DailyIncomePoint>>((acc, item) => {
+            acc[item.key] = { ...item };
+            return acc;
+        }, {});
+
+        const services = weeklyReport?.services || [];
+        for (const service of services) {
+            const serviceDate = new Date(service.date);
+            const key = serviceDate.toISOString().split('T')[0];
+
+            if (dataByKey[key]) {
+                dataByKey[key].income += Number(service.price || 0);
+            }
+        }
+
+        return base.map((item) => dataByKey[item.key]);
+    }, [weeklyReport]);
+
+    const totalWeekIncome = useMemo(
+        () => dailyIncomeData.reduce((acc, item) => acc + item.income, 0),
+        [dailyIncomeData]
     );
 
     const fetchEmployeeData = async () => {
@@ -368,6 +417,42 @@ export const EmployeeDashboard: React.FC<EmployeeDashboardProps> = ({ onNavigate
                         <p className="mt-2 text-sm text-gray-500">Comision calculada de tu propia cuenta.</p>
                     </article>
                 </div>
+
+                <section className="mb-8 rounded-3xl border border-gray-100 bg-white p-7 shadow-sm">
+                    <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                        <div>
+                            <h2 className="text-2xl font-bold tracking-tight">Ingresos por Dia</h2>
+                            <p className="mt-1 text-sm text-gray-500">Resumen de tus ultimos 7 dias trabajados.</p>
+                        </div>
+                        <p className="text-sm font-semibold text-gray-700">
+                            Total semana: <span className="text-[#356d1c]">S/ {totalWeekIncome.toFixed(2)}</span>
+                        </p>
+                    </div>
+
+                    <div className="mt-6 h-72 w-full">
+                        <ResponsiveContainer width="100%" height="100%">
+                            <BarChart data={dailyIncomeData} margin={{ top: 8, right: 12, left: 0, bottom: 0 }}>
+                                <CartesianGrid strokeDasharray="4 4" stroke="#edf2eb" />
+                                <XAxis dataKey="day" tickLine={false} axisLine={false} />
+                                <YAxis
+                                    tickLine={false}
+                                    axisLine={false}
+                                    width={55}
+                                    tickFormatter={(value: number) => `S/${value}`}
+                                />
+                                <Tooltip
+                                    cursor={{ fill: '#f3f8f1' }}
+                                    formatter={(value: number) => [`S/ ${value.toFixed(2)}`, 'Ingresos']}
+                                    labelFormatter={(_, payload) => {
+                                        const point = payload?.[0]?.payload as DailyIncomePoint | undefined;
+                                        return point ? `${point.day} ${point.fullDate}` : '';
+                                    }}
+                                />
+                                <Bar dataKey="income" name="Ingresos" fill="#63c933" radius={[8, 8, 0, 0]} maxBarSize={44} />
+                            </BarChart>
+                        </ResponsiveContainer>
+                    </div>
+                </section>
 
                 <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
                     <section className="rounded-3xl border border-gray-100 bg-white p-7 shadow-sm">
