@@ -29,6 +29,7 @@ interface ServiceRecordSummary {
 
 interface CategorySummary {
     name: string;
+    count: number;
     val: number;
 }
 
@@ -110,9 +111,10 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
                 const categories = Array.from(grouped.entries())
                     .map(([name, count]) => ({
                         name,
-                        val: Math.max(1, Math.round((count / total) * 100)),
+                        count,
+                        val: total > 0 ? Number(((count / total) * 100).toFixed(1)) : 0,
                     }))
-                    .sort((a, b) => b.val - a.val)
+                    .sort((a, b) => b.count - a.count || b.val - a.val)
                     .slice(0, 4);
                 setCategoryData(categories);
             } else {
@@ -278,12 +280,12 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
                                 <div key={`${cat.name}-${i}`}>
                                     <div className="flex justify-between text-sm font-bold text-gray-700 mb-2">
                                         <span>{cat.name}</span>
-                                        <span className="text-gray-400">{cat.val}%</span>
+                                        <span className="text-gray-400">{cat.val.toFixed(1)}%</span>
                                     </div>
                                     <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
                                         <div
                                             className="h-full bg-green-500 rounded-full"
-                                            style={{ width: `${cat.val}%`, opacity: Math.max(0.35, 0.85 - i * 0.12) }}
+                                            style={{ width: `${Math.min(cat.val, 100)}%`, opacity: Math.max(0.35, 0.85 - i * 0.12) }}
                                         ></div>
                                     </div>
                                 </div>
