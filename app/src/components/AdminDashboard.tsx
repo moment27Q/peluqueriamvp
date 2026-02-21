@@ -73,6 +73,7 @@ interface WeeklyChartItem {
 }
 
 export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, initialView = 'dashboard' }) => {
+    const INITIAL_RECENT_SALES_LIMIT = 5;
     const [activeView, setActiveView] = useState<AdminView>(initialView);
     const [employees, setEmployees] = useState<EmployeeSummary[]>([]);
     const [categoryData, setCategoryData] = useState<CategorySummary[]>([]);
@@ -81,6 +82,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
     const [weeklyRevenueTotal, setWeeklyRevenueTotal] = useState(0);
     const [weeklyChart, setWeeklyChart] = useState<WeeklyChartItem[]>([]);
     const [recentSales, setRecentSales] = useState<DashboardSummary['recentServices']>([]);
+    const [showAllRecentSales, setShowAllRecentSales] = useState(false);
     const [loading, setLoading] = useState(true);
 
     const fetchDashboardData = useCallback(async (showLoader = true) => {
@@ -188,6 +190,10 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
     const maxWeeklyRevenue = useMemo(
         () => Math.max(...weeklyChart.map((x) => x.earnings), 1),
         [weeklyChart]
+    );
+    const visibleRecentSales = useMemo(
+        () => (showAllRecentSales ? recentSales : recentSales.slice(0, INITIAL_RECENT_SALES_LIMIT)),
+        [INITIAL_RECENT_SALES_LIMIT, recentSales, showAllRecentSales]
     );
 
     const renderDashboardOverview = () => {
@@ -306,7 +312,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
                     </div>
 
                     <div className="space-y-4">
-                        {recentSales.map((sale) => (
+                        {visibleRecentSales.map((sale) => (
                             <div
                                 key={sale.id}
                                 className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 p-4 rounded-xl border border-gray-100 bg-gray-50/60"
@@ -328,6 +334,16 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
 
                         {recentSales.length === 0 && (
                             <p className="text-sm text-gray-500">Aun no hay ventas recientes para mostrar.</p>
+                        )}
+
+                        {recentSales.length > INITIAL_RECENT_SALES_LIMIT && (
+                            <button
+                                type="button"
+                                onClick={() => setShowAllRecentSales((prev) => !prev)}
+                                className="w-full md:w-auto px-4 py-2 rounded-lg border border-gray-200 text-sm font-bold text-gray-700 hover:bg-gray-50 transition-all"
+                            >
+                                {showAllRecentSales ? 'Ver menos' : 'Ver mas'}
+                            </button>
                         )}
                     </div>
                 </div>

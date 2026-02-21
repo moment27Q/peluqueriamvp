@@ -2295,3 +2295,101 @@
 2026-02-19 19:10:21 [info]: GET /api/employees/me/earnings
 2026-02-19 19:31:24 [info]: GET /api/services/types/public
 2026-02-19 19:31:24 [info]: GET /api/services/types/public
+2026-02-19 22:29:32 [info]: ✅ Database connected successfully
+2026-02-19 22:29:32 [info]: 🚀 Server running on port 3001
+2026-02-19 22:29:32 [info]: 📊 Environment: development
+2026-02-19 22:29:32 [info]: 🔗 API URL: http://localhost:3001/api
+2026-02-19 22:30:05 [info]: POST /api/auth/login
+2026-02-19 22:30:07 [info]: User logged in: marlon@gmail.com
+2026-02-19 22:30:08 [info]: GET /api/employees/me/profile
+2026-02-19 22:30:08 [info]: GET /api/employees/me/services
+2026-02-19 22:30:08 [info]: GET /api/employees/me/report
+2026-02-19 22:30:08 [info]: GET /api/employees/me/report
+2026-02-19 22:30:08 [info]: GET /api/employees/me/earnings
+2026-02-19 22:30:08 [info]: GET /api/employees/me/profile
+2026-02-19 22:30:08 [info]: GET /api/employees/me/services
+2026-02-19 22:30:08 [info]: GET /api/employees/me/report
+2026-02-19 22:30:08 [info]: GET /api/employees/me/report
+2026-02-19 22:30:08 [info]: GET /api/employees/me/earnings
+2026-02-19 22:30:40 [info]: POST /api/auth/login
+2026-02-19 22:30:41 [info]: User logged in: matias@gmail.com
+2026-02-19 22:30:41 [info]: GET /api/employees
+2026-02-19 22:30:41 [info]: GET /api/services
+2026-02-19 22:30:42 [info]: GET /api/reports/dashboard
+2026-02-19 22:30:42 [info]: GET /api/reports/weekly
+2026-02-19 22:30:42 [info]: GET /api/employees
+2026-02-19 22:30:42 [info]: GET /api/services
+2026-02-19 22:30:42 [info]: GET /api/reports/weekly
+2026-02-19 22:30:42 [info]: GET /api/employees
+2026-02-19 22:30:42 [info]: GET /api/services
+2026-02-19 22:30:42 [info]: GET /api/reports/dashboard
+2026-02-19 22:30:42 [info]: GET /api/reports/weekly
+2026-02-19 22:30:42 [info]: GET /api/employees
+2026-02-19 22:30:42 [info]: GET /api/services
+2026-02-19 22:30:42 [info]: GET /api/reports/weekly
+2026-02-19 22:30:42 [info]: GET /api/reports/dashboard
+2026-02-19 22:30:43 [info]: GET /api/reports/dashboard
+2026-02-19 22:30:49 [info]: GET /api/employees
+2026-02-19 22:30:49 [info]: GET /api/services/types/all
+2026-02-19 22:30:49 [info]: GET /api/employees
+2026-02-19 22:30:49 [info]: GET /api/services/types/all
+2026-02-19 22:31:09 [info]: POST /api/services
+2026-02-19 22:31:10 [info]: POST /api/services
+2026-02-19 22:31:10 [info]: POST /api/services
+2026-02-19 22:31:10 [info]: POST /api/services
+2026-02-19 22:31:10 [info]: POST /api/services
+2026-02-19 22:31:10 [info]: POST /api/services
+2026-02-19 22:31:10 [info]: Service created: 5e9c6bb4-5bb2-4d38-b014-210bbc997a3a for employee c431387d-45c4-4ac9-97ee-6cd5c653f0cf
+2026-02-19 22:31:10 [info]: Service created: 7a55f008-fc27-457a-8337-49fb48b43b48 for employee c431387d-45c4-4ac9-97ee-6cd5c653f0cf
+2026-02-19 22:31:10 [info]: Service created: b9f09eea-5fdf-448a-ba49-dcefa2b201e8 for employee c431387d-45c4-4ac9-97ee-6cd5c653f0cf
+2026-02-19 22:31:11 [info]: Service created: 2ced3537-4f60-47de-8803-54d28816db1a for employee c431387d-45c4-4ac9-97ee-6cd5c653f0cf
+2026-02-19 22:31:11 [info]: Service created: 6fab4c46-45cd-401b-a63b-8dee49ccfccd for employee c431387d-45c4-4ac9-97ee-6cd5c653f0cf
+2026-02-19 22:31:11 [info]: Service created: 012f5ccf-b45b-4063-af54-19b9dbd9239d for employee c431387d-45c4-4ac9-97ee-6cd5c653f0cf
+2026-02-19 22:31:11 [info]: POST /api/services
+2026-02-19 22:31:11 [info]: Service created: b650e721-bbbd-4265-9932-58c44a2a62b7 for employee c431387d-45c4-4ac9-97ee-6cd5c653f0cf
+2026-02-19 22:31:11 [info]: GET /api/reports/dashboard
+2026-02-19 22:31:11 [info]: GET /api/services
+2026-02-19 22:31:11 [info]: GET /api/employees
+2026-02-19 22:31:11 [info]: GET /api/reports/weekly
+2026-02-19 22:31:14 [info]: GET /api/employees
+2026-02-19 22:31:14 [info]: GET /api/services
+2026-02-19 22:31:14 [info]: GET /api/reports/dashboard
+2026-02-19 22:31:14 [info]: GET /api/reports/weekly
+2026-02-19 22:31:29 [info]: POST /api/auth/login
+2026-02-19 22:31:29 [warn]: Failed login attempt for: marlon@gmail.com
+2026-02-19 22:31:29 [error]: Error: Credenciales inválidas
+    at Function.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\auth.service.ts:34:13)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\auth.controller.ts:44:20
+2026-02-19 22:31:31 [info]: POST /api/auth/login
+2026-02-19 22:31:34 [warn]: Failed login attempt for: marlon@gmail.com
+2026-02-19 22:31:34 [error]: Error: Credenciales inválidas
+    at Function.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\auth.service.ts:34:13)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\auth.controller.ts:44:20
+2026-02-19 22:31:44 [info]: POST /api/auth/login
+2026-02-19 22:31:46 [info]: User logged in: marlon@gmail.com
+2026-02-19 22:31:47 [info]: GET /api/employees/me/profile
+2026-02-19 22:31:47 [info]: GET /api/employees/me/services
+2026-02-19 22:31:47 [info]: GET /api/employees/me/report
+2026-02-19 22:31:47 [info]: GET /api/employees/me/report
+2026-02-19 22:31:47 [info]: GET /api/employees/me/earnings
+2026-02-19 22:31:47 [info]: GET /api/employees/me/profile
+2026-02-19 22:31:47 [info]: GET /api/employees/me/services
+2026-02-19 22:31:47 [info]: GET /api/employees/me/report
+2026-02-19 22:31:47 [info]: GET /api/employees/me/report
+2026-02-19 22:31:47 [info]: GET /api/employees/me/earnings
+2026-02-19 22:39:22 [info]: GET /api/employees/me/profile
+2026-02-19 22:39:22 [info]: GET /api/employees/me/services
+2026-02-19 22:39:22 [info]: GET /api/employees/me/report
+2026-02-19 22:39:22 [info]: GET /api/employees/me/report
+2026-02-19 22:39:22 [info]: GET /api/employees/me/earnings
+2026-02-19 22:39:50 [info]: GET /api/employees/me/profile
+2026-02-19 22:39:50 [info]: GET /api/employees/me/services
+2026-02-19 22:39:50 [info]: GET /api/employees/me/report
+2026-02-19 22:39:50 [info]: GET /api/employees/me/report
+2026-02-19 22:39:50 [info]: GET /api/employees/me/earnings
+2026-02-19 22:39:50 [info]: GET /api/employees/me/profile
+2026-02-19 22:39:50 [info]: GET /api/employees/me/services
+2026-02-19 22:39:50 [info]: GET /api/employees/me/report
+2026-02-19 22:39:50 [info]: GET /api/employees/me/report
+2026-02-19 22:39:50 [info]: GET /api/employees/me/earnings
+2026-02-19 23:07:42 [info]: SIGINT received. Shutting down gracefully...

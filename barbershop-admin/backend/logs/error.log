@@ -54,3 +54,9 @@
 2026-02-19 19:10:12 [error]: Error: Credenciales inválidas
     at Function.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\auth.service.ts:34:13)
     at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\auth.controller.ts:44:20
+2026-02-19 22:31:29 [error]: Error: Credenciales inválidas
+    at Function.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\auth.service.ts:34:13)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\auth.controller.ts:44:20
+2026-02-19 22:31:34 [error]: Error: Credenciales inválidas
+    at Function.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\auth.service.ts:34:13)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\auth.controller.ts:44:20
