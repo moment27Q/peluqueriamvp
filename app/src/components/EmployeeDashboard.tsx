@@ -39,6 +39,8 @@ interface MyReport {
 
 interface MyEarnings {
     totalCommission: number;
+    totalWithdrawn?: number;
+    availableBalance?: number;
 }
 
 interface DailyIncomePoint {
@@ -197,7 +199,7 @@ export const EmployeeDashboard: React.FC<EmployeeDashboardProps> = ({ onNavigate
         }
 
         try {
-            const response = await api.post<{ data: { message: string; status: string } }>('/employees/me/withdraw', {
+            const response = await api.post<{ data: { message: string; status: string; operationNumber?: string; availableBalance?: number } }>('/employees/me/withdraw', {
                 amount,
                 bankAccount: {
                     accountHolder: withdrawBankAccount.accountHolder.trim(),
@@ -207,7 +209,19 @@ export const EmployeeDashboard: React.FC<EmployeeDashboardProps> = ({ onNavigate
                 },
             });
             localStorage.setItem(`employee-bank-account:${email}`, JSON.stringify(withdrawBankAccount));
-            setWithdrawMessage(response?.data?.message || 'Solicitud enviada.');
+            const operationNumber = response?.data?.operationNumber;
+            setWithdrawMessage(
+                operationNumber
+                    ? `${response?.data?.message || 'Solicitud enviada.'} Operacion: ${operationNumber}`
+                    : (response?.data?.message || 'Solicitud enviada.')
+            );
+            if (typeof response?.data?.availableBalance === 'number') {
+                setMonthlyEarnings((prev) => ({
+                    totalCommission: Number(prev?.totalCommission || 0),
+                    totalWithdrawn: Number(prev?.totalWithdrawn || 0) + amount,
+                    availableBalance: response.data.availableBalance,
+                }));
+            }
             setWithdrawAmount('');
         } catch (err: any) {
             setWithdrawMessage(err.message || 'No se pudo solicitar el retiro.');
@@ -245,7 +259,7 @@ export const EmployeeDashboard: React.FC<EmployeeDashboardProps> = ({ onNavigate
                         Solo puedes retirar saldo disponible de tu propia cuenta.
                     </p>
                     <p className="mt-2 text-sm font-semibold text-gray-700">
-                        Saldo disponible: S/ {Number(monthlyEarnings?.totalCommission || 0).toFixed(2)}
+                        Saldo disponible: S/ {Number((monthlyEarnings?.availableBalance ?? monthlyEarnings?.totalCommission) || 0).toFixed(2)}
                     </p>
                     <form onSubmit={handleWithdraw} className="mt-5 space-y-4">
                         <div className="grid grid-cols-1 gap-3 md:grid-cols-2">

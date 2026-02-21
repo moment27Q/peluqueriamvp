@@ -15,6 +15,15 @@ const envSchema = z.object({
   RATE_LIMIT_WINDOW_MS: z.string().default('900000'),
   RATE_LIMIT_MAX_REQUESTS: z.string().default('100'),
   LOG_LEVEL: z.enum(['error', 'warn', 'info', 'debug']).default('info'),
+  SMTP_HOST: z.string().optional(),
+  SMTP_PORT: z.string().optional(),
+  SMTP_SECURE: z.enum(['true', 'false']).optional(),
+  SMTP_USER: z.string().optional(),
+  SMTP_PASS: z.string().optional(),
+  SMTP_FROM_EMAIL: z.string().optional(),
+  SMTP_FROM_NAME: z.string().optional(),
+  WITHDRAWAL_NOTIFY_EMAIL: z.string().optional(),
+  WITHDRAWAL_TIMEZONE: z.string().optional(),
 });
 
 const parsedEnv = envSchema.safeParse(process.env);

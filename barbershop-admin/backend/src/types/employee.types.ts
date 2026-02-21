@@ -34,6 +34,8 @@ export interface EmployeeEarnings {
   totalServices: number;
   totalRevenue: number;
   totalCommission: number;
+  totalWithdrawn: number;
+  availableBalance: number;
   salonEarnings: number;
   period: {
     start: Date;

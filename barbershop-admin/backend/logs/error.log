@@ -63,3 +63,22 @@
 2026-02-20 20:45:52 [error]: Error: Credenciales inválidas
     at Function.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\auth.service.ts:22:13)
     at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\auth.controller.ts:44:20
+2026-02-20 21:17:23 [error]: Error: Credenciales inválidas
+    at Function.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\auth.service.ts:34:13)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\auth.controller.ts:44:20
+2026-02-20 23:15:30 [error]: Error: Credenciales inválidas
+    at Function.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\auth.service.ts:34:13)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\auth.controller.ts:44:20
+2026-02-20 23:16:29 [error]: Withdrawal notification email failed
+2026-02-20 23:16:29 [error]: Withdrawal notification email failed
+2026-02-20 23:16:29 [error]: Withdrawal notification email failed
+2026-02-20 23:16:29 [error]: Withdrawal notification email failed
+2026-02-20 23:16:29 [error]: Withdrawal notification email failed
+2026-02-20 23:24:29 [error]: Withdrawal notification email failed (WD-20260220-232405-1184) user=cf7bbe1d-e37f-4abb-98f5-308352da599a detail=Error: Invalid login: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 71dfb90a1353d-568e58f9aeasm1528279e0c.11 - gsmtp
+2026-02-20 23:40:05 [error]: TypeError: Cannot read properties of undefined (reading 'aggregate')
+    at Function.getEmployeeEarnings (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\employee.service.ts:339:58)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\employee.controller.ts:203:22
+2026-02-20 23:40:05 [error]: TypeError: Cannot read properties of undefined (reading 'aggregate')
+    at Function.getEmployeeEarnings (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\employee.service.ts:339:58)
+    at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\controllers\employee.controller.ts:203:22
