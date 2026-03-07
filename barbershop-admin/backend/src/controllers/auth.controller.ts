@@ -18,6 +18,8 @@ const registerSchema = z.object({
     firstName: z.string().min(2, 'El nombre es requerido'),
     lastName: z.string().min(2, 'El apellido es requerido'),
     role: z.enum(['ADMIN', 'EMPLOYEE']).optional(),
+    shopName: z.string().min(2, 'El nombre de la peluquería es requerido').optional(),
+    plan: z.string().optional(),
   }),
 });
 
@@ -37,7 +39,7 @@ const changePasswordSchema = z.object({
 export class AuthController {
   static login = asyncHandler(async (req: Request, res: Response) => {
     const { email, password } = loginSchema.parse(req).body;
-    
+
     const ipAddress = req.ip;
     const userAgent = req.headers['user-agent'];
 

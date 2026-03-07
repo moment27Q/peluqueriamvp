@@ -2,6 +2,8 @@ import { prisma } from '../config/database';
 import { logger } from '../config/logger';
 import { JwtUtils } from '../utils/jwt.utils';
 import { PasswordUtils } from '../utils/password.utils';
+import { env } from '../config/env';
+import { createError } from '../middleware/error.middleware';
 import {
   UserPayload,
   AuthTokens,
@@ -10,8 +12,35 @@ import {
   RefreshTokenInput,
 } from '../types/auth.types';
 
+const MAX_LOGIN_ATTEMPTS = 4;
+const LOCKOUT_DURATION_MS = 15 * 60 * 1000; // 15 minutes
+
+// In-memory per-account lockout tracker (keyed by email, isolated per account)
+interface AccountLockInfo {
+  attempts: number;
+  lockedUntil: Date | null;
+}
+const loginAttemptMap = new Map<string, AccountLockInfo>();
+
+function getAccountLock(email: string): AccountLockInfo {
+  return loginAttemptMap.get(email) ?? { attempts: 0, lockedUntil: null };
+}
+
 export class AuthService {
   static async login(input: LoginInput, ipAddress?: string, userAgent?: string): Promise<{ user: UserPayload; tokens: AuthTokens }> {
+    const emailKey = input.email.toLowerCase();
+
+    // ── Check if THIS account is temporarily locked (in-memory, per-email) ──
+    const lockInfo = getAccountLock(emailKey);
+    if (lockInfo.lockedUntil && lockInfo.lockedUntil > new Date()) {
+      const minutesLeft = Math.ceil((lockInfo.lockedUntil.getTime() - Date.now()) / 60000);
+      logger.warn(`Login attempt for locked account: ${input.email}, unlocks in ${minutesLeft}min`);
+      const err: any = createError('ACCOUNT_LOCKED', 429);
+      err.code = 'ACCOUNT_LOCKED';
+      err.minutesLeft = minutesLeft;
+      throw err;
+    }
+
     const user = await prisma.user.findUnique({
       where: { email: input.email },
       include: { employee: true },
@@ -27,14 +56,56 @@ export class AuthService {
       throw new Error('Cuenta desactivada');
     }
 
+    // Check if the tenant (barbershop) is active
+    if (user.tenantId) {
+      const tenant = await prisma.tenant.findUnique({ where: { id: user.tenantId } });
+      if (tenant && !tenant.isActive) {
+        logger.warn(`Login attempt for inactive tenant: ${user.tenantId} by user: ${input.email}`);
+        const supportPhone = env.SUPPORT_PHONE || '';
+        const err: any = createError('TENANT_INACTIVE', 403);
+        err.code = 'TENANT_INACTIVE';
+        err.phone = supportPhone;
+        throw err;
+      }
+    }
+
     const isValidPassword = await PasswordUtils.compare(input.password, user.passwordHash);
 
     if (!isValidPassword) {
-      logger.warn(`Failed login attempt for: ${input.email}`);
-      throw new Error('Credenciales inválidas');
+      // Increment in-memory counter for THIS account only
+      const currentAttempts = lockInfo.attempts;
+      const newAttempts = currentAttempts + 1;
+      const shouldLock = newAttempts >= MAX_LOGIN_ATTEMPTS;
+
+      if (shouldLock) {
+        loginAttemptMap.set(emailKey, {
+          attempts: newAttempts,
+          lockedUntil: new Date(Date.now() + LOCKOUT_DURATION_MS),
+        });
+        // Auto-clear after lockout expires so map doesn't grow forever
+        setTimeout(() => loginAttemptMap.delete(emailKey), LOCKOUT_DURATION_MS + 1000);
+
+        logger.warn(`Account locked after ${newAttempts} failed attempts: ${input.email}`);
+        const err: any = createError('ACCOUNT_LOCKED', 429);
+        err.code = 'ACCOUNT_LOCKED';
+        err.minutesLeft = 15;
+        throw err;
+      }
+
+      loginAttemptMap.set(emailKey, { attempts: newAttempts, lockedUntil: null });
+
+      const attemptsLeft = MAX_LOGIN_ATTEMPTS - newAttempts;
+      logger.warn(`Failed login attempt ${newAttempts}/${MAX_LOGIN_ATTEMPTS} for: ${input.email} (${attemptsLeft} left)`);
+      const err: any = createError(`Credenciales inválidas. Te quedan ${attemptsLeft} intento${attemptsLeft === 1 ? '' : 's'} antes de bloquear la cuenta.`, 401);
+      err.code = 'INVALID_CREDENTIALS';
+      err.attemptsLeft = attemptsLeft;
+      throw err;
     }
 
-    // Update last login
+    // ✅ Successful login → clear counter for this account
+    loginAttemptMap.delete(emailKey);
+
+    // Update lastLogin in DB
     await prisma.user.update({
       where: { id: user.id },
       data: { lastLogin: new Date() },
@@ -54,6 +125,7 @@ export class AuthService {
 
     const payload: UserPayload = {
       userId: user.id,
+      tenantId: user.tenantId ?? undefined,
       email: user.email,
       role: user.role,
     };
@@ -84,20 +156,40 @@ export class AuthService {
     // Hash password
     const passwordHash = await PasswordUtils.hash(input.password);
 
+    // Create tenant if shopName is provided
+    let tenantId: string | undefined = undefined;
+    if (input.shopName) {
+      // Find the selected plan from the database or default to 'BASIC'
+      const selectedPlanName = input.plan || 'BASIC';
+      const plan = await prisma.subscriptionPlan.findUnique({
+        where: { name: selectedPlanName }
+      });
+
+      const tenant = await prisma.tenant.create({
+        data: {
+          name: input.shopName,
+          planId: plan?.id || null, // Link to dynamic SubscriptionPlan
+        },
+      });
+      tenantId = tenant.id;
+    }
+
     // Create user
     const user = await prisma.user.create({
       data: {
         email: input.email,
         passwordHash,
-        role: input.role || 'EMPLOYEE',
+        role: input.role || (tenantId ? 'ADMIN' : 'EMPLOYEE'),
+        tenantId,
       },
     });
 
-    // Create employee record if provided
-    if (input.firstName && input.lastName) {
+    // Create employee record if provided and part of a tenant
+    if (input.firstName && input.lastName && tenantId) {
       await prisma.employee.create({
         data: {
           userId: user.id,
+          tenantId: tenantId,
           firstName: input.firstName,
           lastName: input.lastName,
         },
@@ -117,6 +209,7 @@ export class AuthService {
 
     const payload: UserPayload = {
       userId: user.id,
+      tenantId: user.tenantId ?? undefined,
       email: user.email,
       role: user.role,
     };
@@ -142,6 +235,7 @@ export class AuthService {
 
       const payload: UserPayload = {
         userId: user.id,
+        tenantId: user.tenantId ?? undefined,
         email: user.email,
         role: user.role,
       };
@@ -164,6 +258,7 @@ export class AuthService {
 
     return {
       userId: user.id,
+      tenantId: user.tenantId ?? undefined,
       email: user.email,
       role: user.role,
     };

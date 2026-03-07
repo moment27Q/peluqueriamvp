@@ -1,12 +1,11 @@
 import { Router } from 'express';
 import { AuthController } from '../controllers/auth.controller';
 import { authenticate } from '../middleware/auth.middleware';
-import { authLimiter } from '../middleware/rate-limit.middleware';
 
 const router = Router();
 
-// Public routes with rate limiting
-router.post('/login', authLimiter, AuthController.login);
+// Public routes (per-account lockout handled in auth.service.ts)
+router.post('/login', AuthController.login);
 
 // Protected routes
 router.post('/logout', authenticate, AuthController.logout);

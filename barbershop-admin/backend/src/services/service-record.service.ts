@@ -29,7 +29,7 @@ export class ServiceRecordService {
     // - If service type exists, allow discount by accepting a lower client price.
     // - Never allow charging above the configured default service price.
     let finalPrice = input.price;
-    
+
     if (input.serviceTypeId) {
       const serviceType = await prisma.serviceType.findUnique({
         where: { id: input.serviceTypeId },
@@ -55,6 +55,7 @@ export class ServiceRecordService {
     // Create service record
     const service = await prisma.service.create({
       data: {
+        tenantId: input.tenantId,
         employeeId: input.employeeId,
         serviceTypeId: input.serviceTypeId || null,
         clientName: input.clientName,
@@ -101,11 +102,16 @@ export class ServiceRecordService {
 
     logger.info(`Service created: ${service.id} for employee ${input.employeeId}`);
 
-    return service as ServiceWithDetails;
+    return service as unknown as ServiceWithDetails;
   }
 
   static async getAllServices(filters: ServiceFilters = {}): Promise<ServiceWithDetails[]> {
     const where: any = {};
+
+    // Scope to tenant — Service has its own tenantId column
+    if (filters.tenantId) {
+      where.tenantId = filters.tenantId;
+    }
 
     if (filters.employeeId) {
       where.employeeId = filters.employeeId;
@@ -148,7 +154,7 @@ export class ServiceRecordService {
       orderBy: { serviceDate: 'desc' },
     });
 
-    return services as ServiceWithDetails[];
+    return services as unknown as ServiceWithDetails[];
   }
 
   static async getServiceById(id: string): Promise<ServiceWithDetails> {
@@ -175,7 +181,7 @@ export class ServiceRecordService {
       throw new Error('Servicio no encontrado');
     }
 
-    return service as ServiceWithDetails;
+    return service as unknown as ServiceWithDetails;
   }
 
   static async updateService(
@@ -192,9 +198,9 @@ export class ServiceRecordService {
     }
 
     // If employee changed, recalculate commission
-    let commissionAmount = existingService.commissionAmount;
-    let commissionRate = existingService.commissionRate;
-    let price = existingService.price;
+    let commissionAmount: any = existingService.commissionAmount;
+    let commissionRate: any = existingService.commissionRate;
+    let price: any = existingService.price;
 
     if (input.employeeId && input.employeeId !== existingService.employeeId) {
       const newEmployee = await prisma.employee.findUnique({
@@ -266,7 +272,7 @@ export class ServiceRecordService {
 
     logger.info(`Service updated: ${id}`);
 
-    return updated as ServiceWithDetails;
+    return updated as unknown as ServiceWithDetails;
   }
 
   static async deleteService(id: string, deletedBy: string): Promise<void> {
@@ -300,6 +306,7 @@ export class ServiceRecordService {
   static async createServiceType(input: CreateServiceTypeInput) {
     const serviceType = await prisma.serviceType.create({
       data: {
+        tenantId: input.tenantId,
         name: input.name,
         description: input.description,
         defaultPrice: input.defaultPrice,
@@ -312,8 +319,12 @@ export class ServiceRecordService {
     return serviceType;
   }
 
-  static async getAllServiceTypes(includeInactive: boolean = false) {
-    const where = includeInactive ? {} : { isActive: true };
+  static async getAllServiceTypes(includeInactive: boolean = false, tenantId?: string) {
+    const where: any = includeInactive ? {} : { isActive: true };
+
+    if (tenantId) {
+      where.tenantId = tenantId;
+    }
 
     return prisma.serviceType.findMany({
       where,

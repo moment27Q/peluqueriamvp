@@ -14,58 +14,55 @@ const dateRangeSchema = z.object({
 export class ReportController {
   static getDailyReport = asyncHandler(async (req: Request, res: Response) => {
     const { date } = dateRangeSchema.parse(req).query;
+    const tenantId = req.user!.tenantId;
 
     const report = await ReportService.getDailyReport(
-      date ? new Date(date) : undefined
+      date ? new Date(date) : undefined,
+      tenantId
     );
 
-    res.json({
-      success: true,
-      data: report,
-    });
+    res.json({ success: true, data: report });
   });
 
   static getWeeklyReport = asyncHandler(async (req: Request, res: Response) => {
     const { date } = dateRangeSchema.parse(req).query;
+    const tenantId = req.user!.tenantId;
 
     const report = await ReportService.getWeeklyReport(
-      date ? new Date(date) : undefined
+      date ? new Date(date) : undefined,
+      tenantId
     );
 
-    res.json({
-      success: true,
-      data: report,
-    });
+    res.json({ success: true, data: report });
   });
 
   static getBiweeklyReport = asyncHandler(async (req: Request, res: Response) => {
     const { date } = dateRangeSchema.parse(req).query;
+    const tenantId = req.user!.tenantId;
 
     const report = await ReportService.getBiweeklyReport(
-      date ? new Date(date) : undefined
+      date ? new Date(date) : undefined,
+      tenantId
     );
 
-    res.json({
-      success: true,
-      data: report,
-    });
+    res.json({ success: true, data: report });
   });
 
   static getMonthlyReport = asyncHandler(async (req: Request, res: Response) => {
     const { date } = dateRangeSchema.parse(req).query;
+    const tenantId = req.user!.tenantId;
 
     const report = await ReportService.getMonthlyReport(
-      date ? new Date(date) : undefined
+      date ? new Date(date) : undefined,
+      tenantId
     );
 
-    res.json({
-      success: true,
-      data: report,
-    });
+    res.json({ success: true, data: report });
   });
 
   static getCustomReport = asyncHandler(async (req: Request, res: Response) => {
     const { startDate, endDate } = dateRangeSchema.parse(req).query;
+    const tenantId = req.user!.tenantId;
 
     if (!startDate || !endDate) {
       return res.status(400).json({
@@ -76,26 +73,22 @@ export class ReportController {
 
     const report = await ReportService.getCustomReport(
       new Date(startDate),
-      new Date(endDate)
+      new Date(endDate),
+      tenantId
     );
 
-    res.json({
-      success: true,
-      data: report,
-    });
+    res.json({ success: true, data: report });
   });
 
   static getDashboardSummary = asyncHandler(async (req: Request, res: Response) => {
-    const summary = await ReportService.getDashboardSummary();
-
-    res.json({
-      success: true,
-      data: summary,
-    });
+    const tenantId = req.user!.tenantId;
+    const summary = await ReportService.getDashboardSummary(tenantId);
+    res.json({ success: true, data: summary });
   });
 
   static getEmployeeComparison = asyncHandler(async (req: Request, res: Response) => {
     const { startDate, endDate } = dateRangeSchema.parse(req).query;
+    const tenantId = req.user!.tenantId;
 
     if (!startDate || !endDate) {
       return res.status(400).json({
@@ -106,12 +99,10 @@ export class ReportController {
 
     const comparison = await ReportService.getEmployeeComparison(
       new Date(startDate),
-      new Date(endDate)
+      new Date(endDate),
+      tenantId
     );
 
-    res.json({
-      success: true,
-      data: comparison,
-    });
+    res.json({ success: true, data: comparison });
   });
 }

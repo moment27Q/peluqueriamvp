@@ -4,7 +4,7 @@
   "description": "Backend API for BarberAdmin Pro - Hair Salon Management System",
   "main": "dist/app.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch logs src/app.ts",
     "build": "tsc",
     "start": "node dist/app.js",
     "db:generate": "prisma generate",
@@ -42,6 +42,7 @@
     "@types/express": "^4.17.21",
     "@types/jsonwebtoken": "^9.0.5",
     "@types/node": "^20.10.4",
+    "@types/nodemailer": "^7.0.11",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
     "eslint": "^8.55.0",

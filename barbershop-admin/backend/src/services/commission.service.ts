@@ -53,7 +53,7 @@ export class CommissionService {
   /**
    * Calcula totales para un conjunto de servicios
    */
-  static calculateTotals(services: Array<{ price: number; commissionAmount: number }>): {
+  static calculateTotals(services: Array<{ price: any; commissionAmount: any }>): {
     totalRevenue: number;
     totalCommission: number;
     totalSalonEarnings: number;

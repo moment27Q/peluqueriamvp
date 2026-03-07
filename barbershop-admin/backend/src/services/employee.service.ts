@@ -74,12 +74,14 @@ export class EmployeeService {
           email: input.email,
           passwordHash,
           role: 'EMPLOYEE',
+          tenantId: input.tenantId,
         },
       });
 
       const employee = await tx.employee.create({
         data: {
           userId: user.id,
+          tenantId: input.tenantId,
           firstName: input.firstName,
           lastName: input.lastName,
           phone: input.phone,
@@ -123,6 +125,11 @@ export class EmployeeService {
 
   static async getAllEmployees(filters: EmployeeFilters = {}) {
     const where: any = {};
+
+    // IMPORTANT: always scope to tenant if provided
+    if (filters.tenantId) {
+      where.tenantId = filters.tenantId;
+    }
 
     if (filters.isActive !== undefined) {
       where.isActive = filters.isActive;
@@ -565,6 +572,7 @@ export class EmployeeService {
     const employeeEmail = employee?.user?.email || '';
     await prisma.withdrawal.create({
       data: {
+        tenantId: employee.tenantId,
         employeeId: employee.id,
         operationNumber,
         amount,

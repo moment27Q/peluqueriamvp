@@ -1,4 +1,5 @@
 export interface CreateEmployeeInput {
+  tenantId: string;
   email: string;
   password: string;
   firstName: string;
@@ -18,6 +19,7 @@ export interface UpdateEmployeeInput {
 }
 
 export interface EmployeeFilters {
+  tenantId?: string;
   isActive?: boolean;
   search?: string;
 }

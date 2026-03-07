@@ -13,6 +13,8 @@ import authRoutes from './routes/auth.routes';
 import employeeRoutes from './routes/employee.routes';
 import serviceRoutes from './routes/service.routes';
 import reportRoutes from './routes/report.routes';
+import planRoutes from './routes/plan.routes';
+import tenantRoutes from './routes/tenant.routes';
 
 const app = express();
 
@@ -69,6 +71,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/employees', employeeRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api/reports', reportRoutes);
+app.use('/api/plans', planRoutes);
+app.use('/api/admin/tenants', tenantRoutes);
 
 // API version endpoint
 app.get('/api/version', (req, res) => {

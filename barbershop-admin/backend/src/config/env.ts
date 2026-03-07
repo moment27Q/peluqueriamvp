@@ -24,6 +24,7 @@ const envSchema = z.object({
   SMTP_FROM_NAME: z.string().optional(),
   WITHDRAWAL_NOTIFY_EMAIL: z.string().optional(),
   WITHDRAWAL_TIMEZONE: z.string().optional(),
+  SUPPORT_PHONE: z.string().optional(),
 });
 
 const parsedEnv = envSchema.safeParse(process.env);

@@ -11,10 +11,14 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onNavigate }) => {
 
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const [tenantInactive, setTenantInactive] = useState<{ phone: string } | null>(null);
+    const [accountLocked, setAccountLocked] = useState<{ minutesLeft: number } | null>(null);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError('');
+        setTenantInactive(null);
+        setAccountLocked(null);
         setLoading(true);
 
         try {
@@ -53,7 +57,15 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onNavigate }) => {
             onNavigate(role === 'EMPLOYEE' ? 'employee' : 'admin');
         } catch (err: any) {
             console.error('Login error:', err);
-            setError(err.message || 'Error al iniciar sesión. Verifique sus credenciales.');
+            const isLocked = err?.code === 'ACCOUNT_LOCKED' || err?.message === 'ACCOUNT_LOCKED';
+            const isInactive = err?.code === 'TENANT_INACTIVE' || err?.message === 'TENANT_INACTIVE';
+            if (isInactive) {
+                setTenantInactive({ phone: err.phone || '' });
+            } else if (isLocked) {
+                setAccountLocked({ minutesLeft: err.minutesLeft || 15 });
+            } else {
+                setError(err.message || 'Error al iniciar sesión. Verifique sus credenciales.');
+            }
         } finally {
             setLoading(false);
         }
@@ -159,6 +171,37 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onNavigate }) => {
                             <label htmlFor="remember" className="text-xs text-gray-500 font-medium cursor-pointer select-none">Recordarme en este dispositivo</label>
                         </div>
 
+                        {/* Account Locked Banner */}
+                        {accountLocked && (
+                            <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-4 text-center">
+                                <p className="text-red-600 text-sm font-bold">
+                                    ⏱ En {accountLocked.minutesLeft} minuto{accountLocked.minutesLeft === 1 ? '' : 's'} podrá intentar nuevamente.
+                                </p>
+                            </div>
+                        )}
+
+                        {/* Tenant Inactive Banner */}
+                        {tenantInactive && (
+                            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-4 flex flex-col items-center gap-1 text-center">
+                                <div className="flex items-center gap-2 text-amber-600 font-black text-sm uppercase tracking-wide">
+                                    <span className="material-symbols-outlined text-xl">block</span>
+                                    Cuenta inhabilitada
+                                </div>
+                                <p className="text-amber-700 text-xs font-medium mt-1">
+                                    Tu peluquería se encuentra desactivada.
+                                </p>
+                                {tenantInactive.phone && (
+                                    <a
+                                        href={`tel:${tenantInactive.phone}`}
+                                        className="mt-2 inline-flex items-center gap-1.5 bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold py-2 px-4 rounded-full transition-colors shadow"
+                                    >
+                                        <span className="material-symbols-outlined text-sm">call</span>
+                                        Llamar al {tenantInactive.phone}
+                                    </a>
+                                )}
+                            </div>
+                        )}
+
                         {/* Error Message */}
                         {error && (
                             <div className="bg-red-50 text-red-500 text-xs font-bold p-3 rounded-lg mb-4 text-center">
@@ -169,20 +212,12 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onNavigate }) => {
                         {/* Submit Button */}
                         <button
                             type="submit"
-                            disabled={loading}
-                            className={`w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl uppercase tracking-widest text-xs transition-all transform active:scale-[0.98] mt-4 shadow-lg shadow-primary/30 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
+                            disabled={loading || !!accountLocked}
+                            className={`w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl uppercase tracking-widest text-xs transition-all transform active:scale-[0.98] mt-4 shadow-lg shadow-primary/30 ${(loading || accountLocked) ? 'opacity-50 cursor-not-allowed' : ''}`}
                         >
                             {loading ? 'Entrando...' : 'Entrar'}
                         </button>
                     </form>
-
-                    {/* Footer Links */}
-                    <div className="mt-8 pt-6 w-full text-center border-t border-gray-50">
-                        <p className="text-gray-400 text-xs">
-                            ¿No tienes una cuenta?
-                            <a href="#" className="text-primary font-bold hover:underline ml-1">Regístrate aquí</a>
-                        </p>
-                    </div>
                 </div>
             </div>
         </div>

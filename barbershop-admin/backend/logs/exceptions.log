@@ -60,3 +60,24 @@ Require stack:
     at require (node:internal/modules/helpers:147:16)
     at Object.<anonymous> (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\services\notification.service.ts:1:1)
     at Module.<anonymous> (node:internal/modules/cjs/loader:1706:14)
+2026-03-06 21:20:05 [error]: Error: listen EADDRINUSE: address already in use :::3001
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at Function.listen (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\express\lib\application.js:635:24)
+    at startServer (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\app.ts:98:9)
+2026-03-07 12:07:54 [error]: C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\src\middleware\error.middleware.ts:95
+    const errAny = err;
+          ^
+
+SyntaxError: Identifier 'errAny' has already been declared
+    at wrapSafe (node:internal/modules/cjs/loader:1638:18)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1680:20)
+    at Module._compile (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\matia\AppData\Local\Temp\ts-node-dev-hook-8741990438398033.js:69:33)
+    at node:internal/modules/cjs/loader:1839:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\matia\AppData\Local\Temp\ts-node-dev-hook-8741990438398033.js:114:20)
+    at require.extensions.<computed> (C:\Users\matia\AppData\Local\Temp\ts-node-dev-hook-8741990438398033.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)

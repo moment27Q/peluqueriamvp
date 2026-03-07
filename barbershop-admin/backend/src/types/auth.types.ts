@@ -2,6 +2,7 @@ import { UserRole } from '@prisma/client';
 
 export interface UserPayload {
   userId: string;
+  tenantId?: string;
   email: string;
   role: UserRole;
 }
@@ -23,6 +24,8 @@ export interface RegisterInput {
   firstName: string;
   lastName: string;
   role?: UserRole;
+  shopName?: string;
+  plan?: string;
 }
 
 export interface RefreshTokenInput {

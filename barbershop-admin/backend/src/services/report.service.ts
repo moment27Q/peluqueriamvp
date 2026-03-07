@@ -64,63 +64,71 @@ export interface DashboardSummary {
 }
 
 export class ReportService {
-  static async getDailyReport(date?: Date): Promise<PeriodReport> {
+  static async getDailyReport(date?: Date, tenantId?: string): Promise<PeriodReport> {
     const targetDate = date || new Date();
     const startOfDay = new Date(targetDate);
     startOfDay.setHours(0, 0, 0, 0);
-    
+
     const endOfDay = new Date(targetDate);
     endOfDay.setHours(23, 59, 59, 999);
 
-    return this.generatePeriodReport(startOfDay, endOfDay, 'Diario');
+    return this.generatePeriodReport(startOfDay, endOfDay, 'Diario', tenantId);
   }
 
-  static async getWeeklyReport(endDate?: Date): Promise<PeriodReport> {
+  static async getWeeklyReport(endDate?: Date, tenantId?: string): Promise<PeriodReport> {
     const end = endDate || new Date();
     const start = new Date(end);
     start.setDate(start.getDate() - 6);
     start.setHours(0, 0, 0, 0);
     end.setHours(23, 59, 59, 999);
 
-    return this.generatePeriodReport(start, end, 'Semanal');
+    return this.generatePeriodReport(start, end, 'Semanal', tenantId);
   }
 
-  static async getBiweeklyReport(endDate?: Date): Promise<PeriodReport> {
+  static async getBiweeklyReport(endDate?: Date, tenantId?: string): Promise<PeriodReport> {
     const end = endDate || new Date();
     const start = new Date(end);
     start.setDate(start.getDate() - 13);
     start.setHours(0, 0, 0, 0);
     end.setHours(23, 59, 59, 999);
 
-    return this.generatePeriodReport(start, end, 'Quincenal');
+    return this.generatePeriodReport(start, end, 'Quincenal', tenantId);
   }
 
-  static async getMonthlyReport(endDate?: Date): Promise<PeriodReport> {
+  static async getMonthlyReport(endDate?: Date, tenantId?: string): Promise<PeriodReport> {
     const end = endDate || new Date();
     const start = new Date(end);
     start.setMonth(start.getMonth() - 1);
     start.setHours(0, 0, 0, 0);
     end.setHours(23, 59, 59, 999);
 
-    return this.generatePeriodReport(start, end, 'Mensual');
+    return this.generatePeriodReport(start, end, 'Mensual', tenantId);
   }
 
-  static async getCustomReport(startDate: Date, endDate: Date): Promise<PeriodReport> {
-    return this.generatePeriodReport(startDate, endDate, 'Personalizado');
+  static async getCustomReport(startDate: Date, endDate: Date, tenantId?: string): Promise<PeriodReport> {
+    return this.generatePeriodReport(startDate, endDate, 'Personalizado', tenantId);
   }
 
   private static async generatePeriodReport(
     startDate: Date,
     endDate: Date,
-    label: string
+    label: string,
+    tenantId?: string
   ): Promise<PeriodReport> {
-    const services = await prisma.service.findMany({
-      where: {
-        serviceDate: {
-          gte: startDate,
-          lte: endDate,
-        },
+    const where: any = {
+      serviceDate: {
+        gte: startDate,
+        lte: endDate,
       },
+    };
+
+    // Always scope to tenant
+    if (tenantId) {
+      where.tenantId = tenantId;
+    }
+
+    const services = await prisma.service.findMany({
+      where,
       include: {
         employee: {
           select: {
@@ -147,7 +155,7 @@ export class ReportService {
     services.forEach((service) => {
       const empId = service.employeeId;
       const empName = `${service.employee.firstName} ${service.employee.lastName}`;
-      
+
       if (!byEmployeeMap.has(empId)) {
         byEmployeeMap.set(empId, {
           employeeId: empId,
@@ -170,7 +178,7 @@ export class ReportService {
     const dailyMap = new Map();
     services.forEach((service) => {
       const dateKey = service.serviceDate.toISOString().split('T')[0];
-      
+
       if (!dailyMap.has(dateKey)) {
         dailyMap.set(dateKey, {
           date: dateKey,
@@ -204,7 +212,7 @@ export class ReportService {
     };
   }
 
-  static async getDashboardSummary(): Promise<DashboardSummary> {
+  static async getDashboardSummary(tenantId?: string): Promise<DashboardSummary> {
     const now = new Date();
 
     // Today
@@ -223,15 +231,17 @@ export class ReportService {
     monthStart.setMonth(monthStart.getMonth() - 1);
     monthStart.setHours(0, 0, 0, 0);
 
+    const tenantWhere = tenantId ? { tenantId } : {};
+
     const [todayServices, weekServices, monthServices] = await Promise.all([
       prisma.service.findMany({
-        where: { serviceDate: { gte: todayStart, lte: todayEnd } },
+        where: { ...tenantWhere, serviceDate: { gte: todayStart, lte: todayEnd } },
       }),
       prisma.service.findMany({
-        where: { serviceDate: { gte: weekStart, lte: todayEnd } },
+        where: { ...tenantWhere, serviceDate: { gte: weekStart, lte: todayEnd } },
       }),
       prisma.service.findMany({
-        where: { serviceDate: { gte: monthStart, lte: todayEnd } },
+        where: { ...tenantWhere, serviceDate: { gte: monthStart, lte: todayEnd } },
       }),
     ]);
 
@@ -240,10 +250,11 @@ export class ReportService {
     const monthTotals = CommissionService.calculateTotals(monthServices);
 
     // Top employees this month
-    const topEmployees = await this.getTopEmployees(monthStart, todayEnd, 5);
+    const topEmployees = await this.getTopEmployees(monthStart, todayEnd, 5, tenantId);
 
     // Recent services
     const recentServices = await prisma.service.findMany({
+      where: tenantWhere,
       take: 10,
       orderBy: { serviceDate: 'desc' },
       include: {
@@ -292,15 +303,22 @@ export class ReportService {
   private static async getTopEmployees(
     startDate: Date,
     endDate: Date,
-    limit: number
+    limit: number,
+    tenantId?: string
   ): Promise<Array<{ employeeId: string; employeeName: string; services: number; revenue: number }>> {
-    const services = await prisma.service.findMany({
-      where: {
-        serviceDate: {
-          gte: startDate,
-          lte: endDate,
-        },
+    const where: any = {
+      serviceDate: {
+        gte: startDate,
+        lte: endDate,
       },
+    };
+
+    if (tenantId) {
+      where.tenantId = tenantId;
+    }
+
+    const services = await prisma.service.findMany({
+      where,
       include: {
         employee: {
           select: {
@@ -336,9 +354,14 @@ export class ReportService {
       .slice(0, limit);
   }
 
-  static async getEmployeeComparison(startDate: Date, endDate: Date) {
+  static async getEmployeeComparison(startDate: Date, endDate: Date, tenantId?: string) {
+    const where: any = { isActive: true };
+    if (tenantId) {
+      where.tenantId = tenantId;
+    }
+
     const employees = await prisma.employee.findMany({
-      where: { isActive: true },
+      where,
       include: {
         services: {
           where: {

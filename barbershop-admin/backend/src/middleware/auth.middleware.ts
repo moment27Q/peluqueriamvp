@@ -45,6 +45,23 @@ export const requireAdmin = (req: Request, res: Response, next: NextFunction): v
   next();
 };
 
+export const requireRole = (roles: string[]) => {
+  return (req: Request, res: Response, next: NextFunction): void => {
+    if (!req.user) {
+      res.status(401).json({ error: 'No autenticado' });
+      return;
+    }
+
+    if (!roles.includes(req.user.role)) {
+      logger.warn(`Access denied for user: ${req.user.email}. Requires one of: ${roles.join(', ')}`);
+      res.status(403).json({ error: 'Acceso denegado. No tienes los permisos necesarios.' });
+      return;
+    }
+
+    next();
+  };
+};
+
 export const requireOwnerOrAdmin = (req: Request, res: Response, next: NextFunction): void => {
   if (!req.user) {
     res.status(401).json({ error: 'No autenticado' });
@@ -59,10 +76,10 @@ export const requireOwnerOrAdmin = (req: Request, res: Response, next: NextFunct
 
   // Employee can only access their own data
   const requestedEmployeeId = req.params.id;
-  
+
   // TODO: Add logic to check if the employee is accessing their own data
   // This requires looking up the employee record by userId
-  
+
   logger.warn(`Access denied for user: ${req.user.email}`);
   res.status(403).json({ error: 'Acceso denegado' });
   return;

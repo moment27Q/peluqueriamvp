@@ -5,19 +5,19 @@ import { UserPayload, AuthTokens } from '../types/auth.types';
 export class JwtUtils {
   static generateTokens(payload: UserPayload): AuthTokens {
     const accessToken = jwt.sign(payload, env.JWT_SECRET, {
-      expiresIn: env.JWT_EXPIRES_IN,
+      expiresIn: env.JWT_EXPIRES_IN as any,
     });
 
     const refreshToken = jwt.sign(
       { userId: payload.userId },
       env.JWT_REFRESH_SECRET,
-      { expiresIn: env.JWT_REFRESH_EXPIRES_IN }
+      { expiresIn: env.JWT_REFRESH_EXPIRES_IN as any }
     );
 
     // Parse expiresIn to get actual expiration time in seconds
     const expiresInMatch = env.JWT_EXPIRES_IN.match(/(\d+)([mhd])/);
     let expiresIn = 900; // Default 15 minutes
-    
+
     if (expiresInMatch) {
       const value = parseInt(expiresInMatch[1]);
       const unit = expiresInMatch[2];

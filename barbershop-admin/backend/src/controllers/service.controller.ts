@@ -79,8 +79,11 @@ export class ServiceController {
   static createService = asyncHandler(async (req: Request, res: Response) => {
     const data = createServiceSchema.parse(req).body;
     const createdBy = req.user!.userId;
+    const tenantId = req.user!.tenantId;
 
-    const service = await ServiceRecordService.createService(data, createdBy);
+    if (!tenantId) throw new Error('Usuario sin empresa');
+
+    const service = await ServiceRecordService.createService({ ...data, tenantId }, createdBy);
 
     res.status(201).json({
       success: true,
@@ -90,8 +93,10 @@ export class ServiceController {
 
   static getAllServices = asyncHandler(async (req: Request, res: Response) => {
     const { query } = serviceFiltersSchema.parse(req);
+    const tenantId = req.user!.tenantId;
 
     const filters = {
+      tenantId,
       employeeId: query.employeeId,
       startDate: query.startDate ? new Date(query.startDate) : undefined,
       endDate: query.endDate ? new Date(query.endDate) : undefined,
@@ -145,8 +150,11 @@ export class ServiceController {
   // Service Types
   static createServiceType = asyncHandler(async (req: Request, res: Response) => {
     const data = createServiceTypeSchema.parse(req).body;
+    const tenantId = req.user!.tenantId;
 
-    const serviceType = await ServiceRecordService.createServiceType(data);
+    if (!tenantId) throw new Error('Usuario sin empresa');
+
+    const serviceType = await ServiceRecordService.createServiceType({ ...data, tenantId });
 
     res.status(201).json({
       success: true,
@@ -156,9 +164,11 @@ export class ServiceController {
 
   static getAllServiceTypes = asyncHandler(async (req: Request, res: Response) => {
     const { includeInactive } = req.query;
+    const tenantId = req.user!.tenantId;
 
     const serviceTypes = await ServiceRecordService.getAllServiceTypes(
-      includeInactive === 'true'
+      includeInactive === 'true',
+      tenantId
     );
 
     res.json({

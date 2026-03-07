@@ -81,8 +81,11 @@ export class EmployeeController {
   static createEmployee = asyncHandler(async (req: Request, res: Response) => {
     const data = createEmployeeSchema.parse(req).body;
     const createdBy = req.user!.userId;
+    const tenantId = req.user!.tenantId;
 
-    const employee = await EmployeeService.createEmployee(data, createdBy);
+    if (!tenantId) throw new Error('Usuario sin empresa');
+
+    const employee = await EmployeeService.createEmployee({ ...data, tenantId }, createdBy);
 
     res.status(201).json({
       success: true,
@@ -92,8 +95,10 @@ export class EmployeeController {
 
   static getAllEmployees = asyncHandler(async (req: Request, res: Response) => {
     const { isActive, search } = req.query;
+    const tenantId = req.user!.tenantId;
 
     const filters = {
+      tenantId,
       isActive: isActive !== undefined ? isActive === 'true' : undefined,
       search: search as string | undefined,
     };

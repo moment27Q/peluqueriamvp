@@ -11,7 +11,7 @@ export const Footer = () => {
                     <button className="text-gray-400 hover:text-gray-800 transition-colors transform hover:scale-110"><span className="material-symbols-outlined">public</span></button>
                     <button className="text-gray-400 hover:text-gray-800 transition-colors transform hover:scale-110"><span className="material-symbols-outlined">mail</span></button>
                 </div>
-                <p className="text-gray-500 text-sm font-medium">© 2026 mi pagina.com. Todos los derechos reservados.</p>
+                <p className="text-gray-500 text-sm font-medium">© 2026 Desarrollo completado.</p>
             </div>
         </footer>
     );

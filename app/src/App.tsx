@@ -3,8 +3,10 @@ import { Preloader } from './components/Preloader';
 import { ModernLanding } from './components/ModernLanding';
 import { ServicesPage } from './components/ServicesPage';
 import { BarbersPage } from './components/BarbersPage';
+import { PlansPage } from './components/PlansPage';
 import { LoginPage } from './components/LoginPage';
 import { AdminDashboard } from './components/AdminDashboard';
+import { SuperAdminDashboard } from './components/SuperAdminDashboard';
 import { HelpCenterPage } from './components/HelpCenterPage';
 import { EmployeeDashboard } from './components/EmployeeDashboard';
 import { TermsPage } from './components/TermsPage';
@@ -38,23 +40,28 @@ function App() {
 
       // If we have a token and we are in public pages, redirect by role
       if (token && (currentPage === 'landing' || currentPage === 'login')) {
-        setCurrentPage(role === 'EMPLOYEE' ? 'employee' : 'admin');
+        setCurrentPage(role === 'SUPERADMIN' ? 'superadmin' : role === 'EMPLOYEE' ? 'employee' : 'admin');
         return;
       }
 
       // If there is no token, prevent access to admin pages
-      if (!token && (currentPage === 'admin' || currentPage === 'employee')) {
+      if (!token && ['admin', 'employee', 'superadmin'].includes(currentPage)) {
         setCurrentPage('login');
         return;
       }
 
-      if (token && role === 'EMPLOYEE' && currentPage === 'admin') {
+      if (token && role === 'EMPLOYEE' && ['admin', 'superadmin'].includes(currentPage)) {
         setCurrentPage('employee');
         return;
       }
 
-      if (token && role === 'ADMIN' && currentPage === 'employee') {
+      if (token && role === 'ADMIN' && ['employee', 'superadmin'].includes(currentPage)) {
         setCurrentPage('admin');
+        return;
+      }
+
+      if (token && role === 'SUPERADMIN' && ['employee', 'admin'].includes(currentPage)) {
+        setCurrentPage('superadmin');
       }
     };
 
@@ -80,9 +87,11 @@ function App() {
       <div className={`min-h-screen bg-[#141414] ${isLoading ? 'overflow-hidden max-h-screen' : ''}`}>
         {currentPage === 'landing' && <ModernLanding onNavigate={handleNavigate} />}
         {currentPage === 'services' && <ServicesPage onNavigate={handleNavigate} />}
+        {currentPage === 'plans' && <PlansPage onNavigate={handleNavigate} />}
         {currentPage === 'barbers' && <BarbersPage onNavigate={handleNavigate} />}
         {currentPage === 'login' && <LoginPage onNavigate={handleNavigate} />}
         {currentPage === 'admin' && <AdminDashboard onNavigate={handleNavigate} initialView="dashboard" />}
+        {currentPage === 'superadmin' && <SuperAdminDashboard onNavigate={handleNavigate} />}
         {currentPage === 'employee' && <EmployeeDashboard onNavigate={handleNavigate} />}
         {currentPage === 'admin-help' && <HelpCenterPage onNavigate={handleNavigate} />}
         {currentPage === 'terms' && <TermsPage onNavigate={handleNavigate} />}

@@ -92,12 +92,22 @@ class ApiService {
         }
 
         if (!response.ok) {
-            const message =
-                data?.message ||
-                data?.error ||
-                (typeof data === 'string' ? data : null) ||
-                `Error ${response.status} en la petición`;
-            throw new Error(message);
+            console.error('API Error Response:', response.status, data);
+
+            // Backend sends { error: "ACCOUNT_LOCKED", minutesLeft: 15 }
+            const errorStr = data?.error || data?.message || (typeof data === 'string' ? data : null);
+            const message = errorStr || `Error ${response.status} en la petición`;
+
+            const apiError: any = new Error(message);
+            // In many backend responses, the 'error' field is actually the code (like 'ACCOUNT_LOCKED')
+            apiError.code = data?.code || (typeof data?.error === 'string' ? data.error : null);
+
+            // Preserve extra fields for special error handling banners (like minutesLeft and phone)
+            if (data?.phone !== undefined) apiError.phone = data.phone;
+            if (data?.minutesLeft !== undefined) apiError.minutesLeft = data.minutesLeft;
+            if (data?.attemptsLeft !== undefined) apiError.attemptsLeft = data.attemptsLeft;
+
+            throw apiError;
         }
 
         return data as T;
@@ -119,6 +129,14 @@ class ApiService {
         return this.request<T>(endpoint, {
             ...options,
             method: 'PUT',
+            body: JSON.stringify(body),
+        });
+    }
+
+    patch<T>(endpoint: string, body: any, options?: RequestOptions): Promise<T> {
+        return this.request<T>(endpoint, {
+            ...options,
+            method: 'PATCH',
             body: JSON.stringify(body),
         });
     }
