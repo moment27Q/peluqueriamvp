@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useState } from 'react';
+﻿import React, { useCallback, useEffect, useState } from 'react';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { api } from '../services/api';
 
-type DateRange = 'Hoy' | 'Esta Semana' | 'Este Mes' | 'Este Año';
+type DateRange = 'Hoy' | 'Esta Semana' | 'Este Mes' | 'Este AÃ±o';
 
 interface ServiceRecord {
     id: string;
@@ -52,6 +52,7 @@ interface EmployeeIncomeHistory {
     totalServices: number;
     lastIncomeLabel: string;
     recentIncomeLabel: string;
+    entries: Array<{ date: string; amount: number }>;
 }
 
 export const AdminReports: React.FC = () => {
@@ -62,6 +63,7 @@ export const AdminReports: React.FC = () => {
     const [salesValue, setSalesValue] = useState(0);
     const [servicesCount, setServicesCount] = useState(0);
     const [employeeHistory, setEmployeeHistory] = useState<Record<string, EmployeeIncomeHistory>>({});
+    const [selectedEmployee, setSelectedEmployee] = useState<string | null>(null);
 
     const getRangeDates = (range: DateRange) => {
         const end = new Date();
@@ -193,7 +195,7 @@ export const AdminReports: React.FC = () => {
 
                 const lastIncome = sortedEntries[0];
                 const lastIncomeLabel = lastIncome
-                    ? `${new Date(lastIncome.date).toLocaleString('es-ES')} · S/ ${lastIncome.amount.toFixed(2)}`
+                    ? `${new Date(lastIncome.date).toLocaleString('es-ES')} Â· S/ ${lastIncome.amount.toFixed(2)}`
                     : 'Sin ingresos';
 
                 const recentIncomeLabel = sortedEntries
@@ -207,6 +209,7 @@ export const AdminReports: React.FC = () => {
                     totalServices: history.totalServices,
                     lastIncomeLabel,
                     recentIncomeLabel: recentIncomeLabel.join(' · '),
+                    entries: sortedEntries,
                 };
             }
             setEmployeeHistory(historyLabels);
@@ -378,7 +381,7 @@ export const AdminReports: React.FC = () => {
                                 <option>Hoy</option>
                                 <option>Esta Semana</option>
                                 <option>Este Mes</option>
-                                <option>Este Año</option>
+                                <option>Este AÃ±o</option>
                             </select>
                         </div>
                     </div>
@@ -432,7 +435,12 @@ export const AdminReports: React.FC = () => {
                         <div className="p-6 flex-1">
                             <div className="space-y-4">
                                 {topEmployees.map((emp, index) => (
-                                    <div key={`${emp.name}-${index}`} className="flex items-center justify-between group">
+                                    <button
+                                        key={`${emp.name}-${index}`}
+                                        type="button"
+                                        onClick={() => setSelectedEmployee(emp.name)}
+                                        className="flex w-full items-center justify-between group text-left rounded-xl border border-transparent hover:border-gray-100 hover:bg-gray-50/60 px-2 py-2 transition-all"
+                                    >
                                         <div className="flex items-center gap-3">
                                             <div className="size-10 rounded-full bg-gray-100 flex items-center justify-center font-bold text-gray-500">
                                                 {emp.name.charAt(0)}
@@ -451,10 +459,10 @@ export const AdminReports: React.FC = () => {
                                             {employeeHistory[emp.name] && (
                                                 <>
                                                     <p className="text-[11px] text-gray-500 mt-1">
-                                                        Total histórico: S/ {employeeHistory[emp.name].totalEarnings.toFixed(2)} ({employeeHistory[emp.name].totalServices} servicios)
+                                                        Total histÃ³rico: S/ {employeeHistory[emp.name].totalEarnings.toFixed(2)} ({employeeHistory[emp.name].totalServices} servicios)
                                                     </p>
                                                     <p className="text-[11px] text-gray-400">
-                                                        Último ingreso: {employeeHistory[emp.name].lastIncomeLabel}
+                                                        Ãšltimo ingreso: {employeeHistory[emp.name].lastIncomeLabel}
                                                     </p>
                                                     <p className="text-[11px] text-gray-400">
                                                         Historial reciente: {employeeHistory[emp.name].recentIncomeLabel || 'Sin movimientos'}
@@ -462,7 +470,7 @@ export const AdminReports: React.FC = () => {
                                                 </>
                                             )}
                                         </div>
-                                    </div>
+                                    </button>
                                 ))}
                                 {topEmployees.length === 0 && (
                                     <p className="text-sm text-gray-500">Sin datos de rendimiento en la base.</p>
@@ -472,7 +480,56 @@ export const AdminReports: React.FC = () => {
                     </div>
                 </div>
             </div>
+
+            {selectedEmployee && employeeHistory[selectedEmployee] && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
+                    <div className="w-full max-w-2xl rounded-2xl bg-white shadow-2xl">
+                        <div className="flex items-center justify-between border-b border-gray-100 px-6 py-4">
+                            <div>
+                                <h4 className="text-lg font-bold text-gray-900">Historial de ingresos</h4>
+                                <p className="text-sm text-gray-500">{selectedEmployee}</p>
+                            </div>
+                            <button
+                                onClick={() => setSelectedEmployee(null)}
+                                className="rounded-lg p-2 text-gray-500 hover:bg-gray-100"
+                                aria-label="Cerrar"
+                            >
+                                <span className="material-symbols-outlined">close</span>
+                            </button>
+                        </div>
+                        <div className="px-6 py-4">
+                            <div className="grid grid-cols-2 gap-4 mb-4">
+                                <div className="rounded-xl border border-gray-100 p-4">
+                                    <p className="text-xs font-bold uppercase tracking-wider text-gray-400">Total historico</p>
+                                    <p className="text-xl font-black text-gray-900">S/ {employeeHistory[selectedEmployee].totalEarnings.toFixed(2)}</p>
+                                </div>
+                                <div className="rounded-xl border border-gray-100 p-4">
+                                    <p className="text-xs font-bold uppercase tracking-wider text-gray-400">Servicios</p>
+                                    <p className="text-xl font-black text-gray-900">{employeeHistory[selectedEmployee].totalServices}</p>
+                                </div>
+                            </div>
+                            <div className="max-h-80 overflow-y-auto">
+                                <div className="space-y-2">
+                                    {employeeHistory[selectedEmployee].entries.map((entry, idx) => (
+                                        <div key={`${entry.date}-${idx}`} className="flex items-center justify-between rounded-lg border border-gray-100 px-4 py-2">
+                                            <span className="text-sm text-gray-600">{new Date(entry.date).toLocaleString('es-ES')}</span>
+                                            <span className="text-sm font-bold text-gray-900">S/ {entry.amount.toFixed(2)}</span>
+                                        </div>
+                                    ))}
+                                    {employeeHistory[selectedEmployee].entries.length === 0 && (
+                                        <p className="text-sm text-gray-500">Sin movimientos.</p>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
+
+
+
+
 

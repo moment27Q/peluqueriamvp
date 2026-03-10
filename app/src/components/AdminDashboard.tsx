@@ -188,6 +188,22 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
     }, [fetchDashboardData]);
 
     useEffect(() => {
+        const intervalId = window.setInterval(() => {
+            fetchDashboardData(false);
+        }, 15000);
+
+        const handleFocus = () => fetchDashboardData(false);
+        window.addEventListener('visibilitychange', handleFocus);
+        window.addEventListener('focus', handleFocus);
+
+        return () => {
+            window.clearInterval(intervalId);
+            window.removeEventListener('visibilitychange', handleFocus);
+            window.removeEventListener('focus', handleFocus);
+        };
+    }, [fetchDashboardData]);
+
+    useEffect(() => {
         if (activeView === 'dashboard') {
             fetchDashboardData(false);
         }
