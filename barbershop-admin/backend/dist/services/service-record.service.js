@@ -13,6 +13,9 @@ class ServiceRecordService {
         if (!employee) {
             throw new Error('Empleado no encontrado');
         }
+        if (employee.tenantId !== input.tenantId) {
+            throw new Error('Empleado fuera de tu empresa');
+        }
         if (!employee.isActive) {
             throw new Error('El empleado no está activo');
         }
@@ -25,6 +28,9 @@ class ServiceRecordService {
                 where: { id: input.serviceTypeId },
             });
             if (serviceType) {
+                if (serviceType.tenantId !== input.tenantId) {
+                    throw new Error('Tipo de servicio fuera de tu empresa');
+                }
                 const basePrice = Number(serviceType.defaultPrice);
                 finalPrice = Math.min(Number(input.price), basePrice);
             }
@@ -38,6 +44,7 @@ class ServiceRecordService {
         // Create service record
         const service = await database_1.prisma.service.create({
             data: {
+                tenantId: input.tenantId,
                 employeeId: input.employeeId,
                 serviceTypeId: input.serviceTypeId || null,
                 clientName: input.clientName,
@@ -85,6 +92,10 @@ class ServiceRecordService {
     }
     static async getAllServices(filters = {}) {
         const where = {};
+        // Scope to tenant — Service has its own tenantId column
+        if (filters.tenantId) {
+            where.tenantId = filters.tenantId;
+        }
         if (filters.employeeId) {
             where.employeeId = filters.employeeId;
         }
@@ -124,9 +135,12 @@ class ServiceRecordService {
         });
         return services;
     }
-    static async getServiceById(id) {
-        const service = await database_1.prisma.service.findUnique({
-            where: { id },
+    static async getServiceById(id, tenantId) {
+        const where = { id };
+        if (tenantId)
+            where.tenantId = tenantId;
+        const service = await database_1.prisma.service.findFirst({
+            where,
             include: {
                 employee: {
                     select: {
@@ -148,9 +162,12 @@ class ServiceRecordService {
         }
         return service;
     }
-    static async updateService(id, input, updatedBy) {
-        const existingService = await database_1.prisma.service.findUnique({
-            where: { id },
+    static async updateService(id, input, updatedBy, tenantId) {
+        const where = { id };
+        if (tenantId)
+            where.tenantId = tenantId;
+        const existingService = await database_1.prisma.service.findFirst({
+            where,
         });
         if (!existingService) {
             throw new Error('Servicio no encontrado');
@@ -218,9 +235,12 @@ class ServiceRecordService {
         logger_1.logger.info(`Service updated: ${id}`);
         return updated;
     }
-    static async deleteService(id, deletedBy) {
-        const service = await database_1.prisma.service.findUnique({
-            where: { id },
+    static async deleteService(id, deletedBy, tenantId) {
+        const where = { id };
+        if (tenantId)
+            where.tenantId = tenantId;
+        const service = await database_1.prisma.service.findFirst({
+            where,
         });
         if (!service) {
             throw new Error('Servicio no encontrado');
@@ -244,8 +264,10 @@ class ServiceRecordService {
     static async createServiceType(input) {
         const serviceType = await database_1.prisma.serviceType.create({
             data: {
+                tenantId: input.tenantId,
                 name: input.name,
                 description: input.description,
+                imageUrl: input.imageUrl,
                 defaultPrice: input.defaultPrice,
                 durationMinutes: input.durationMinutes,
             },
@@ -253,16 +275,22 @@ class ServiceRecordService {
         logger_1.logger.info(`Service type created: ${input.name}`);
         return serviceType;
     }
-    static async getAllServiceTypes(includeInactive = false) {
+    static async getAllServiceTypes(includeInactive = false, tenantId) {
         const where = includeInactive ? {} : { isActive: true };
+        if (tenantId) {
+            where.tenantId = tenantId;
+        }
         return database_1.prisma.serviceType.findMany({
             where,
             orderBy: { name: 'asc' },
         });
     }
-    static async updateServiceType(id, input) {
-        const serviceType = await database_1.prisma.serviceType.findUnique({
-            where: { id },
+    static async updateServiceType(id, input, tenantId) {
+        const where = { id };
+        if (tenantId)
+            where.tenantId = tenantId;
+        const serviceType = await database_1.prisma.serviceType.findFirst({
+            where,
         });
         if (!serviceType) {
             throw new Error('Tipo de servicio no encontrado');
@@ -272,6 +300,7 @@ class ServiceRecordService {
             data: {
                 name: input.name,
                 description: input.description,
+                imageUrl: input.imageUrl,
                 defaultPrice: input.defaultPrice,
                 durationMinutes: input.durationMinutes,
                 isActive: input.isActive,
@@ -280,9 +309,12 @@ class ServiceRecordService {
         logger_1.logger.info(`Service type updated: ${id}`);
         return updated;
     }
-    static async deleteServiceType(id) {
-        const serviceType = await database_1.prisma.serviceType.findUnique({
-            where: { id },
+    static async deleteServiceType(id, tenantId) {
+        const where = { id };
+        if (tenantId)
+            where.tenantId = tenantId;
+        const serviceType = await database_1.prisma.serviceType.findFirst({
+            where,
             include: {
                 _count: {
                     select: { services: true },

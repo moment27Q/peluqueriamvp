@@ -16,6 +16,12 @@ const optionalPhotoUrl = z.preprocess((value) => {
   return trimmed === '' ? undefined : trimmed;
 }, z.string().url('La foto debe ser una URL valida').optional());
 
+const optionalPassword = z.preprocess((value) => {
+  if (typeof value !== 'string') return value;
+  const trimmed = value.trim();
+  return trimmed === '' ? undefined : trimmed;
+}, z.string().min(8, 'La contrasena debe tener al menos 8 caracteres').optional());
+
 const createEmployeeSchema = z.object({
   body: z.object({
     email: z.string().email('Email inválido'),
@@ -37,6 +43,7 @@ const updateEmployeeSchema = z.object({
     lastName: z.string().min(2).optional(),
     phone: optionalTrimmedString,
     photoUrl: optionalPhotoUrl,
+    password: optionalPassword,
     commissionRate: z.number().min(0).max(100).optional(),
     isActive: z.boolean().optional(),
   }),

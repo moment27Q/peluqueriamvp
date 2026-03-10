@@ -5144,3 +5144,1393 @@
 2026-03-07 12:12:18 [warn]: Login attempt for locked account: matias@gmail.com, unlocks in 13min
 2026-03-07 12:12:18 [warn]: Client error:
 2026-03-07 12:14:15 [info]: SIGINT received. Shutting down gracefully...
+2026-03-07 12:14:22 [info]: ✅ Database connected successfully
+2026-03-07 12:14:22 [info]: 🚀 Server running on port 3001
+2026-03-07 12:14:22 [info]: 📊 Environment: development
+2026-03-07 12:14:22 [info]: 🔗 API URL: http://localhost:3001/api
+2026-03-07 12:15:47 [info]: POST /api/auth/login
+2026-03-07 12:15:48 [warn]: Failed login attempt 1/4 for: matias@gmail.com (3 left)
+2026-03-07 12:15:48 [warn]: Client error:
+2026-03-07 12:15:51 [info]: POST /api/auth/login
+2026-03-07 12:15:51 [warn]: Failed login attempt 2/4 for: matias@gmail.com (2 left)
+2026-03-07 12:15:51 [warn]: Client error:
+2026-03-07 12:15:52 [info]: POST /api/auth/login
+2026-03-07 12:15:53 [warn]: Failed login attempt 3/4 for: matias@gmail.com (1 left)
+2026-03-07 12:15:53 [warn]: Client error:
+2026-03-07 12:15:53 [info]: POST /api/auth/login
+2026-03-07 12:15:54 [warn]: Account locked after 4 failed attempts: matias@gmail.com
+2026-03-07 12:15:54 [warn]: Client error:
+2026-03-07 12:19:39 [info]: POST /api/auth/login
+2026-03-07 12:19:40 [info]: User logged in: matias1@gmail.com
+2026-03-07 12:19:40 [info]: GET /api/employees
+2026-03-07 12:19:40 [info]: GET /api/services
+2026-03-07 12:19:40 [info]: GET /api/reports/dashboard
+2026-03-07 12:19:40 [info]: GET /api/reports/weekly
+2026-03-07 12:19:40 [info]: GET /api/employees
+2026-03-07 12:19:40 [info]: GET /api/services
+2026-03-07 12:19:40 [info]: GET /api/reports/weekly
+2026-03-07 12:19:40 [info]: GET /api/employees
+2026-03-07 12:19:40 [info]: GET /api/services
+2026-03-07 12:19:40 [info]: GET /api/reports/weekly
+2026-03-07 12:19:40 [info]: GET /api/employees
+2026-03-07 12:19:40 [info]: GET /api/services
+2026-03-07 12:19:40 [info]: GET /api/reports/weekly
+2026-03-07 12:19:40 [info]: GET /api/reports/dashboard
+2026-03-07 12:19:40 [info]: GET /api/reports/dashboard
+2026-03-07 12:19:40 [info]: GET /api/reports/dashboard
+2026-03-07 12:20:02 [info]: POST /api/auth/login
+2026-03-07 12:20:03 [warn]: Failed login attempt 1/4 for: matias1@gmail.com (3 left)
+2026-03-07 12:20:03 [warn]: Client error:
+2026-03-07 12:20:17 [info]: POST /api/auth/login
+2026-03-07 12:20:18 [warn]: Failed login attempt 2/4 for: matias1@gmail.com (2 left)
+2026-03-07 12:20:18 [warn]: Client error:
+2026-03-07 12:25:14 [info]: POST /api/auth/login
+2026-03-07 12:25:14 [warn]: Login attempt for locked account: matias@gmail.com, unlocks in 6min
+2026-03-07 12:25:14 [warn]: Client error:
+2026-03-07 12:25:28 [info]: POST /api/auth/login
+2026-03-07 12:25:29 [info]: User logged in: matias1@gmail.com
+2026-03-07 12:25:30 [info]: GET /api/employees
+2026-03-07 12:25:30 [info]: GET /api/services
+2026-03-07 12:25:30 [info]: GET /api/reports/dashboard
+2026-03-07 12:25:30 [info]: GET /api/reports/weekly
+2026-03-07 12:25:30 [info]: GET /api/employees
+2026-03-07 12:25:30 [info]: GET /api/employees
+2026-03-07 12:25:30 [info]: GET /api/employees
+2026-03-07 12:25:30 [info]: GET /api/services
+2026-03-07 12:25:30 [info]: GET /api/reports/weekly
+2026-03-07 12:25:30 [info]: GET /api/services
+2026-03-07 12:25:30 [info]: GET /api/reports/weekly
+2026-03-07 12:25:30 [info]: GET /api/reports/dashboard
+2026-03-07 12:25:30 [info]: GET /api/services
+2026-03-07 12:25:30 [info]: GET /api/reports/weekly
+2026-03-07 12:25:30 [info]: GET /api/reports/dashboard
+2026-03-07 12:25:31 [info]: GET /api/reports/dashboard
+2026-03-07 12:25:41 [info]: POST /api/auth/login
+2026-03-07 12:25:41 [warn]: Login attempt for locked account: matias@gmail.com, unlocks in 6min
+2026-03-07 12:25:41 [warn]: Client error:
+2026-03-07 12:35:07 [info]: POST /api/auth/login
+2026-03-07 12:35:08 [info]: User logged in: matias@gmail.com
+2026-03-07 12:35:09 [info]: GET /api/services
+2026-03-07 12:35:09 [info]: GET /api/employees
+2026-03-07 12:35:09 [info]: GET /api/reports/dashboard
+2026-03-07 12:35:09 [info]: GET /api/reports/weekly
+2026-03-07 12:35:09 [info]: GET /api/services
+2026-03-07 12:35:09 [info]: GET /api/services
+2026-03-07 12:35:09 [info]: GET /api/services
+2026-03-07 12:35:09 [info]: GET /api/employees
+2026-03-07 12:35:09 [info]: GET /api/employees
+2026-03-07 12:35:09 [info]: GET /api/reports/weekly
+2026-03-07 12:35:09 [info]: GET /api/reports/dashboard
+2026-03-07 12:35:09 [info]: GET /api/employees
+2026-03-07 12:35:09 [info]: GET /api/reports/weekly
+2026-03-07 12:35:09 [info]: GET /api/reports/weekly
+2026-03-07 12:35:09 [info]: GET /api/reports/dashboard
+2026-03-07 12:35:09 [info]: GET /api/reports/dashboard
+2026-03-07 12:36:47 [info]: GET /api/plans/active
+2026-03-07 12:36:47 [info]: GET /api/plans/active
+2026-03-07 12:37:37 [info]: SIGINT received. Shutting down gracefully...
+2026-03-08 19:09:06 [info]: ✅ Database connected successfully
+2026-03-08 19:09:06 [info]: 🚀 Server running on port 3001
+2026-03-08 19:09:06 [info]: 📊 Environment: development
+2026-03-08 19:09:06 [info]: 🔗 API URL: http://localhost:3001/api
+2026-03-08 19:31:22 [info]: GET /api/employees
+2026-03-08 19:31:22 [warn]: Invalid or expired token attempt
+2026-03-08 19:31:22 [info]: GET /api/reports/dashboard
+2026-03-08 19:31:22 [warn]: Invalid or expired token attempt
+2026-03-08 19:31:22 [info]: GET /api/services
+2026-03-08 19:31:22 [warn]: Invalid or expired token attempt
+2026-03-08 19:31:22 [info]: GET /api/reports/weekly
+2026-03-08 19:31:22 [warn]: Invalid or expired token attempt
+2026-03-08 19:31:22 [info]: GET /api/employees
+2026-03-08 19:31:22 [warn]: Invalid or expired token attempt
+2026-03-08 19:31:22 [info]: GET /api/reports/dashboard
+2026-03-08 19:31:22 [warn]: Invalid or expired token attempt
+2026-03-08 19:31:22 [info]: GET /api/employees
+2026-03-08 19:31:22 [warn]: Invalid or expired token attempt
+2026-03-08 19:31:22 [info]: GET /api/reports/dashboard
+2026-03-08 19:31:22 [warn]: Invalid or expired token attempt
+2026-03-08 19:31:22 [info]: GET /api/employees
+2026-03-08 19:31:22 [warn]: Invalid or expired token attempt
+2026-03-08 19:31:22 [info]: GET /api/services
+2026-03-08 19:31:22 [warn]: Invalid or expired token attempt
+2026-03-08 19:31:22 [info]: GET /api/reports/weekly
+2026-03-08 19:31:22 [warn]: Invalid or expired token attempt
+2026-03-08 19:31:22 [info]: GET /api/reports/dashboard
+2026-03-08 19:31:22 [warn]: Invalid or expired token attempt
+2026-03-08 19:31:22 [info]: GET /api/services
+2026-03-08 19:31:22 [warn]: Invalid or expired token attempt
+2026-03-08 19:31:22 [info]: GET /api/reports/weekly
+2026-03-08 19:31:22 [warn]: Invalid or expired token attempt
+2026-03-08 19:31:22 [info]: GET /api/services
+2026-03-08 19:31:22 [warn]: Invalid or expired token attempt
+2026-03-08 19:31:22 [info]: GET /api/reports/weekly
+2026-03-08 19:31:22 [warn]: Invalid or expired token attempt
+2026-03-08 19:31:59 [info]: POST /api/auth/login
+2026-03-08 19:32:00 [info]: User logged in: admin@barbershop.com
+2026-03-08 19:32:00 [info]: GET /api/employees
+2026-03-08 19:32:00 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-08 19:32:00 [info]: GET /api/services
+2026-03-08 19:32:00 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-08 19:32:00 [info]: GET /api/reports/dashboard
+2026-03-08 19:32:00 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-08 19:32:00 [info]: GET /api/reports/weekly
+2026-03-08 19:32:00 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-08 19:32:00 [info]: GET /api/plans
+2026-03-08 19:32:00 [info]: GET /api/employees
+2026-03-08 19:32:00 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-08 19:32:00 [info]: GET /api/admin/tenants
+2026-03-08 19:32:00 [info]: GET /api/services
+2026-03-08 19:32:00 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-08 19:32:00 [info]: GET /api/reports/dashboard
+2026-03-08 19:32:00 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-08 19:32:00 [info]: GET /api/reports/weekly
+2026-03-08 19:32:00 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-08 19:32:00 [info]: GET /api/plans
+2026-03-08 19:32:00 [info]: GET /api/employees
+2026-03-08 19:32:00 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-08 19:32:00 [info]: GET /api/admin/tenants
+2026-03-08 19:32:00 [info]: GET /api/services
+2026-03-08 19:32:00 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-08 19:32:00 [info]: GET /api/reports/dashboard
+2026-03-08 19:32:00 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-08 19:32:00 [info]: GET /api/reports/weekly
+2026-03-08 19:32:00 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-08 19:32:00 [info]: GET /api/employees
+2026-03-08 19:32:00 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-08 19:32:00 [info]: GET /api/services
+2026-03-08 19:32:00 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-08 19:32:00 [info]: GET /api/reports/dashboard
+2026-03-08 19:32:00 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-08 19:32:00 [info]: GET /api/reports/weekly
+2026-03-08 19:32:00 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-08 19:58:02 [info]: GET /api/plans
+2026-03-08 19:58:02 [info]: GET /api/admin/tenants
+2026-03-08 19:58:02 [info]: GET /api/plans
+2026-03-08 19:58:02 [info]: GET /api/admin/tenants
+2026-03-08 20:04:11 [info]: SIGINT received. Shutting down gracefully...
+2026-03-09 13:36:18 [info]: ✅ Database connected successfully
+2026-03-09 13:36:18 [info]: 🚀 Server running on port 3001
+2026-03-09 13:36:18 [info]: 📊 Environment: development
+2026-03-09 13:36:18 [info]: 🔗 API URL: http://localhost:3001/api
+2026-03-09 13:36:41 [info]: GET /api/plans
+2026-03-09 13:36:41 [info]: GET /api/admin/tenants
+2026-03-09 13:36:41 [info]: GET /api/plans
+2026-03-09 13:36:41 [info]: GET /api/admin/tenants
+2026-03-09 13:36:57 [info]: GET /api/plans
+2026-03-09 13:36:57 [info]: GET /api/plans
+2026-03-09 13:37:01 [info]: GET /api/plans
+2026-03-09 13:37:01 [info]: GET /api/plans
+2026-03-09 13:37:14 [info]: GET /api/plans
+2026-03-09 13:37:14 [info]: GET /api/plans
+2026-03-09 13:43:21 [info]: GET /api/plans
+2026-03-09 13:45:08 [info]: SIGINT received. Shutting down gracefully...
+2026-03-09 13:45:26 [info]: ✅ Database connected successfully
+2026-03-09 13:45:26 [info]: 🚀 Server running on port 3001
+2026-03-09 13:45:26 [info]: 📊 Environment: development
+2026-03-09 13:45:26 [info]: 🔗 API URL: http://localhost:3001/api
+2026-03-09 13:45:32 [info]: GET /api/plans
+2026-03-09 13:45:32 [warn]: Invalid or expired token attempt
+2026-03-09 13:45:32 [info]: GET /api/admin/tenants
+2026-03-09 13:45:32 [warn]: Invalid or expired token attempt
+2026-03-09 13:45:32 [info]: GET /api/plans
+2026-03-09 13:45:32 [warn]: Invalid or expired token attempt
+2026-03-09 13:45:32 [info]: GET /api/admin/tenants
+2026-03-09 13:45:32 [warn]: Invalid or expired token attempt
+2026-03-09 13:45:32 [info]: POST /api/auth/refresh
+2026-03-09 13:45:33 [info]: GET /api/plans
+2026-03-09 13:45:33 [info]: GET /api/admin/tenants
+2026-03-09 13:45:33 [info]: GET /api/plans
+2026-03-09 13:45:33 [info]: GET /api/admin/tenants
+2026-03-09 13:45:41 [info]: GET /api/plans
+2026-03-09 13:45:41 [info]: GET /api/plans
+2026-03-09 13:45:49 [info]: GET /api/plans
+2026-03-09 13:45:49 [info]: GET /api/plans
+2026-03-09 13:46:02 [info]: GET /api/plans/active
+2026-03-09 13:46:02 [info]: GET /api/plans/active
+2026-03-09 13:47:04 [info]: POST /api/auth/login
+2026-03-09 13:47:05 [info]: User logged in: matias@gmail.com
+2026-03-09 13:47:05 [info]: GET /api/employees
+2026-03-09 13:47:05 [info]: GET /api/services
+2026-03-09 13:47:05 [info]: GET /api/reports/dashboard
+2026-03-09 13:47:05 [info]: GET /api/reports/weekly
+2026-03-09 13:47:05 [info]: GET /api/employees
+2026-03-09 13:47:05 [info]: GET /api/services
+2026-03-09 13:47:05 [info]: GET /api/employees
+2026-03-09 13:47:05 [info]: GET /api/services
+2026-03-09 13:47:05 [info]: GET /api/employees
+2026-03-09 13:47:05 [info]: GET /api/services
+2026-03-09 13:47:05 [info]: GET /api/reports/weekly
+2026-03-09 13:47:05 [info]: GET /api/reports/dashboard
+2026-03-09 13:47:05 [info]: GET /api/reports/weekly
+2026-03-09 13:47:05 [info]: GET /api/reports/weekly
+2026-03-09 13:47:05 [info]: GET /api/reports/dashboard
+2026-03-09 13:47:05 [info]: GET /api/reports/dashboard
+2026-03-09 13:47:06 [info]: GET /api/employees
+2026-03-09 13:47:06 [info]: GET /api/employees
+2026-03-09 13:47:12 [info]: GET /api/employees
+2026-03-09 13:47:12 [info]: GET /api/services/types/all
+2026-03-09 13:47:12 [info]: GET /api/employees
+2026-03-09 13:47:12 [info]: GET /api/services/types/all
+2026-03-09 13:47:16 [info]: GET /api/services/types/all
+2026-03-09 13:47:16 [info]: GET /api/services/types/all
+2026-03-09 13:47:18 [info]: GET /api/employees
+2026-03-09 13:47:18 [info]: GET /api/employees
+2026-03-09 13:47:21 [info]: GET /api/services/types/all
+2026-03-09 13:47:21 [info]: GET /api/services/types/all
+2026-03-09 13:47:30 [info]: GET /api/employees
+2026-03-09 13:47:30 [info]: GET /api/services/types/all
+2026-03-09 13:47:30 [info]: GET /api/employees
+2026-03-09 13:47:30 [info]: GET /api/services/types/all
+2026-03-09 13:58:19 [info]: SIGINT received. Shutting down gracefully...
+2026-03-09 15:10:38 [info]: ✅ Database connected successfully
+2026-03-09 15:10:38 [info]: 🚀 Server running on port 3001
+2026-03-09 15:10:38 [info]: 📊 Environment: development
+2026-03-09 15:10:38 [info]: 🔗 API URL: http://localhost:3001/api
+2026-03-09 15:10:40 [info]: GET /api/employees
+2026-03-09 15:10:40 [warn]: Invalid or expired token attempt
+2026-03-09 15:10:40 [info]: GET /api/services
+2026-03-09 15:10:40 [warn]: Invalid or expired token attempt
+2026-03-09 15:10:40 [info]: GET /api/reports/dashboard
+2026-03-09 15:10:40 [warn]: Invalid or expired token attempt
+2026-03-09 15:10:40 [info]: GET /api/reports/weekly
+2026-03-09 15:10:40 [warn]: Invalid or expired token attempt
+2026-03-09 15:10:40 [info]: GET /api/employees
+2026-03-09 15:10:40 [warn]: Invalid or expired token attempt
+2026-03-09 15:10:40 [info]: GET /api/services
+2026-03-09 15:10:40 [warn]: Invalid or expired token attempt
+2026-03-09 15:10:40 [info]: GET /api/reports/dashboard
+2026-03-09 15:10:40 [warn]: Invalid or expired token attempt
+2026-03-09 15:10:40 [info]: GET /api/reports/weekly
+2026-03-09 15:10:40 [warn]: Invalid or expired token attempt
+2026-03-09 15:10:40 [info]: GET /api/employees
+2026-03-09 15:10:40 [warn]: Invalid or expired token attempt
+2026-03-09 15:10:40 [info]: GET /api/services
+2026-03-09 15:10:40 [warn]: Invalid or expired token attempt
+2026-03-09 15:10:40 [info]: GET /api/reports/dashboard
+2026-03-09 15:10:40 [warn]: Invalid or expired token attempt
+2026-03-09 15:10:40 [info]: GET /api/reports/weekly
+2026-03-09 15:10:40 [warn]: Invalid or expired token attempt
+2026-03-09 15:10:40 [info]: GET /api/employees
+2026-03-09 15:10:40 [warn]: Invalid or expired token attempt
+2026-03-09 15:10:40 [info]: GET /api/services
+2026-03-09 15:10:40 [warn]: Invalid or expired token attempt
+2026-03-09 15:10:40 [info]: GET /api/reports/dashboard
+2026-03-09 15:10:40 [warn]: Invalid or expired token attempt
+2026-03-09 15:10:40 [info]: GET /api/reports/weekly
+2026-03-09 15:10:40 [warn]: Invalid or expired token attempt
+2026-03-09 15:10:40 [info]: POST /api/auth/refresh
+2026-03-09 15:10:41 [info]: GET /api/employees
+2026-03-09 15:10:41 [info]: GET /api/services
+2026-03-09 15:10:41 [info]: GET /api/reports/dashboard
+2026-03-09 15:10:41 [info]: GET /api/reports/weekly
+2026-03-09 15:10:41 [info]: GET /api/employees
+2026-03-09 15:10:41 [info]: GET /api/services
+2026-03-09 15:10:41 [info]: GET /api/services
+2026-03-09 15:10:41 [info]: GET /api/employees
+2026-03-09 15:10:41 [info]: GET /api/reports/weekly
+2026-03-09 15:10:41 [info]: GET /api/services
+2026-03-09 15:10:42 [info]: GET /api/employees
+2026-03-09 15:10:42 [info]: GET /api/reports/dashboard
+2026-03-09 15:10:42 [info]: GET /api/reports/weekly
+2026-03-09 15:10:42 [info]: GET /api/reports/weekly
+2026-03-09 15:10:42 [info]: GET /api/reports/dashboard
+2026-03-09 15:10:42 [info]: GET /api/reports/dashboard
+2026-03-09 17:38:22 [info]: GET /api/employees
+2026-03-09 17:38:22 [warn]: Invalid or expired token attempt
+2026-03-09 17:38:22 [info]: GET /api/reports/dashboard
+2026-03-09 17:38:22 [warn]: Invalid or expired token attempt
+2026-03-09 17:38:22 [info]: GET /api/employees
+2026-03-09 17:38:23 [warn]: Invalid or expired token attempt
+2026-03-09 17:38:23 [info]: GET /api/reports/weekly
+2026-03-09 17:38:23 [warn]: Invalid or expired token attempt
+2026-03-09 17:38:23 [info]: GET /api/services
+2026-03-09 17:38:23 [warn]: Invalid or expired token attempt
+2026-03-09 17:38:23 [info]: GET /api/reports/dashboard
+2026-03-09 17:38:23 [warn]: Invalid or expired token attempt
+2026-03-09 17:38:23 [info]: GET /api/reports/weekly
+2026-03-09 17:38:23 [warn]: Invalid or expired token attempt
+2026-03-09 17:38:23 [info]: GET /api/services
+2026-03-09 17:38:23 [warn]: Invalid or expired token attempt
+2026-03-09 17:38:23 [info]: GET /api/employees
+2026-03-09 17:38:23 [warn]: Invalid or expired token attempt
+2026-03-09 17:38:23 [info]: GET /api/services
+2026-03-09 17:38:23 [warn]: Invalid or expired token attempt
+2026-03-09 17:38:23 [info]: GET /api/reports/dashboard
+2026-03-09 17:38:23 [warn]: Invalid or expired token attempt
+2026-03-09 17:38:23 [info]: GET /api/reports/weekly
+2026-03-09 17:38:23 [warn]: Invalid or expired token attempt
+2026-03-09 17:38:23 [info]: GET /api/employees
+2026-03-09 17:38:23 [warn]: Invalid or expired token attempt
+2026-03-09 17:38:23 [info]: GET /api/services
+2026-03-09 17:38:23 [warn]: Invalid or expired token attempt
+2026-03-09 17:38:23 [info]: GET /api/reports/dashboard
+2026-03-09 17:38:23 [warn]: Invalid or expired token attempt
+2026-03-09 17:38:23 [info]: GET /api/reports/weekly
+2026-03-09 17:38:23 [warn]: Invalid or expired token attempt
+2026-03-09 17:38:24 [info]: POST /api/auth/refresh
+2026-03-09 17:38:26 [info]: GET /api/services
+2026-03-09 17:38:26 [info]: GET /api/employees
+2026-03-09 17:38:26 [info]: GET /api/reports/dashboard
+2026-03-09 17:38:26 [info]: GET /api/reports/weekly
+2026-03-09 17:38:26 [info]: GET /api/employees
+2026-03-09 17:38:26 [info]: GET /api/services
+2026-03-09 17:38:26 [info]: GET /api/reports/dashboard
+2026-03-09 17:38:26 [info]: GET /api/reports/weekly
+2026-03-09 17:38:26 [info]: GET /api/employees
+2026-03-09 17:38:26 [info]: GET /api/services
+2026-03-09 17:38:26 [info]: GET /api/reports/dashboard
+2026-03-09 17:38:26 [info]: GET /api/reports/weekly
+2026-03-09 17:38:26 [info]: GET /api/employees
+2026-03-09 17:38:26 [info]: GET /api/services
+2026-03-09 17:38:26 [info]: GET /api/reports/dashboard
+2026-03-09 17:38:26 [info]: GET /api/reports/weekly
+2026-03-09 18:39:09 [info]: GET /api/services
+2026-03-09 18:39:09 [warn]: Invalid or expired token attempt
+2026-03-09 18:39:09 [info]: GET /api/employees
+2026-03-09 18:39:09 [warn]: Invalid or expired token attempt
+2026-03-09 18:39:09 [info]: GET /api/reports/dashboard
+2026-03-09 18:39:09 [warn]: Invalid or expired token attempt
+2026-03-09 18:39:09 [info]: GET /api/reports/weekly
+2026-03-09 18:39:09 [warn]: Invalid or expired token attempt
+2026-03-09 18:39:09 [info]: GET /api/services
+2026-03-09 18:39:09 [warn]: Invalid or expired token attempt
+2026-03-09 18:39:09 [info]: GET /api/employees
+2026-03-09 18:39:09 [warn]: Invalid or expired token attempt
+2026-03-09 18:39:09 [info]: GET /api/reports/dashboard
+2026-03-09 18:39:09 [warn]: Invalid or expired token attempt
+2026-03-09 18:39:09 [info]: GET /api/reports/weekly
+2026-03-09 18:39:09 [warn]: Invalid or expired token attempt
+2026-03-09 18:39:09 [info]: GET /api/services
+2026-03-09 18:39:09 [warn]: Invalid or expired token attempt
+2026-03-09 18:39:09 [info]: GET /api/employees
+2026-03-09 18:39:09 [warn]: Invalid or expired token attempt
+2026-03-09 18:39:09 [info]: GET /api/reports/weekly
+2026-03-09 18:39:09 [warn]: Invalid or expired token attempt
+2026-03-09 18:39:09 [info]: GET /api/reports/dashboard
+2026-03-09 18:39:09 [warn]: Invalid or expired token attempt
+2026-03-09 18:39:09 [info]: GET /api/services
+2026-03-09 18:39:09 [warn]: Invalid or expired token attempt
+2026-03-09 18:39:09 [info]: GET /api/employees
+2026-03-09 18:39:09 [warn]: Invalid or expired token attempt
+2026-03-09 18:39:09 [info]: GET /api/reports/weekly
+2026-03-09 18:39:09 [warn]: Invalid or expired token attempt
+2026-03-09 18:39:09 [info]: GET /api/reports/dashboard
+2026-03-09 18:39:09 [warn]: Invalid or expired token attempt
+2026-03-09 18:39:09 [info]: POST /api/auth/refresh
+2026-03-09 18:39:10 [info]: GET /api/services
+2026-03-09 18:39:10 [info]: GET /api/employees
+2026-03-09 18:39:10 [info]: GET /api/reports/dashboard
+2026-03-09 18:39:10 [info]: GET /api/reports/weekly
+2026-03-09 18:39:10 [info]: GET /api/services
+2026-03-09 18:39:10 [info]: GET /api/services
+2026-03-09 18:39:10 [info]: GET /api/services
+2026-03-09 18:39:10 [info]: GET /api/employees
+2026-03-09 18:39:10 [info]: GET /api/employees
+2026-03-09 18:39:10 [info]: GET /api/employees
+2026-03-09 18:39:10 [info]: GET /api/reports/weekly
+2026-03-09 18:39:10 [info]: GET /api/reports/dashboard
+2026-03-09 18:39:10 [info]: GET /api/reports/weekly
+2026-03-09 18:39:10 [info]: GET /api/reports/weekly
+2026-03-09 18:39:10 [info]: GET /api/reports/dashboard
+2026-03-09 18:39:10 [info]: GET /api/reports/dashboard
+2026-03-09 20:11:58 [info]: GET /api/employees
+2026-03-09 20:11:58 [warn]: Invalid or expired token attempt
+2026-03-09 20:11:58 [info]: GET /api/services
+2026-03-09 20:11:58 [warn]: Invalid or expired token attempt
+2026-03-09 20:11:58 [info]: GET /api/reports/dashboard
+2026-03-09 20:11:58 [warn]: Invalid or expired token attempt
+2026-03-09 20:11:58 [info]: GET /api/reports/weekly
+2026-03-09 20:11:58 [warn]: Invalid or expired token attempt
+2026-03-09 20:11:58 [info]: GET /api/employees
+2026-03-09 20:11:58 [warn]: Invalid or expired token attempt
+2026-03-09 20:11:59 [info]: GET /api/services
+2026-03-09 20:11:59 [warn]: Invalid or expired token attempt
+2026-03-09 20:11:59 [info]: GET /api/reports/dashboard
+2026-03-09 20:11:59 [warn]: Invalid or expired token attempt
+2026-03-09 20:11:59 [info]: GET /api/reports/weekly
+2026-03-09 20:11:59 [warn]: Invalid or expired token attempt
+2026-03-09 20:12:00 [info]: GET /api/employees
+2026-03-09 20:12:00 [warn]: Invalid or expired token attempt
+2026-03-09 20:12:00 [info]: GET /api/services
+2026-03-09 20:12:00 [warn]: Invalid or expired token attempt
+2026-03-09 20:12:00 [info]: GET /api/reports/dashboard
+2026-03-09 20:12:00 [warn]: Invalid or expired token attempt
+2026-03-09 20:12:00 [info]: GET /api/reports/weekly
+2026-03-09 20:12:00 [warn]: Invalid or expired token attempt
+2026-03-09 20:12:00 [info]: GET /api/employees
+2026-03-09 20:12:00 [warn]: Invalid or expired token attempt
+2026-03-09 20:12:00 [info]: GET /api/services
+2026-03-09 20:12:00 [warn]: Invalid or expired token attempt
+2026-03-09 20:12:00 [info]: GET /api/reports/dashboard
+2026-03-09 20:12:00 [warn]: Invalid or expired token attempt
+2026-03-09 20:12:00 [info]: GET /api/reports/weekly
+2026-03-09 20:12:00 [warn]: Invalid or expired token attempt
+2026-03-09 20:12:01 [info]: POST /api/auth/refresh
+2026-03-09 20:12:01 [info]: GET /api/employees
+2026-03-09 20:12:01 [info]: GET /api/services
+2026-03-09 20:12:01 [info]: GET /api/reports/dashboard
+2026-03-09 20:12:01 [info]: GET /api/reports/weekly
+2026-03-09 20:12:01 [info]: GET /api/employees
+2026-03-09 20:12:01 [info]: GET /api/services
+2026-03-09 20:12:01 [info]: GET /api/reports/dashboard
+2026-03-09 20:12:01 [info]: GET /api/reports/weekly
+2026-03-09 20:12:01 [info]: GET /api/services
+2026-03-09 20:12:01 [info]: GET /api/employees
+2026-03-09 20:12:01 [info]: GET /api/reports/weekly
+2026-03-09 20:12:01 [info]: GET /api/reports/dashboard
+2026-03-09 20:12:01 [info]: GET /api/employees
+2026-03-09 20:12:01 [info]: GET /api/services
+2026-03-09 20:12:01 [info]: GET /api/reports/weekly
+2026-03-09 20:12:01 [info]: GET /api/reports/dashboard
+2026-03-09 20:18:23 [info]: POST /api/auth/login
+2026-03-09 20:18:24 [info]: User logged in: admin@barbershop.com
+2026-03-09 20:18:24 [info]: GET /api/employees
+2026-03-09 20:18:24 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 20:18:24 [info]: GET /api/services
+2026-03-09 20:18:24 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 20:18:24 [info]: GET /api/reports/dashboard
+2026-03-09 20:18:24 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 20:18:24 [info]: GET /api/reports/weekly
+2026-03-09 20:18:24 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 20:18:24 [info]: GET /api/admin/tenants
+2026-03-09 20:18:24 [info]: GET /api/plans
+2026-03-09 20:18:24 [info]: GET /api/employees
+2026-03-09 20:18:24 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 20:18:24 [info]: GET /api/services
+2026-03-09 20:18:24 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 20:18:24 [info]: GET /api/reports/dashboard
+2026-03-09 20:18:24 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 20:18:24 [info]: GET /api/reports/weekly
+2026-03-09 20:18:24 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 20:18:25 [info]: GET /api/employees
+2026-03-09 20:18:25 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 20:18:25 [info]: GET /api/services
+2026-03-09 20:18:25 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 20:18:25 [info]: GET /api/reports/dashboard
+2026-03-09 20:18:25 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 20:18:25 [info]: GET /api/reports/weekly
+2026-03-09 20:18:25 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 20:18:25 [info]: GET /api/employees
+2026-03-09 20:18:25 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 20:18:25 [info]: GET /api/admin/tenants
+2026-03-09 20:18:25 [info]: GET /api/services
+2026-03-09 20:18:25 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 20:18:25 [info]: GET /api/reports/dashboard
+2026-03-09 20:18:25 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 20:18:25 [info]: GET /api/reports/weekly
+2026-03-09 20:18:25 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 20:18:25 [info]: GET /api/plans
+2026-03-09 20:19:11 [info]: GET /api/plans
+2026-03-09 20:19:11 [info]: GET /api/plans
+2026-03-09 20:19:35 [info]: POST /api/auth/login
+2026-03-09 20:19:35 [info]: User logged in: matias@gmail.com
+2026-03-09 20:19:35 [info]: GET /api/employees
+2026-03-09 20:19:35 [info]: GET /api/services
+2026-03-09 20:19:35 [info]: GET /api/reports/dashboard
+2026-03-09 20:19:35 [info]: GET /api/reports/weekly
+2026-03-09 20:19:35 [info]: GET /api/employees
+2026-03-09 20:19:35 [info]: GET /api/services
+2026-03-09 20:19:35 [info]: GET /api/employees
+2026-03-09 20:19:35 [info]: GET /api/services
+2026-03-09 20:19:35 [info]: GET /api/employees
+2026-03-09 20:19:35 [info]: GET /api/services
+2026-03-09 20:19:35 [info]: GET /api/reports/weekly
+2026-03-09 20:19:35 [info]: GET /api/reports/dashboard
+2026-03-09 20:19:35 [info]: GET /api/reports/weekly
+2026-03-09 20:19:35 [info]: GET /api/reports/dashboard
+2026-03-09 20:19:35 [info]: GET /api/reports/weekly
+2026-03-09 20:19:36 [info]: GET /api/reports/dashboard
+2026-03-09 20:19:54 [info]: GET /api/employees
+2026-03-09 20:19:54 [info]: GET /api/employees
+2026-03-09 20:19:56 [info]: GET /api/employees
+2026-03-09 20:19:56 [info]: GET /api/services
+2026-03-09 20:19:56 [info]: GET /api/reports/dashboard
+2026-03-09 20:19:56 [info]: GET /api/reports/weekly
+2026-03-09 20:20:11 [info]: GET /api/employees
+2026-03-09 20:20:11 [info]: GET /api/employees
+2026-03-09 20:20:12 [info]: GET /api/employees
+2026-03-09 20:20:12 [info]: GET /api/services
+2026-03-09 20:20:12 [info]: GET /api/reports/dashboard
+2026-03-09 20:20:12 [info]: GET /api/reports/weekly
+2026-03-09 20:20:13 [info]: GET /api/services/types/all
+2026-03-09 20:20:13 [info]: GET /api/services/types/all
+2026-03-09 20:20:14 [info]: GET /api/employees
+2026-03-09 20:20:14 [info]: GET /api/services/types/all
+2026-03-09 20:20:14 [info]: GET /api/employees
+2026-03-09 20:20:14 [info]: GET /api/services/types/all
+2026-03-09 20:20:16 [info]: GET /api/services/types/all
+2026-03-09 20:20:16 [info]: GET /api/services/types/all
+2026-03-09 20:20:17 [info]: GET /api/services
+2026-03-09 20:20:17 [info]: GET /api/reports/weekly
+2026-03-09 20:20:17 [info]: GET /api/services
+2026-03-09 20:20:17 [info]: GET /api/services
+2026-03-09 20:20:17 [info]: GET /api/reports/weekly
+2026-03-09 20:20:17 [info]: GET /api/services
+2026-03-09 20:20:28 [info]: GET /api/employees
+2026-03-09 20:20:28 [info]: GET /api/services/types/all
+2026-03-09 20:20:28 [info]: GET /api/employees
+2026-03-09 20:20:28 [info]: GET /api/services/types/all
+2026-03-09 20:20:31 [info]: GET /api/services/types/all
+2026-03-09 20:20:31 [info]: GET /api/services/types/all
+2026-03-09 20:21:06 [info]: GET /api/employees
+2026-03-09 20:21:06 [info]: GET /api/services/types/all
+2026-03-09 20:21:06 [info]: GET /api/employees
+2026-03-09 20:21:06 [info]: GET /api/services/types/all
+2026-03-09 20:21:29 [info]: GET /api/services/types/all
+2026-03-09 20:21:29 [info]: GET /api/services/types/all
+2026-03-09 20:21:31 [info]: GET /api/employees
+2026-03-09 20:21:31 [info]: GET /api/services/types/all
+2026-03-09 20:21:31 [info]: GET /api/employees
+2026-03-09 20:21:31 [info]: GET /api/services/types/all
+2026-03-09 20:22:27 [info]: GET /api/employees
+2026-03-09 20:22:27 [info]: GET /api/employees
+2026-03-09 20:22:32 [info]: GET /api/services/types/all
+2026-03-09 20:22:32 [info]: GET /api/services/types/all
+2026-03-09 20:22:34 [info]: GET /api/employees
+2026-03-09 20:22:34 [info]: GET /api/services/types/all
+2026-03-09 20:22:34 [info]: GET /api/employees
+2026-03-09 20:22:34 [info]: GET /api/services/types/all
+2026-03-09 20:22:35 [info]: GET /api/services/types/all
+2026-03-09 20:22:35 [info]: GET /api/services/types/all
+2026-03-09 20:22:36 [info]: GET /api/employees
+2026-03-09 20:22:36 [info]: GET /api/services/types/all
+2026-03-09 20:22:36 [info]: GET /api/employees
+2026-03-09 20:22:36 [info]: GET /api/services/types/all
+2026-03-09 20:22:39 [info]: GET /api/services/types/all
+2026-03-09 20:22:39 [info]: GET /api/services/types/all
+2026-03-09 20:22:40 [info]: GET /api/reports/weekly
+2026-03-09 20:22:40 [info]: GET /api/services
+2026-03-09 20:22:40 [info]: GET /api/services
+2026-03-09 20:22:40 [info]: GET /api/reports/weekly
+2026-03-09 20:22:40 [info]: GET /api/services
+2026-03-09 20:22:40 [info]: GET /api/services
+2026-03-09 20:22:45 [info]: GET /api/employees
+2026-03-09 20:22:45 [info]: GET /api/employees
+2026-03-09 20:22:47 [info]: GET /api/employees
+2026-03-09 20:22:47 [info]: GET /api/services
+2026-03-09 20:22:47 [info]: GET /api/reports/dashboard
+2026-03-09 20:22:47 [info]: GET /api/reports/weekly
+2026-03-09 20:22:48 [info]: GET /api/employees
+2026-03-09 20:22:48 [info]: GET /api/employees
+2026-03-09 20:22:58 [info]: GET /api/services/types/all
+2026-03-09 20:22:58 [info]: GET /api/services/types/all
+2026-03-09 20:22:59 [info]: GET /api/employees
+2026-03-09 20:22:59 [info]: GET /api/services/types/all
+2026-03-09 20:22:59 [info]: GET /api/employees
+2026-03-09 20:22:59 [info]: GET /api/services/types/all
+2026-03-09 20:23:01 [info]: GET /api/employees
+2026-03-09 20:23:01 [info]: GET /api/employees
+2026-03-09 20:23:05 [info]: GET /api/employees
+2026-03-09 20:23:05 [info]: GET /api/services
+2026-03-09 20:23:05 [info]: GET /api/reports/dashboard
+2026-03-09 20:23:05 [info]: GET /api/reports/weekly
+2026-03-09 20:23:12 [info]: GET /api/services/types/all
+2026-03-09 20:23:12 [info]: GET /api/services/types/all
+2026-03-09 20:23:19 [info]: GET /api/employees
+2026-03-09 20:23:19 [info]: GET /api/employees
+2026-03-09 20:27:46 [info]: PUT /api/employees/f030fee1-c131-4d94-bd03-bb135ed3dd26
+2026-03-09 20:27:46 [info]: Employee updated: f030fee1-c131-4d94-bd03-bb135ed3dd26
+2026-03-09 20:27:47 [info]: GET /api/employees
+2026-03-09 20:28:00 [info]: POST /api/auth/login
+2026-03-09 20:28:00 [warn]: Failed login attempt 1/4 for: carlos@barbershop.com (3 left)
+2026-03-09 20:28:00 [warn]: Client error:
+2026-03-09 20:28:16 [info]: POST /api/auth/login
+2026-03-09 20:28:17 [warn]: Failed login attempt 2/4 for: carlos@barbershop.com (2 left)
+2026-03-09 20:28:17 [warn]: Client error:
+2026-03-09 20:28:20 [info]: POST /api/auth/login
+2026-03-09 20:28:20 [warn]: Failed login attempt 3/4 for: carlos@barbershop.com (1 left)
+2026-03-09 20:28:20 [warn]: Client error:
+2026-03-09 20:28:46 [info]: POST /api/auth/login
+2026-03-09 20:28:47 [info]: User logged in: matias@gmail.com
+2026-03-09 20:28:47 [info]: GET /api/employees
+2026-03-09 20:28:47 [info]: GET /api/services
+2026-03-09 20:28:47 [info]: GET /api/reports/dashboard
+2026-03-09 20:28:47 [info]: GET /api/reports/weekly
+2026-03-09 20:28:47 [info]: GET /api/employees
+2026-03-09 20:28:47 [info]: GET /api/employees
+2026-03-09 20:28:47 [info]: GET /api/employees
+2026-03-09 20:28:47 [info]: GET /api/services
+2026-03-09 20:28:47 [info]: GET /api/reports/dashboard
+2026-03-09 20:28:47 [info]: GET /api/reports/weekly
+2026-03-09 20:28:47 [info]: GET /api/services
+2026-03-09 20:28:47 [info]: GET /api/reports/weekly
+2026-03-09 20:28:47 [info]: GET /api/services
+2026-03-09 20:28:47 [info]: GET /api/reports/dashboard
+2026-03-09 20:28:47 [info]: GET /api/reports/weekly
+2026-03-09 20:28:47 [info]: GET /api/reports/dashboard
+2026-03-09 20:28:51 [info]: GET /api/employees
+2026-03-09 20:28:51 [info]: GET /api/employees
+2026-03-09 20:29:02 [info]: PUT /api/employees/f030fee1-c131-4d94-bd03-bb135ed3dd26
+2026-03-09 20:29:02 [info]: Employee updated: f030fee1-c131-4d94-bd03-bb135ed3dd26
+2026-03-09 20:29:02 [info]: GET /api/employees
+2026-03-09 20:29:28 [info]: POST /api/auth/login
+2026-03-09 20:29:29 [info]: User logged in: matias@gmail.com
+2026-03-09 20:29:29 [info]: GET /api/employees
+2026-03-09 20:29:29 [info]: GET /api/services
+2026-03-09 20:29:29 [info]: GET /api/reports/dashboard
+2026-03-09 20:29:29 [info]: GET /api/reports/weekly
+2026-03-09 20:29:29 [info]: GET /api/employees
+2026-03-09 20:29:29 [info]: GET /api/services
+2026-03-09 20:29:29 [info]: GET /api/reports/weekly
+2026-03-09 20:29:29 [info]: GET /api/employees
+2026-03-09 20:29:29 [info]: GET /api/services
+2026-03-09 20:29:29 [info]: GET /api/reports/dashboard
+2026-03-09 20:29:29 [info]: GET /api/reports/weekly
+2026-03-09 20:29:29 [info]: GET /api/services
+2026-03-09 20:29:29 [info]: GET /api/employees
+2026-03-09 20:29:29 [info]: GET /api/reports/weekly
+2026-03-09 20:29:29 [info]: GET /api/reports/dashboard
+2026-03-09 20:29:29 [info]: GET /api/reports/dashboard
+2026-03-09 20:29:35 [info]: GET /api/employees
+2026-03-09 20:29:35 [info]: GET /api/services/types/all
+2026-03-09 20:29:35 [info]: GET /api/employees
+2026-03-09 20:29:35 [info]: GET /api/services/types/all
+2026-03-09 20:29:36 [info]: GET /api/services/types/all
+2026-03-09 20:29:36 [info]: GET /api/services/types/all
+2026-03-09 20:29:37 [info]: GET /api/employees
+2026-03-09 20:29:37 [info]: GET /api/employees
+2026-03-09 20:29:45 [info]: PUT /api/employees/f030fee1-c131-4d94-bd03-bb135ed3dd26
+2026-03-09 20:29:45 [info]: Employee updated: f030fee1-c131-4d94-bd03-bb135ed3dd26
+2026-03-09 20:29:45 [info]: GET /api/employees
+2026-03-09 20:29:58 [info]: POST /api/auth/login
+2026-03-09 20:29:59 [warn]: Account locked after 4 failed attempts: carlos@barbershop.com
+2026-03-09 20:29:59 [warn]: Client error:
+2026-03-09 20:34:04 [info]: SIGINT received. Shutting down gracefully...
+2026-03-09 20:34:16 [info]: ✅ Database connected successfully
+2026-03-09 20:34:16 [info]: 🚀 Server running on port 3001
+2026-03-09 20:34:16 [info]: 📊 Environment: development
+2026-03-09 20:34:16 [info]: 🔗 API URL: http://localhost:3001/api
+2026-03-09 20:35:08 [info]: POST /api/auth/login
+2026-03-09 20:35:09 [warn]: Failed login attempt 1/4 for: matias@gmail.com (3 left)
+2026-03-09 20:35:09 [warn]: Client error:
+2026-03-09 20:35:13 [info]: POST /api/auth/login
+2026-03-09 20:35:13 [info]: User logged in: matias@gmail.com
+2026-03-09 20:35:14 [info]: GET /api/employees
+2026-03-09 20:35:14 [info]: GET /api/services
+2026-03-09 20:35:14 [info]: GET /api/reports/dashboard
+2026-03-09 20:35:14 [info]: GET /api/reports/weekly
+2026-03-09 20:35:14 [info]: GET /api/employees
+2026-03-09 20:35:14 [info]: GET /api/employees
+2026-03-09 20:35:14 [info]: GET /api/employees
+2026-03-09 20:35:14 [info]: GET /api/services
+2026-03-09 20:35:14 [info]: GET /api/reports/weekly
+2026-03-09 20:35:14 [info]: GET /api/services
+2026-03-09 20:35:14 [info]: GET /api/reports/dashboard
+2026-03-09 20:35:14 [info]: GET /api/reports/weekly
+2026-03-09 20:35:14 [info]: GET /api/services
+2026-03-09 20:35:14 [info]: GET /api/reports/weekly
+2026-03-09 20:35:14 [info]: GET /api/reports/dashboard
+2026-03-09 20:35:14 [info]: GET /api/reports/dashboard
+2026-03-09 20:35:27 [info]: GET /api/employees
+2026-03-09 20:35:27 [info]: GET /api/employees
+2026-03-09 20:35:52 [info]: PUT /api/employees/75a2c6cc-e464-4719-9e9e-3f0975c1ba8e
+2026-03-09 20:35:53 [info]: Employee updated: 75a2c6cc-e464-4719-9e9e-3f0975c1ba8e
+2026-03-09 20:35:53 [info]: GET /api/employees
+2026-03-09 20:36:04 [info]: POST /api/auth/login
+2026-03-09 20:36:05 [info]: User logged in: maria@barbershop.com
+2026-03-09 20:36:05 [info]: GET /api/employees/me/profile
+2026-03-09 20:36:05 [info]: GET /api/employees/me/services
+2026-03-09 20:36:05 [info]: GET /api/employees/me/report
+2026-03-09 20:36:05 [info]: GET /api/employees/me/report
+2026-03-09 20:36:05 [info]: GET /api/employees/me/earnings
+2026-03-09 20:36:05 [info]: GET /api/employees/me/report
+2026-03-09 20:36:05 [info]: GET /api/employees/me/services
+2026-03-09 20:36:05 [info]: GET /api/employees/me/report
+2026-03-09 20:36:05 [info]: GET /api/employees/me/profile
+2026-03-09 20:36:05 [info]: GET /api/employees/me/earnings
+2026-03-09 20:40:44 [info]: POST /api/auth/login
+2026-03-09 20:40:45 [info]: User logged in: matias@gmail.com
+2026-03-09 20:40:45 [info]: GET /api/employees
+2026-03-09 20:40:45 [info]: GET /api/services
+2026-03-09 20:40:45 [info]: GET /api/reports/dashboard
+2026-03-09 20:40:45 [info]: GET /api/reports/weekly
+2026-03-09 20:40:45 [info]: GET /api/employees
+2026-03-09 20:40:45 [info]: GET /api/employees
+2026-03-09 20:40:45 [info]: GET /api/employees
+2026-03-09 20:40:45 [info]: GET /api/services
+2026-03-09 20:40:45 [info]: GET /api/reports/weekly
+2026-03-09 20:40:45 [info]: GET /api/services
+2026-03-09 20:40:45 [info]: GET /api/reports/weekly
+2026-03-09 20:40:45 [info]: GET /api/reports/dashboard
+2026-03-09 20:40:45 [info]: GET /api/services
+2026-03-09 20:40:45 [info]: GET /api/reports/weekly
+2026-03-09 20:40:45 [info]: GET /api/reports/dashboard
+2026-03-09 20:40:45 [info]: GET /api/reports/dashboard
+2026-03-09 20:40:56 [info]: GET /api/employees
+2026-03-09 20:40:56 [info]: GET /api/employees
+2026-03-09 20:40:59 [info]: GET /api/services/types/all
+2026-03-09 20:40:59 [info]: GET /api/services/types/all
+2026-03-09 20:41:00 [info]: GET /api/employees
+2026-03-09 20:41:00 [info]: GET /api/services
+2026-03-09 20:41:00 [info]: GET /api/reports/dashboard
+2026-03-09 20:41:00 [info]: GET /api/reports/weekly
+2026-03-09 20:41:04 [info]: GET /api/employees
+2026-03-09 20:41:04 [info]: GET /api/employees
+2026-03-09 20:41:23 [info]: GET /api/services/types/all
+2026-03-09 20:41:23 [info]: GET /api/services/types/all
+2026-03-09 20:41:24 [info]: GET /api/employees
+2026-03-09 20:41:24 [info]: GET /api/services/types/all
+2026-03-09 20:41:24 [info]: GET /api/employees
+2026-03-09 20:41:24 [info]: GET /api/services/types/all
+2026-03-09 20:41:28 [info]: GET /api/employees
+2026-03-09 20:41:28 [info]: GET /api/employees
+2026-03-09 20:41:34 [info]: GET /api/employees
+2026-03-09 20:41:34 [info]: GET /api/services/types/all
+2026-03-09 20:41:34 [info]: GET /api/employees
+2026-03-09 20:41:34 [info]: GET /api/services/types/all
+2026-03-09 20:44:48 [info]: GET /api/services/types/all
+2026-03-09 20:44:48 [info]: GET /api/services/types/all
+2026-03-09 20:53:09 [info]: ✅ Database connected successfully
+2026-03-09 20:53:09 [info]: 🚀 Server running on port 3001
+2026-03-09 20:53:09 [info]: 📊 Environment: development
+2026-03-09 20:53:09 [info]: 🔗 API URL: http://localhost:3001/api
+2026-03-09 20:53:19 [info]: GET /api/employees
+2026-03-09 20:53:19 [info]: GET /api/services
+2026-03-09 20:53:19 [info]: GET /api/reports/dashboard
+2026-03-09 20:53:19 [info]: GET /api/reports/weekly
+2026-03-09 20:53:19 [info]: GET /api/employees
+2026-03-09 20:53:19 [info]: GET /api/employees
+2026-03-09 20:53:19 [info]: GET /api/employees
+2026-03-09 20:53:19 [info]: GET /api/services
+2026-03-09 20:53:19 [info]: GET /api/services
+2026-03-09 20:53:19 [info]: GET /api/reports/weekly
+2026-03-09 20:53:19 [info]: GET /api/reports/dashboard
+2026-03-09 20:53:19 [info]: GET /api/services
+2026-03-09 20:53:19 [info]: GET /api/reports/weekly
+2026-03-09 20:53:19 [info]: GET /api/reports/weekly
+2026-03-09 20:53:19 [info]: GET /api/reports/dashboard
+2026-03-09 20:53:19 [info]: GET /api/reports/dashboard
+2026-03-09 20:53:23 [info]: GET /api/services/types/all
+2026-03-09 20:53:23 [info]: GET /api/services/types/all
+2026-03-09 20:53:52 [info]: GET /api/employees
+2026-03-09 20:53:52 [info]: GET /api/services/types/all
+2026-03-09 20:53:52 [info]: GET /api/services/types/all
+2026-03-09 20:53:52 [info]: GET /api/employees
+2026-03-09 20:53:53 [info]: GET /api/services/types/all
+2026-03-09 20:53:53 [info]: GET /api/services/types/all
+2026-03-09 20:54:22 [info]: POST /api/services/types
+2026-03-09 20:54:22 [info]: Service type created: Nuevo123
+2026-03-09 20:54:22 [info]: GET /api/services/types/all
+2026-03-09 20:54:24 [info]: GET /api/employees
+2026-03-09 20:54:24 [info]: GET /api/services/types/all
+2026-03-09 20:54:24 [info]: GET /api/employees
+2026-03-09 20:54:24 [info]: GET /api/services/types/all
+2026-03-09 21:01:42 [info]: GET /api/employees
+2026-03-09 21:01:42 [warn]: Invalid or expired token attempt
+2026-03-09 21:01:42 [info]: GET /api/services
+2026-03-09 21:01:42 [warn]: Invalid or expired token attempt
+2026-03-09 21:01:42 [info]: GET /api/reports/dashboard
+2026-03-09 21:01:42 [warn]: Invalid or expired token attempt
+2026-03-09 21:01:42 [info]: GET /api/reports/weekly
+2026-03-09 21:01:42 [warn]: Invalid or expired token attempt
+2026-03-09 21:01:42 [info]: GET /api/employees
+2026-03-09 21:01:42 [warn]: Invalid or expired token attempt
+2026-03-09 21:01:42 [info]: GET /api/services
+2026-03-09 21:01:42 [warn]: Invalid or expired token attempt
+2026-03-09 21:01:42 [info]: GET /api/reports/dashboard
+2026-03-09 21:01:42 [warn]: Invalid or expired token attempt
+2026-03-09 21:01:42 [info]: GET /api/reports/weekly
+2026-03-09 21:01:42 [warn]: Invalid or expired token attempt
+2026-03-09 21:01:42 [info]: GET /api/employees
+2026-03-09 21:01:42 [warn]: Invalid or expired token attempt
+2026-03-09 21:01:42 [info]: GET /api/services
+2026-03-09 21:01:42 [warn]: Invalid or expired token attempt
+2026-03-09 21:01:42 [info]: GET /api/reports/dashboard
+2026-03-09 21:01:42 [warn]: Invalid or expired token attempt
+2026-03-09 21:01:42 [info]: GET /api/reports/weekly
+2026-03-09 21:01:42 [warn]: Invalid or expired token attempt
+2026-03-09 21:01:42 [info]: GET /api/employees
+2026-03-09 21:01:42 [warn]: Invalid or expired token attempt
+2026-03-09 21:01:42 [info]: GET /api/services
+2026-03-09 21:01:42 [warn]: Invalid or expired token attempt
+2026-03-09 21:01:42 [info]: GET /api/reports/dashboard
+2026-03-09 21:01:42 [warn]: Invalid or expired token attempt
+2026-03-09 21:01:42 [info]: GET /api/reports/weekly
+2026-03-09 21:01:42 [warn]: Invalid or expired token attempt
+2026-03-09 21:01:42 [info]: POST /api/auth/refresh
+2026-03-09 21:01:42 [info]: GET /api/employees
+2026-03-09 21:01:42 [info]: GET /api/services
+2026-03-09 21:01:42 [info]: GET /api/reports/dashboard
+2026-03-09 21:01:42 [info]: GET /api/reports/weekly
+2026-03-09 21:01:42 [info]: GET /api/employees
+2026-03-09 21:01:42 [info]: GET /api/reports/weekly
+2026-03-09 21:01:42 [info]: GET /api/reports/weekly
+2026-03-09 21:01:42 [info]: GET /api/reports/weekly
+2026-03-09 21:01:42 [info]: GET /api/services
+2026-03-09 21:01:42 [info]: GET /api/employees
+2026-03-09 21:01:42 [info]: GET /api/services
+2026-03-09 21:01:42 [info]: GET /api/employees
+2026-03-09 21:01:42 [info]: GET /api/reports/dashboard
+2026-03-09 21:01:42 [info]: GET /api/services
+2026-03-09 21:01:42 [info]: GET /api/reports/dashboard
+2026-03-09 21:01:42 [info]: GET /api/reports/dashboard
+2026-03-09 21:01:46 [info]: GET /api/services/types/all
+2026-03-09 21:01:46 [info]: GET /api/services/types/all
+2026-03-09 21:01:47 [info]: GET /api/employees
+2026-03-09 21:01:47 [info]: GET /api/services/types/all
+2026-03-09 21:01:47 [info]: GET /api/employees
+2026-03-09 21:01:47 [info]: GET /api/services/types/all
+2026-03-09 21:01:58 [info]: GET /api/services/types/all
+2026-03-09 21:01:58 [info]: GET /api/services/types/all
+2026-03-09 21:02:15 [info]: POST /api/services/types
+2026-03-09 21:02:15 [info]: Service type created: nuevo87
+2026-03-09 21:02:15 [info]: GET /api/services/types/all
+2026-03-09 21:02:17 [info]: GET /api/employees
+2026-03-09 21:02:17 [info]: GET /api/services/types/all
+2026-03-09 21:02:17 [info]: GET /api/employees
+2026-03-09 21:02:17 [info]: GET /api/services/types/all
+2026-03-09 21:02:18 [info]: GET /api/services/types/all
+2026-03-09 21:02:18 [info]: GET /api/services/types/all
+2026-03-09 21:02:35 [info]: DELETE /api/services/types/c83b667f-c43d-42ee-aa40-a4309e805b60
+2026-03-09 21:02:35 [info]: Service type deleted: c83b667f-c43d-42ee-aa40-a4309e805b60
+2026-03-09 21:02:35 [info]: GET /api/services/types/all
+2026-03-09 21:02:38 [info]: DELETE /api/services/types/31e361a2-e1db-4d02-9872-39ee716b34e5
+2026-03-09 21:02:38 [info]: Service type deleted: 31e361a2-e1db-4d02-9872-39ee716b34e5
+2026-03-09 21:02:38 [info]: GET /api/services/types/all
+2026-03-09 21:03:34 [info]: GET /api/employees
+2026-03-09 21:03:34 [info]: GET /api/services
+2026-03-09 21:03:34 [info]: GET /api/reports/dashboard
+2026-03-09 21:03:34 [info]: GET /api/reports/weekly
+2026-03-09 21:06:03 [info]: SIGINT received. Shutting down gracefully...
+2026-03-09 21:06:15 [info]: ✅ Database connected successfully
+2026-03-09 21:06:15 [info]: 🚀 Server running on port 3001
+2026-03-09 21:06:15 [info]: 📊 Environment: development
+2026-03-09 21:06:15 [info]: 🔗 API URL: http://localhost:3001/api
+2026-03-09 21:06:33 [info]: GET /api/employees
+2026-03-09 21:06:33 [info]: GET /api/employees
+2026-03-09 21:06:36 [info]: GET /api/employees
+2026-03-09 21:06:36 [info]: GET /api/services
+2026-03-09 21:06:36 [info]: GET /api/reports/dashboard
+2026-03-09 21:06:36 [info]: GET /api/reports/weekly
+2026-03-09 21:06:46 [info]: GET /api/reports/weekly
+2026-03-09 21:06:46 [info]: GET /api/services
+2026-03-09 21:06:46 [info]: GET /api/services
+2026-03-09 21:06:46 [info]: GET /api/reports/weekly
+2026-03-09 21:06:46 [info]: GET /api/services
+2026-03-09 21:06:46 [info]: GET /api/services
+2026-03-09 21:06:47 [info]: GET /api/employees
+2026-03-09 21:06:47 [info]: GET /api/services/types/all
+2026-03-09 21:06:47 [info]: GET /api/services/types/all
+2026-03-09 21:06:47 [info]: GET /api/employees
+2026-03-09 21:06:53 [info]: GET /api/services/types/all
+2026-03-09 21:06:53 [info]: GET /api/services/types/all
+2026-03-09 21:07:12 [info]: POST /api/services/types
+2026-03-09 21:07:12 [info]: Service type created: nuevo
+2026-03-09 21:07:12 [info]: GET /api/services/types/all
+2026-03-09 21:07:13 [info]: GET /api/employees
+2026-03-09 21:07:13 [info]: GET /api/services/types/all
+2026-03-09 21:07:13 [info]: GET /api/employees
+2026-03-09 21:07:13 [info]: GET /api/services/types/all
+2026-03-09 21:07:40 [info]: POST /api/auth/login
+2026-03-09 21:07:41 [info]: User logged in: admin@barbershop.com
+2026-03-09 21:07:41 [info]: GET /api/employees
+2026-03-09 21:07:41 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:07:41 [info]: GET /api/services
+2026-03-09 21:07:41 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:07:41 [info]: GET /api/reports/dashboard
+2026-03-09 21:07:41 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:07:41 [info]: GET /api/reports/weekly
+2026-03-09 21:07:41 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:07:41 [info]: GET /api/employees
+2026-03-09 21:07:41 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:07:41 [info]: GET /api/admin/tenants
+2026-03-09 21:07:41 [info]: GET /api/plans
+2026-03-09 21:07:41 [info]: GET /api/services
+2026-03-09 21:07:41 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:07:41 [info]: GET /api/reports/dashboard
+2026-03-09 21:07:41 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:07:41 [info]: GET /api/reports/weekly
+2026-03-09 21:07:41 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:07:41 [info]: GET /api/employees
+2026-03-09 21:07:41 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:07:41 [info]: GET /api/services
+2026-03-09 21:07:41 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:07:41 [info]: GET /api/reports/dashboard
+2026-03-09 21:07:41 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:07:41 [info]: GET /api/reports/weekly
+2026-03-09 21:07:41 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:07:41 [info]: GET /api/employees
+2026-03-09 21:07:41 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:07:41 [info]: GET /api/services
+2026-03-09 21:07:41 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:07:41 [info]: GET /api/plans
+2026-03-09 21:07:41 [info]: GET /api/reports/dashboard
+2026-03-09 21:07:41 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:07:41 [info]: GET /api/admin/tenants
+2026-03-09 21:07:41 [info]: GET /api/reports/weekly
+2026-03-09 21:07:41 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:08:19 [info]: POST /api/auth/register
+2026-03-09 21:08:19 [error]: Error: La contraseña debe contener al menos un carácter especial
+    at AuthService.register (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:120:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:53:20
+2026-03-09 21:08:24 [info]: POST /api/auth/register
+2026-03-09 21:08:24 [info]: User registered: Martin@gmail.com
+2026-03-09 21:08:24 [info]: GET /api/admin/tenants
+2026-03-09 21:08:26 [info]: GET /api/plans
+2026-03-09 21:08:26 [info]: GET /api/plans
+2026-03-09 21:08:56 [info]: POST /api/auth/login
+2026-03-09 21:08:57 [info]: User logged in: matias1@gmail.com
+2026-03-09 21:08:57 [info]: GET /api/employees
+2026-03-09 21:08:57 [info]: GET /api/services
+2026-03-09 21:08:57 [info]: GET /api/reports/dashboard
+2026-03-09 21:08:57 [info]: GET /api/reports/weekly
+2026-03-09 21:08:57 [info]: GET /api/employees
+2026-03-09 21:08:57 [info]: GET /api/services
+2026-03-09 21:08:57 [info]: GET /api/reports/weekly
+2026-03-09 21:08:57 [info]: GET /api/services
+2026-03-09 21:08:57 [info]: GET /api/reports/dashboard
+2026-03-09 21:08:57 [info]: GET /api/reports/weekly
+2026-03-09 21:08:57 [info]: GET /api/employees
+2026-03-09 21:08:57 [info]: GET /api/services
+2026-03-09 21:08:57 [info]: GET /api/reports/weekly
+2026-03-09 21:08:57 [info]: GET /api/employees
+2026-03-09 21:08:57 [info]: GET /api/reports/dashboard
+2026-03-09 21:08:57 [info]: GET /api/reports/dashboard
+2026-03-09 21:09:00 [info]: GET /api/services/types/all
+2026-03-09 21:09:00 [info]: GET /api/services/types/all
+2026-03-09 21:09:01 [info]: GET /api/employees
+2026-03-09 21:09:01 [info]: GET /api/employees
+2026-03-09 21:09:02 [info]: GET /api/services/types/all
+2026-03-09 21:09:02 [info]: GET /api/services/types/all
+2026-03-09 21:09:03 [info]: GET /api/employees
+2026-03-09 21:09:03 [info]: GET /api/services/types/all
+2026-03-09 21:09:03 [info]: GET /api/employees
+2026-03-09 21:09:03 [info]: GET /api/services/types/all
+2026-03-09 21:09:05 [info]: GET /api/reports/weekly
+2026-03-09 21:09:05 [info]: GET /api/services
+2026-03-09 21:09:05 [info]: GET /api/services
+2026-03-09 21:09:05 [info]: GET /api/reports/weekly
+2026-03-09 21:09:05 [info]: GET /api/services
+2026-03-09 21:09:05 [info]: GET /api/services
+2026-03-09 21:09:05 [info]: GET /api/employees
+2026-03-09 21:09:05 [info]: GET /api/services/types/all
+2026-03-09 21:09:05 [info]: GET /api/employees
+2026-03-09 21:09:05 [info]: GET /api/services/types/all
+2026-03-09 21:09:06 [info]: GET /api/services/types/all
+2026-03-09 21:09:06 [info]: GET /api/services/types/all
+2026-03-09 21:09:23 [info]: POST /api/services/types
+2026-03-09 21:09:23 [info]: Service type created: Nuevo
+2026-03-09 21:09:23 [info]: GET /api/services/types/all
+2026-03-09 21:09:47 [info]: POST /api/auth/login
+2026-03-09 21:09:48 [warn]: Failed login attempt 1/4 for: martin@gmail.com (3 left)
+2026-03-09 21:09:48 [warn]: Client error:
+2026-03-09 21:09:53 [info]: POST /api/auth/login
+2026-03-09 21:09:54 [info]: User logged in: Martin@gmail.com
+2026-03-09 21:09:54 [info]: GET /api/employees
+2026-03-09 21:09:54 [info]: GET /api/services
+2026-03-09 21:09:54 [info]: GET /api/reports/dashboard
+2026-03-09 21:09:54 [info]: GET /api/reports/weekly
+2026-03-09 21:09:54 [info]: GET /api/employees
+2026-03-09 21:09:54 [info]: GET /api/services
+2026-03-09 21:09:54 [info]: GET /api/reports/weekly
+2026-03-09 21:09:54 [info]: GET /api/employees
+2026-03-09 21:09:54 [info]: GET /api/services
+2026-03-09 21:09:54 [info]: GET /api/reports/weekly
+2026-03-09 21:09:54 [info]: GET /api/reports/dashboard
+2026-03-09 21:09:54 [info]: GET /api/employees
+2026-03-09 21:09:54 [info]: GET /api/services
+2026-03-09 21:09:54 [info]: GET /api/reports/weekly
+2026-03-09 21:09:54 [info]: GET /api/reports/dashboard
+2026-03-09 21:09:54 [info]: GET /api/reports/dashboard
+2026-03-09 21:09:57 [info]: GET /api/services/types/all
+2026-03-09 21:09:57 [info]: GET /api/services/types/all
+2026-03-09 21:10:03 [info]: GET /api/employees
+2026-03-09 21:10:03 [info]: GET /api/services/types/all
+2026-03-09 21:10:03 [info]: GET /api/employees
+2026-03-09 21:10:03 [info]: GET /api/services/types/all
+2026-03-09 21:10:21 [info]: GET /api/reports/weekly
+2026-03-09 21:10:21 [info]: GET /api/services
+2026-03-09 21:10:21 [info]: GET /api/services
+2026-03-09 21:10:21 [info]: GET /api/reports/weekly
+2026-03-09 21:10:21 [info]: GET /api/services
+2026-03-09 21:10:21 [info]: GET /api/services
+2026-03-09 21:10:37 [info]: POST /api/auth/login
+2026-03-09 21:10:38 [info]: User logged in: matias@gmail.com
+2026-03-09 21:10:38 [info]: GET /api/employees
+2026-03-09 21:10:38 [info]: GET /api/services
+2026-03-09 21:10:38 [info]: GET /api/reports/dashboard
+2026-03-09 21:10:38 [info]: GET /api/reports/weekly
+2026-03-09 21:10:38 [info]: GET /api/employees
+2026-03-09 21:10:38 [info]: GET /api/services
+2026-03-09 21:10:38 [info]: GET /api/reports/weekly
+2026-03-09 21:10:38 [info]: GET /api/employees
+2026-03-09 21:10:38 [info]: GET /api/services
+2026-03-09 21:10:38 [info]: GET /api/reports/dashboard
+2026-03-09 21:10:38 [info]: GET /api/reports/weekly
+2026-03-09 21:10:38 [info]: GET /api/employees
+2026-03-09 21:10:38 [info]: GET /api/services
+2026-03-09 21:10:38 [info]: GET /api/reports/weekly
+2026-03-09 21:10:38 [info]: GET /api/reports/dashboard
+2026-03-09 21:10:38 [info]: GET /api/reports/dashboard
+2026-03-09 21:10:54 [info]: GET /api/employees
+2026-03-09 21:10:54 [info]: GET /api/employees
+2026-03-09 21:10:55 [info]: GET /api/services/types/all
+2026-03-09 21:10:55 [info]: GET /api/services/types/all
+2026-03-09 21:10:56 [info]: GET /api/employees
+2026-03-09 21:10:56 [info]: GET /api/services/types/all
+2026-03-09 21:10:56 [info]: GET /api/employees
+2026-03-09 21:10:56 [info]: GET /api/services/types/all
+2026-03-09 21:10:58 [info]: GET /api/reports/weekly
+2026-03-09 21:10:58 [info]: GET /api/services
+2026-03-09 21:10:58 [info]: GET /api/services
+2026-03-09 21:10:58 [info]: GET /api/reports/weekly
+2026-03-09 21:10:58 [info]: GET /api/services
+2026-03-09 21:10:58 [info]: GET /api/services
+2026-03-09 21:11:21 [info]: GET /api/employees
+2026-03-09 21:11:21 [info]: GET /api/services
+2026-03-09 21:11:21 [info]: GET /api/reports/dashboard
+2026-03-09 21:11:21 [info]: GET /api/reports/weekly
+2026-03-09 21:11:24 [info]: GET /api/employees
+2026-03-09 21:11:24 [info]: GET /api/services/types/all
+2026-03-09 21:11:24 [info]: GET /api/employees
+2026-03-09 21:11:24 [info]: GET /api/services/types/all
+2026-03-09 21:11:30 [info]: GET /api/employees
+2026-03-09 21:11:30 [info]: GET /api/services
+2026-03-09 21:11:30 [info]: GET /api/reports/dashboard
+2026-03-09 21:11:30 [info]: GET /api/reports/weekly
+2026-03-09 21:11:36 [info]: GET /api/reports/weekly
+2026-03-09 21:11:36 [info]: GET /api/services
+2026-03-09 21:11:36 [info]: GET /api/services
+2026-03-09 21:11:36 [info]: GET /api/reports/weekly
+2026-03-09 21:11:36 [info]: GET /api/services
+2026-03-09 21:11:36 [info]: GET /api/services
+2026-03-09 21:11:41 [info]: GET /api/services
+2026-03-09 21:11:41 [info]: GET /api/employees
+2026-03-09 21:11:41 [info]: GET /api/reports/dashboard
+2026-03-09 21:11:41 [info]: GET /api/reports/weekly
+2026-03-09 21:11:57 [info]: GET /api/employees
+2026-03-09 21:11:57 [info]: GET /api/services
+2026-03-09 21:11:57 [info]: GET /api/reports/dashboard
+2026-03-09 21:11:57 [info]: GET /api/reports/weekly
+2026-03-09 21:11:57 [info]: GET /api/services
+2026-03-09 21:11:57 [info]: GET /api/employees
+2026-03-09 21:11:57 [info]: GET /api/reports/weekly
+2026-03-09 21:11:57 [info]: GET /api/services
+2026-03-09 21:11:57 [info]: GET /api/employees
+2026-03-09 21:11:57 [info]: GET /api/reports/weekly
+2026-03-09 21:11:57 [info]: GET /api/services
+2026-03-09 21:11:57 [info]: GET /api/employees
+2026-03-09 21:11:57 [info]: GET /api/reports/weekly
+2026-03-09 21:11:57 [info]: GET /api/reports/dashboard
+2026-03-09 21:11:57 [info]: GET /api/reports/dashboard
+2026-03-09 21:11:57 [info]: GET /api/reports/dashboard
+2026-03-09 21:12:10 [info]: GET /api/plans/active
+2026-03-09 21:12:10 [info]: GET /api/plans/active
+2026-03-09 21:24:41 [info]: POST /api/auth/login
+2026-03-09 21:24:43 [info]: User logged in: matias@gmail.com
+2026-03-09 21:24:43 [info]: GET /api/auth/me
+2026-03-09 21:24:43 [info]: GET /api/services
+2026-03-09 21:24:43 [info]: GET /api/employees
+2026-03-09 21:24:43 [info]: GET /api/reports/dashboard
+2026-03-09 21:24:43 [info]: GET /api/reports/weekly
+2026-03-09 21:24:43 [info]: GET /api/auth/me
+2026-03-09 21:24:43 [info]: GET /api/services
+2026-03-09 21:24:43 [info]: GET /api/services
+2026-03-09 21:24:43 [info]: GET /api/services
+2026-03-09 21:24:43 [info]: GET /api/employees
+2026-03-09 21:24:43 [info]: GET /api/employees
+2026-03-09 21:24:43 [info]: GET /api/reports/weekly
+2026-03-09 21:24:43 [info]: GET /api/reports/dashboard
+2026-03-09 21:24:43 [info]: GET /api/employees
+2026-03-09 21:24:43 [info]: GET /api/reports/weekly
+2026-03-09 21:24:43 [info]: GET /api/reports/weekly
+2026-03-09 21:24:43 [info]: GET /api/reports/dashboard
+2026-03-09 21:24:43 [info]: GET /api/reports/dashboard
+2026-03-09 21:24:51 [info]: GET /api/employees
+2026-03-09 21:24:51 [info]: GET /api/employees
+2026-03-09 21:24:52 [info]: GET /api/services/types/all
+2026-03-09 21:24:52 [info]: GET /api/services/types/all
+2026-03-09 21:24:53 [info]: GET /api/employees
+2026-03-09 21:24:53 [info]: GET /api/services/types/all
+2026-03-09 21:24:53 [info]: GET /api/employees
+2026-03-09 21:24:53 [info]: GET /api/services/types/all
+2026-03-09 21:24:54 [info]: GET /api/services/types/all
+2026-03-09 21:24:54 [info]: GET /api/services/types/all
+2026-03-09 21:24:56 [info]: GET /api/services/types/all
+2026-03-09 21:24:56 [info]: GET /api/employees
+2026-03-09 21:24:56 [info]: GET /api/services/types/all
+2026-03-09 21:24:56 [info]: GET /api/employees
+2026-03-09 21:24:58 [info]: GET /api/reports/weekly
+2026-03-09 21:24:58 [info]: GET /api/services
+2026-03-09 21:24:58 [info]: GET /api/services
+2026-03-09 21:24:58 [info]: GET /api/reports/weekly
+2026-03-09 21:24:58 [info]: GET /api/services
+2026-03-09 21:24:58 [info]: GET /api/services
+2026-03-09 21:25:11 [info]: GET /api/employees
+2026-03-09 21:25:11 [info]: GET /api/services
+2026-03-09 21:25:11 [info]: GET /api/reports/dashboard
+2026-03-09 21:25:11 [info]: GET /api/reports/weekly
+2026-03-09 21:25:20 [info]: GET /api/employees
+2026-03-09 21:25:20 [info]: GET /api/employees
+2026-03-09 21:25:21 [info]: GET /api/services/types/all
+2026-03-09 21:25:21 [info]: GET /api/services/types/all
+2026-03-09 21:25:21 [info]: GET /api/employees
+2026-03-09 21:25:21 [info]: GET /api/services/types/all
+2026-03-09 21:25:21 [info]: GET /api/employees
+2026-03-09 21:25:21 [info]: GET /api/services/types/all
+2026-03-09 21:25:23 [info]: GET /api/reports/weekly
+2026-03-09 21:25:23 [info]: GET /api/services
+2026-03-09 21:25:23 [info]: GET /api/services
+2026-03-09 21:25:23 [info]: GET /api/reports/weekly
+2026-03-09 21:25:23 [info]: GET /api/services
+2026-03-09 21:25:23 [info]: GET /api/services
+2026-03-09 21:25:26 [info]: GET /api/reports/weekly
+2026-03-09 21:25:26 [info]: GET /api/services
+2026-03-09 21:25:26 [info]: GET /api/services
+2026-03-09 21:25:26 [info]: GET /api/reports/weekly
+2026-03-09 21:25:26 [info]: GET /api/services
+2026-03-09 21:25:26 [info]: GET /api/services
+2026-03-09 21:25:28 [info]: GET /api/employees
+2026-03-09 21:25:28 [info]: GET /api/services/types/all
+2026-03-09 21:25:28 [info]: GET /api/employees
+2026-03-09 21:25:28 [info]: GET /api/services/types/all
+2026-03-09 21:25:29 [info]: GET /api/employees
+2026-03-09 21:25:29 [info]: GET /api/services
+2026-03-09 21:25:29 [info]: GET /api/reports/dashboard
+2026-03-09 21:25:30 [info]: GET /api/reports/weekly
+2026-03-09 21:25:37 [info]: GET /api/reports/weekly
+2026-03-09 21:25:37 [info]: GET /api/services
+2026-03-09 21:25:37 [info]: GET /api/services
+2026-03-09 21:25:37 [info]: GET /api/reports/weekly
+2026-03-09 21:25:37 [info]: GET /api/services
+2026-03-09 21:25:37 [info]: GET /api/services
+2026-03-09 21:25:40 [info]: GET /api/services/types/all
+2026-03-09 21:25:40 [info]: GET /api/services/types/all
+2026-03-09 21:25:42 [info]: GET /api/employees
+2026-03-09 21:25:42 [info]: GET /api/services
+2026-03-09 21:25:42 [info]: GET /api/reports/dashboard
+2026-03-09 21:25:42 [info]: GET /api/reports/weekly
+2026-03-09 21:25:46 [info]: GET /api/employees
+2026-03-09 21:25:46 [info]: GET /api/employees
+2026-03-09 21:25:47 [info]: GET /api/employees
+2026-03-09 21:25:47 [info]: GET /api/services
+2026-03-09 21:25:47 [info]: GET /api/reports/dashboard
+2026-03-09 21:25:47 [info]: GET /api/reports/weekly
+2026-03-09 21:25:50 [info]: GET /api/employees
+2026-03-09 21:25:50 [info]: GET /api/services/types/all
+2026-03-09 21:25:50 [info]: GET /api/employees
+2026-03-09 21:25:50 [info]: GET /api/services/types/all
+2026-03-09 21:25:53 [info]: GET /api/employees
+2026-03-09 21:25:53 [info]: GET /api/services
+2026-03-09 21:25:53 [info]: GET /api/reports/dashboard
+2026-03-09 21:25:53 [info]: GET /api/reports/weekly
+2026-03-09 21:25:56 [info]: GET /api/employees
+2026-03-09 21:25:56 [info]: GET /api/services/types/all
+2026-03-09 21:25:56 [info]: GET /api/employees
+2026-03-09 21:25:56 [info]: GET /api/services/types/all
+2026-03-09 21:25:57 [info]: GET /api/services/types/all
+2026-03-09 21:25:58 [info]: GET /api/services/types/all
+2026-03-09 21:25:58 [info]: GET /api/employees
+2026-03-09 21:25:58 [info]: GET /api/services
+2026-03-09 21:25:58 [info]: GET /api/reports/dashboard
+2026-03-09 21:25:58 [info]: GET /api/reports/weekly
+2026-03-09 21:28:32 [info]: GET /api/employees
+2026-03-09 21:28:32 [info]: GET /api/services
+2026-03-09 21:28:32 [info]: GET /api/reports/dashboard
+2026-03-09 21:28:32 [info]: GET /api/reports/weekly
+2026-03-09 21:28:32 [info]: GET /api/employees
+2026-03-09 21:28:32 [info]: GET /api/services
+2026-03-09 21:28:32 [info]: GET /api/reports/weekly
+2026-03-09 21:28:32 [info]: GET /api/reports/dashboard
+2026-03-09 21:28:54 [info]: SIGINT received. Shutting down gracefully...
+2026-03-09 21:29:06 [info]: ✅ Database connected successfully
+2026-03-09 21:29:06 [info]: 🚀 Server running on port 3001
+2026-03-09 21:29:06 [info]: 📊 Environment: development
+2026-03-09 21:29:06 [info]: 🔗 API URL: http://localhost:3001/api
+2026-03-09 21:29:06 [info]: GET /api/auth/me
+2026-03-09 21:29:06 [info]: GET /api/services
+2026-03-09 21:29:06 [info]: GET /api/employees
+2026-03-09 21:29:06 [info]: GET /api/reports/dashboard
+2026-03-09 21:29:06 [info]: GET /api/reports/weekly
+2026-03-09 21:29:07 [info]: GET /api/employees
+2026-03-09 21:29:07 [info]: GET /api/services
+2026-03-09 21:29:07 [info]: GET /api/employees
+2026-03-09 21:29:07 [info]: GET /api/services
+2026-03-09 21:29:07 [info]: GET /api/employees
+2026-03-09 21:29:07 [info]: GET /api/auth/me
+2026-03-09 21:29:07 [info]: GET /api/reports/weekly
+2026-03-09 21:29:07 [info]: GET /api/services
+2026-03-09 21:29:07 [info]: GET /api/reports/dashboard
+2026-03-09 21:29:07 [info]: GET /api/reports/weekly
+2026-03-09 21:29:07 [info]: GET /api/reports/weekly
+2026-03-09 21:29:07 [info]: GET /api/reports/dashboard
+2026-03-09 21:29:07 [info]: GET /api/reports/dashboard
+2026-03-09 21:29:19 [info]: GET /api/auth/me
+2026-03-09 21:29:19 [info]: GET /api/employees
+2026-03-09 21:29:19 [info]: GET /api/services
+2026-03-09 21:29:19 [info]: GET /api/reports/dashboard
+2026-03-09 21:29:19 [info]: GET /api/reports/weekly
+2026-03-09 21:29:19 [info]: GET /api/employees
+2026-03-09 21:29:19 [info]: GET /api/services
+2026-03-09 21:29:19 [info]: GET /api/reports/weekly
+2026-03-09 21:29:19 [info]: GET /api/auth/me
+2026-03-09 21:29:19 [info]: GET /api/employees
+2026-03-09 21:29:19 [info]: GET /api/services
+2026-03-09 21:29:19 [info]: GET /api/reports/weekly
+2026-03-09 21:29:19 [info]: GET /api/reports/dashboard
+2026-03-09 21:29:19 [info]: GET /api/employees
+2026-03-09 21:29:19 [info]: GET /api/services
+2026-03-09 21:29:19 [info]: GET /api/reports/weekly
+2026-03-09 21:29:19 [info]: GET /api/reports/dashboard
+2026-03-09 21:29:20 [info]: GET /api/reports/dashboard
+2026-03-09 21:29:42 [info]: POST /api/auth/login
+2026-03-09 21:29:42 [info]: User logged in: matias1@gmail.com
+2026-03-09 21:29:43 [info]: GET /api/auth/me
+2026-03-09 21:29:43 [info]: GET /api/employees
+2026-03-09 21:29:43 [info]: GET /api/services
+2026-03-09 21:29:43 [info]: GET /api/reports/dashboard
+2026-03-09 21:29:43 [info]: GET /api/reports/weekly
+2026-03-09 21:29:43 [info]: GET /api/employees
+2026-03-09 21:29:43 [info]: GET /api/services
+2026-03-09 21:29:43 [info]: GET /api/reports/weekly
+2026-03-09 21:29:43 [info]: GET /api/auth/me
+2026-03-09 21:29:43 [info]: GET /api/employees
+2026-03-09 21:29:43 [info]: GET /api/services
+2026-03-09 21:29:43 [info]: GET /api/reports/dashboard
+2026-03-09 21:29:43 [info]: GET /api/reports/weekly
+2026-03-09 21:29:43 [info]: GET /api/employees
+2026-03-09 21:29:43 [info]: GET /api/services
+2026-03-09 21:29:43 [info]: GET /api/reports/weekly
+2026-03-09 21:29:43 [info]: GET /api/reports/dashboard
+2026-03-09 21:29:43 [info]: GET /api/reports/dashboard
+2026-03-09 21:30:04 [info]: POST /api/auth/login
+2026-03-09 21:30:05 [info]: User logged in: admin@barbershop.com
+2026-03-09 21:30:05 [info]: GET /api/auth/me
+2026-03-09 21:30:05 [info]: GET /api/employees
+2026-03-09 21:30:05 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:30:05 [info]: GET /api/services
+2026-03-09 21:30:05 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:30:05 [info]: GET /api/reports/dashboard
+2026-03-09 21:30:05 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:30:05 [info]: GET /api/reports/weekly
+2026-03-09 21:30:05 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:30:05 [info]: GET /api/plans
+2026-03-09 21:30:05 [info]: GET /api/admin/tenants
+2026-03-09 21:30:05 [info]: GET /api/employees
+2026-03-09 21:30:05 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:30:05 [info]: GET /api/services
+2026-03-09 21:30:05 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:30:05 [info]: GET /api/reports/dashboard
+2026-03-09 21:30:05 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:30:05 [info]: GET /api/reports/weekly
+2026-03-09 21:30:05 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:30:05 [info]: GET /api/auth/me
+2026-03-09 21:30:05 [info]: GET /api/employees
+2026-03-09 21:30:05 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:30:05 [info]: GET /api/services
+2026-03-09 21:30:05 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:30:05 [info]: GET /api/reports/dashboard
+2026-03-09 21:30:05 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:30:05 [info]: GET /api/reports/weekly
+2026-03-09 21:30:05 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:30:05 [info]: GET /api/plans
+2026-03-09 21:30:05 [info]: GET /api/admin/tenants
+2026-03-09 21:30:05 [info]: GET /api/employees
+2026-03-09 21:30:05 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:30:05 [info]: GET /api/services
+2026-03-09 21:30:05 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:30:05 [info]: GET /api/reports/dashboard
+2026-03-09 21:30:05 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:30:05 [info]: GET /api/reports/weekly
+2026-03-09 21:30:05 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:30:06 [info]: GET /api/plans
+2026-03-09 21:30:06 [info]: GET /api/plans
+2026-03-09 21:30:22 [info]: POST /api/auth/login
+2026-03-09 21:30:22 [info]: User logged in: Martin@gmail.com
+2026-03-09 21:30:23 [info]: GET /api/auth/me
+2026-03-09 21:30:23 [info]: GET /api/employees
+2026-03-09 21:30:23 [info]: GET /api/services
+2026-03-09 21:30:23 [info]: GET /api/reports/dashboard
+2026-03-09 21:30:23 [info]: GET /api/reports/weekly
+2026-03-09 21:30:23 [info]: GET /api/employees
+2026-03-09 21:30:23 [info]: GET /api/services
+2026-03-09 21:30:23 [info]: GET /api/reports/weekly
+2026-03-09 21:30:23 [info]: GET /api/auth/me
+2026-03-09 21:30:23 [info]: GET /api/employees
+2026-03-09 21:30:23 [info]: GET /api/services
+2026-03-09 21:30:23 [info]: GET /api/reports/dashboard
+2026-03-09 21:30:23 [info]: GET /api/reports/weekly
+2026-03-09 21:30:23 [info]: GET /api/employees
+2026-03-09 21:30:23 [info]: GET /api/services
+2026-03-09 21:30:23 [info]: GET /api/reports/weekly
+2026-03-09 21:30:23 [info]: GET /api/reports/dashboard
+2026-03-09 21:30:23 [info]: GET /api/reports/dashboard
+2026-03-09 21:34:01 [info]: GET /api/employees
+2026-03-09 21:34:01 [info]: GET /api/employees
+2026-03-09 21:34:24 [info]: GET /api/employees
+2026-03-09 21:34:24 [info]: GET /api/services
+2026-03-09 21:34:24 [info]: GET /api/reports/dashboard
+2026-03-09 21:34:24 [info]: GET /api/reports/weekly
+2026-03-09 21:34:33 [info]: GET /api/employees
+2026-03-09 21:34:33 [info]: GET /api/employees
+2026-03-09 21:34:34 [info]: GET /api/services/types/all
+2026-03-09 21:34:34 [info]: GET /api/services/types/all
+2026-03-09 21:34:35 [info]: GET /api/employees
+2026-03-09 21:34:35 [info]: GET /api/services/types/all
+2026-03-09 21:34:35 [info]: GET /api/employees
+2026-03-09 21:34:35 [info]: GET /api/services/types/all
+2026-03-09 21:34:36 [info]: GET /api/services/types/all
+2026-03-09 21:34:36 [info]: GET /api/services/types/all
+2026-03-09 21:34:38 [info]: GET /api/services/types/all
+2026-03-09 21:34:38 [info]: GET /api/employees
+2026-03-09 21:34:38 [info]: GET /api/services/types/all
+2026-03-09 21:34:38 [info]: GET /api/employees
+2026-03-09 21:34:38 [info]: GET /api/reports/weekly
+2026-03-09 21:34:38 [info]: GET /api/services
+2026-03-09 21:34:38 [info]: GET /api/services
+2026-03-09 21:34:39 [info]: GET /api/reports/weekly
+2026-03-09 21:34:39 [info]: GET /api/services
+2026-03-09 21:34:39 [info]: GET /api/services
+2026-03-09 21:38:22 [info]: GET /api/employees
+2026-03-09 21:38:22 [info]: GET /api/services/types/all
+2026-03-09 21:38:22 [info]: GET /api/employees
+2026-03-09 21:38:22 [info]: GET /api/services/types/all
+2026-03-09 21:38:23 [info]: GET /api/employees
+2026-03-09 21:38:23 [info]: GET /api/services
+2026-03-09 21:38:23 [info]: GET /api/reports/dashboard
+2026-03-09 21:38:23 [info]: GET /api/reports/weekly
+2026-03-09 21:38:41 [info]: POST /api/auth/login
+2026-03-09 21:38:42 [info]: User logged in: admin@barbershop.com
+2026-03-09 21:38:42 [info]: GET /api/auth/me
+2026-03-09 21:38:42 [info]: GET /api/employees
+2026-03-09 21:38:42 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:38:42 [info]: GET /api/services
+2026-03-09 21:38:42 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:38:42 [info]: GET /api/reports/dashboard
+2026-03-09 21:38:42 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:38:42 [info]: GET /api/reports/weekly
+2026-03-09 21:38:42 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:38:42 [info]: GET /api/plans
+2026-03-09 21:38:42 [info]: GET /api/employees
+2026-03-09 21:38:42 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:38:42 [info]: GET /api/auth/me
+2026-03-09 21:38:42 [info]: GET /api/admin/tenants
+2026-03-09 21:38:42 [info]: GET /api/services
+2026-03-09 21:38:42 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:38:42 [info]: GET /api/reports/dashboard
+2026-03-09 21:38:42 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:38:42 [info]: GET /api/reports/weekly
+2026-03-09 21:38:42 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:38:42 [info]: GET /api/employees
+2026-03-09 21:38:42 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:38:42 [info]: GET /api/services
+2026-03-09 21:38:42 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:38:42 [info]: GET /api/reports/dashboard
+2026-03-09 21:38:42 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:38:42 [info]: GET /api/plans
+2026-03-09 21:38:42 [info]: GET /api/reports/weekly
+2026-03-09 21:38:42 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:38:42 [info]: GET /api/employees
+2026-03-09 21:38:42 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:38:42 [info]: GET /api/services
+2026-03-09 21:38:42 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:38:42 [info]: GET /api/reports/dashboard
+2026-03-09 21:38:42 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:38:42 [info]: GET /api/admin/tenants
+2026-03-09 21:38:42 [info]: GET /api/reports/weekly
+2026-03-09 21:38:42 [warn]: Admin access denied for user: admin@barbershop.com
+2026-03-09 21:38:43 [info]: GET /api/plans
+2026-03-09 21:38:43 [info]: GET /api/plans
+2026-03-09 21:39:10 [info]: GET /api/plans/active
+2026-03-09 21:39:10 [info]: GET /api/plans/active
+2026-03-09 21:43:56 [info]: SIGINT received. Shutting down gracefully...

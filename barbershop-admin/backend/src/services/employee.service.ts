@@ -49,9 +49,11 @@ export class EmployeeService {
   }
 
   static async createEmployee(input: CreateEmployeeInput, createdBy: string) {
+    const normalizedEmail = input.email.trim().toLowerCase();
+
     // Check if email exists
     const existingUser = await prisma.user.findUnique({
-      where: { email: input.email },
+      where: { email: normalizedEmail },
     });
 
     if (existingUser) {
@@ -71,7 +73,7 @@ export class EmployeeService {
     const result = await prisma.$transaction(async (tx) => {
       const user = await tx.user.create({
         data: {
-          email: input.email,
+          email: normalizedEmail,
           passwordHash,
           role: 'EMPLOYEE',
           tenantId: input.tenantId,
@@ -112,7 +114,7 @@ export class EmployeeService {
         newData: {
           firstName: input.firstName,
           lastName: input.lastName,
-          email: input.email,
+          email: normalizedEmail,
           commissionRate: input.commissionRate,
         },
       },
@@ -196,34 +198,49 @@ export class EmployeeService {
       throw new Error('Empleado no encontrado');
     }
 
-    const updated = await prisma.employee.update({
-      where: { id },
-      data: {
-        firstName: input.firstName,
-        lastName: input.lastName,
-        phone: input.phone,
-        photoUrl: input.photoUrl,
-        commissionRate: input.commissionRate,
-        isActive: input.isActive,
-      },
-      include: {
-        user: {
-          select: {
-            id: true,
-            email: true,
-            role: true,
+    let passwordHash: string | undefined;
+    if (input.password) {
+      const passwordValidation = PasswordUtils.validatePassword(input.password);
+      if (!passwordValidation.valid) {
+        throw new Error(passwordValidation.message);
+      }
+      passwordHash = await PasswordUtils.hash(input.password);
+    }
+
+    const updated = await prisma.$transaction(async (tx) => {
+      const updatedEmployee = await tx.employee.update({
+        where: { id },
+        data: {
+          firstName: input.firstName,
+          lastName: input.lastName,
+          phone: input.phone,
+          photoUrl: input.photoUrl,
+          commissionRate: input.commissionRate,
+          isActive: input.isActive,
+        },
+        include: {
+          user: {
+            select: {
+              id: true,
+              email: true,
+              role: true,
+            },
           },
         },
-      },
-    });
-
-    // If employee is deactivated, also deactivate user
-    if (input.isActive === false) {
-      await prisma.user.update({
-        where: { id: employee.userId },
-        data: { isActive: false },
       });
-    }
+
+      if (input.isActive !== undefined || passwordHash) {
+        await tx.user.update({
+          where: { id: employee.userId },
+          data: {
+            ...(input.isActive !== undefined ? { isActive: input.isActive } : {}),
+            ...(passwordHash ? { passwordHash } : {}),
+          },
+        });
+      }
+
+      return updatedEmployee;
+    });
 
     // Log audit
     await prisma.auditLog.create({

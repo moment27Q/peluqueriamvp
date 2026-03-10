@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only --ignore-watch logs src/app.ts",
     "build": "tsc",
-    "start": "node dist/app.js",
+    "start": "npm run build && node dist/app.js",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
     "db:deploy": "prisma migrate deploy",

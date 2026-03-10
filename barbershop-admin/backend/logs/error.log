@@ -282,3 +282,6 @@
     at C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\express\lib\router\index.js:284:15
     at Function.process_params (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\express\lib\router\index.js:346:12)
     at next (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\node_modules\express\lib\router\index.js:280:10)
+2026-03-09 21:08:19 [error]: Error: La contraseña debe contener al menos un carácter especial
+    at AuthService.register (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:120:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:53:20

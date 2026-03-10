@@ -1,4 +1,5 @@
 export interface CreateEmployeeInput {
+    tenantId: string;
     email: string;
     password: string;
     firstName: string;
@@ -12,10 +13,12 @@ export interface UpdateEmployeeInput {
     lastName?: string;
     phone?: string;
     photoUrl?: string;
+    password?: string;
     commissionRate?: number;
     isActive?: boolean;
 }
 export interface EmployeeFilters {
+    tenantId?: string;
     isActive?: boolean;
     search?: string;
 }
@@ -30,6 +33,8 @@ export interface EmployeeEarnings {
     totalServices: number;
     totalRevenue: number;
     totalCommission: number;
+    totalWithdrawn: number;
+    availableBalance: number;
     salonEarnings: number;
     period: {
         start: Date;

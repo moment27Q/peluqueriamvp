@@ -19,6 +19,16 @@ const envSchema = zod_1.z.object({
     RATE_LIMIT_WINDOW_MS: zod_1.z.string().default('900000'),
     RATE_LIMIT_MAX_REQUESTS: zod_1.z.string().default('100'),
     LOG_LEVEL: zod_1.z.enum(['error', 'warn', 'info', 'debug']).default('info'),
+    SMTP_HOST: zod_1.z.string().optional(),
+    SMTP_PORT: zod_1.z.string().optional(),
+    SMTP_SECURE: zod_1.z.enum(['true', 'false']).optional(),
+    SMTP_USER: zod_1.z.string().optional(),
+    SMTP_PASS: zod_1.z.string().optional(),
+    SMTP_FROM_EMAIL: zod_1.z.string().optional(),
+    SMTP_FROM_NAME: zod_1.z.string().optional(),
+    WITHDRAWAL_NOTIFY_EMAIL: zod_1.z.string().optional(),
+    WITHDRAWAL_TIMEZONE: zod_1.z.string().optional(),
+    SUPPORT_PHONE: zod_1.z.string().optional(),
 });
 const parsedEnv = envSchema.safeParse(process.env);
 if (!parsedEnv.success) {

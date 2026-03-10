@@ -52,6 +52,7 @@ export interface CreateServiceTypeInput {
   tenantId: string;
   name: string;
   description?: string;
+  imageUrl?: string;
   defaultPrice: number;
   durationMinutes?: number;
 }
@@ -59,6 +60,7 @@ export interface CreateServiceTypeInput {
 export interface UpdateServiceTypeInput {
   name?: string;
   description?: string;
+  imageUrl?: string;
   defaultPrice?: number;
   durationMinutes?: number;
   isActive?: boolean;

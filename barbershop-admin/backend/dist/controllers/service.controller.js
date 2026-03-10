@@ -5,6 +5,25 @@ exports.ServiceController = void 0;
 const zod_1 = require("zod");
 const service_record_service_1 = require("../services/service-record.service");
 const error_middleware_1 = require("../middleware/error.middleware");
+const optionalImageString = zod_1.z.preprocess((value) => {
+    if (typeof value !== 'string')
+        return value;
+    const trimmed = value.trim();
+    return trimmed === '' ? undefined : trimmed;
+}, zod_1.z.string().optional().refine((value) => {
+    if (!value)
+        return true;
+    if (value.startsWith('data:image/'))
+        return true;
+    try {
+        // Also allow normal image URLs
+        new URL(value);
+        return true;
+    }
+    catch {
+        return false;
+    }
+}, 'La imagen debe ser una URL valida o una imagen subida'));
 const createServiceSchema = zod_1.z.object({
     body: zod_1.z.object({
         employeeId: zod_1.z.string().uuid('ID de empleado inválido'),
@@ -45,6 +64,7 @@ const createServiceTypeSchema = zod_1.z.object({
     body: zod_1.z.object({
         name: zod_1.z.string().min(2, 'El nombre es requerido'),
         description: zod_1.z.string().optional(),
+        imageUrl: optionalImageString,
         defaultPrice: zod_1.z.number().positive('El precio debe ser mayor a 0'),
         durationMinutes: zod_1.z.number().int().positive().optional(),
     }),
@@ -56,6 +76,7 @@ const updateServiceTypeSchema = zod_1.z.object({
     body: zod_1.z.object({
         name: zod_1.z.string().min(2).optional(),
         description: zod_1.z.string().optional(),
+        imageUrl: optionalImageString,
         defaultPrice: zod_1.z.number().positive().optional(),
         durationMinutes: zod_1.z.number().int().positive().optional(),
         isActive: zod_1.z.boolean().optional(),
@@ -76,7 +97,10 @@ ServiceController.getPublicServiceTypes = (0, error_middleware_1.asyncHandler)(a
 ServiceController.createService = (0, error_middleware_1.asyncHandler)(async (req, res) => {
     const data = createServiceSchema.parse(req).body;
     const createdBy = req.user.userId;
-    const service = await service_record_service_1.ServiceRecordService.createService(data, createdBy);
+    const tenantId = req.user.tenantId;
+    if (!tenantId)
+        throw new Error('Usuario sin empresa');
+    const service = await service_record_service_1.ServiceRecordService.createService({ ...data, tenantId }, createdBy);
     res.status(201).json({
         success: true,
         data: service,
@@ -84,7 +108,9 @@ ServiceController.createService = (0, error_middleware_1.asyncHandler)(async (re
 });
 ServiceController.getAllServices = (0, error_middleware_1.asyncHandler)(async (req, res) => {
     const { query } = serviceFiltersSchema.parse(req);
+    const tenantId = req.user.tenantId;
     const filters = {
+        tenantId,
         employeeId: query.employeeId,
         startDate: query.startDate ? new Date(query.startDate) : undefined,
         endDate: query.endDate ? new Date(query.endDate) : undefined,
@@ -98,7 +124,8 @@ ServiceController.getAllServices = (0, error_middleware_1.asyncHandler)(async (r
 });
 ServiceController.getServiceById = (0, error_middleware_1.asyncHandler)(async (req, res) => {
     const { id } = serviceIdSchema.parse(req).params;
-    const service = await service_record_service_1.ServiceRecordService.getServiceById(id);
+    const tenantId = req.user.tenantId;
+    const service = await service_record_service_1.ServiceRecordService.getServiceById(id, tenantId);
     res.json({
         success: true,
         data: service,
@@ -108,7 +135,8 @@ ServiceController.updateService = (0, error_middleware_1.asyncHandler)(async (re
     const { id } = updateServiceSchema.parse(req).params;
     const data = updateServiceSchema.parse(req).body;
     const updatedBy = req.user.userId;
-    const service = await service_record_service_1.ServiceRecordService.updateService(id, data, updatedBy);
+    const tenantId = req.user.tenantId;
+    const service = await service_record_service_1.ServiceRecordService.updateService(id, data, updatedBy, tenantId);
     res.json({
         success: true,
         data: service,
@@ -117,7 +145,8 @@ ServiceController.updateService = (0, error_middleware_1.asyncHandler)(async (re
 ServiceController.deleteService = (0, error_middleware_1.asyncHandler)(async (req, res) => {
     const { id } = serviceIdSchema.parse(req).params;
     const deletedBy = req.user.userId;
-    await service_record_service_1.ServiceRecordService.deleteService(id, deletedBy);
+    const tenantId = req.user.tenantId;
+    await service_record_service_1.ServiceRecordService.deleteService(id, deletedBy, tenantId);
     res.json({
         success: true,
         message: 'Servicio eliminado exitosamente',
@@ -126,7 +155,10 @@ ServiceController.deleteService = (0, error_middleware_1.asyncHandler)(async (re
 // Service Types
 ServiceController.createServiceType = (0, error_middleware_1.asyncHandler)(async (req, res) => {
     const data = createServiceTypeSchema.parse(req).body;
-    const serviceType = await service_record_service_1.ServiceRecordService.createServiceType(data);
+    const tenantId = req.user.tenantId;
+    if (!tenantId)
+        throw new Error('Usuario sin empresa');
+    const serviceType = await service_record_service_1.ServiceRecordService.createServiceType({ ...data, tenantId });
     res.status(201).json({
         success: true,
         data: serviceType,
@@ -134,7 +166,8 @@ ServiceController.createServiceType = (0, error_middleware_1.asyncHandler)(async
 });
 ServiceController.getAllServiceTypes = (0, error_middleware_1.asyncHandler)(async (req, res) => {
     const { includeInactive } = req.query;
-    const serviceTypes = await service_record_service_1.ServiceRecordService.getAllServiceTypes(includeInactive === 'true');
+    const tenantId = req.user.tenantId;
+    const serviceTypes = await service_record_service_1.ServiceRecordService.getAllServiceTypes(includeInactive === 'true', tenantId);
     res.json({
         success: true,
         data: serviceTypes,
@@ -143,7 +176,8 @@ ServiceController.getAllServiceTypes = (0, error_middleware_1.asyncHandler)(asyn
 ServiceController.updateServiceType = (0, error_middleware_1.asyncHandler)(async (req, res) => {
     const { id } = updateServiceTypeSchema.parse(req).params;
     const data = updateServiceTypeSchema.parse(req).body;
-    const serviceType = await service_record_service_1.ServiceRecordService.updateServiceType(id, data);
+    const tenantId = req.user.tenantId;
+    const serviceType = await service_record_service_1.ServiceRecordService.updateServiceType(id, data, tenantId);
     res.json({
         success: true,
         data: serviceType,
@@ -151,7 +185,8 @@ ServiceController.updateServiceType = (0, error_middleware_1.asyncHandler)(async
 });
 ServiceController.deleteServiceType = (0, error_middleware_1.asyncHandler)(async (req, res) => {
     const { id } = serviceIdSchema.parse(req).params;
-    await service_record_service_1.ServiceRecordService.deleteServiceType(id);
+    const tenantId = req.user.tenantId;
+    await service_record_service_1.ServiceRecordService.deleteServiceType(id, tenantId);
     res.json({
         success: true,
         message: 'Tipo de servicio eliminado exitosamente',

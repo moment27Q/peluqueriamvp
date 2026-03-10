@@ -1,4 +1,5 @@
 export interface CreateServiceInput {
+    tenantId: string;
     employeeId: string;
     serviceTypeId?: string;
     clientName: string;
@@ -8,13 +9,14 @@ export interface CreateServiceInput {
 }
 export interface UpdateServiceInput {
     employeeId?: string;
-    serviceTypeId?: string;
+    serviceTypeId?: string | null;
     clientName?: string;
     clientPhone?: string;
     price?: number;
     notes?: string;
 }
 export interface ServiceFilters {
+    tenantId?: string;
     employeeId?: string;
     startDate?: Date;
     endDate?: Date;
@@ -26,9 +28,9 @@ export interface ServiceWithDetails {
     serviceTypeId: string | null;
     clientName: string;
     clientPhone: string | null;
-    price: number;
-    commissionRate: number;
-    commissionAmount: number;
+    price: any;
+    commissionRate: any;
+    commissionAmount: any;
     serviceDate: Date;
     notes: string | null;
     createdAt: Date;
@@ -43,14 +45,17 @@ export interface ServiceWithDetails {
     } | null;
 }
 export interface CreateServiceTypeInput {
+    tenantId: string;
     name: string;
     description?: string;
+    imageUrl?: string;
     defaultPrice: number;
     durationMinutes?: number;
 }
 export interface UpdateServiceTypeInput {
     name?: string;
     description?: string;
+    imageUrl?: string;
     defaultPrice?: number;
     durationMinutes?: number;
     isActive?: boolean;

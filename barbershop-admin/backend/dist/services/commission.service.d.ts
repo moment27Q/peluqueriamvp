@@ -22,8 +22,8 @@ export declare class CommissionService {
      * Calcula totales para un conjunto de servicios
      */
     static calculateTotals(services: Array<{
-        price: number;
-        commissionAmount: number;
+        price: any;
+        commissionAmount: any;
     }>): {
         totalRevenue: number;
         totalCommission: number;

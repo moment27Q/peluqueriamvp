@@ -28,31 +28,32 @@ function getAccountLock(email: string): AccountLockInfo {
 
 export class AuthService {
   static async login(input: LoginInput, ipAddress?: string, userAgent?: string): Promise<{ user: UserPayload; tokens: AuthTokens }> {
-    const emailKey = input.email.toLowerCase();
+    const normalizedEmail = input.email.trim().toLowerCase();
+    const emailKey = normalizedEmail;
 
     // ── Check if THIS account is temporarily locked (in-memory, per-email) ──
     const lockInfo = getAccountLock(emailKey);
     if (lockInfo.lockedUntil && lockInfo.lockedUntil > new Date()) {
       const minutesLeft = Math.ceil((lockInfo.lockedUntil.getTime() - Date.now()) / 60000);
-      logger.warn(`Login attempt for locked account: ${input.email}, unlocks in ${minutesLeft}min`);
+      logger.warn(`Login attempt for locked account: ${normalizedEmail}, unlocks in ${minutesLeft}min`);
       const err: any = createError('ACCOUNT_LOCKED', 429);
       err.code = 'ACCOUNT_LOCKED';
       err.minutesLeft = minutesLeft;
       throw err;
     }
 
-    const user = await prisma.user.findUnique({
-      where: { email: input.email },
+    const user = await prisma.user.findFirst({
+      where: { email: { equals: normalizedEmail, mode: 'insensitive' } },
       include: { employee: true },
     });
 
     if (!user) {
-      logger.warn(`Login attempt with non-existent email: ${input.email}`);
+      logger.warn(`Login attempt with non-existent email: ${normalizedEmail}`);
       throw new Error('Credenciales inválidas');
     }
 
     if (!user.isActive) {
-      logger.warn(`Login attempt with inactive account: ${input.email}`);
+      logger.warn(`Login attempt with inactive account: ${normalizedEmail}`);
       throw new Error('Cuenta desactivada');
     }
 
@@ -60,7 +61,7 @@ export class AuthService {
     if (user.tenantId) {
       const tenant = await prisma.tenant.findUnique({ where: { id: user.tenantId } });
       if (tenant && !tenant.isActive) {
-        logger.warn(`Login attempt for inactive tenant: ${user.tenantId} by user: ${input.email}`);
+        logger.warn(`Login attempt for inactive tenant: ${user.tenantId} by user: ${normalizedEmail}`);
         const supportPhone = env.SUPPORT_PHONE || '';
         const err: any = createError('TENANT_INACTIVE', 403);
         err.code = 'TENANT_INACTIVE';
@@ -85,7 +86,7 @@ export class AuthService {
         // Auto-clear after lockout expires so map doesn't grow forever
         setTimeout(() => loginAttemptMap.delete(emailKey), LOCKOUT_DURATION_MS + 1000);
 
-        logger.warn(`Account locked after ${newAttempts} failed attempts: ${input.email}`);
+        logger.warn(`Account locked after ${newAttempts} failed attempts: ${normalizedEmail}`);
         const err: any = createError('ACCOUNT_LOCKED', 429);
         err.code = 'ACCOUNT_LOCKED';
         err.minutesLeft = 15;
@@ -95,7 +96,7 @@ export class AuthService {
       loginAttemptMap.set(emailKey, { attempts: newAttempts, lockedUntil: null });
 
       const attemptsLeft = MAX_LOGIN_ATTEMPTS - newAttempts;
-      logger.warn(`Failed login attempt ${newAttempts}/${MAX_LOGIN_ATTEMPTS} for: ${input.email} (${attemptsLeft} left)`);
+      logger.warn(`Failed login attempt ${newAttempts}/${MAX_LOGIN_ATTEMPTS} for: ${normalizedEmail} (${attemptsLeft} left)`);
       const err: any = createError(`Credenciales inválidas. Te quedan ${attemptsLeft} intento${attemptsLeft === 1 ? '' : 's'} antes de bloquear la cuenta.`, 401);
       err.code = 'INVALID_CREDENTIALS';
       err.attemptsLeft = attemptsLeft;

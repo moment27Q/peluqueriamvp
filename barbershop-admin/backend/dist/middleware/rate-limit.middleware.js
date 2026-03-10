@@ -9,8 +9,8 @@ const env_1 = require("../config/env");
 const isDevelopment = env_1.env.NODE_ENV === 'development';
 // Login attempts limiter
 exports.authLimiter = (0, express_rate_limit_1.default)({
-    windowMs: 15 * 60 * 1000,
-    max: 5,
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 5, // 5 attempts
     message: {
         error: 'Demasiados intentos de inicio de sesión. Por favor, intente más tarde.',
         retryAfter: '15 minutos',
@@ -21,7 +21,7 @@ exports.authLimiter = (0, express_rate_limit_1.default)({
         res.status(429).json({
             error: 'Demasiados intentos de inicio de sesión',
             message: 'Por favor, espere 15 minutos antes de intentar nuevamente',
-            retryAfter: 900,
+            retryAfter: 900, // seconds
         });
     },
 });
@@ -39,8 +39,8 @@ exports.apiLimiter = (0, express_rate_limit_1.default)({
 });
 // Strict limiter for sensitive operations
 exports.strictLimiter = (0, express_rate_limit_1.default)({
-    windowMs: 60 * 1000,
-    max: 10,
+    windowMs: 60 * 1000, // 1 minute
+    max: 10, // 10 requests per minute
     message: {
         error: 'Operación limitada',
         message: 'Demasiadas operaciones sensibles. Por favor, espere un momento.',
@@ -48,8 +48,8 @@ exports.strictLimiter = (0, express_rate_limit_1.default)({
 });
 // Report generation limiter (can be resource intensive)
 exports.reportLimiter = (0, express_rate_limit_1.default)({
-    windowMs: 60 * 1000,
-    max: 30,
+    windowMs: 60 * 1000, // 1 minute
+    max: 30, // 30 report requests per minute
     skip: () => isDevelopment,
     message: {
         error: 'Generación de reportes limitada',

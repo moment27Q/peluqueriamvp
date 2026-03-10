@@ -13,10 +13,11 @@ interface Employee {
 interface ServiceType {
     id: string;
     name: string;
+    imageUrl?: string | null;
     defaultPrice: number | string;
     durationMinutes?: number;
     category?: string; // Mock category for now
-    image?: string; // Mock image for now
+    image?: string; // Derived image for UI
 }
 
 interface CartItem {
@@ -112,7 +113,7 @@ export const AdminSales: React.FC = () => {
                 const loadedServices = (Array.isArray(servRes.data) ? servRes.data : []).map((s) => ({
                     ...s,
                     category: getMockCategory(s.name),
-                    image: getServiceImage(s.name),
+                    image: s.imageUrl || getServiceImage(s.name),
                     durationMinutes: 30 // Mock duration if missing
                 }));
                 setServiceTypes(loadedServices);
@@ -289,7 +290,7 @@ export const AdminSales: React.FC = () => {
                             >
                                 <div className="aspect-[4/3] rounded-2xl bg-gray-100 mb-4 overflow-hidden relative">
                                     <img
-                                        src={service.image}
+                                        src={service.image || getServiceImage(service.name)}
                                         alt={service.name}
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                         onError={(e) => {
@@ -347,7 +348,15 @@ export const AdminSales: React.FC = () => {
                     ) : (
                         cart.map(item => (
                             <div key={item.uniqueId} className="flex gap-4 group">
-                                <img src={item.service.image} alt="" className="size-16 rounded-xl object-cover bg-gray-100" />
+                                <img
+                                    src={item.service.image || getServiceImage(item.service.name)}
+                                    alt=""
+                                    className="size-16 rounded-xl object-cover bg-gray-100"
+                                    onError={(e) => {
+                                        e.currentTarget.src = 'https://images.unsplash.com/photo-1585747685350-31c2dc714ef0?q=80&w=2070&auto=format&fit=crop';
+                                        e.currentTarget.onerror = null;
+                                    }}
+                                />
                                 <div className="flex-1 min-w-0 py-1">
                                     <div className="flex justify-between items-start">
                                         <h4 className="font-bold text-gray-900 text-sm truncate">{item.service.name}</h4>

@@ -6,6 +6,7 @@ const zod_1 = require("zod");
 const auth_service_1 = require("../services/auth.service");
 const error_middleware_1 = require("../middleware/error.middleware");
 const logger_1 = require("../config/logger");
+const database_1 = require("../config/database");
 const loginSchema = zod_1.z.object({
     body: zod_1.z.object({
         email: zod_1.z.string().email('Email inválido'),
@@ -19,6 +20,8 @@ const registerSchema = zod_1.z.object({
         firstName: zod_1.z.string().min(2, 'El nombre es requerido'),
         lastName: zod_1.z.string().min(2, 'El apellido es requerido'),
         role: zod_1.z.enum(['ADMIN', 'EMPLOYEE']).optional(),
+        shopName: zod_1.z.string().min(2, 'El nombre de la peluquería es requerido').optional(),
+        plan: zod_1.z.string().optional(),
     }),
 });
 const refreshTokenSchema = zod_1.z.object({
@@ -85,9 +88,24 @@ AuthController.getMe = (0, error_middleware_1.asyncHandler)(async (req, res) => 
             error: 'Usuario no encontrado',
         });
     }
+    const tenant = user.tenantId
+        ? await database_1.prisma.tenant.findUnique({
+            where: { id: user.tenantId },
+            select: {
+                id: true,
+                name: true,
+                subscriptionPlan: {
+                    select: { id: true, name: true, price: true },
+                },
+            },
+        })
+        : null;
     res.json({
         success: true,
-        data: user,
+        data: {
+            ...user,
+            tenant,
+        },
     });
 });
 AuthController.changePassword = (0, error_middleware_1.asyncHandler)(async (req, res) => {

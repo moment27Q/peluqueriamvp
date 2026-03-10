@@ -21,6 +21,10 @@ export class ServiceRecordService {
       throw new Error('Empleado no encontrado');
     }
 
+    if (employee.tenantId !== input.tenantId) {
+      throw new Error('Empleado fuera de tu empresa');
+    }
+
     if (!employee.isActive) {
       throw new Error('El empleado no está activo');
     }
@@ -36,6 +40,9 @@ export class ServiceRecordService {
       });
 
       if (serviceType) {
+        if (serviceType.tenantId !== input.tenantId) {
+          throw new Error('Tipo de servicio fuera de tu empresa');
+        }
         const basePrice = Number(serviceType.defaultPrice);
         finalPrice = Math.min(Number(input.price), basePrice);
       }
@@ -157,9 +164,12 @@ export class ServiceRecordService {
     return services as unknown as ServiceWithDetails[];
   }
 
-  static async getServiceById(id: string): Promise<ServiceWithDetails> {
-    const service = await prisma.service.findUnique({
-      where: { id },
+  static async getServiceById(id: string, tenantId?: string): Promise<ServiceWithDetails> {
+    const where: any = { id };
+    if (tenantId) where.tenantId = tenantId;
+
+    const service = await prisma.service.findFirst({
+      where,
       include: {
         employee: {
           select: {
@@ -187,10 +197,14 @@ export class ServiceRecordService {
   static async updateService(
     id: string,
     input: UpdateServiceInput,
-    updatedBy: string
+    updatedBy: string,
+    tenantId?: string
   ): Promise<ServiceWithDetails> {
-    const existingService = await prisma.service.findUnique({
-      where: { id },
+    const where: any = { id };
+    if (tenantId) where.tenantId = tenantId;
+
+    const existingService = await prisma.service.findFirst({
+      where,
     });
 
     if (!existingService) {
@@ -275,9 +289,12 @@ export class ServiceRecordService {
     return updated as unknown as ServiceWithDetails;
   }
 
-  static async deleteService(id: string, deletedBy: string): Promise<void> {
-    const service = await prisma.service.findUnique({
-      where: { id },
+  static async deleteService(id: string, deletedBy: string, tenantId?: string): Promise<void> {
+    const where: any = { id };
+    if (tenantId) where.tenantId = tenantId;
+
+    const service = await prisma.service.findFirst({
+      where,
     });
 
     if (!service) {
@@ -309,6 +326,7 @@ export class ServiceRecordService {
         tenantId: input.tenantId,
         name: input.name,
         description: input.description,
+        imageUrl: input.imageUrl,
         defaultPrice: input.defaultPrice,
         durationMinutes: input.durationMinutes,
       },
@@ -332,9 +350,12 @@ export class ServiceRecordService {
     });
   }
 
-  static async updateServiceType(id: string, input: UpdateServiceTypeInput) {
-    const serviceType = await prisma.serviceType.findUnique({
-      where: { id },
+  static async updateServiceType(id: string, input: UpdateServiceTypeInput, tenantId?: string) {
+    const where: any = { id };
+    if (tenantId) where.tenantId = tenantId;
+
+    const serviceType = await prisma.serviceType.findFirst({
+      where,
     });
 
     if (!serviceType) {
@@ -346,6 +367,7 @@ export class ServiceRecordService {
       data: {
         name: input.name,
         description: input.description,
+        imageUrl: input.imageUrl,
         defaultPrice: input.defaultPrice,
         durationMinutes: input.durationMinutes,
         isActive: input.isActive,
@@ -357,9 +379,12 @@ export class ServiceRecordService {
     return updated;
   }
 
-  static async deleteServiceType(id: string): Promise<void> {
-    const serviceType = await prisma.serviceType.findUnique({
-      where: { id },
+  static async deleteServiceType(id: string, tenantId?: string): Promise<void> {
+    const where: any = { id };
+    if (tenantId) where.tenantId = tenantId;
+
+    const serviceType = await prisma.serviceType.findFirst({
+      where,
       include: {
         _count: {
           select: { services: true },

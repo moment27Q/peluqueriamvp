@@ -4,49 +4,54 @@ exports.ReportService = void 0;
 const database_1 = require("../config/database");
 const commission_service_1 = require("./commission.service");
 class ReportService {
-    static async getDailyReport(date) {
+    static async getDailyReport(date, tenantId) {
         const targetDate = date || new Date();
         const startOfDay = new Date(targetDate);
         startOfDay.setHours(0, 0, 0, 0);
         const endOfDay = new Date(targetDate);
         endOfDay.setHours(23, 59, 59, 999);
-        return this.generatePeriodReport(startOfDay, endOfDay, 'Diario');
+        return this.generatePeriodReport(startOfDay, endOfDay, 'Diario', tenantId);
     }
-    static async getWeeklyReport(endDate) {
+    static async getWeeklyReport(endDate, tenantId) {
         const end = endDate || new Date();
         const start = new Date(end);
         start.setDate(start.getDate() - 6);
         start.setHours(0, 0, 0, 0);
         end.setHours(23, 59, 59, 999);
-        return this.generatePeriodReport(start, end, 'Semanal');
+        return this.generatePeriodReport(start, end, 'Semanal', tenantId);
     }
-    static async getBiweeklyReport(endDate) {
+    static async getBiweeklyReport(endDate, tenantId) {
         const end = endDate || new Date();
         const start = new Date(end);
         start.setDate(start.getDate() - 13);
         start.setHours(0, 0, 0, 0);
         end.setHours(23, 59, 59, 999);
-        return this.generatePeriodReport(start, end, 'Quincenal');
+        return this.generatePeriodReport(start, end, 'Quincenal', tenantId);
     }
-    static async getMonthlyReport(endDate) {
+    static async getMonthlyReport(endDate, tenantId) {
         const end = endDate || new Date();
         const start = new Date(end);
         start.setMonth(start.getMonth() - 1);
         start.setHours(0, 0, 0, 0);
         end.setHours(23, 59, 59, 999);
-        return this.generatePeriodReport(start, end, 'Mensual');
+        return this.generatePeriodReport(start, end, 'Mensual', tenantId);
     }
-    static async getCustomReport(startDate, endDate) {
-        return this.generatePeriodReport(startDate, endDate, 'Personalizado');
+    static async getCustomReport(startDate, endDate, tenantId) {
+        return this.generatePeriodReport(startDate, endDate, 'Personalizado', tenantId);
     }
-    static async generatePeriodReport(startDate, endDate, label) {
-        const services = await database_1.prisma.service.findMany({
-            where: {
-                serviceDate: {
-                    gte: startDate,
-                    lte: endDate,
-                },
+    static async generatePeriodReport(startDate, endDate, label, tenantId) {
+        const where = {
+            serviceDate: {
+                gte: startDate,
+                lte: endDate,
             },
+        };
+        // Always scope to tenant
+        if (tenantId) {
+            where.tenantId = tenantId;
+        }
+        const services = await database_1.prisma.service.findMany({
+            where,
             include: {
                 employee: {
                     select: {
@@ -121,7 +126,7 @@ class ReportService {
             dailyBreakdown: Array.from(dailyMap.values()),
         };
     }
-    static async getDashboardSummary() {
+    static async getDashboardSummary(tenantId) {
         const now = new Date();
         // Today
         const todayStart = new Date(now);
@@ -136,24 +141,26 @@ class ReportService {
         const monthStart = new Date(now);
         monthStart.setMonth(monthStart.getMonth() - 1);
         monthStart.setHours(0, 0, 0, 0);
+        const tenantWhere = tenantId ? { tenantId } : {};
         const [todayServices, weekServices, monthServices] = await Promise.all([
             database_1.prisma.service.findMany({
-                where: { serviceDate: { gte: todayStart, lte: todayEnd } },
+                where: { ...tenantWhere, serviceDate: { gte: todayStart, lte: todayEnd } },
             }),
             database_1.prisma.service.findMany({
-                where: { serviceDate: { gte: weekStart, lte: todayEnd } },
+                where: { ...tenantWhere, serviceDate: { gte: weekStart, lte: todayEnd } },
             }),
             database_1.prisma.service.findMany({
-                where: { serviceDate: { gte: monthStart, lte: todayEnd } },
+                where: { ...tenantWhere, serviceDate: { gte: monthStart, lte: todayEnd } },
             }),
         ]);
         const todayTotals = commission_service_1.CommissionService.calculateTotals(todayServices);
         const weekTotals = commission_service_1.CommissionService.calculateTotals(weekServices);
         const monthTotals = commission_service_1.CommissionService.calculateTotals(monthServices);
         // Top employees this month
-        const topEmployees = await this.getTopEmployees(monthStart, todayEnd, 5);
+        const topEmployees = await this.getTopEmployees(monthStart, todayEnd, 5, tenantId);
         // Recent services
         const recentServices = await database_1.prisma.service.findMany({
+            where: tenantWhere,
             take: 10,
             orderBy: { serviceDate: 'desc' },
             include: {
@@ -197,14 +204,18 @@ class ReportService {
             })),
         };
     }
-    static async getTopEmployees(startDate, endDate, limit) {
-        const services = await database_1.prisma.service.findMany({
-            where: {
-                serviceDate: {
-                    gte: startDate,
-                    lte: endDate,
-                },
+    static async getTopEmployees(startDate, endDate, limit, tenantId) {
+        const where = {
+            serviceDate: {
+                gte: startDate,
+                lte: endDate,
             },
+        };
+        if (tenantId) {
+            where.tenantId = tenantId;
+        }
+        const services = await database_1.prisma.service.findMany({
+            where,
             include: {
                 employee: {
                     select: {
@@ -235,9 +246,13 @@ class ReportService {
             .sort((a, b) => b.revenue - a.revenue)
             .slice(0, limit);
     }
-    static async getEmployeeComparison(startDate, endDate) {
+    static async getEmployeeComparison(startDate, endDate, tenantId) {
+        const where = { isActive: true };
+        if (tenantId) {
+            where.tenantId = tenantId;
+        }
         const employees = await database_1.prisma.employee.findMany({
-            where: { isActive: true },
+            where,
             include: {
                 services: {
                     where: {

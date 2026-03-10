@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.requireOwnerOrAdmin = exports.requireAdmin = exports.authenticate = void 0;
+exports.requireOwnerOrAdmin = exports.requireRole = exports.requireAdmin = exports.authenticate = void 0;
 const jwt_utils_1 = require("../utils/jwt.utils");
 const logger_1 = require("../config/logger");
 const authenticate = (req, res, next) => {
@@ -42,6 +42,21 @@ const requireAdmin = (req, res, next) => {
     next();
 };
 exports.requireAdmin = requireAdmin;
+const requireRole = (roles) => {
+    return (req, res, next) => {
+        if (!req.user) {
+            res.status(401).json({ error: 'No autenticado' });
+            return;
+        }
+        if (!roles.includes(req.user.role)) {
+            logger_1.logger.warn(`Access denied for user: ${req.user.email}. Requires one of: ${roles.join(', ')}`);
+            res.status(403).json({ error: 'Acceso denegado. No tienes los permisos necesarios.' });
+            return;
+        }
+        next();
+    };
+};
+exports.requireRole = requireRole;
 const requireOwnerOrAdmin = (req, res, next) => {
     if (!req.user) {
         res.status(401).json({ error: 'No autenticado' });

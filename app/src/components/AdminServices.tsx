@@ -5,6 +5,7 @@ interface ServiceType {
     id: string;
     name: string;
     description?: string | null;
+    imageUrl?: string | null;
     defaultPrice: number | string;
     durationMinutes?: number | null;
     isActive: boolean;
@@ -13,6 +14,7 @@ interface ServiceType {
 interface ServiceFormState {
     name: string;
     description: string;
+    imageUrl: string;
     defaultPrice: string;
     durationMinutes: string;
     isActive: boolean;
@@ -21,6 +23,7 @@ interface ServiceFormState {
 const initialForm: ServiceFormState = {
     name: '',
     description: '',
+    imageUrl: '',
     defaultPrice: '',
     durationMinutes: '',
     isActive: true,
@@ -65,6 +68,7 @@ export const AdminServices: React.FC = () => {
         setFormData({
             name: service.name,
             description: service.description || '',
+            imageUrl: service.imageUrl || '',
             defaultPrice: String(service.defaultPrice),
             durationMinutes: service.durationMinutes ? String(service.durationMinutes) : '',
             isActive: service.isActive,
@@ -78,6 +82,24 @@ export const AdminServices: React.FC = () => {
         setEditingService(null);
         setFormData(initialForm);
         setError('');
+    };
+
+    const handleImageUpload = async (file: File) => {
+        if (!file.type.startsWith('image/')) {
+            throw new Error('El archivo debe ser una imagen');
+        }
+        if (file.size > 2 * 1024 * 1024) {
+            throw new Error('La imagen no debe superar 2MB');
+        }
+
+        const dataUrl = await new Promise<string>((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(String(reader.result || ''));
+            reader.onerror = () => reject(new Error('No se pudo leer la imagen'));
+            reader.readAsDataURL(file);
+        });
+
+        setFormData((prev) => ({ ...prev, imageUrl: dataUrl }));
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -104,6 +126,7 @@ export const AdminServices: React.FC = () => {
             const basePayload = {
                 name: formData.name.trim(),
                 description: formData.description.trim() || undefined,
+                imageUrl: formData.imageUrl || undefined,
                 defaultPrice,
                 durationMinutes,
             };
@@ -173,6 +196,20 @@ export const AdminServices: React.FC = () => {
                         key={service.id}
                         className={`bg-white p-6 rounded-2xl border ${service.isActive ? 'border-gray-100' : 'border-red-200 opacity-75'} shadow-sm relative`}
                     >
+                        <div className="mb-4 overflow-hidden rounded-xl border border-gray-100">
+                            {service.imageUrl ? (
+                                <img
+                                    src={service.imageUrl}
+                                    alt={service.name}
+                                    className="h-36 w-full object-cover"
+                                />
+                            ) : (
+                                <div className="h-36 w-full bg-gradient-to-br from-primary/10 via-white to-primary/5 flex items-center justify-center text-primary/60 text-sm font-bold">
+                                    Sin imagen
+                                </div>
+                            )}
+                        </div>
+
                         <div className="flex justify-between items-start mb-4">
                             <h3 className="text-xl font-bold text-gray-900">{service.name}</h3>
                             <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-black">
@@ -281,6 +318,38 @@ export const AdminServices: React.FC = () => {
                                     className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium focus:outline-none focus:border-primary resize-none"
                                     placeholder="Descripcion del servicio..."
                                 />
+                            </div>
+
+                            <div>
+                                <label className="block text-xs font-bold text-gray-700 mb-1">Imagen del servicio (opcional)</label>
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={async (e) => {
+                                        const file = e.target.files?.[0];
+                                        if (!file) return;
+                                        try {
+                                            await handleImageUpload(file);
+                                        } catch (err: any) {
+                                            setError(err.message || 'No se pudo subir la imagen');
+                                        } finally {
+                                            e.currentTarget.value = '';
+                                        }
+                                    }}
+                                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium focus:outline-none focus:border-primary"
+                                />
+                                {formData.imageUrl && (
+                                    <div className="mt-3 space-y-2">
+                                        <img src={formData.imageUrl} alt="Preview" className="h-36 w-full rounded-xl object-cover border border-gray-200" />
+                                        <button
+                                            type="button"
+                                            onClick={() => setFormData({ ...formData, imageUrl: '' })}
+                                            className="text-xs font-bold text-red-500 hover:underline"
+                                        >
+                                            Quitar imagen
+                                        </button>
+                                    </div>
+                                )}
                             </div>
 
                             {editingService && (

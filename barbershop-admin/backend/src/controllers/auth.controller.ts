@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { AuthService } from '../services/auth.service';
 import { asyncHandler } from '../middleware/error.middleware';
 import { logger } from '../config/logger';
+import { prisma } from '../config/database';
 
 const loginSchema = z.object({
   body: z.object({
@@ -101,9 +102,25 @@ export class AuthController {
       });
     }
 
+    const tenant = user.tenantId
+      ? await prisma.tenant.findUnique({
+          where: { id: user.tenantId },
+          select: {
+            id: true,
+            name: true,
+            subscriptionPlan: {
+              select: { id: true, name: true, price: true },
+            },
+          },
+        })
+      : null;
+
     res.json({
       success: true,
-      data: user,
+      data: {
+        ...user,
+        tenant,
+      },
     });
   });
 

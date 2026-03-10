@@ -58,15 +58,15 @@ export interface DashboardSummary {
     }>;
 }
 export declare class ReportService {
-    static getDailyReport(date?: Date): Promise<PeriodReport>;
-    static getWeeklyReport(endDate?: Date): Promise<PeriodReport>;
-    static getBiweeklyReport(endDate?: Date): Promise<PeriodReport>;
-    static getMonthlyReport(endDate?: Date): Promise<PeriodReport>;
-    static getCustomReport(startDate: Date, endDate: Date): Promise<PeriodReport>;
+    static getDailyReport(date?: Date, tenantId?: string): Promise<PeriodReport>;
+    static getWeeklyReport(endDate?: Date, tenantId?: string): Promise<PeriodReport>;
+    static getBiweeklyReport(endDate?: Date, tenantId?: string): Promise<PeriodReport>;
+    static getMonthlyReport(endDate?: Date, tenantId?: string): Promise<PeriodReport>;
+    static getCustomReport(startDate: Date, endDate: Date, tenantId?: string): Promise<PeriodReport>;
     private static generatePeriodReport;
-    static getDashboardSummary(): Promise<DashboardSummary>;
+    static getDashboardSummary(tenantId?: string): Promise<DashboardSummary>;
     private static getTopEmployees;
-    static getEmployeeComparison(startDate: Date, endDate: Date): Promise<{
+    static getEmployeeComparison(startDate: Date, endDate: Date, tenantId?: string): Promise<{
         employeeId: string;
         employeeName: string;
         commissionRate: number;

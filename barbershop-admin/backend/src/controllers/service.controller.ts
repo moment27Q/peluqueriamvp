@@ -3,6 +3,22 @@ import { z } from 'zod';
 import { ServiceRecordService } from '../services/service-record.service';
 import { asyncHandler } from '../middleware/error.middleware';
 
+const optionalImageString = z.preprocess((value) => {
+  if (typeof value !== 'string') return value;
+  const trimmed = value.trim();
+  return trimmed === '' ? undefined : trimmed;
+}, z.string().optional().refine((value) => {
+  if (!value) return true;
+  if (value.startsWith('data:image/')) return true;
+  try {
+    // Also allow normal image URLs
+    new URL(value);
+    return true;
+  } catch {
+    return false;
+  }
+}, 'La imagen debe ser una URL valida o una imagen subida'));
+
 const createServiceSchema = z.object({
   body: z.object({
     employeeId: z.string().uuid('ID de empleado inválido'),
@@ -47,6 +63,7 @@ const createServiceTypeSchema = z.object({
   body: z.object({
     name: z.string().min(2, 'El nombre es requerido'),
     description: z.string().optional(),
+    imageUrl: optionalImageString,
     defaultPrice: z.number().positive('El precio debe ser mayor a 0'),
     durationMinutes: z.number().int().positive().optional(),
   }),
@@ -59,6 +76,7 @@ const updateServiceTypeSchema = z.object({
   body: z.object({
     name: z.string().min(2).optional(),
     description: z.string().optional(),
+    imageUrl: optionalImageString,
     defaultPrice: z.number().positive().optional(),
     durationMinutes: z.number().int().positive().optional(),
     isActive: z.boolean().optional(),
@@ -113,8 +131,8 @@ export class ServiceController {
 
   static getServiceById = asyncHandler(async (req: Request, res: Response) => {
     const { id } = serviceIdSchema.parse(req).params;
-
-    const service = await ServiceRecordService.getServiceById(id);
+    const tenantId = req.user!.tenantId;
+    const service = await ServiceRecordService.getServiceById(id, tenantId);
 
     res.json({
       success: true,
@@ -126,8 +144,8 @@ export class ServiceController {
     const { id } = updateServiceSchema.parse(req).params;
     const data = updateServiceSchema.parse(req).body;
     const updatedBy = req.user!.userId;
-
-    const service = await ServiceRecordService.updateService(id, data, updatedBy);
+    const tenantId = req.user!.tenantId;
+    const service = await ServiceRecordService.updateService(id, data, updatedBy, tenantId);
 
     res.json({
       success: true,
@@ -138,8 +156,8 @@ export class ServiceController {
   static deleteService = asyncHandler(async (req: Request, res: Response) => {
     const { id } = serviceIdSchema.parse(req).params;
     const deletedBy = req.user!.userId;
-
-    await ServiceRecordService.deleteService(id, deletedBy);
+    const tenantId = req.user!.tenantId;
+    await ServiceRecordService.deleteService(id, deletedBy, tenantId);
 
     res.json({
       success: true,
@@ -180,8 +198,8 @@ export class ServiceController {
   static updateServiceType = asyncHandler(async (req: Request, res: Response) => {
     const { id } = updateServiceTypeSchema.parse(req).params;
     const data = updateServiceTypeSchema.parse(req).body;
-
-    const serviceType = await ServiceRecordService.updateServiceType(id, data);
+    const tenantId = req.user!.tenantId;
+    const serviceType = await ServiceRecordService.updateServiceType(id, data, tenantId);
 
     res.json({
       success: true,
@@ -191,8 +209,8 @@ export class ServiceController {
 
   static deleteServiceType = asyncHandler(async (req: Request, res: Response) => {
     const { id } = serviceIdSchema.parse(req).params;
-
-    await ServiceRecordService.deleteServiceType(id);
+    const tenantId = req.user!.tenantId;
+    await ServiceRecordService.deleteServiceType(id, tenantId);
 
     res.json({
       success: true,

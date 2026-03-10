@@ -53,6 +53,7 @@ interface UpdateEmployeePayload {
     lastName: string;
     phone?: string;
     photoUrl?: string;
+    password?: string;
     commissionRate: number;
     isActive: boolean;
 }
@@ -66,6 +67,15 @@ const initialForm: EmployeeFormState = {
     photoUrl: '',
     commissionRate: '50',
     isActive: true,
+};
+
+const getPasswordValidationError = (password: string): string | null => {
+    if (password.length < 8) return 'Minimo 8 caracteres';
+    if (!/[A-Z]/.test(password)) return 'Debe incluir una mayuscula';
+    if (!/[a-z]/.test(password)) return 'Debe incluir una minuscula';
+    if (!/[0-9]/.test(password)) return 'Debe incluir un numero';
+    if (!/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password)) return 'Debe incluir un caracter especial';
+    return null;
 };
 
 export const AdminTeam: React.FC = () => {
@@ -149,7 +159,13 @@ export const AdminTeam: React.FC = () => {
                 else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalizedEmail)) nextErrors.email = 'Email invalido';
 
                 if (!normalizedPassword) nextErrors.password = 'La contrasena es obligatoria';
-                else if (normalizedPassword.length < 8) nextErrors.password = 'Minimo 8 caracteres';
+                else {
+                    const passwordError = getPasswordValidationError(normalizedPassword);
+                    if (passwordError) nextErrors.password = passwordError;
+                }
+            } else if (normalizedPassword) {
+                const passwordError = getPasswordValidationError(normalizedPassword);
+                if (passwordError) nextErrors.password = passwordError;
             }
             if (!normalizedFirstName) nextErrors.firstName = 'El nombre es obligatorio';
             if (!normalizedLastName) nextErrors.lastName = 'El apellido es obligatorio';
@@ -174,6 +190,7 @@ export const AdminTeam: React.FC = () => {
                     lastName: normalizedLastName,
                     phone: normalizedPhone || undefined,
                     photoUrl: normalizedPhotoUrl || undefined,
+                    password: normalizedPassword || undefined,
                     commissionRate: commissionRateNumber,
                     isActive: formData.isActive,
                 };
@@ -352,6 +369,21 @@ export const AdminTeam: React.FC = () => {
                                         {formErrors.password && <p className="mt-1 text-xs font-semibold text-red-500">{formErrors.password}</p>}
                                     </div>
                                 </>
+                            )}
+
+                            {editingEmployee && (
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-700 mb-1">Nueva Contrasena (opcional)</label>
+                                    <input
+                                        type="password"
+                                        minLength={8}
+                                        value={formData.password}
+                                        onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                                        className={`w-full bg-gray-50 border rounded-xl px-4 py-3 text-sm font-medium focus:outline-none focus:border-primary ${formErrors.password ? 'border-red-300' : 'border-gray-200'}`}
+                                        placeholder="Deja vacio para mantener la actual"
+                                    />
+                                    {formErrors.password && <p className="mt-1 text-xs font-semibold text-red-500">{formErrors.password}</p>}
+                                </div>
                             )}
 
                             <div className="grid grid-cols-2 gap-4">

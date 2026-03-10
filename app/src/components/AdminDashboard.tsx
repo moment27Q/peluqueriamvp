@@ -85,6 +85,23 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
     const [recentSales, setRecentSales] = useState<DashboardSummary['recentServices']>([]);
     const [showAllRecentSales, setShowAllRecentSales] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [tenantName, setTenantName] = useState('');
+    const [tenantPlan, setTenantPlan] = useState('');
+
+    useEffect(() => {
+        const loadTenantInfo = async () => {
+            try {
+                const res: any = await api.get('/auth/me');
+                const tenant = res?.data?.tenant;
+                setTenantName(tenant?.name || '');
+                setTenantPlan(tenant?.subscriptionPlan?.name || '');
+            } catch {
+                setTenantName('');
+                setTenantPlan('');
+            }
+        };
+        loadTenantInfo();
+    }, []);
 
     const fetchDashboardData = useCallback(async (showLoader = true) => {
         try {
@@ -207,6 +224,16 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
                     <div>
                         <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight">Dashboard</h2>
                         <p className="text-gray-500 mt-1">Resumen operativo de mi pagina.com.</p>
+                        {tenantName && (
+                            <div className="mt-2 flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-wider">
+                                <span className="px-3 py-1 rounded-full bg-gray-100 text-gray-700">
+                                    {tenantName}
+                                </span>
+                                <span className="px-3 py-1 rounded-full bg-green-50 text-green-700">
+                                    Plan: {tenantPlan || 'SIN PLAN'}
+                                </span>
+                            </div>
+                        )}
                     </div>
                     <div className="flex gap-3">
                         <button
@@ -372,6 +399,11 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
                     <div>
                         <h1 className="text-lg font-bold tracking-tight text-gray-900">mi pagina.com</h1>
                         <p className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold">admin</p>
+                        {tenantName && (
+                            <p className="mt-2 inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-0.5 text-[10px] font-bold uppercase text-green-700">
+                                Plan: {tenantPlan || 'SIN PLAN'}
+                            </p>
+                        )}
                     </div>
                 </div>
 
@@ -407,7 +439,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
                 </div>
             </aside>
 
-            <main className="flex-1 flex flex-col min-w-0 bg-background-light">
+            <main className="flex-1 flex flex-col min-w-0 min-h-0 bg-background-light overflow-y-auto">
                 {renderContent()}
             </main>
         </div>

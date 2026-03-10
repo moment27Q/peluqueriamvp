@@ -14,6 +14,7 @@ export interface UpdateEmployeeInput {
   lastName?: string;
   phone?: string;
   photoUrl?: string;
+  password?: string;
   commissionRate?: number;
   isActive?: boolean;
 }

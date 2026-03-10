@@ -68,7 +68,7 @@ export const HelpCenterPage: React.FC<HelpCenterPageProps> = ({ onNavigate }) =>
     const hasResults = filteredCategories.length > 0 || filteredFaqItems.length > 0;
 
     return (
-        <div className="min-h-screen bg-[#f5f6f5] text-gray-900 font-sans">
+        <div className="min-h-screen bg-[#f5f6f5] text-gray-900 font-display">
             <Header onNavigate={onNavigate} />
 
             <main className="pt-20">

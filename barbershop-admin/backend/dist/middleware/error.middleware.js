@@ -55,14 +55,52 @@ const errorHandler = (err, req, res, next) => {
             statusCode,
         });
     }
+    // Handle tenant inactive error (special banner on frontend)
+    const errAny = err;
+    if (errAny.code === 'TENANT_INACTIVE') {
+        res.status(403).json({
+            error: 'TENANT_INACTIVE',
+            code: 'TENANT_INACTIVE',
+            phone: errAny.phone || '',
+        });
+        return;
+    }
+    // Handle account locked error (too many failed attempts)
+    if (errAny.code === 'ACCOUNT_LOCKED') {
+        res.status(429).json({
+            error: 'ACCOUNT_LOCKED',
+            code: 'ACCOUNT_LOCKED',
+            minutesLeft: errAny.minutesLeft || 15,
+        });
+        return;
+    }
+    // Handle invalid credentials with attempt warning
+    if (errAny.code === 'INVALID_CREDENTIALS') {
+        res.status(401).json({
+            error: errAny.message,
+            code: 'INVALID_CREDENTIALS',
+            attemptsLeft: errAny.attemptsLeft,
+        });
+        return;
+    }
     // Send response
-    res.status(statusCode).json({
+    const responsePayload = {
         error: message,
         ...(env_1.env.NODE_ENV === 'development' && {
             stack: err.stack,
             details: err.message,
         }),
-    });
+    };
+    // Explicitly forward custom properties for frontend parsing
+    if (errAny.code)
+        responsePayload.code = errAny.code;
+    if (errAny.minutesLeft !== undefined)
+        responsePayload.minutesLeft = errAny.minutesLeft;
+    if (errAny.attemptsLeft !== undefined)
+        responsePayload.attemptsLeft = errAny.attemptsLeft;
+    if (errAny.phone !== undefined)
+        responsePayload.phone = errAny.phone;
+    res.status(statusCode).json(responsePayload);
 };
 exports.errorHandler = errorHandler;
 // Handle unhandled routes
