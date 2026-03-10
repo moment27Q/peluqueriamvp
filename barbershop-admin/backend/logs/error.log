@@ -285,3 +285,15 @@
 2026-03-09 21:08:19 [error]: Error: La contraseña debe contener al menos un carácter especial
     at AuthService.register (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:120:19)
     at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:53:20
+2026-03-09 23:16:23 [error]: Error: El email ya está registrado
+    at EmployeeService.createEmployee (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\employee.service.js:49:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\employee.controller.js:94:22
+2026-03-09 23:22:10 [error]: Error: El email ya está registrado
+    at EmployeeService.createEmployee (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\employee.service.js:70:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\employee.controller.js:94:22
+2026-03-09 23:22:11 [error]: Error: El email ya está registrado
+    at EmployeeService.createEmployee (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\employee.service.js:70:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\employee.controller.js:94:22
+2026-03-09 23:39:01 [error]: Error: Has alcanzado el límite de peluqueros permitido para tu plan. Actualiza tu plan para agregar más.
+    at EmployeeService.createEmployee (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\employee.service.js:62:23)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\employee.controller.js:94:22

@@ -83,6 +83,8 @@ export const AdminTeam: React.FC = () => {
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
     const [error, setError] = useState('');
+    const [planName, setPlanName] = useState('');
+    const [maxEmployees, setMaxEmployees] = useState<number | null>(null);
     const [formErrors, setFormErrors] = useState<FormFieldErrors>({});
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editingEmployee, setEditingEmployee] = useState<Employee | null>(null);
@@ -104,6 +106,22 @@ export const AdminTeam: React.FC = () => {
 
     useEffect(() => {
         fetchEmployees();
+    }, []);
+
+    useEffect(() => {
+        const fetchPlanInfo = async () => {
+            try {
+                const res: any = await api.get('/auth/me');
+                const tenant = res?.data?.tenant;
+                setPlanName(tenant?.subscriptionPlan?.name || '');
+                const limit = tenant?.subscriptionPlan?.maxEmployees;
+                setMaxEmployees(limit === undefined ? null : limit);
+            } catch {
+                setPlanName('');
+                setMaxEmployees(null);
+            }
+        };
+        fetchPlanInfo();
     }, []);
 
     const openCreateModal = () => {
@@ -241,6 +259,12 @@ export const AdminTeam: React.FC = () => {
                 <div>
                     <h2 className="text-3xl font-black tracking-tight text-gray-900">Gestion de Equipo</h2>
                     <p className="text-primary font-medium">Crear, editar y eliminar barberos.</p>
+                    <p className="text-xs text-gray-500 mt-2 font-semibold uppercase tracking-wide">
+                        Barberos: {employees.filter((e) => e.isActive && e.user.role === 'EMPLOYEE').length}
+                        {' / '}
+                        {maxEmployees === null ? 'Ilimitado' : maxEmployees}
+                        {planName ? ` • Plan ${planName}` : ''}
+                    </p>
                 </div>
                 <button
                     onClick={openCreateModal}

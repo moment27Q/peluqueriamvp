@@ -63,6 +63,7 @@ class PlanService {
                 name: input.name,
                 price: input.price,
                 features: input.features,
+                maxEmployees: input.maxEmployees ?? null,
                 isActive: input.isActive ?? true,
                 displayOrder: orderToUse,
             }, // `as any` until Prisma Client is regenerated
@@ -89,6 +90,7 @@ class PlanService {
             data: {
                 ...input,
                 features: input.features ? input.features : undefined,
+                maxEmployees: input.maxEmployees !== undefined ? input.maxEmployees : undefined,
                 displayOrder: input.displayOrder !== undefined ? input.displayOrder : undefined,
             }, // `as any` until Prisma Client is regenerated
         });

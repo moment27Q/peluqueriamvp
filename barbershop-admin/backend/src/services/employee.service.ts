@@ -1,4 +1,4 @@
-import { prisma } from '../config/database';
+﻿import { prisma } from '../config/database';
 import { env } from '../config/env';
 import { logger } from '../config/logger';
 import { PasswordUtils } from '../utils/password.utils';
@@ -50,6 +50,28 @@ export class EmployeeService {
 
   static async createEmployee(input: CreateEmployeeInput, createdBy: string) {
     const normalizedEmail = input.email.trim().toLowerCase();
+
+    const tenant = await prisma.tenant.findUnique({
+      where: { id: input.tenantId },
+      include: {
+        subscriptionPlan: true,
+      },
+    });
+    const maxEmployees = (tenant?.subscriptionPlan as any)?.maxEmployees;
+    if (maxEmployees !== null && maxEmployees !== undefined) {
+      const currentCount = await prisma.employee.count({
+        where: {
+          tenantId: input.tenantId,
+          isActive: true,
+          user: {
+            role: 'EMPLOYEE',
+          },
+        },
+      });
+      if (currentCount >= Number(maxEmployees)) {
+        throw new Error('Has alcanzado el límite de peluqueros permitido para tu plan. Actualiza tu plan para agregar más.');
+      }
+    }
 
     // Check if email exists
     const existingUser = await prisma.user.findUnique({
@@ -650,3 +672,4 @@ export class EmployeeService {
     };
   }
 }
+

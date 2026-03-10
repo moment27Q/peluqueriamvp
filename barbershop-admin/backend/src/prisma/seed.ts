@@ -8,21 +8,22 @@ async function main() {
 
   // Create Default Subscription Plans
   const plans = [
-    { name: 'BASIC', price: 0.00, features: ['Funciones básicas', 'Hasta 3 empleados', 'Soporte por correo'] },
-    { name: 'PRO', price: 29.99, features: ['Todo en Básico', 'Hasta 10 empleados', 'Soporte prioritario', 'Reportes avanzados'] },
-    { name: 'PREMIUM', price: 99.99, features: ['Todo en Pro', 'Empleados ilimitados', 'Soporte 24/7', 'Marca blanca'] }
+    { name: 'BASIC', price: 0.00, maxEmployees: 3, features: ['Funciones bÃ¡sicas', 'Hasta 3 empleados', 'Soporte por correo'] },
+    { name: 'PRO', price: 29.99, maxEmployees: 10, features: ['Todo en BÃ¡sico', 'Hasta 10 empleados', 'Soporte prioritario', 'Reportes avanzados'] },
+    { name: 'PREMIUM', price: 99.99, maxEmployees: null, features: ['Todo en Pro', 'Empleados ilimitados', 'Soporte 24/7', 'Marca blanca'] }
   ];
 
   const createdPlans = [];
   for (const plan of plans) {
     const created = await prisma.subscriptionPlan.upsert({
       where: { name: plan.name },
-      update: { price: plan.price, features: plan.features },
+      update: { price: plan.price, features: plan.features, maxEmployees: plan.maxEmployees } as any,
       create: {
         name: plan.name,
         price: plan.price,
         features: plan.features,
-      }
+        maxEmployees: plan.maxEmployees,
+      } as any
     });
     createdPlans.push(created);
     console.log(`✅ Subscription plan ensured: ${created.name}`);
@@ -250,3 +251,4 @@ main()
   .finally(async () => {
     await prisma.$disconnect();
   });
+

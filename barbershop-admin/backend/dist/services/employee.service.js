@@ -41,6 +41,27 @@ class EmployeeService {
     }
     static async createEmployee(input, createdBy) {
         const normalizedEmail = input.email.trim().toLowerCase();
+        const tenant = await database_1.prisma.tenant.findUnique({
+            where: { id: input.tenantId },
+            include: {
+                subscriptionPlan: true,
+            },
+        });
+        const maxEmployees = tenant?.subscriptionPlan?.maxEmployees;
+        if (maxEmployees !== null && maxEmployees !== undefined) {
+            const currentCount = await database_1.prisma.employee.count({
+                where: {
+                    tenantId: input.tenantId,
+                    isActive: true,
+                    user: {
+                        role: 'EMPLOYEE',
+                    },
+                },
+            });
+            if (currentCount >= Number(maxEmployees)) {
+                throw new Error('Has alcanzado el límite de peluqueros permitido para tu plan. Actualiza tu plan para agregar más.');
+            }
+        }
         // Check if email exists
         const existingUser = await database_1.prisma.user.findUnique({
             where: { email: normalizedEmail },

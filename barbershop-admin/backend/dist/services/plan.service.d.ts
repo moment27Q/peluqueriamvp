@@ -2,6 +2,7 @@ export interface CreatePlanInput {
     name: string;
     price: number;
     features: string[];
+    maxEmployees?: number | null;
     isActive?: boolean;
     displayOrder?: number;
 }
@@ -9,6 +10,7 @@ export interface UpdatePlanInput {
     name?: string;
     price?: number;
     features?: string[];
+    maxEmployees?: number | null;
     isActive?: boolean;
     displayOrder?: number;
 }
@@ -26,6 +28,7 @@ export declare class PlanService {
         name: string;
         price: import("@prisma/client/runtime/library").Decimal;
         features: import("@prisma/client/runtime/library").JsonValue;
+        maxEmployees: number | null;
         displayOrder: number;
     }[]>;
     static getPlanById(id: string): Promise<{
@@ -36,6 +39,7 @@ export declare class PlanService {
         name: string;
         price: import("@prisma/client/runtime/library").Decimal;
         features: import("@prisma/client/runtime/library").JsonValue;
+        maxEmployees: number | null;
         displayOrder: number;
     }>;
     static createPlan(input: CreatePlanInput): Promise<{
@@ -46,6 +50,7 @@ export declare class PlanService {
         name: string;
         price: import("@prisma/client/runtime/library").Decimal;
         features: import("@prisma/client/runtime/library").JsonValue;
+        maxEmployees: number | null;
         displayOrder: number;
     }>;
     static updatePlan(id: string, input: UpdatePlanInput): Promise<{
@@ -56,6 +61,7 @@ export declare class PlanService {
         name: string;
         price: import("@prisma/client/runtime/library").Decimal;
         features: import("@prisma/client/runtime/library").JsonValue;
+        maxEmployees: number | null;
         displayOrder: number;
     }>;
     static deletePlan(id: string): Promise<boolean>;

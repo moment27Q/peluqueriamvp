@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { api } from '../services/api';
 
 export interface Plan {
@@ -8,6 +8,7 @@ export interface Plan {
     features: string[];
     isActive: boolean;
     displayOrder: number;
+    maxEmployees?: number | null;
 }
 
 export const PlansManager: React.FC = () => {
@@ -52,6 +53,7 @@ export const PlansManager: React.FC = () => {
                     features: editingPlan.features.filter(f => f.trim() !== ''),
                     isActive: editingPlan.isActive,
                     displayOrder: Number(editingPlan.displayOrder),
+                    maxEmployees: editingPlan.maxEmployees ?? null,
                 });
                 setSuccessMsg(`Plan "${editingPlan.name}" actualizado exitosamente.`);
             } else {
@@ -61,6 +63,7 @@ export const PlansManager: React.FC = () => {
                     features: editingPlan.features.filter(f => f.trim() !== ''),
                     isActive: editingPlan.isActive,
                     displayOrder: Number(editingPlan.displayOrder),
+                    maxEmployees: editingPlan.maxEmployees ?? null,
                 });
                 setSuccessMsg(`Plan "${editingPlan.name}" creado exitosamente.`);
             }
@@ -73,7 +76,7 @@ export const PlansManager: React.FC = () => {
     };
 
     const handleRemovePlan = async (id: string) => {
-        if (!confirm('¿Estás seguro de que deseas eliminar este plan?')) return;
+        if (!confirm('Â¿EstÃ¡s seguro de que deseas eliminar este plan?')) return;
         setErrorMsg('');
         setSuccessMsg('');
         try {
@@ -119,7 +122,7 @@ export const PlansManager: React.FC = () => {
                 </div>
                 {!editingPlan && plans.length < 4 && (
                     <button
-                        onClick={() => setEditingPlan({ id: '', name: '', price: '', features: [''], isActive: true, displayOrder: plans.length + 1 })}
+                        onClick={() => setEditingPlan({ id: '', name: '', price: '', features: [''], isActive: true, displayOrder: plans.length + 1, maxEmployees: null })}
                         className="bg-gray-900 hover:bg-black text-white px-5 py-2.5 rounded-xl font-bold flex items-center gap-2 transition-all shadow-md"
                     >
                         <span className="material-symbols-outlined text-sm">add</span>
@@ -193,12 +196,12 @@ export const PlansManager: React.FC = () => {
                     ))}
                     {plans.length === 0 && (
                         <div className="col-span-3 text-center py-20 text-gray-500 font-medium">
-                            No hay planes configurados todavía. Haz clic en "Crear Nuevo Plan" para empezar.
+                            No hay planes configurados todavÃ­a. Haz clic en "Crear Nuevo Plan" para empezar.
                         </div>
                     )}
                 </div>
             ) : (
-                /* Formulario de Edición */
+                /* Formulario de EdiciÃ³n */
                 <div className="bg-white rounded-3xl border border-gray-100 p-8 shadow-sm max-w-2xl">
                     <div className="flex items-center justify-between mb-6">
                         <h3 className="text-xl font-bold text-gray-900">
@@ -250,12 +253,12 @@ export const PlansManager: React.FC = () => {
                                                         ? 'border-red-400 focus:ring-red-400 bg-red-50'
                                                         : 'border-gray-200 focus:ring-indigo-500'
                                                     }`}
-                                                title="Posición de izquierda a derecha (menor = primero)"
+                                                title="PosiciÃ³n de izquierda a derecha (menor = primero)"
                                             />
                                             {isOrderTaken && (
                                                 <p className="mt-1 text-xs font-semibold text-red-600 flex items-center gap-1">
                                                     <span className="material-symbols-outlined text-sm">warning</span>
-                                                    Ya en uso. Números ocupados: {usedOrders}
+                                                    Ya en uso. NÃºmeros ocupados: {usedOrders}
                                                 </p>
                                             )}
                                             {!isOrderTaken && usedOrders && (
@@ -304,7 +307,26 @@ export const PlansManager: React.FC = () => {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-bold text-gray-700 mb-2">Características (Beneficios)</label>
+                                <label className="block text-sm font-bold text-gray-700 mb-2">Límite de peluqueros</label>
+                                <input
+                                    type="number"
+                                    min="1"
+                                    value={editingPlan.maxEmployees ?? ""}
+                                    onChange={(e) => {
+                                        const value = e.target.value;
+                                        setEditingPlan({
+                                            ...editingPlan,
+                                            maxEmployees: value === "" ? null : Math.max(1, parseInt(value, 10) || 1),
+                                        });
+                                    }}
+                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all font-medium"
+                                    placeholder="Ilimitado"
+                                />
+                                <p className="mt-1 text-xs text-gray-400">Deja vacío para ilimitado.</p>
+                            </div>
+
+                            <div>
+                            <label className="block text-sm font-bold text-gray-700 mb-2">Caracterí­sticas (Beneficios)</label>
                             <div className="space-y-3">
                                 {editingPlan.features.map((feature: string, i: number) => (
                                     <div key={i} className="flex items-center gap-2">
@@ -319,7 +341,7 @@ export const PlansManager: React.FC = () => {
                                             type="button"
                                             onClick={() => handleRemoveFeature(i)}
                                             className="p-2.5 text-red-500 hover:bg-red-50 rounded-lg transition-colors border border-transparent hover:border-red-100"
-                                            title="Eliminar Característica"
+                                            title="Eliminar CaracterÃ­stica"
                                         >
                                             <span className="material-symbols-outlined text-sm">delete</span>
                                         </button>
@@ -372,3 +394,6 @@ export const PlansManager: React.FC = () => {
         </div>
     );
 };
+
+
+
