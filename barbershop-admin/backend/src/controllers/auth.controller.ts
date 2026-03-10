@@ -109,7 +109,7 @@ export class AuthController {
             id: true,
             name: true,
             subscriptionPlan: {
-              select: { id: true, name: true, price: true },
+              select: { id: true, name: true, price: true, maxEmployees: true } as any,
             },
           },
         })
