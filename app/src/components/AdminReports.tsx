@@ -7,6 +7,7 @@ type DateRange = 'Hoy' | 'Esta Semana' | 'Este Mes' | 'Este AÃ±o';
 
 interface ServiceRecord {
     id: string;
+    clientName?: string;
     price: number | string;
     commissionAmount?: number | string;
     serviceDate?: string;
@@ -64,6 +65,7 @@ export const AdminReports: React.FC = () => {
     const [servicesCount, setServicesCount] = useState(0);
     const [employeeHistory, setEmployeeHistory] = useState<Record<string, EmployeeIncomeHistory>>({});
     const [selectedEmployee, setSelectedEmployee] = useState<string | null>(null);
+    const [allServicesForExport, setAllServicesForExport] = useState<ServiceRecord[]>([]);
 
     const getRangeDates = (range: DateRange) => {
         const end = new Date();
@@ -121,6 +123,7 @@ export const AdminReports: React.FC = () => {
 
             setSalesValue(period?.summary?.totalRevenue || 0);
             setServicesCount(period?.summary?.totalServices || 0);
+            setAllServicesForExport(allServices);
 
             const groupedServices = new Map<string, { count: number; revenue: number }>();
             for (const service of services) {
@@ -304,28 +307,62 @@ export const AdminReports: React.FC = () => {
     const rowXml = (cells: Array<string | number>) =>
         `<Row>${cells
             .map((cell) => `<Cell><Data ss:Type="String">${escapeXml(String(cell))}</Data></Cell>`)
-            .join('S/ 0')}</Row>`;
+            .join('')}</Row>`;
 
     const exportExcel = (period: string) => {
         const summaryRows = [
             rowXml(['Metrica', 'Valor']),
             rowXml(['Ventas Totales', `S/ ${salesValue.toLocaleString('en-US')}`]),
             rowXml(['Servicios Realizados', String(servicesCount)]),
-        ].join('S/ 0');
+        ].join('');
 
         const servicesRows = [
             rowXml(['Servicio', 'Ventas', 'Ingresos']),
             ...(topServices.length
                 ? topServices.map((s) => rowXml([s.name, s.count, s.revenueLabel]))
                 : [rowXml(['Sin datos', 0, 'S/ 0'])]),
-        ].join('S/ 0');
+        ].join('');
 
         const employeesRows = [
             rowXml(['Empleado', 'Servicios', 'Ingresos', 'Calificacion']),
             ...(topEmployees.length
                 ? topEmployees.map((e) => rowXml([e.name, e.services, e.revenueLabel, e.rating]))
                 : [rowXml(['Sin datos', 0, 'S/ 0', '-'])]),
-        ].join('S/ 0');
+        ].join('');
+
+        const detailedServicesRows = [
+            rowXml(['Fecha', 'Cliente', 'Servicio', 'Empleado', 'Precio', 'Comision']),
+            ...(allServicesForExport.length
+                ? allServicesForExport.map((s) => {
+                    const employeeName = s.employee
+                        ? `${s.employee.firstName} ${s.employee.lastName}`
+                        : 'Sin asignar';
+                    const serviceName = s.serviceType?.name || 'Servicio personalizado';
+                    const dateLabel = s.serviceDate ? new Date(s.serviceDate).toLocaleString('es-ES') : '';
+                    return rowXml([
+                        dateLabel,
+                        s.clientName || 'Cliente',
+                        serviceName,
+                        employeeName,
+                        `S/ ${Number(s.price || 0).toFixed(2)}`,
+                        `S/ ${Number(s.commissionAmount ?? 0).toFixed(2)}`,
+                    ]);
+                })
+                : [rowXml(['Sin datos', '-', '-', '-', 'S/ 0', 'S/ 0'])]),
+        ].join('');
+
+        const employeeHistoryRows = [
+            rowXml(['Empleado', 'Fecha', 'Monto']),
+            ...Object.entries(employeeHistory).flatMap(([name, history]) =>
+                history.entries.map((entry) =>
+                    rowXml([
+                        name,
+                        new Date(entry.date).toLocaleString('es-ES'),
+                        `S/ ${entry.amount.toFixed(2)}`,
+                    ])
+                )
+            ),
+        ].join('');
 
         const workbookXml = `<?xml version="1.0"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
@@ -336,6 +373,8 @@ export const AdminReports: React.FC = () => {
  <Worksheet ss:Name="Resumen"><Table>${summaryRows}</Table></Worksheet>
  <Worksheet ss:Name="Servicios"><Table>${servicesRows}</Table></Worksheet>
  <Worksheet ss:Name="Personal"><Table>${employeesRows}</Table></Worksheet>
+ <Worksheet ss:Name="Servicios Detalle"><Table>${detailedServicesRows}</Table></Worksheet>
+ <Worksheet ss:Name="Historial Ingresos"><Table>${employeeHistoryRows}</Table></Worksheet>
 </Workbook>`;
 
         const blob = new Blob([workbookXml], { type: 'application/vnd.ms-excel;charset=utf-8;' });
@@ -381,7 +420,7 @@ export const AdminReports: React.FC = () => {
                                 <option>Hoy</option>
                                 <option>Esta Semana</option>
                                 <option>Este Mes</option>
-                                <option>Este AÃ±o</option>
+                                <option>Este Año</option>
                             </select>
                         </div>
                     </div>
