@@ -83,7 +83,7 @@ export const EmployeeDashboard: React.FC<EmployeeDashboardProps> = ({ onNavigate
     const email = profile?.user?.email || 'peluquero@mi-pagina.com';
 
     const totalHistoryAmount = useMemo(
-        () => serviceHistory.reduce((acc, item) => acc + Number(item.price || 0), 0),
+        () => serviceHistory.reduce((acc, item) => acc + Number(item.commissionAmount || 0), 0),
         [serviceHistory]
     );
     const totalHistoryCommission = useMemo(
@@ -152,7 +152,7 @@ export const EmployeeDashboard: React.FC<EmployeeDashboardProps> = ({ onNavigate
             const key = serviceDate.toISOString().split('T')[0];
 
             if (dataByKey[key]) {
-                dataByKey[key].income += Number(service.price || 0);
+                dataByKey[key].income += Number(service.commissionAmount || 0);
             }
         }
 
@@ -424,7 +424,7 @@ export const EmployeeDashboard: React.FC<EmployeeDashboardProps> = ({ onNavigate
                                         <td className="px-3 py-3 text-sm text-gray-700">{new Date(item.date).toLocaleDateString('es-ES')}</td>
                                         <td className="px-3 py-3 text-sm font-semibold text-gray-900">{item.clientName}</td>
                                         <td className="px-3 py-3 text-sm text-gray-700">{item.serviceName}</td>
-                                        <td className="px-3 py-3 text-sm font-bold text-gray-900">S/ {Number(item.price).toFixed(2)}</td>
+                                        <td className="px-3 py-3 text-sm font-bold text-gray-900">S/ {Number(item.commissionAmount ?? 0).toFixed(2)}</td>
                                     </tr>
                                 ))}
                                 {serviceHistory.length === 0 && (
