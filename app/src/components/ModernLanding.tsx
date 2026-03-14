@@ -1,6 +1,7 @@
-﻿import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Header } from './Header';
 import { Footer } from './Footer';
+import { api } from '../services/api';
 
 interface ModernLandingProps {
     onNavigate: (page: string) => void;
@@ -13,6 +14,84 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
     });
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+    const [plans, setPlans] = useState<any[]>([]);
+    const [plansLoading, setPlansLoading] = useState(true);
+    const [activeFeature, setActiveFeature] = useState<{
+        id: string;
+        label: string;
+        title: string;
+        description: string;
+        image: string;
+        icon: string;
+    } | null>(null);
+
+    const features = [
+        {
+            id: 'agenda',
+            label: '01',
+            icon: 'calendar_month',
+            title: 'Agenda de Citas Online',
+            description: 'Tus clientes reservan 24/7 desde su celular. Confirmaciones automaticas, sin llamadas, sin confusiones.',
+            image: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1200&q=80'
+        },
+        {
+            id: 'empleados',
+            label: '02',
+            icon: 'group',
+            title: 'Gestion de Empleados',
+            description: 'Registra a tu equipo, asigna turnos, controla asistencia y mide el rendimiento de cada uno sin esfuerzo.',
+            image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80'
+        },
+        {
+            id: 'cobros',
+            label: '03',
+            icon: 'payments',
+            title: 'Cobros y Facturacion',
+            description: 'Cobra en caja o envia un link de pago al instante. Historial de ingresos siempre a la mano.',
+            image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80'
+        },
+        {
+            id: 'inventario',
+            label: '04',
+            icon: 'inventory_2',
+            title: 'Control de Inventario',
+            description: 'Sabe exactamente que productos tienes, cuando reponer y cuanto estas gastando en suministros.',
+            image: 'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=1200&q=80'
+        },
+        {
+            id: 'recordatorios',
+            label: '05',
+            icon: 'sms',
+            title: 'Recordatorios por WhatsApp',
+            description: 'Reduce las ausencias enviando recordatorios automaticos a tus clientes antes de su cita.',
+            image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=80'
+        },
+        {
+            id: 'reportes',
+            label: '06',
+            icon: 'analytics',
+            title: 'Reportes y Metricas',
+            description: 'Visualiza el crecimiento de tu negocio con reportes claros: ventas, clientes frecuentes y servicios mas populares.',
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80'
+        }
+    ];
+
+    useEffect(() => {
+        const fetchPlans = async () => {
+            try {
+                const res: any = await api.get('/plans/active');
+                if (res.success) {
+                    setPlans(res.data);
+                }
+            } catch (error: any) {
+                console.error('Error fetching plans:', error.message);
+            } finally {
+                setPlansLoading(false);
+            }
+        };
+
+        fetchPlans();
+    }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { type, value } = e.target;
@@ -80,7 +159,7 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
             <Header onNavigate={onNavigate} />
 
             {/* Hero Section */}
-            <main className="flex-grow flex items-center relative pt-20 min-h-screen">
+            <main className="flex-grow flex items-center justify-center relative pt-20 min-h-screen">
                 {/* Background Image with Light Overlay */}
                 <div className="absolute inset-0 z-0">
                     <img
@@ -92,332 +171,258 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                     <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-white/40"></div>
                 </div>
 
-                <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-12 items-center relative z-10 py-12 lg:py-24">
+                <div className="max-w-5xl mx-auto px-6 w-full flex flex-col items-start relative z-10 py-12 lg:py-24">
                     {/* Hero Content */}
-                    <div className="max-w-xl fade-up visible">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-100 border border-green-200 text-green-700 text-[10px] font-bold uppercase tracking-widest mb-8 shadow-sm">
+                    <div className="max-w-xl fade-up visible text-center mx-auto">
+                        <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-green-100 border border-green-200 text-green-700 text-[10px] font-bold uppercase tracking-widest mb-8 shadow-sm">
                             <span className="material-symbols-outlined text-sm">verified</span>
-                            Experiencia Exclusiva
+                            Sistema de gestión para salones y barberías
                         </div>
-                        <h1 className="text-6xl md:text-7xl font-extrabold leading-[1.05] tracking-tight mb-8 text-gray-900">
-                            Eleva tu estilo en <br className="hidden md:block" />
-                            <span className="text-primary">mi pagina.com</span>
+                        <h1 className="text-5xl md:text-6xl lg:text-[4.8rem] leading-[1.05] tracking-tight mb-8 text-gray-900 font-serif text-center w-fit mx-auto -translate-x-8 md:-translate-x-12 lg:-translate-x-20">
+                            <span className="block whitespace-nowrap">¿Aún llevas tu salón</span>
+                            <span className="block whitespace-nowrap">
+                                con{' '}
+                                <span
+                                    className="italic text-[#7a8a7a]"
+                                    style={{
+                                        textDecorationLine: 'line-through',
+                                        textDecorationColor: '#4ad24a',
+                                        textDecorationThickness: '3px',
+                                        textDecorationSkipInk: 'none'
+                                    }}
+                                >
+                                    cuadernos y papeles
+                                </span>
+                                ?
+                            </span>
+                            <span className="block whitespace-nowrap">Ya no tienes que hacerlo.</span>
+                            <span className="block italic text-[#4ad24a] whitespace-nowrap">Nosotros lo hacemos por ti.</span>
                         </h1>
-                        <p className="text-xl text-gray-500 leading-relaxed mb-10 font-medium max-w-lg">
-                            Servicios exclusivos de peluquería y barbería para quienes buscan la excelencia en cada detalle.
+                        <p className="text-xl text-gray-500 leading-relaxed mb-10 font-medium max-w-lg mx-auto">
+                            Digitaliza tu peluquería o barbería en minutos. Controla empleados, citas, pagos e inventario desde un solo lugar — sin complicaciones.
                         </p>
 
                         {/* Trust Badges Desktop */}
-                        <div className="hidden md:flex gap-10 items-center mt-8 border-t border-gray-200 pt-8">
-                            <div className="flex flex-col gap-1">
-                                <div className="flex items-center gap-2 text-primary">
-                                    <span className="material-symbols-outlined">stars</span>
-                                    <span className="text-3xl font-extrabold">5.0</span>
-                                </div>
-                                <p className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Servicio Premium</p>
-                            </div>
-                            <div className="w-px h-12 bg-gray-200"></div>
-                            <div className="flex flex-col gap-1">
-                                <div className="flex items-center gap-2 text-gray-400">
-                                    <span className="material-symbols-outlined text-primary">group</span>
-                                    <span className="text-3xl font-extrabold text-white drop-shadow-md lg:text-gray-400 lg:drop-shadow-none">50+</span>
-                                </div>
-                                <p className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Clientes Satisfechos</p>
-                            </div>
-                        </div>
-                    </div>
 
-                    {/* Registration Card */}
-                    <div className="flex justify-center lg:justify-end scale-in visible">
-                        <div className="w-full max-w-md bg-white p-10 rounded-2xl shadow-xl shadow-gray-200/50 border border-gray-100">
-                            <div className="mb-8">
-                                <h3 className="text-2xl font-bold mb-3 text-gray-900">Comienza tu Cambio</h3>
-                                <p className="text-gray-500 text-sm leading-relaxed">Regístrate para obtener beneficios exclusivos y agendar tu primera sesión.</p>
-                            </div>
-
-                            <form onSubmit={handleSubmit} className="space-y-5">
-
-
-                                <div>
-                                    <label className="block text-sm font-bold text-gray-700 mb-2">Email</label>
-                                    <div className="relative group">
-                                        <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-primary transition-colors text-xl">mail</span>
-                                        <input
-                                            type="email"
-                                            placeholder="correo@ejemplo.com"
-                                            className="w-full bg-gray-50 border border-gray-200 rounded-xl py-3.5 pl-12 pr-4 focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all text-gray-900 placeholder:text-gray-400 outline-none font-medium"
-                                            value={formData.email}
-                                            onChange={handleChange}
-                                        />
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label className="block text-sm font-bold text-gray-700 mb-2">Contraseña</label>
-                                    <div className="relative group">
-                                        <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-primary transition-colors text-xl">lock</span>
-                                        <input
-                                            type="password"
-                                            placeholder="••••••••"
-                                            className="w-full bg-gray-50 border border-gray-200 rounded-xl py-3.5 pl-12 pr-4 focus:bg-white focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all text-gray-900 placeholder:text-gray-400 outline-none font-medium"
-                                            value={formData.password}
-                                            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                                        />
-                                    </div>
-                                </div>
-
-                                {error && (
-                                    <div className="bg-red-50 text-red-500 text-xs font-bold p-3 rounded-lg text-center">
-                                        {error}
-                                    </div>
-                                )}
-
-                                <button
-                                    type="submit"
-                                    disabled={loading}
-                                    className={`w-full bg-primary hover:bg-primary/90 text-white font-extrabold py-4 rounded-xl transition-all transform hover:scale-[1.02] active:scale-[0.98] uppercase tracking-widest text-sm mt-4 shadow-lg shadow-primary/30 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
-                                >
-                                    {loading ? 'Entrando...' : 'Entrar'}
-                                </button>
-                            </form>
-
-                            <p className="text-center text-[11px] text-gray-400 mt-6 leading-tight">
-                                Al registrarte, aceptas nuestros{' '}
-                                <button
-                                    type="button"
-                                    onClick={() => onNavigate('terms')}
-                                    className="text-primary hover:underline font-bold"
-                                >
-                                    Términos de Servicio
-                                </button>{' '}
-                                y{' '}
-                                <button
-                                    type="button"
-                                    onClick={() => onNavigate('privacy')}
-                                    className="text-primary hover:underline font-bold"
-                                >
-                                    Política de Privacidad
-                                </button>
-                                .
-                            </p>
-                        </div>
                     </div>
                 </div>
             </main>
 
             {/* Feature Section (Bottom Bar) */}
             <section className="bg-gray-50 border-t border-gray-100 py-16 relative z-10">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
-                        <div className="flex flex-col items-center text-center gap-4 group cursor-default">
-                            <div className="size-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center shadow-sm group-hover:shadow-md transition-all group-hover:-translate-y-1">
-                                <span className="material-symbols-outlined text-primary text-3xl">content_cut</span>
-                            </div>
-                            <div>
-                                <p className="font-bold text-gray-900 text-lg">Corte ClÃ¡sico</p>
-                                <p className="text-xs text-gray-500 mt-1 uppercase tracking-wide">TÃ©cnicas tradicionales</p>
-                            </div>
-                        </div>
-                        <div className="flex flex-col items-center text-center gap-4 group cursor-default">
-                            <div className="size-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center shadow-sm group-hover:shadow-md transition-all group-hover:-translate-y-1">
-                                <span className="material-symbols-outlined text-primary text-3xl">face</span>
-                            </div>
-                            <div>
-                                <p className="font-bold text-gray-900 text-lg">Afeitado Spa</p>
-                                <p className="text-xs text-gray-500 mt-1 uppercase tracking-wide">Toalla caliente y aceites</p>
-                            </div>
-                        </div>
-                        <div className="flex flex-col items-center text-center gap-4 group cursor-default">
-                            <div className="size-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center shadow-sm group-hover:shadow-md transition-all group-hover:-translate-y-1">
-                                <span className="material-symbols-outlined text-primary text-3xl">workspace_premium</span>
-                            </div>
-                            <div>
-                                <p className="font-bold text-gray-900 text-lg">Productos Top</p>
-                                <p className="text-xs text-gray-500 mt-1 uppercase tracking-wide">Marcas internacionales</p>
-                            </div>
-                        </div>
-                        <div className="flex flex-col items-center text-center gap-4 group cursor-default">
-                            <div className="size-16 rounded-2xl bg-white border border-gray-100 flex items-center justify-center shadow-sm group-hover:shadow-md transition-all group-hover:-translate-y-1">
-                                <span className="material-symbols-outlined text-primary text-3xl">schedule</span>
-                            </div>
-                            <div>
-                                <p className="font-bold text-gray-900 text-lg">Citas Online</p>
-                                <p className="text-xs text-gray-500 mt-1 uppercase tracking-wide">Sin esperas</p>
-                            </div>
+                <div className="max-w-7xl mx-auto px-6 text-left flex flex-col items-start w-full">
+                    <p className="text-[#4ad24a] font-bold tracking-widest uppercase text-xs mb-4">Lo que hacemos por ti</p>
+                    <h2 className="text-4xl md:text-[3.5rem] text-gray-900 leading-[1.1] mb-6 font-serif tracking-tight pr-4">
+                        Todo lo que tu salón <br />
+                        necesita, <span className="italic text-[#4ad24a]">en un solo lugar.</span>
+                    </h2>
+                    <p className="max-w-3xl text-sm text-gray-500 font-medium leading-relaxed pr-4 mb-16">
+                        Olvídate de los cuadernos, los WhatsApps desordenados y los cobros a mano. Con MIPAGINA.COM tienes el control total.
+                    </p>
+
+                                        {/* Features Grid */}
+                    <div className="w-full bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+                            {features.map((feature) => (
+                                <button
+                                    key={feature.id}
+                                    type="button"
+                                    onClick={() => setActiveFeature(feature)}
+                                    className="text-left p-8 lg:p-10 flex flex-col items-start bg-white hover:bg-gray-50 transition-colors"
+                                >
+                                    <span className="text-[#4ad24a] font-black text-xs mb-6 inline-block">{feature.label}</span>
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <span className="material-symbols-outlined text-[#4ad24a]">{feature.icon}</span>
+                                        <span className="text-xs uppercase tracking-widest text-gray-400 font-bold">{feature.label}</span>
+                                    </div>
+                                    <h3 className="text-base font-bold text-gray-900 mb-2">{feature.title}</h3>
+                                    <p className="text-xs text-gray-500 leading-relaxed font-medium line-clamp-2">
+                                        {feature.description}
+                                    </p>
+                                    <span className="mt-6 text-xs font-bold text-[#4ad24a] uppercase tracking-widest">Ver detalle</span>
+                                </button>
+                            ))}
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Community Section */}
-            <section className="py-24 bg-white overflow-hidden">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
-                        {/* Left Content */}
-                        <div className="order-2 lg:order-1 fade-up visible">
-                            <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900 leading-[1.1] mb-8">
-                                Crece junto a los <br />
-                                mejores estilistas y <br />
-                                <span className="text-primary">forma parte de la comunidad lider en peluqueria y barberia.</span>
-                            </h2>
-                            <p className="text-lg text-gray-500 mb-10 leading-relaxed font-medium">
-                                Aqui, cada cambio de look puede volverse inolvidable. Los profesionales del sector nos eligen para gestionar reservas, optimizar pagos y aumentar su facturacion mientras fidelizan clientes y hacen crecer su salon.
+            {activeFeature && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-6">
+                    <div className="bg-white rounded-3xl shadow-2xl max-w-3xl w-full overflow-hidden">
+                        <div className="relative">
+                            <img
+                                src={activeFeature.image}
+                                alt={activeFeature.title}
+                                className="w-full h-64 md:h-80 object-cover"
+                            />
+                            <button
+                                type="button"
+                                onClick={() => setActiveFeature(null)}
+                                className="absolute top-4 right-4 bg-white/90 hover:bg-white text-gray-900 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-widest shadow"
+                            >
+                                Cerrar
+                            </button>
+                        </div>
+                        <div className="p-8">
+                            <p className="text-[#4ad24a] font-bold tracking-widest uppercase text-xs mb-3">
+                                {activeFeature.label} - {activeFeature.title}
                             </p>
-                            <button
-                                onClick={() => document.getElementById('contactanos')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-                                className="bg-[#FF4D00] hover:bg-[#E04400] text-white px-8 py-4 rounded-xl font-bold text-sm tracking-widest uppercase transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                            >
-                                Quiero unirme
-                            </button>
-                        </div>
-
-                        {/* Right Content - Vertical Marquee */}
-                        <div className="order-1 lg:order-2 h-[600px] relative overflow-hidden mask-vertical-fade">
-                            {/* Overlay gradients for smooth fade */}
-                            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white to-transparent z-10"></div>
-                            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-10"></div>
-
-                            <div className="marquee-vertical flex flex-col gap-8">
-                                {/* Card 1 */}
-                                <div className="bg-gray-50 rounded-3xl p-4 shadow-sm border border-gray-100 max-w-sm mx-auto transform rotate-[-2deg]">
-                                    <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Usuario" className="w-full h-[400px] object-cover rounded-2xl mb-4" />
-                                    <div className="text-center">
-                                        <h4 className="font-bold text-xl text-gray-900">Nicolas Abril</h4>
-                                    </div>
-                                </div>
-                                {/* Card 2 */}
-                                <div className="bg-[#141414] rounded-3xl p-4 shadow-xl border border-gray-800 max-w-sm mx-auto transform rotate-[2deg]">
-                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Usuario" className="w-full h-[400px] object-cover rounded-2xl mb-4 opacity-90" />
-                                    <div className="text-center">
-                                        <h4 className="font-bold text-xl text-white">Ana MarÃ­a</h4>
-                                    </div>
-                                </div>
-                                {/* Card 3 */}
-                                <div className="bg-gray-50 rounded-3xl p-4 shadow-sm border border-gray-100 max-w-sm mx-auto transform rotate-[-1deg]">
-                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Usuario" className="w-full h-[400px] object-cover rounded-2xl mb-4" />
-                                    <div className="text-center">
-                                        <h4 className="font-bold text-xl text-gray-900">Carlos Ruiz</h4>
-                                    </div>
-                                </div>
-                                {/* Duplicate for infinite loop */}
-                                <div className="bg-gray-50 rounded-3xl p-4 shadow-sm border border-gray-100 max-w-sm mx-auto transform rotate-[-2deg]">
-                                    <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Usuario" className="w-full h-[400px] object-cover rounded-2xl mb-4" />
-                                    <div className="text-center">
-                                        <h4 className="font-bold text-xl text-gray-900">Nicolas Abril</h4>
-                                    </div>
-                                </div>
-                                <div className="bg-[#141414] rounded-3xl p-4 shadow-xl border border-gray-800 max-w-sm mx-auto transform rotate-[2deg]">
-                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Usuario" className="w-full h-[400px] object-cover rounded-2xl mb-4 opacity-90" />
-                                    <div className="text-center">
-                                        <h4 className="font-bold text-xl text-white">Ana MarÃ­a</h4>
-                                    </div>
-                                </div>
-                            </div>
+                            <h3 className="text-2xl md:text-3xl font-serif text-gray-900 mb-4">
+                                {activeFeature.title}
+                            </h3>
+                            <p className="text-gray-600 leading-relaxed">
+                                {activeFeature.description}
+                            </p>
                         </div>
                     </div>
                 </div>
-            </section>
+            )}
 
-            {/* Conversion Features Section */}
-            <section className="py-24 bg-black text-white">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {/* 1. Main Card - Black */}
-                        <div className="bg-[#111] rounded-[2rem] p-10 flex flex-col justify-center border border-white/10 relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-[#FF4D00]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-                            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-8 relative z-10">
-                                Tu elevas el <br />
-                                estilo. <br />
-                                <span className="text-white">Nosotros hacemos crecer tus reservas.</span>
+            {/* Resultados Reales Section */}
+            <section className="py-32 bg-[#0d140b] text-white overflow-hidden border-t border-white/5 relative">
+                {/* Full section background image */}
+                <div className="absolute inset-0 z-0">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1920&q=80" alt="Salón ambiente" className="w-full h-full object-cover opacity-20 grayscale blur-[4px]" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#0d140b] via-[#0d140b]/60 to-[#0d140b]"></div>
+                    <div className="absolute inset-0 bg-[#0d140b]/40"></div>
+                </div>
+
+                <div className="max-w-7xl mx-auto px-6 relative z-10">
+                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                        {/* Text Content */}
+                        <div className="fade-up visible">
+                            <p className="text-[#4ad24a] font-bold tracking-widest uppercase text-xs mb-6">RESULTADOS REALES</p>
+                            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-serif leading-[1.1] mb-8 tracking-tight text-white drop-shadow-md">
+                                Los números que <br />
+                                cambian tu <span className="italic text-[#4ad24a]">negocio.</span>
                             </h2>
-                            <button
-                                onClick={() => document.getElementById('contactanos')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-                                className="bg-[#FF4D00] hover:bg-[#E04400] text-white px-8 py-4 rounded-xl font-bold text-sm tracking-widest uppercase transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full md:w-auto self-start relative z-10"
-                            >
-                                Aumentar citas ahora
-                            </button>
+                            <p className="text-sm text-gray-300 leading-relaxed font-medium max-w-md drop-shadow">
+                                Salones que usaron MIPAGINA.COM reportaron mejoras notables desde el primer mes. La tecnología que antes era solo para grandes cadenas, ahora está en tu mano.
+                            </p>
                         </div>
 
-                        {/* 2. Feature Card - Wide - Payment/Phone */}
-                        <div className="lg:col-span-2 bg-[#1A1A1A] rounded-[2rem] overflow-hidden relative group min-h-[400px]">
-                            <img
-                                src="https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
-                                alt="Autocompletado"
-                                className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-all duration-700"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-10 flex flex-col justify-end">
-                                <h3 className="text-3xl font-bold mb-4">+7 % en reservas con agenda rapida.</h3>
-                                <p className="text-gray-300 text-lg max-w-xl">Tus clientes agendan en segundos con datos guardados y confirmacion automatica para no perder turnos.</p>
-                            </div>
-                        </div>
 
-                        {/* 3. Feature Card - Ticket Medio */}
-                        <div className="bg-[#1A1A1A] rounded-[2rem] overflow-hidden relative group min-h-[500px]">
-                            <img
-                                src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                alt="RecomendaciÃ³n"
-                                className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent p-8 flex flex-col justify-end">
-                                <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 mb-6 border border-white/20 inline-block w-fit">
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 font-bold text-xs">PDF</div>
-                                        <div className="text-xs">
-                                            <div className="font-bold text-white">Guia</div>
-                                            <div className="text-gray-300">Cuidado capilar</div>
-                                        </div>
-                                    </div>
+                        {/* Stats Grid */}
+                        <div className="w-full bg-[#111a0f] rounded-3xl border border-white/10 overflow-hidden shadow-2xl relative z-20">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+                                {/* Stat 1 */}
+                                <div className="p-8 sm:p-10 border-b border-white/10">
+                                    <div className="text-4xl sm:text-5xl font-serif text-[#4ad24a] mb-4">+48%</div>
+                                    <p className="text-xs text-gray-400 font-medium">Aumento en ticket promedio por cliente</p>
                                 </div>
-                                <h3 className="text-2xl font-bold mb-4">+48 % en ticket medio con recomendacion de servicios.</h3>
-                                <p className="text-gray-400 text-sm leading-relaxed">Despues de cada cita sugerimos tratamientos, color o productos de mantenimiento en el momento ideal.</p>
-                            </div>
-                        </div>
 
-                        {/* 4. Feature Card - Checkout */}
-                        <div className="bg-[#1A1A1A] rounded-[2rem] overflow-hidden relative group min-h-[500px]">
-                            <img
-                                src="https://images.unsplash.com/photo-1556742031-c6961e8560b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                alt="Checkout"
-                                className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent p-8 flex flex-col justify-end">
-                                <h3 className="text-2xl font-bold mb-4">Un cobro en salon pensado para cerrar cada servicio.</h3>
-                                <p className="text-gray-400 text-sm leading-relaxed">Cobro rapido en caja o link de pago, con confirmacion instantanea para reducir cancelaciones y ausencias.</p>
-                            </div>
-                        </div>
-
-                        {/* 5. Feature Card - Global */}
-                        <div className="bg-[#1A1A1A] rounded-[2rem] overflow-hidden relative group min-h-[500px]">
-                            <img
-                                src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                alt="Global"
-                                className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent p-8 flex flex-col justify-end">
-                                <div className="space-y-2 mb-6">
-                                    <div className="bg-white rounded-lg p-3 flex items-center gap-3 shadow-lg transform translate-x-4">
-                                        <div className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center text-white text-xs font-bold">âœ“</div>
-                                        <div>
-                                            <div className="text-[10px] text-gray-500 font-bold uppercase">Servicio completado</div>
-                                            <div className="text-xs font-bold text-gray-900">Corte + Barba S/ 25.00</div>
-                                        </div>
-                                    </div>
-                                    <div className="bg-white rounded-lg p-3 flex items-center gap-3 shadow-lg transform -translate-x-2">
-                                        <div className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center text-white text-xs font-bold">âœ“</div>
-                                        <div>
-                                            <div className="text-[10px] text-gray-500 font-bold uppercase">Producto vendido</div>
-                                            <div className="text-xs font-bold text-gray-900">Kit capilar S/ 40.00</div>
-                                        </div>
-                                    </div>
+                                {/* Stat 2 */}
+                                <div className="p-8 sm:p-10 border-b border-white/10">
+                                    <div className="text-4xl sm:text-5xl font-serif text-[#4ad24a] mb-4">-32%</div>
+                                    <p className="text-xs text-gray-400 font-medium">Reducción de ausencias con recordatorios</p>
                                 </div>
-                                <h3 className="text-2xl font-bold mb-4">Tu salon conecta con clientes de todos los perfiles.</h3>
-                                <p className="text-gray-400 text-sm leading-relaxed">Gestiona citas, servicios y ventas en una sola plataforma para peluqueria y barberia, desde cualquier sede.</p>
+
+                                {/* Stat 3 */}
+                                <div className="p-8 sm:p-10 border-b sm:border-b-0 border-white/10">
+                                    <div className="text-4xl sm:text-5xl font-serif text-[#4ad24a] mb-4">3x</div>
+                                    <p className="text-xs text-gray-400 font-medium">Más reservas en el primer mes de uso</p>
+                                </div>
+
+                                {/* Stat 4 */}
+                                <div className="p-8 sm:p-10">
+                                    <div className="text-4xl sm:text-5xl font-serif text-[#4ad24a] mb-4">5.0</div>
+                                    <p className="text-xs text-gray-400 font-medium">Calificación promedio de nuestros clientes</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
+            {/* Planes Section */}
+            <section className="py-28 bg-[#f6f8f6] text-gray-900 border-t border-gray-100">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="text-left mb-16 max-w-2xl">
+                        <p className="text-[#4ad24a] font-bold tracking-widest uppercase text-xs mb-4">Planes</p>
+                        <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-serif leading-[1.1] mb-6 tracking-tight">
+                            Simple y sin sorpresas.
+                        </h2>
+                        <p className="text-gray-600 text-base md:text-lg leading-relaxed font-medium">
+                            Elige el plan que se adapta al tamaño de tu salón. Sin contratos, cancela cuando quieras.
+                        </p>
+                    </div>
+
+                    <div className="grid lg:grid-cols-3 gap-8 lg:gap-10">
+                        {plansLoading ? (
+                            <div className="lg:col-span-3 text-center py-16 text-gray-600 font-semibold">
+                                Cargando planes...
+                            </div>
+                        ) : plans.length === 0 ? (
+                            <div className="lg:col-span-3 text-center py-16 text-gray-600 font-semibold">
+                                No hay planes activos en este momento.
+                            </div>
+                        ) : (
+                            plans.map((plan, index) => {
+                                const isPopular = index === 1;
+
+                                return (
+                                    <div
+                                        key={plan.id}
+                                        className={
+                                            isPopular
+                                                ? "bg-[#0d140b] text-white rounded-[2.5rem] p-10 shadow-2xl border border-[#1c2a17] flex flex-col relative"
+                                                : "bg-white rounded-[2.5rem] p-10 border border-gray-100 shadow-lg flex flex-col"
+                                        }
+                                    >
+                                        {isPopular && (
+                                            <div className="absolute -top-4 -right-4 bg-[#4ad24a] text-[#0d140b] px-5 py-2 rounded-full font-bold text-xs tracking-wider shadow-lg uppercase border-4 border-[#0d140b]">
+                                                Más popular
+                                            </div>
+                                        )}
+                                        <div className="flex flex-col h-full">
+                                            <h3 className={`font-serif text-[1.8rem] font-bold mb-6 uppercase ${isPopular ? 'text-white' : 'text-gray-900'}`}>
+                                                {plan.name}
+                                            </h3>
+
+                                            {Number(plan.price) === 0 ? (
+                                                <div className={`text-3xl font-extrabold font-serif mb-8 h-[60px] flex items-center ${isPopular ? 'text-white' : 'text-gray-900'}`}>
+                                                    Consultar Precio
+                                                </div>
+                                            ) : (
+                                                <div className="mb-8 flex items-baseline gap-2 h-[60px] items-center">
+                                                    <span className={`text-5xl font-bold font-serif ${isPopular ? 'text-white' : 'text-gray-900'}`}>
+                                                        ${Number(plan.price).toFixed(2)}
+                                                    </span>
+                                                    <span className={`text-lg font-sans font-medium ${isPopular ? 'text-white/60' : 'text-gray-600'}`}>/mes</span>
+                                                </div>
+                                            )}
+
+                                            <ul className="space-y-4 mb-10 flex-1">
+                                                {plan.features.map((feature: string, i: number) => (
+                                                    <li key={i} className={`flex items-start gap-3 font-medium ${isPopular ? 'text-white/85' : 'text-gray-700'}`}>
+                                                        <span className={`material-symbols-outlined mt-0.5 ${isPopular ? 'text-[#4ad24a]' : 'text-[#4ad24a]'}`}>check_circle</span>
+                                                        {feature}
+                                                    </li>
+                                                ))}
+                                            </ul>
+
+                                            <a
+                                                href={`https://wa.me/51941147507?text=Hola%2C%20estoy%20interesado%20en%20el%20plan%20*${encodeURIComponent(plan.name)}*%20(%24${plan.price}%2Fmes).%20Me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n.`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className={`block w-full py-3.5 rounded-full font-bold transition-all duration-300 text-center ${isPopular
+                                                    ? 'bg-[#4ad24a] text-[#0d140b] hover:bg-[#62e85a] shadow-lg'
+                                                    : 'bg-white border border-gray-200 text-gray-900 hover:bg-gray-900 hover:text-white'
+                                                    }`}
+                                            >
+                                                Elegir {plan.name}
+                                            </a>
+                                        </div>
+                                    </div>
+                                );
+                            })
+                        )}
+                    </div>
+                </div>
+            </section>
+
+            
             {/* Next Step Section */}
             <section className="py-24 bg-[#Fdfbf6]">
                 <div className="max-w-7xl mx-auto px-6">
@@ -511,6 +516,9 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
         </div >
     );
 };
+
+
+
 
 
 

@@ -138,7 +138,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onNavigate }) => {
                         <div className="space-y-2">
                             <div className="flex justify-between items-center px-1">
                                 <label className="text-xs font-bold text-gray-700">Contraseña</label>
-                                <a href="#" className="text-xs text-primary font-bold hover:underline">¿Olvidaste tu contraseña?</a>
                             </div>
                             <div className="relative group">
                                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -179,6 +178,26 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onNavigate }) => {
                                 </p>
                             </div>
                         )}
+
+                        <p className="text-center text-[11px] text-gray-400 mt-6 leading-tight">
+                                Al registrarte, aceptas nuestros{' '}
+                                <button
+                                    type="button"
+                                    onClick={() => onNavigate('terms')}
+                                    className="text-primary hover:underline font-bold"
+                                >
+                                    Términos de Servicio
+                                </button>{' '}
+                                y{' '}
+                                <button
+                                    type="button"
+                                    onClick={() => onNavigate('privacy')}
+                                    className="text-primary hover:underline font-bold"
+                                >
+                                    Política de Privacidad
+                                </button>
+                                .
+                            </p>
 
                         {/* Tenant Inactive Banner */}
                         {tenantInactive && (

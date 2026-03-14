@@ -2,7 +2,6 @@ import { useState, useCallback, useEffect } from 'react';
 import { Preloader } from './components/Preloader';
 import { ModernLanding } from './components/ModernLanding';
 import { ServicesPage } from './components/ServicesPage';
-import { BarbersPage } from './components/BarbersPage';
 import { PlansPage } from './components/PlansPage';
 import { LoginPage } from './components/LoginPage';
 import { AdminDashboard } from './components/AdminDashboard';
@@ -88,7 +87,6 @@ function App() {
         {currentPage === 'landing' && <ModernLanding onNavigate={handleNavigate} />}
         {currentPage === 'services' && <ServicesPage onNavigate={handleNavigate} />}
         {currentPage === 'plans' && <PlansPage onNavigate={handleNavigate} />}
-        {currentPage === 'barbers' && <BarbersPage onNavigate={handleNavigate} />}
         {currentPage === 'login' && <LoginPage onNavigate={handleNavigate} />}
         {currentPage === 'admin' && <AdminDashboard onNavigate={handleNavigate} initialView="dashboard" />}
         {currentPage === 'superadmin' && <SuperAdminDashboard onNavigate={handleNavigate} />}

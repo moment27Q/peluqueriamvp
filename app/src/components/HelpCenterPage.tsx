@@ -33,7 +33,7 @@ const faqItems = [
     {
         question: 'Como puedo cancelar o reprogramar mi cita?',
         answer:
-            'Puedes cancelar o reprogramar tu cita directamente desde la seccion "Mi Cuenta" o a traves del enlace en tu correo de confirmacion con al menos 24 horas de antelacion para evitar cargos adicionales.',
+            'Puedes hacerlo desde la seccion "Citas" o usando el enlace de tu correo de confirmacion. Te recomendamos avisar con al menos 24 horas de anticipacion para evitar cargos por no presentacion.',
     },
     {
         question: 'Que tipo de productos utilizan para el cuidado del cabello?',
@@ -41,14 +41,24 @@ const faqItems = [
             'Trabajamos con lineas profesionales para distintos tipos de cabello, incluyendo opciones hidratantes, reparadoras y libres de sulfatos.',
     },
     {
-        question: 'Ofrecen servicios para eventos especiales o bodas?',
+        question: 'Que servicios incluyen color y tratamientos?',
         answer:
-            'Si, contamos con paquetes para novias, eventos sociales y producciones especiales con agendamiento previo.',
+            'Ofrecemos color global, retoque de raices, balayage y tratamientos capilares (hidratacion, reparacion y nutricion). En "Servicios" veras el detalle de cada opcion y sus cuidados.',
     },
     {
-        question: 'Como funciona el programa de puntos Elite?',
+        question: 'Cuanto dura cada servicio y con cuanto tiempo debo llegar?',
         answer:
-            'Acumulas puntos por cada servicio realizado y puedes canjearlos por descuentos, upgrades o beneficios exclusivos.',
+            'La duracion depende del servicio. En la confirmacion veras el tiempo estimado. Recomendamos llegar 5 a 10 minutos antes para una atencion puntual.',
+    },
+    {
+        question: 'Cuales son los metodos de pago disponibles?',
+        answer:
+            'Aceptamos efectivo, tarjetas y transferencias. Si necesitas factura, solicitala al momento de pagar.',
+    },
+    {
+        question: 'Donde veo mi historial y puedo actualizar mis datos?',
+        answer:
+            'En "Mi Cuenta" puedes ver tu historial de servicios, tus puntos y actualizar datos personales o preferencias.',
     },
 ];
 
@@ -153,10 +163,15 @@ export const HelpCenterPage: React.FC<HelpCenterPageProps> = ({ onNavigate }) =>
                         Nuestro equipo de atencion personalizada esta disponible para resolver cualquier duda especifica que no hayas encontrado en esta seccion.
                     </p>
                     <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                        <button className="inline-flex min-w-60 items-center justify-center gap-2 rounded-xl bg-[#25d366] px-6 py-3.5 text-sm font-bold text-white">
+                        <a
+                            href="https://wa.me/51941147507?text=Hla%20quiero%20mas%20informacion%20sobre%20el%20servicio"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex min-w-60 items-center justify-center gap-2 rounded-xl bg-[#25d366] px-6 py-3.5 text-sm font-bold text-white"
+                        >
                             <span className="material-symbols-outlined text-[18px]">chat</span>
                             WhatsApp Directo
-                        </button>
+                        </a>
                         <button className="inline-flex min-w-60 items-center justify-center gap-2 rounded-xl bg-[#101a0c] px-6 py-3.5 text-sm font-bold text-white">
                             <span className="material-symbols-outlined text-[18px]">mail</span>
                             Correo Electronico

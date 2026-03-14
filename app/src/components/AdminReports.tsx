@@ -498,10 +498,10 @@ export const AdminReports: React.FC = () => {
                                             {employeeHistory[emp.name] && (
                                                 <>
                                                     <p className="text-[11px] text-gray-500 mt-1">
-                                                        Total histÃ³rico: S/ {employeeHistory[emp.name].totalEarnings.toFixed(2)} ({employeeHistory[emp.name].totalServices} servicios)
+                                                        Total histórico: S/ {employeeHistory[emp.name].totalEarnings.toFixed(2)} ({employeeHistory[emp.name].totalServices} servicios)
                                                     </p>
                                                     <p className="text-[11px] text-gray-400">
-                                                        Ãšltimo ingreso: {employeeHistory[emp.name].lastIncomeLabel}
+                                                        Último ingreso: {employeeHistory[emp.name].lastIncomeLabel}
                                                     </p>
                                                     <p className="text-[11px] text-gray-400">
                                                         Historial reciente: {employeeHistory[emp.name].recentIncomeLabel || 'Sin movimientos'}

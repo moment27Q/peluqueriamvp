@@ -86,6 +86,42 @@ export const EmployeeDashboard: React.FC<EmployeeDashboardProps> = ({ onNavigate
         () => serviceHistory.reduce((acc, item) => acc + Number(item.price || 0), 0),
         [serviceHistory]
     );
+    const totalHistoryCommission = useMemo(
+        () => serviceHistory.reduce((acc, item) => acc + Number(item.commissionAmount || 0), 0),
+        [serviceHistory]
+    );
+
+    const weeklyCommissionTotal = useMemo(
+        () => (weeklyReport?.services || []).reduce((acc, item) => acc + Number(item.commissionAmount || 0), 0),
+        [weeklyReport]
+    );
+
+    const dailyCommissionTotal = useMemo(
+        () => (dailyReport?.services || []).reduce((acc, item) => acc + Number(item.commissionAmount || 0), 0),
+        [dailyReport]
+    );
+
+    const estimatedCommission = useMemo(() => {
+        const monthlyApi = Number(monthlyEarnings?.totalCommission);
+        if (Number.isFinite(monthlyApi) && monthlyApi > 0) return monthlyApi;
+
+        const weeklyApi = Number(weeklyReport?.summary?.totalCommission);
+        if (Number.isFinite(weeklyApi) && weeklyApi > 0) return weeklyApi;
+
+        const dailyApi = Number(dailyReport?.summary?.totalCommission);
+        if (Number.isFinite(dailyApi) && dailyApi > 0) return dailyApi;
+
+        if (weeklyCommissionTotal > 0) return weeklyCommissionTotal;
+        if (dailyCommissionTotal > 0) return dailyCommissionTotal;
+        return totalHistoryCommission;
+    }, [
+        monthlyEarnings?.totalCommission,
+        weeklyReport?.summary?.totalCommission,
+        dailyReport?.summary?.totalCommission,
+        weeklyCommissionTotal,
+        dailyCommissionTotal,
+        totalHistoryCommission,
+    ]);
 
     const dailyIncomeData = useMemo<DailyIncomePoint[]>(() => {
         const today = new Date();
@@ -427,7 +463,7 @@ export const EmployeeDashboard: React.FC<EmployeeDashboardProps> = ({ onNavigate
                     </article>
                     <article className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
                         <p className="text-xs font-bold uppercase tracking-wider text-gray-400">Comision Estimada</p>
-                        <p className="mt-2 text-4xl font-black text-[#62c533]">S/ {Number(monthlyEarnings?.totalCommission || 0).toFixed(2)}</p>
+                        <p className="mt-2 text-4xl font-black text-[#62c533]">S/ {Number(estimatedCommission || 0).toFixed(2)}</p>
                         <p className="mt-2 text-sm text-gray-500">Comision calculada de tu propia cuenta.</p>
                     </article>
                 </div>

@@ -22,7 +22,6 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
                 <nav className="hidden md:flex items-center gap-8">
                     <button onClick={() => onNavigate('services')} className="text-sm font-semibold text-gray-600 hover:text-primary transition-colors">Servicios</button>
                     <button onClick={() => onNavigate('plans')} className="text-sm font-semibold text-gray-600 hover:text-primary transition-colors">Planes</button>
-                    <button onClick={() => onNavigate('barbers')} className="text-sm font-semibold text-gray-600 hover:text-primary transition-colors">Marcas</button>
                     <button onClick={() => onNavigate('admin-help')} className="text-sm font-semibold text-gray-600 hover:text-primary transition-colors">Centro de Ayuda</button>
                 </nav>
 

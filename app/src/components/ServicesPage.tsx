@@ -7,6 +7,45 @@ interface ServicesPageProps {
 }
 
 export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
+    const services = [
+        {
+            title: 'Agenda de Citas Online',
+            description: 'Tus clientes reservan 24/7 desde su celular. Confirmaciones automaticas, sin llamadas, sin confusiones.',
+            image: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=900&auto=format&fit=crop',
+            alt: 'Gestion de Reservas'
+        },
+        {
+            title: 'Gestion de Empleados',
+            description: 'Registra a tu equipo, asigna turnos, controla asistencia y mide el rendimiento de cada uno sin esfuerzo.',
+            image: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=900&auto=format&fit=crop',
+            alt: 'Persona cortando el pelo'
+        },
+        {
+            title: 'Cobros y Facturacion',
+            description: 'Cobra en caja o envia un link de pago al instante. Historial de ingresos siempre a la mano.',
+            image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80',
+            alt: 'Cobros en caja'
+        },
+        {
+            title: 'Control de Inventario',
+            description: 'Sabe exactamente que productos tienes, cuando reponer y cuanto estas gastando en suministros.',
+            image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=900&auto=format&fit=crop',
+            alt: 'Productos'
+        },
+        {
+            title: 'Recordatorios por WhatsApp',
+            description: 'Reduce las ausencias enviando recordatorios automaticos a tus clientes antes de su cita.',
+            image: '/images/recordatorios_img.png',
+            alt: 'Recordatorios en el telefono'
+        },
+        {
+            title: 'Reportes y Metricas',
+            description: 'Visualiza el crecimiento de tu negocio con reportes claros: ventas, clientes frecuentes y servicios mas populares.',
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80',
+            alt: 'Reportes y metricas'
+        }
+    ];
+
     return (
         <div
             className="relative flex min-h-screen w-full flex-col font-display text-gray-900 selection:bg-primary/30"
@@ -42,62 +81,29 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                     </div>
                 </div>
 
-                {/* Cards section with balanced padding top */}
-                <div className="container mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-40 pt-16 lg:pt-24 items-start">
-                    {/* Card 1 */}
-                    <div className="group flex flex-col mt-8 lg:mt-0" style={{ marginTop: 'var(--card1-mt, 0)' }}>
-                        <div className="bg-[#e9e9e9] rounded-3xl aspect-[4/5] mb-6 overflow-hidden transition-all duration-500 hover:-translate-y-3 shadow-xl shadow-black/5 hover:shadow-2xl hover:shadow-black/10 relative">
-                            <img
-                                src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=800&auto=format&fit=crop"
-                                alt="Gestión de Reservas"
-                                className="w-full h-full object-cover grayscale opacity-90 transition-transform duration-700 group-hover:scale-105"
-                            />
-                        </div>
-                        <h3 className="font-serif text-[1.6rem] font-bold text-[#3e2723] mb-3">Gestión de Reservas</h3>
-                        <p className="text-[#3e2723]/80 text-[0.95rem] leading-relaxed mix-blend-color-burn font-medium">Sistema de citas online fluido y elegante que respeta el tiempo de tus clientes.</p>
-                        <style>{`@media (min-width: 1024px) { .group:nth-child(1) { --card1-mt: 60px; } }`}</style>
-                    </div>
-
-                    {/* Card 2 */}
-                    <div className="group flex flex-col mt-3 lg:mt-0" style={{ marginTop: 'var(--card2-mt, 0)' }}>
-                        <div className="bg-[#e8ecef] rounded-3xl aspect-[4/5] mb-6 overflow-hidden transition-all duration-500 hover:-translate-y-3 shadow-xl shadow-black/5 hover:shadow-2xl hover:shadow-black/10">
-                            <img
-                                src="https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=800&auto=format&fit=crop"
-                                alt="Persona cortando el pelo"
-                                className="w-full h-full object-cover grayscale opacity-90 transition-transform duration-700 group-hover:scale-105"
-                            />
-                        </div>
-                        <h3 className="font-serif text-[1.6rem] font-bold text-[#3e2723] mb-3">Perfiles de Estilistas</h3>
-                        <p className="text-[#3e2723]/80 text-[0.95rem] leading-relaxed mix-blend-color-burn font-medium">Muestra el talento, la visión y el portafolio creativo de cada miembro de tu equipo.</p>
-                        <style>{`@media (min-width: 1024px) { .group:nth-child(2) { --card2-mt: 120px; } }`}</style>
-                    </div>
-
-                    {/* Card 3 */}
-                    <div className="group flex flex-col mt-12 lg:mt-0" style={{ marginTop: 'var(--card3-mt, 0)' }}>
-                        <div className="bg-[#414141] rounded-3xl aspect-[4/5] mb-6 overflow-hidden transition-all duration-500 hover:-translate-y-3 shadow-xl shadow-black/5 hover:shadow-2xl hover:shadow-black/10 relative">
-                            <img
-                                src="/images/recordatorios_img.png"
-                                alt="Recordatorios en el teléfono"
-                                className="w-full h-full object-cover grayscale opacity-90 transition-transform duration-700 group-hover:scale-105"
-                            />
-                        </div>
-                        <h3 className="font-serif text-[1.6rem] font-bold text-[#3e2723] mb-3">Recordatorios</h3>
-                        <p className="text-[#3e2723]/80 text-[0.95rem] leading-relaxed mix-blend-color-burn font-medium">Comunicación automática por WhatsApp y Email con un toque personal y sofisticado.</p>
-                        <style>{`@media (min-width: 1024px) { .group:nth-child(3) { --card3-mt: 280px; } }`}</style>
-                    </div>
-
-                    {/* Card 4 */}
-                    <div className="group flex flex-col mt-0 lg:mt-0" style={{ marginTop: 'var(--card4-mt, 0)' }}>
-                        <div className="bg-[#e2e2e2] rounded-3xl aspect-[4/5] mb-6 overflow-hidden transition-all duration-500 hover:-translate-y-3 shadow-xl shadow-black/5 hover:shadow-2xl hover:shadow-black/10">
-                            <img
-                                src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=800&auto=format&fit=crop"
-                                alt="Productos"
-                                className="w-full h-full object-cover grayscale opacity-90 transition-transform duration-700 group-hover:scale-105"
-                            />
-                        </div>
-                        <h3 className="font-serif text-[1.6rem] font-bold text-[#3e2723] mb-3">Control de Inventario</h3>
-                        <p className="text-[#3e2723]/80 text-[0.95rem] leading-relaxed mix-blend-color-burn font-medium">Gestión precisa de productos y suministros para una operación sin fricciones.</p>
-                        <style>{`@media (min-width: 1024px) { .group:nth-child(4) { --card4-mt: 40px; } }`}</style>
+                {/* Servicios incluidos */}
+                <div className="container mx-auto px-6 mb-24">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+                        {services.map((service, index) => {
+                            const isLastRowPair = services.length % 4 === 2 && index >= services.length - 2;
+                            return (
+                            <div
+                                key={service.title}
+                                className={`group flex flex-col ${isLastRowPair ? 'lg:col-span-2 lg:max-w-[420px] lg:justify-self-center' : ''}`}
+                            >
+                                <div className="bg-[#e9e9e9] rounded-3xl aspect-[4/5] mb-6 overflow-hidden transition-all duration-500 hover:-translate-y-2 shadow-xl shadow-black/5 hover:shadow-2xl hover:shadow-black/10">
+                                    <img
+                                        src={service.image}
+                                        alt={service.alt}
+                                        className="w-full h-full object-cover grayscale opacity-90 transition-transform duration-700 group-hover:scale-105"
+                                    />
+                                </div>
+                                <h3 className="font-serif text-[1.6rem] font-bold text-[#3e2723] mb-3">{service.title}</h3>
+                                <p className="text-[#3e2723]/80 text-[0.95rem] leading-relaxed mix-blend-color-burn font-medium">
+                                    {service.description}
+                                </p>
+                            </div>
+                        )})}
                     </div>
                 </div>
 
@@ -111,12 +117,14 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                         Permítenos mostrarte cómo la arquitectura digital puede elevar tu negocio a un nuevo nivel de excelencia y eficiencia.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mt-4">
-                        <button className="bg-[#e6ceba] text-[#3e2723] px-10 py-4 rounded-full font-serif text-lg font-bold transition-all duration-500 shadow-xl shadow-black/10 flex items-center gap-3 hover:-translate-y-2 hover:bg-[#d8bfac] hover:shadow-2xl hover:shadow-black/20">
+                        <a
+                            href="https://wa.me/51941147507?text=Hla%20quiero%20mas%20informacion%20sobre%20el%20servicio"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="bg-[#e6ceba] text-[#3e2723] px-10 py-4 rounded-full font-serif text-lg font-bold transition-all duration-500 shadow-xl shadow-black/10 flex items-center gap-3 hover:-translate-y-2 hover:bg-[#d8bfac] hover:shadow-2xl hover:shadow-black/20"
+                        >
                             Contáctanos ahora <span className="material-symbols-outlined text-xl transition-transform group-hover:translate-x-1">arrow_forward</span>
-                        </button>
-                        <button className="bg-white/80 backdrop-blur-md border border-white/60 text-[#3e2723] px-10 py-4 rounded-full font-serif text-lg hover:bg-white transition-all duration-500 shadow-xl shadow-black/5 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/10">
-                            Ver Demo
-                        </button>
+                        </a>
                     </div>
                 </div>
             </main>
