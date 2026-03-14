@@ -32,7 +32,6 @@ interface TopEmployee {
     services: number;
     revenueValue: number;
     revenueLabel: string;
-    rating: number;
 }
 
 interface PeriodReportResponse {
@@ -147,12 +146,11 @@ export const AdminReports: React.FC = () => {
             setTopServices(mappedTopServices);
 
             const mappedTopEmployees = (period?.byEmployee || [])
-                .map((emp, idx) => ({
+                .map((emp) => ({
                     name: emp.employeeName,
                     services: emp.servicesCount,
                     revenueValue: Number(emp.commission ?? emp.revenue ?? 0),
                     revenueLabel: `S/ ${Number(emp.commission ?? emp.revenue ?? 0).toLocaleString('en-US')}`,
-                    rating: Number((4.9 - idx * 0.1).toFixed(1)),
                 }))
                 .sort((a, b) => b.revenueValue - a.revenueValue)
                 .slice(0, 6);
@@ -285,10 +283,10 @@ export const AdminReports: React.FC = () => {
         doc.text('Rendimiento del Personal', 14, employeesY);
         autoTable(doc, {
             startY: employeesY + 4,
-            head: [['Empleado', 'Servicios', 'Ingresos', 'Calificacion']],
+            head: [['Empleado', 'Servicios', 'Ingresos']],
             body: topEmployees.length
-                ? topEmployees.map((e) => [e.name, String(e.services), e.revenueLabel, String(e.rating)])
-                : [['Sin datos', '0', 'S/ 0', '-']],
+                ? topEmployees.map((e) => [e.name, String(e.services), e.revenueLabel])
+                : [['Sin datos', '0', 'S/ 0']],
             styles: { fontSize: 10 },
             headStyles: { fillColor: [30, 30, 30] },
         });
@@ -324,10 +322,10 @@ export const AdminReports: React.FC = () => {
         ].join('');
 
         const employeesRows = [
-            rowXml(['Empleado', 'Servicios', 'Ingresos', 'Calificacion']),
+            rowXml(['Empleado', 'Servicios', 'Ingresos']),
             ...(topEmployees.length
-                ? topEmployees.map((e) => rowXml([e.name, e.services, e.revenueLabel, e.rating]))
-                : [rowXml(['Sin datos', 0, 'S/ 0', '-'])]),
+                ? topEmployees.map((e) => rowXml([e.name, e.services, e.revenueLabel]))
+                : [rowXml(['Sin datos', 0, 'S/ 0'])]),
         ].join('');
 
         const detailedServicesRows = [
@@ -486,10 +484,6 @@ export const AdminReports: React.FC = () => {
                                             </div>
                                             <div>
                                                 <h4 className="font-bold text-gray-900 text-sm">{emp.name}</h4>
-                                                <div className="flex items-center gap-1">
-                                                    <span className="material-symbols-outlined text-[14px] text-yellow-400">star</span>
-                                                    <span className="text-xs text-gray-500 font-bold">{emp.rating}</span>
-                                                </div>
                                             </div>
                                         </div>
                                         <div className="text-right">
@@ -567,7 +561,6 @@ export const AdminReports: React.FC = () => {
         </div>
     );
 };
-
 
 
 

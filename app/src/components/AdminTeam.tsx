@@ -192,7 +192,9 @@ export const AdminTeam: React.FC = () => {
             }
             if (normalizedPhotoUrl) {
                 try {
+                    if (!normalizedPhotoUrl.startsWith('data:image/')) {
                     new URL(normalizedPhotoUrl);
+                    }
                 } catch {
                     nextErrors.photoUrl = 'La URL de foto no es valida';
                 }
@@ -289,7 +291,7 @@ export const AdminTeam: React.FC = () => {
                         <table className="w-full text-left border-collapse">
                             <thead>
                                 <tr className="bg-gray-50">
-                                    <th className="px-6 py-4 text-xs font-black text-primary uppercase tracking-wider">Barbero</th>
+                                    <th className="px-6 py-4 text-xs font-black text-primary uppercase tracking-wider">Persona</th>
                                     <th className="px-6 py-4 text-xs font-black text-primary uppercase tracking-wider">Email</th>
                                     <th className="px-6 py-4 text-xs font-black text-primary uppercase tracking-wider">Comision</th>
                                     <th className="px-6 py-4 text-xs font-black text-primary uppercase tracking-wider">Estado</th>
@@ -313,7 +315,12 @@ export const AdminTeam: React.FC = () => {
                                                 </div>
                                                 <div>
                                                     <p className="text-sm font-bold text-gray-900">{employee.firstName} {employee.lastName}</p>
-                                                    <p className="text-xs text-gray-500">{employee.phone || 'Sin telefono'}</p>
+                                                    <div className="mt-1 flex items-center gap-2">
+                                                        <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-black uppercase ${employee.user.role === 'ADMIN' || employee.user.role === 'SUPERADMIN' ? 'bg-amber-100 text-amber-700' : 'bg-blue-100 text-blue-700'}`}>
+                                                            {employee.user.role === 'ADMIN' || employee.user.role === 'SUPERADMIN' ? 'Dueño' : 'Peluquero'}
+                                                        </span>
+                                                        <span className="text-xs text-gray-500">{employee.phone || 'Sin telefono'}</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </td>
@@ -380,7 +387,7 @@ export const AdminTeam: React.FC = () => {
                                         {formErrors.email && <p className="mt-1 text-xs font-semibold text-red-500">{formErrors.email}</p>}
                                     </div>
                                     <div>
-                                        <label className="block text-xs font-bold text-gray-700 mb-1">Contrasena</label>
+                                        <label className="block text-xs font-bold text-gray-700 mb-1">Contraseña</label>
                                         <input
                                             type="password"
                                             required
@@ -397,7 +404,7 @@ export const AdminTeam: React.FC = () => {
 
                             {editingEmployee && (
                                 <div>
-                                    <label className="block text-xs font-bold text-gray-700 mb-1">Nueva Contrasena (opcional)</label>
+                                    <label className="block text-xs font-bold text-gray-700 mb-1">Nueva Contraseña (opcional)</label>
                                     <input
                                         type="password"
                                         minLength={8}
@@ -433,6 +440,59 @@ export const AdminTeam: React.FC = () => {
                                     />
                                     {formErrors.lastName && <p className="mt-1 text-xs font-semibold text-red-500">{formErrors.lastName}</p>}
                                 </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 gap-3">
+                                <label className="block text-xs font-bold text-gray-700">Foto (opcional)</label>
+                                <div className="flex items-center gap-4">
+                                    <div className="size-16 rounded-full border border-gray-200 bg-gray-100 overflow-hidden flex items-center justify-center text-xs font-bold text-gray-500">
+                                        {formData.photoUrl ? (
+                                            <img
+                                                src={formData.photoUrl}
+                                                alt="Vista previa"
+                                                className="h-full w-full object-cover"
+                                            />
+                                        ) : (
+                                            'Sin foto'
+                                        )}
+                                    </div>
+                                    <div className="flex flex-col gap-2">
+                                        <input
+                                            type="file"
+                                            accept="image/*"
+                                            onChange={(e) => {
+                                                const file = e.target.files?.[0];
+                                                if (!file) return;
+                                                if (!file.type.startsWith('image/')) {
+                                                    setFormErrors((prev) => ({ ...prev, photoUrl: 'El archivo debe ser una imagen' }));
+                                                    return;
+                                                }
+                                                const reader = new FileReader();
+                                                reader.onload = () => {
+                                                    const result = reader.result;
+                                                    if (typeof result === 'string') {
+                                                        setFormData((prev) => ({ ...prev, photoUrl: result }));
+                                                        setFormErrors((prev) => ({ ...prev, photoUrl: undefined }));
+                                                    }
+                                                };
+                                                reader.readAsDataURL(file);
+                                            }}
+                                            className="block text-sm text-gray-600 file:mr-4 file:rounded-lg file:border-0 file:bg-gray-100 file:px-4 file:py-2 file:text-xs file:font-bold file:text-gray-700 hover:file:bg-gray-200"
+                                        />
+                                        <span className="text-[11px] text-gray-400">Se guarda como imagen incrustada.</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-700 mb-1">Foto URL (opcional)</label>
+                                    <input
+                                        type="url"
+                                        value={formData.photoUrl}
+                                        onChange={(e) => setFormData({ ...formData, photoUrl: e.target.value })}
+                                        className={`w-full bg-gray-50 border rounded-xl px-4 py-3 text-sm font-medium focus:outline-none focus:border-primary ${formErrors.photoUrl ? 'border-red-300' : 'border-gray-200'}`}
+                                        placeholder="https://..."
+                                    />
+                                </div>
+                                {formErrors.photoUrl && <p className="text-xs font-semibold text-red-500">{formErrors.photoUrl}</p>}
                             </div>
 
                             <div className="grid grid-cols-2 gap-4">

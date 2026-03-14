@@ -177,11 +177,36 @@ export const EmployeeDashboard: React.FC<EmployeeDashboardProps> = ({ onNavigate
                 api.get<{ data: MyEarnings }>('/employees/me/earnings?period=monthly'),
             ]);
 
-            setProfile(profileRes.data || null);
-            setServiceHistory(Array.isArray(historyRes.data) ? historyRes.data : []);
-            setDailyReport(dailyRes.data || null);
-            setWeeklyReport(weeklyRes.data || null);
-            setMonthlyEarnings(earningsRes.data || null);
+            const unwrap = <T,>(payload: any): T | null => {
+                if (!payload) return null;
+                let data = payload;
+                for (let i = 0; i < 2; i += 1) {
+                    if (data && typeof data === 'object' && 'data' in data) {
+                        data = (data as any).data;
+                    } else {
+                        break;
+                    }
+                }
+                return data as T;
+            };
+
+            const profileData = unwrap<EmployeeProfile>(profileRes);
+            const historyData = unwrap<MyServiceItem[] | { items?: MyServiceItem[] }>(historyRes);
+            const dailyData = unwrap<MyReport>(dailyRes);
+            const weeklyData = unwrap<MyReport>(weeklyRes);
+            const earningsData = unwrap<MyEarnings>(earningsRes);
+
+            setProfile(profileData || null);
+            if (Array.isArray(historyData)) {
+                setServiceHistory(historyData);
+            } else if (historyData && Array.isArray((historyData as any).items)) {
+                setServiceHistory((historyData as any).items);
+            } else {
+                setServiceHistory([]);
+            }
+            setDailyReport(dailyData || null);
+            setWeeklyReport(weeklyData || null);
+            setMonthlyEarnings(earningsData || null);
         } catch (err: any) {
             setLoadError(err.message || 'No se pudo cargar el panel de peluquero');
         } finally {
@@ -191,6 +216,14 @@ export const EmployeeDashboard: React.FC<EmployeeDashboardProps> = ({ onNavigate
 
     useEffect(() => {
         fetchEmployeeData();
+    }, []);
+
+    useEffect(() => {
+        const handleSalesUpdated = () => {
+            fetchEmployeeData();
+        };
+        window.addEventListener('sales:updated', handleSalesUpdated);
+        return () => window.removeEventListener('sales:updated', handleSalesUpdated);
     }, []);
 
     useEffect(() => {

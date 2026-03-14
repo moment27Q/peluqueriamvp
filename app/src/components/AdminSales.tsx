@@ -8,6 +8,7 @@ interface Employee {
     lastName: string;
     isActive: boolean;
     commissionRate?: number | string;
+    photoUrl?: string | null;
 }
 
 interface ServiceType {
@@ -267,7 +268,17 @@ export const AdminSales: React.FC = () => {
                                 className={`flex flex-col items-center gap-2 group min-w-[80px] transition-all p-2 rounded-2xl ${selectedBarber === emp.id ? 'bg-primary/5 ring-2 ring-primary' : 'hover:bg-gray-50'}`}
                             >
                                 <div className={`size-12 rounded-full flex items-center justify-center text-lg font-bold text-white shadow-md relative overflow-hidden transition-transform group-hover:scale-105 ${selectedBarber === emp.id ? 'bg-primary' : 'bg-gray-300'}`}>
-                                    {emp.firstName.charAt(0)}{emp.lastName.charAt(0)}
+                                    {emp.photoUrl ? (
+                                        <img
+                                            src={emp.photoUrl}
+                                            alt={`${emp.firstName} ${emp.lastName}`}
+                                            className="h-full w-full object-cover"
+                                        />
+                                    ) : (
+                                        <>
+                                            {emp.firstName.charAt(0)}{emp.lastName.charAt(0)}
+                                        </>
+                                    )}
                                     {/* Mock Status Dot */}
                                     <div className="absolute bottom-0 right-0 size-3 bg-green-400 border-2 border-white rounded-full"></div>
                                 </div>
