@@ -102,12 +102,11 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onNavigate }) => {
                 <div className="bg-white border border-gray-100 rounded-2xl p-8 md:p-12 shadow-2xl shadow-gray-200/50 flex flex-col items-center">
                     {/* Logo Section */}
                     <div className="mb-10 flex flex-col items-center">
-                        <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 text-primary">
-                            <span className="material-symbols-outlined text-4xl">content_cut</span>
-                        </div>
-                        <h1 className="text-2xl font-black tracking-tight uppercase text-gray-900 mb-1">
-                            mi <span className="text-primary">pagina.com</span>
-                        </h1>
+                        <img
+                            src="/images/logo-izichamba.png"
+                            alt="Izichamba"
+                            className="h-16 w-auto mb-2"
+                        />
                     </div>
 
                     <div className="w-full text-center mb-8">

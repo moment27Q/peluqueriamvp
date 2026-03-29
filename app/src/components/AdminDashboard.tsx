@@ -3,7 +3,9 @@ import { AdminTeam } from './AdminTeam';
 import { AdminServices } from './AdminServices';
 import { AdminSales } from './AdminSales';
 import { AdminReports } from './AdminReports';
+import { AdminWithdrawals } from './AdminWithdrawals';
 import { AdminHelpCenter } from './AdminHelpCenter';
+import { AdminPlansOnboarding } from './AdminPlansOnboarding';
 import { api } from '../services/api';
 
 interface AdminDashboardProps {
@@ -11,7 +13,7 @@ interface AdminDashboardProps {
     initialView?: AdminView;
 }
 
-type AdminView = 'dashboard' | 'team' | 'services' | 'sales' | 'reports' | 'help';
+type AdminView = 'dashboard' | 'team' | 'services' | 'sales' | 'reports' | 'withdrawals' | 'help' | 'plans';
 
 interface EmployeeSummary {
     id: string;
@@ -87,6 +89,18 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
     const [loading, setLoading] = useState(true);
     const [tenantName, setTenantName] = useState('');
     const [tenantPlan, setTenantPlan] = useState('');
+    const [trialEndsAt, setTrialEndsAt] = useState<string | null>(null);
+    const [trialUsed, setTrialUsed] = useState(false);
+    const [planActionError, setPlanActionError] = useState('');
+    const [planActionLoading, setPlanActionLoading] = useState(false);
+    const [showTrialFeedback, setShowTrialFeedback] = useState(false);
+    const [feedbackChecked, setFeedbackChecked] = useState(false);
+    const [feedbackLoading, setFeedbackLoading] = useState(false);
+    const [feedbackError, setFeedbackError] = useState('');
+    const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
+    const [feedbackRating, setFeedbackRating] = useState(5);
+    const [feedbackSurveyAnswer, setFeedbackSurveyAnswer] = useState('');
+    const [feedbackImprovements, setFeedbackImprovements] = useState('');
 
     useEffect(() => {
         const loadTenantInfo = async () => {
@@ -95,9 +109,13 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
                 const tenant = res?.data?.tenant;
                 setTenantName(tenant?.name || '');
                 setTenantPlan(tenant?.subscriptionPlan?.name || '');
+                setTrialEndsAt(tenant?.trialEndsAt || null);
+                setTrialUsed(!!tenant?.trialUsed);
             } catch {
                 setTenantName('');
                 setTenantPlan('');
+                setTrialEndsAt(null);
+                setTrialUsed(false);
             }
         };
         loadTenantInfo();
@@ -221,6 +239,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
         onNavigate('landing');
     };
 
+
     const activeEmployees = employees.filter((e) => e.isActive).length;
     const maxWeeklyRevenue = useMemo(
         () => Math.max(...weeklyChart.map((x) => x.earnings), 1),
@@ -246,12 +265,50 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
                                     {tenantName}
                                 </span>
                                 <span className="px-3 py-1 rounded-full bg-green-50 text-green-700">
-                                    Plan: {tenantPlan || 'SIN PLAN'}
+                                    Plan: {planDisplay}
                                 </span>
+                                {trialActive && trialEndsAtMs && (
+                                    <span className="px-3 py-1 rounded-full bg-blue-50 text-blue-700">
+                                        Prueba activa hasta {new Date(trialEndsAtMs).toLocaleDateString('es-ES')}
+                                    </span>
+                                )}
                             </div>
+                        )}
+                        {planActionError && (
+                            <p className="mt-3 text-xs font-bold text-red-600">{planActionError}</p>
                         )}
                     </div>
                     <div className="flex gap-3">
+                        <button
+                            onClick={() => setActiveView('plans')}
+                            className="bg-white border border-green-200 text-green-700 hover:bg-green-50 font-bold py-2.5 px-4 rounded-xl flex items-center gap-2 transition-all shadow-sm"
+                        >
+                            <span className="material-symbols-outlined text-green-600">sell</span>
+                            {tenantPlan ? 'Cambiar Plan' : 'Ver Planes'}
+                        </button>
+                        {tenantPlan && (
+                            <button
+                                onClick={async () => {
+                                    if (!confirm('¿Seguro que deseas eliminar tu plan actual?')) return;
+                                    try {
+                                        setPlanActionError('');
+                                        setPlanActionLoading(true);
+                                        const res: any = await api.patch('/auth/plan', { planId: null });
+                                        const nextPlan = res?.data?.subscriptionPlan?.name || '';
+                                        setTenantPlan(nextPlan);
+                                    } catch (err: any) {
+                                        setPlanActionError(err.message || 'No se pudo eliminar el plan.');
+                                    } finally {
+                                        setPlanActionLoading(false);
+                                    }
+                                }}
+                                disabled={planActionLoading}
+                                className={`bg-red-50 border border-red-200 text-red-600 hover:bg-red-100 font-bold py-2.5 px-4 rounded-xl flex items-center gap-2 transition-all shadow-sm ${planActionLoading ? 'opacity-60 cursor-not-allowed' : ''}`}
+                            >
+                                <span className="material-symbols-outlined text-red-500">cancel</span>
+                                Eliminar Plan
+                            </button>
+                        )}
                         <button
                             onClick={() => setActiveView('team')}
                             className="bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 font-bold py-2.5 px-4 rounded-xl flex items-center gap-2 transition-all shadow-sm"
@@ -396,12 +453,95 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
         );
     };
 
+    const hasPlan = !!tenantPlan?.trim();
+    const trialEndsAtMs = trialEndsAt ? new Date(trialEndsAt).getTime() : null;
+    const trialActive = trialEndsAtMs ? trialEndsAtMs > Date.now() : false;
+    const hasAccess = hasPlan || trialActive;
+    const planDisplay = tenantPlan || (trialActive ? 'GRATUITO' : 'SIN PLAN');
+    const trialExpired = !!trialEndsAtMs && trialEndsAtMs <= Date.now() && !hasPlan;
+    const showPlanGate =
+        !hasAccess &&
+        activeView !== 'dashboard' &&
+        activeView !== 'plans';
+
+    useEffect(() => {
+        const loadFeedbackStatus = async () => {
+            if (!trialExpired || feedbackChecked) return;
+            setFeedbackLoading(true);
+            setFeedbackError('');
+            try {
+                const res: any = await api.get('/feedback/trial');
+                const submitted = !!(res?.submitted ?? res?.data?.submitted);
+                setFeedbackSubmitted(submitted);
+                setShowTrialFeedback(!submitted);
+            } catch (err: any) {
+                setFeedbackError(err.message || 'No se pudo cargar la encuesta.');
+            } finally {
+                setFeedbackLoading(false);
+                setFeedbackChecked(true);
+            }
+        };
+        loadFeedbackStatus();
+    }, [feedbackChecked, trialExpired]);
+
+    const handleSubmitTrialFeedback = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setFeedbackError('');
+        setFeedbackLoading(true);
+        try {
+            await api.post('/feedback/trial', {
+                rating: feedbackRating,
+                surveyAnswer: feedbackSurveyAnswer.trim(),
+                improvements: feedbackImprovements.trim(),
+            });
+            setFeedbackSubmitted(true);
+            setShowTrialFeedback(false);
+        } catch (err: any) {
+            setFeedbackError(err.message || 'No se pudo enviar la encuesta.');
+        } finally {
+            setFeedbackLoading(false);
+        }
+    };
+
     const renderContent = () => {
+        if (showPlanGate) {
+            return (
+                <div className="flex-1 overflow-y-auto p-8 custom-scrollbar">
+                    <div className="max-w-2xl">
+                        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
+                            <h3 className="text-lg font-black text-amber-800">Contrata un plan para usar este módulo</h3>
+                            <p className="text-sm text-amber-700 mt-2">
+                                Elige un plan y activa tu cuenta para desbloquear todas las funciones del dashboard.
+                            </p>
+                            <button
+                                onClick={() => setActiveView('plans')}
+                                className="mt-4 px-5 py-2.5 rounded-xl bg-amber-600 text-white text-sm font-bold hover:bg-amber-700 transition-all"
+                            >
+                                Ver planes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
         if (activeView === 'team') return <AdminTeam />;
         if (activeView === 'services') return <AdminServices />;
         if (activeView === 'sales') return <AdminSales />;
         if (activeView === 'reports') return <AdminReports />;
+        if (activeView === 'withdrawals') return <AdminWithdrawals />;
         if (activeView === 'help') return <AdminHelpCenter />;
+        if (activeView === 'plans') return (
+            <AdminPlansOnboarding
+                tenantName={tenantName}
+                tenantPlan={planDisplay}
+                trialEndsAt={trialEndsAt}
+                trialUsed={trialUsed}
+                onTrialActivated={({ trialEndsAt: nextEndsAt, trialUsed: nextUsed }) => {
+                    if (nextEndsAt !== undefined) setTrialEndsAt(nextEndsAt || null);
+                    if (nextUsed !== undefined) setTrialUsed(!!nextUsed);
+                }}
+            />
+        );
         return renderDashboardOverview();
     };
 
@@ -409,15 +549,16 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
         <div className="flex h-screen overflow-hidden bg-background-light text-gray-800 font-display">
             <aside className="w-64 flex flex-col bg-white border-r border-gray-200 h-full transition-all duration-300 shadow-sm">
                 <div className="p-6 flex items-center gap-3">
-                    <div className="size-10 rounded-lg bg-primary text-white flex items-center justify-center shadow-lg shadow-primary/30">
-                        <span className="material-symbols-outlined text-white font-bold text-2xl">content_cut</span>
-                    </div>
+                    <img
+                        src="/images/logo-izichamba.png"
+                        alt="Izichamba"
+                        className="h-10 w-auto"
+                    />
                     <div>
-                        <h1 className="text-lg font-bold tracking-tight text-gray-900">mi pagina.com</h1>
                         <p className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold">admin</p>
                         {tenantName && (
                             <p className="mt-2 inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-0.5 text-[10px] font-bold uppercase text-green-700">
-                                Plan: {tenantPlan || 'SIN PLAN'}
+                                Plan: {planDisplay}
                             </p>
                         )}
                     </div>
@@ -426,6 +567,9 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
                 <nav className="flex-1 px-4 py-6 space-y-2 overflow-y-auto custom-scrollbar">
                     <button onClick={() => setActiveView('dashboard')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${activeView === 'dashboard' ? 'bg-primary/10 text-primary font-medium border-l-[3px] border-primary' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'}`}>
                         <span className="material-symbols-outlined">dashboard</span><span className="text-sm">Dashboard</span>
+                    </button>
+                    <button onClick={() => setActiveView('plans')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${activeView === 'plans' ? 'bg-primary/10 text-primary font-medium border-l-[3px] border-primary' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'}`}>
+                        <span className="material-symbols-outlined">sell</span><span className="text-sm font-medium">Planes</span>
                     </button>
                     <button onClick={() => setActiveView('team')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${activeView === 'team' ? 'bg-primary/10 text-primary font-medium border-l-[3px] border-primary' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'}`}>
                         <span className="material-symbols-outlined">badge</span><span className="text-sm font-medium">Equipo</span>
@@ -439,6 +583,9 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
                     <button onClick={() => setActiveView('reports')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${activeView === 'reports' ? 'bg-primary/10 text-primary font-medium border-l-[3px] border-primary' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'}`}>
                         <span className="material-symbols-outlined">bar_chart</span><span className="text-sm font-medium">Reportes</span>
                     </button>
+                    <button onClick={() => setActiveView('withdrawals')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${activeView === 'withdrawals' ? 'bg-primary/10 text-primary font-medium border-l-[3px] border-primary' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'}`}>
+                        <span className="material-symbols-outlined">paid</span><span className="text-sm font-medium">Retiros</span>
+                    </button>
                     <button onClick={() => setActiveView('help')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${activeView === 'help' ? 'bg-primary/10 text-primary font-medium border-l-[3px] border-primary' : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'}`}>
                         <span className="material-symbols-outlined">help</span><span className="text-sm font-medium">Centro de Ayuda</span>
                     </button>
@@ -447,7 +594,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
                 <div className="p-4 border-t border-gray-100">
                     <button
                         onClick={handleLogout}
-                        className="flex items-center justify-center w-full gap-2 px-4 py-2 mt-2 bg-gray-50 rounded-lg text-gray-900 text-sm font-bold transition-all hover:bg-gray-200"
+                        className="flex items-center justify-center w-full gap-2 px-4 py-2 bg-gray-50 rounded-lg text-gray-900 text-sm font-bold transition-all hover:bg-gray-200"
                     >
                         <span className="material-symbols-outlined text-sm">logout</span>
                         Cerrar Sesion
@@ -458,7 +605,76 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate, init
             <main className="flex-1 flex flex-col min-w-0 min-h-0 bg-background-light overflow-y-auto">
                 {renderContent()}
             </main>
+
+            {showTrialFeedback && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+                    <div className="bg-white w-full max-w-2xl rounded-2xl p-8 shadow-2xl relative">
+                        <h3 className="text-2xl font-black text-gray-900 mb-2">Tu prueba gratuita terminó</h3>
+                        <p className="text-sm text-gray-600 mb-6">
+                            Ayúdanos con una breve encuesta para mejorar la plataforma.
+                        </p>
+
+                        {feedbackError && (
+                            <div className="mb-4 rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm font-semibold text-red-600">
+                                {feedbackError}
+                            </div>
+                        )}
+
+                        <form onSubmit={handleSubmitTrialFeedback} className="space-y-5">
+                            <div>
+                                <label className="block text-sm font-bold text-gray-700 mb-2">¿Qué tan satisfecho estás? (1-5)</label>
+                                <div className="flex gap-2">
+                                    {[1, 2, 3, 4, 5].map((value) => (
+                                        <button
+                                            key={value}
+                                            type="button"
+                                            onClick={() => setFeedbackRating(value)}
+                                            className={`size-10 rounded-full text-sm font-bold border transition-all ${feedbackRating === value
+                                                ? 'bg-green-500 text-white border-green-500'
+                                                : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
+                                                }`}
+                                        >
+                                            {value}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-bold text-gray-700 mb-2">¿Qué fue lo que más te gustó?</label>
+                                <textarea
+                                    value={feedbackSurveyAnswer}
+                                    onChange={(e) => setFeedbackSurveyAnswer(e.target.value)}
+                                    rows={3}
+                                    className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/40"
+                                    placeholder="Cuéntanos lo mejor de tu experiencia"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-bold text-gray-700 mb-2">¿Qué mejorarías?</label>
+                                <textarea
+                                    value={feedbackImprovements}
+                                    onChange={(e) => setFeedbackImprovements(e.target.value)}
+                                    rows={3}
+                                    className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/40"
+                                    placeholder="Sugerencias o comentarios para mejorar"
+                                />
+                            </div>
+
+                            <div className="flex flex-col sm:flex-row gap-3 sm:justify-end">
+                                <button
+                                    type="submit"
+                                    disabled={feedbackLoading}
+                                    className="px-6 py-2.5 rounded-lg bg-green-500 text-white text-sm font-bold hover:bg-green-600 transition-all disabled:opacity-60"
+                                >
+                                    {feedbackLoading ? 'Enviando...' : 'Enviar encuesta'}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
-

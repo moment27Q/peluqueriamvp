@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, Scissors, Home, BarChart3, Users, Mail } from 'lucide-react';
+import { Menu, X, ChevronDown, Home, BarChart3, Users, Mail } from 'lucide-react';
 import { navigationConfig } from '../config';
 
 // Icon lookup map for dynamic icon resolution from config strings
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  Home, BarChart3, Users, Mail, Scissors, Menu, X, ChevronDown,
+  Home, BarChart3, Users, Mail, Menu, X, ChevronDown,
 };
 
 export function Navigation() {
@@ -61,11 +61,11 @@ export function Navigation() {
           className="flex items-center gap-3 group"
           aria-label={navigationConfig.brandName}
         >
-          <Scissors className="w-8 h-8 text-gold-500 transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
-          <div className="flex flex-col">
-            <span className="font-serif text-xl text-white tracking-wide">{navigationConfig.brandName}</span>
-            <span className="text-[10px] text-gold-400 tracking-widest uppercase">{navigationConfig.tagline}</span>
-          </div>
+          <img
+            src="/images/logo-izichamba.png"
+            alt="Izichamba"
+            className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+          />
         </button>
 
         {/* Desktop Navigation */}

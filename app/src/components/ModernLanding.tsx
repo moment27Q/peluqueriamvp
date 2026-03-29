@@ -16,6 +16,7 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
     const [error, setError] = useState('');
     const [plans, setPlans] = useState<any[]>([]);
     const [plansLoading, setPlansLoading] = useState(true);
+    const OWNER_PHONE = '51941147507';
     const [activeFeature, setActiveFeature] = useState<{
         id: string;
         label: string;
@@ -75,6 +76,8 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
             image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80'
         }
     ];
+
+    const displayPlans = Array.isArray(plans) ? plans : [];
 
     useEffect(() => {
         const fetchPlans = async () => {
@@ -353,13 +356,16 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                             <div className="lg:col-span-3 text-center py-16 text-gray-600 font-semibold">
                                 Cargando planes...
                             </div>
-                        ) : plans.length === 0 ? (
+                        ) : displayPlans.length === 0 ? (
                             <div className="lg:col-span-3 text-center py-16 text-gray-600 font-semibold">
                                 No hay planes activos en este momento.
                             </div>
                         ) : (
-                            plans.map((plan, index) => {
+                            displayPlans.map((plan, index) => {
                                 const isPopular = index === 1;
+                                const planName = String(plan.name || '');
+                                const isEnterprise = planName.toLowerCase().includes('enterprise');
+                                const isTrial = !!plan.isTrial && !isEnterprise;
 
                                 return (
                                     <div
@@ -375,14 +381,30 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                                                 Más popular
                                             </div>
                                         )}
+                                        {isTrial && (
+                                            <div className="absolute -top-4 -left-4 bg-[#4ad24a] text-white px-5 py-2 rounded-full font-bold text-xs tracking-wider shadow-lg uppercase border-4 border-white">
+                                                Nuevo
+                                            </div>
+                                        )}
                                         <div className="flex flex-col h-full">
                                             <h3 className={`font-serif text-[1.8rem] font-bold mb-6 uppercase ${isPopular ? 'text-white' : 'text-gray-900'}`}>
                                                 {plan.name}
                                             </h3>
 
-                                            {Number(plan.price) === 0 ? (
-                                                <div className={`text-3xl font-extrabold font-serif mb-8 h-[60px] flex items-center ${isPopular ? 'text-white' : 'text-gray-900'}`}>
-                                                    Consultar Precio
+                                            {isEnterprise ? (
+                                                <div className="mb-8 h-[60px] flex items-center gap-3">
+                                                    <span className={`text-4xl font-extrabold font-serif ${isPopular ? 'text-white' : 'text-gray-900'}`}>
+                                                        Consultar con dueño
+                                                    </span>
+                                                </div>
+                                            ) : Number(plan.price) === 0 ? (
+                                                <div className="mb-8 h-[60px] flex items-center gap-3">
+                                                    <span className={`text-4xl font-extrabold font-serif ${isPopular ? 'text-white' : 'text-gray-900'}`}>
+                                                        Prueba gratuita
+                                                    </span>
+                                                    <span className={`text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full ${isPopular ? 'bg-white/15 text-white' : 'bg-[#dff7dd] text-[#1f4d1f]'}`}>
+                                                        0 / mes
+                                                    </span>
                                                 </div>
                                             ) : (
                                                 <div className="mb-8 flex items-baseline gap-2 h-[60px] items-center">
@@ -403,7 +425,11 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                                             </ul>
 
                                             <a
-                                                href={`https://wa.me/51941147507?text=Hola%2C%20estoy%20interesado%20en%20el%20plan%20*${encodeURIComponent(plan.name)}*%20(%24${plan.price}%2Fmes).%20Me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n.`}
+                                                href={isEnterprise
+                                                    ? `https://wa.me/${OWNER_PHONE}?text=${encodeURIComponent('Hola, quiero consultar el plan Enterprise. ¿Me pueden ayudar?')}`
+                                                    : isTrial
+                                                        ? "https://wa.me/51941147507?text=Hola%2C%20quiero%20solicitar%20la%20prueba%20gratuita.%20%C2%BFMe%20ayudan%20a%20activarla%3F"
+                                                        : `https://wa.me/51941147507?text=Hola%2C%20estoy%20interesado%20en%20el%20plan%20*${encodeURIComponent(plan.name)}*%20(%24${plan.price}%2Fmes).%20Me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n.`}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className={`block w-full py-3.5 rounded-full font-bold transition-all duration-300 text-center ${isPopular
@@ -411,7 +437,7 @@ export const ModernLanding: React.FC<ModernLandingProps> = ({ onNavigate }) => {
                                                     : 'bg-white border border-gray-200 text-gray-900 hover:bg-gray-900 hover:text-white'
                                                     }`}
                                             >
-                                                Elegir {plan.name}
+                                                {isEnterprise ? 'Contactar dueño' : isTrial ? 'Contactar vendedor' : Number(plan.price) === 0 ? 'Probar gratis' : `Elegir ${plan.name}`}
                                             </a>
                                         </div>
                                     </div>

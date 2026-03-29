@@ -4,6 +4,7 @@ import { ModernLanding } from './components/ModernLanding';
 import { ServicesPage } from './components/ServicesPage';
 import { PlansPage } from './components/PlansPage';
 import { LoginPage } from './components/LoginPage';
+import { RegisterPage } from './components/RegisterPage';
 import { AdminDashboard } from './components/AdminDashboard';
 import { SuperAdminDashboard } from './components/SuperAdminDashboard';
 import { HelpCenterPage } from './components/HelpCenterPage';
@@ -44,12 +45,12 @@ function App() {
       }
 
       // If there is no token, prevent access to admin pages
-      if (!token && ['admin', 'employee', 'superadmin'].includes(currentPage)) {
-        setCurrentPage('login');
-        return;
-      }
+        if (!token && ['admin', 'employee', 'superadmin', 'admin-plans'].includes(currentPage)) {
+            setCurrentPage('login');
+            return;
+        }
 
-      if (token && role === 'EMPLOYEE' && ['admin', 'superadmin'].includes(currentPage)) {
+      if (token && role === 'EMPLOYEE' && ['admin', 'superadmin', 'admin-plans'].includes(currentPage)) {
         setCurrentPage('employee');
         return;
       }
@@ -59,7 +60,7 @@ function App() {
         return;
       }
 
-      if (token && role === 'SUPERADMIN' && ['employee', 'admin'].includes(currentPage)) {
+      if (token && role === 'SUPERADMIN' && ['employee', 'admin', 'admin-plans'].includes(currentPage)) {
         setCurrentPage('superadmin');
       }
     };
@@ -88,7 +89,9 @@ function App() {
         {currentPage === 'services' && <ServicesPage onNavigate={handleNavigate} />}
         {currentPage === 'plans' && <PlansPage onNavigate={handleNavigate} />}
         {currentPage === 'login' && <LoginPage onNavigate={handleNavigate} />}
+        {currentPage === 'register' && <RegisterPage onNavigate={handleNavigate} />}
         {currentPage === 'admin' && <AdminDashboard onNavigate={handleNavigate} initialView="dashboard" />}
+        {currentPage === 'admin-plans' && <AdminDashboard onNavigate={handleNavigate} initialView="plans" />}
         {currentPage === 'superadmin' && <SuperAdminDashboard onNavigate={handleNavigate} />}
         {currentPage === 'employee' && <EmployeeDashboard onNavigate={handleNavigate} />}
         {currentPage === 'admin-help' && <HelpCenterPage onNavigate={handleNavigate} />}

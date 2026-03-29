@@ -7,11 +7,12 @@ const client_1 = require("@prisma/client");
 const router = (0, express_1.Router)();
 // Public endpoint
 router.get('/active', plan_controller_1.PlanController.getActivePlans);
-// Protected routes (SuperAdmin only)
+// Protected routes (Admin & SuperAdmin for read)
 router.use(auth_middleware_1.authenticate);
+router.get('/', (0, auth_middleware_1.requireRole)([client_1.UserRole.SUPERADMIN, client_1.UserRole.ADMIN]), plan_controller_1.PlanController.getAllPlans);
+router.get('/:id', (0, auth_middleware_1.requireRole)([client_1.UserRole.SUPERADMIN, client_1.UserRole.ADMIN]), plan_controller_1.PlanController.getPlanById);
+// Protected routes (SuperAdmin only for write)
 router.use((0, auth_middleware_1.requireRole)([client_1.UserRole.SUPERADMIN]));
-router.get('/', plan_controller_1.PlanController.getAllPlans);
-router.get('/:id', plan_controller_1.PlanController.getPlanById);
 router.post('/', plan_controller_1.PlanController.createPlan);
 router.put('/:id', plan_controller_1.PlanController.updatePlan);
 router.delete('/:id', plan_controller_1.PlanController.deletePlan);

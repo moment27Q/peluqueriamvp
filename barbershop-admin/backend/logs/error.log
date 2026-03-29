@@ -303,3 +303,57 @@
 2026-03-13 16:08:33 [error]: Error: La contraseña debe contener al menos un carácter especial
     at AuthService.register (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:120:19)
     at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:54:20
+2026-03-23 14:14:19 [error]: Error: La contraseña debe contener al menos una mayúscula
+    at AuthService.register (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:120:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:54:20
+2026-03-26 21:25:16 [error]: Error: Credenciales inválidas
+    at AuthService.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:36:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:46:20
+2026-03-26 21:25:18 [error]: Error: Credenciales inválidas
+    at AuthService.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:36:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:46:20
+2026-03-26 21:25:29 [error]: Error: Credenciales inválidas
+    at AuthService.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:36:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:46:20
+2026-03-26 21:25:30 [error]: Error: Credenciales inválidas
+    at AuthService.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:36:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:46:20
+2026-03-26 21:25:30 [error]: Error: Credenciales inválidas
+    at AuthService.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:36:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:46:20
+2026-03-26 21:25:30 [error]: Error: Credenciales inválidas
+    at AuthService.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:36:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:46:20
+2026-03-26 21:25:41 [error]: Error: Credenciales inválidas
+    at AuthService.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:36:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:46:20
+2026-03-26 21:25:41 [error]: Error: Credenciales inválidas
+    at AuthService.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:36:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:46:20
+2026-03-26 21:25:42 [error]: Error: Credenciales inválidas
+    at AuthService.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:36:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:46:20
+2026-03-26 21:25:42 [error]: Error: Credenciales inválidas
+    at AuthService.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:36:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:46:20
+2026-03-26 21:25:42 [error]: Error: Credenciales inválidas
+    at AuthService.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:36:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:46:20
+2026-03-26 21:25:42 [error]: Error: Credenciales inválidas
+    at AuthService.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:36:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:46:20
+2026-03-26 21:25:42 [error]: Error: Credenciales inválidas
+    at AuthService.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:36:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:46:20
+2026-03-26 22:01:58 [error]: Error: Credenciales inválidas
+    at AuthService.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:36:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:46:20
+2026-03-26 22:01:59 [error]: Error: Credenciales inválidas
+    at AuthService.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:36:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:46:20
+2026-03-26 22:04:34 [error]: Error: Credenciales inválidas
+    at AuthService.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:36:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:46:20
+2026-03-26 22:04:34 [error]: Error: Credenciales inválidas
+    at AuthService.login (C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\services\auth.service.js:36:19)
+    at async C:\Users\matia\Downloads\Kimi_Agent_Panel Admin Peluquería Completo\barbershop-admin\backend\dist\controllers\auth.controller.js:46:20

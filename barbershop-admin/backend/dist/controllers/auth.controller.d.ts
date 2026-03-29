@@ -6,5 +6,7 @@ export declare class AuthController {
     static refreshToken: (req: Request, res: Response, next: import("express").NextFunction) => void;
     static getMe: (req: Request, res: Response, next: import("express").NextFunction) => void;
     static changePassword: (req: Request, res: Response, next: import("express").NextFunction) => void;
+    static activateTrial: (req: Request, res: Response, next: import("express").NextFunction) => void;
+    static updateMyPlan: (req: Request, res: Response, next: import("express").NextFunction) => void;
 }
 //# sourceMappingURL=auth.controller.d.ts.map

@@ -9,12 +9,12 @@ export declare class EmployeeService {
             role: import(".prisma/client").$Enums.UserRole;
         };
     } & {
-        userId: string;
         id: string;
         tenantId: string;
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
+        userId: string;
         firstName: string;
         lastName: string;
         phone: string | null;
@@ -29,12 +29,12 @@ export declare class EmployeeService {
             isActive: boolean;
         };
     } & {
-        userId: string;
         id: string;
         tenantId: string;
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
+        userId: string;
         firstName: string;
         lastName: string;
         phone: string | null;
@@ -53,12 +53,12 @@ export declare class EmployeeService {
             services: number;
         };
     } & {
-        userId: string;
         id: string;
         tenantId: string;
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
+        userId: string;
         firstName: string;
         lastName: string;
         phone: string | null;
@@ -72,12 +72,12 @@ export declare class EmployeeService {
             role: import(".prisma/client").$Enums.UserRole;
         };
     } & {
-        userId: string;
         id: string;
         tenantId: string;
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
+        userId: string;
         firstName: string;
         lastName: string;
         phone: string | null;
@@ -99,12 +99,12 @@ export declare class EmployeeService {
             services: number;
         };
     } & {
-        userId: string;
         id: string;
         tenantId: string;
         isActive: boolean;
         createdAt: Date;
         updatedAt: Date;
+        userId: string;
         firstName: string;
         lastName: string;
         phone: string | null;

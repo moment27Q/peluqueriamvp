@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Wine, MapPin, Phone, Mail, Instagram, Facebook, Twitter, Youtube, ArrowUp, CheckCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Instagram, Facebook, Twitter, Youtube, ArrowUp, CheckCircle } from 'lucide-react';
 import { footerConfig } from '../config';
 
 // Icon lookup map for dynamic icon resolution from config strings
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  Wine, MapPin, Phone, Mail, Instagram, Facebook, Twitter, Youtube, ArrowUp,
+  MapPin, Phone, Mail, Instagram, Facebook, Twitter, Youtube, ArrowUp,
 };
 
 export function Footer() {
@@ -59,13 +59,11 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
-              <Wine className="w-8 h-8 text-gold-500" aria-hidden="true" />
-              <div>
-                <span className="font-serif text-xl text-white block">{footerConfig.brandName}</span>
-                {footerConfig.tagline && (
-                  <span className="text-[10px] text-gold-400 tracking-widest uppercase">{footerConfig.tagline}</span>
-                )}
-              </div>
+              <img
+                src="/images/logo-izichamba.png"
+                alt="Izichamba"
+                className="h-10 w-auto"
+              />
             </div>
             {footerConfig.description && (
               <p className="text-white/70 text-sm leading-relaxed mb-6">

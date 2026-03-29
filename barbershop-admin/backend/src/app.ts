@@ -15,6 +15,8 @@ import serviceRoutes from './routes/service.routes';
 import reportRoutes from './routes/report.routes';
 import planRoutes from './routes/plan.routes';
 import tenantRoutes from './routes/tenant.routes';
+import withdrawalRoutes from './routes/withdrawal.routes';
+import feedbackRoutes from './routes/feedback.routes';
 
 const app = express();
 
@@ -73,6 +75,8 @@ app.use('/api/services', serviceRoutes);
 app.use('/api/reports', reportRoutes);
 app.use('/api/plans', planRoutes);
 app.use('/api/admin/tenants', tenantRoutes);
+app.use('/api/withdrawals', withdrawalRoutes);
+app.use('/api/feedback', feedbackRoutes);
 
 // API version endpoint
 app.get('/api/version', (req, res) => {

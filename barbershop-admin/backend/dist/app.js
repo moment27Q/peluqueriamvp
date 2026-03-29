@@ -19,6 +19,8 @@ const service_routes_1 = __importDefault(require("./routes/service.routes"));
 const report_routes_1 = __importDefault(require("./routes/report.routes"));
 const plan_routes_1 = __importDefault(require("./routes/plan.routes"));
 const tenant_routes_1 = __importDefault(require("./routes/tenant.routes"));
+const withdrawal_routes_1 = __importDefault(require("./routes/withdrawal.routes"));
+const feedback_routes_1 = __importDefault(require("./routes/feedback.routes"));
 const app = (0, express_1.default)();
 // Security middleware
 app.use((0, helmet_1.default)({
@@ -68,6 +70,8 @@ app.use('/api/services', service_routes_1.default);
 app.use('/api/reports', report_routes_1.default);
 app.use('/api/plans', plan_routes_1.default);
 app.use('/api/admin/tenants', tenant_routes_1.default);
+app.use('/api/withdrawals', withdrawal_routes_1.default);
+app.use('/api/feedback', feedback_routes_1.default);
 // API version endpoint
 app.get('/api/version', (req, res) => {
     res.json({

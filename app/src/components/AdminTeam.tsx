@@ -304,7 +304,7 @@ export const AdminTeam: React.FC = () => {
                                         <td className="px-6 py-4">
                                             <div className="flex items-center gap-3">
                                                 <div
-                                                    className="size-10 rounded-full bg-cover bg-center border-2 border-white shadow-sm bg-gray-200"
+                                                    className="size-10 rounded-full bg-cover bg-center border-2 border-white shadow-sm bg-gray-200 relative"
                                                     style={{ backgroundImage: employee.photoUrl ? `url('${employee.photoUrl}')` : undefined }}
                                                 >
                                                     {!employee.photoUrl && (
@@ -312,6 +312,11 @@ export const AdminTeam: React.FC = () => {
                                                             {employee.firstName.charAt(0)}{employee.lastName.charAt(0)}
                                                         </span>
                                                     )}
+                                                    <span
+                                                        className={`absolute -bottom-0.5 -right-0.5 size-3 rounded-full border-2 border-white ${employee.isActive ? 'bg-green-500' : 'bg-gray-400'}`}
+                                                        aria-label={employee.isActive ? 'En línea' : 'Desconectado'}
+                                                        title={employee.isActive ? 'En línea' : 'Desconectado'}
+                                                    />
                                                 </div>
                                                 <div>
                                                     <p className="text-sm font-bold text-gray-900">{employee.firstName} {employee.lastName}</p>

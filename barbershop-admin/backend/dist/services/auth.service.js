@@ -124,15 +124,17 @@ class AuthService {
         // Create tenant if shopName is provided
         let tenantId = undefined;
         if (input.shopName) {
-            // Find the selected plan from the database or default to 'BASIC'
-            const selectedPlanName = input.plan || 'BASIC';
-            const plan = await database_1.prisma.subscriptionPlan.findUnique({
-                where: { name: selectedPlanName }
-            });
+            let planId = null;
+            if (input.plan) {
+                const plan = await database_1.prisma.subscriptionPlan.findUnique({
+                    where: { name: input.plan }
+                });
+                planId = plan?.id || null;
+            }
             const tenant = await database_1.prisma.tenant.create({
                 data: {
                     name: input.shopName,
-                    planId: plan?.id || null, // Link to dynamic SubscriptionPlan
+                    planId,
                 },
             });
             tenantId = tenant.id;

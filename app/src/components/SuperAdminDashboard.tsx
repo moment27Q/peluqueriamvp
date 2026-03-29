@@ -20,6 +20,7 @@ export const SuperAdminDashboard: React.FC<SuperAdminDashboardProps> = ({ onNavi
     const [activeTab, setActiveTab] = useState<'shops' | 'plans' | 'directory'>('shops');
     const [tenants, setTenants] = useState<any[]>([]);
     const [tenantsLoading, setTenantsLoading] = useState(false);
+    const [tenantsError, setTenantsError] = useState('');
     const [editingTenantId, setEditingTenantId] = useState<string | null>(null);
     const [editSection, setEditSection] = useState<'plan' | 'admin' | null>(null);
     const [editPlanId, setEditPlanId] = useState('');
@@ -27,6 +28,12 @@ export const SuperAdminDashboard: React.FC<SuperAdminDashboardProps> = ({ onNavi
     const [editError, setEditError] = useState('');
     const [editSuccess, setEditSuccess] = useState('');
     const [newAdminForm, setNewAdminForm] = useState({ firstName: '', lastName: '', email: '', password: '' });
+
+    const normalizeList = (res: any) => {
+        if (Array.isArray(res)) return res;
+        if (Array.isArray(res?.data)) return res.data;
+        return [];
+    };
 
     const handleLogout = () => {
         localStorage.removeItem('token');
@@ -36,28 +43,34 @@ export const SuperAdminDashboard: React.FC<SuperAdminDashboardProps> = ({ onNavi
         onNavigate('landing');
     };
 
+    const loadTenants = async () => {
+        setTenantsLoading(true);
+        setTenantsError('');
+        try {
+            const res: any = await api.get('/admin/tenants');
+            const list = normalizeList(res);
+            setTenants(list);
+        } catch (e: any) {
+            setTenantsError(e?.message || 'No se pudo cargar el directorio de peluquerías.');
+        } finally {
+            setTenantsLoading(false);
+        }
+    };
+
     useEffect(() => {
         const loadPlans = async () => {
             try {
                 const res: any = await api.get('/plans');
-                if (res.success && res.data.length > 0) {
-                    setAvailablePlans(res.data);
-                    setPlan(res.data[0].name);
+                const plans = normalizeList(res);
+                if (plans.length > 0) {
+                    setAvailablePlans(plans);
+                    setPlan(plans[0].name);
                 }
             } catch (e) {
                 // silently fail
             }
         };
         loadPlans();
-
-        const loadTenants = async () => {
-            setTenantsLoading(true);
-            try {
-                const res: any = await api.get('/admin/tenants');
-                if (res.success) setTenants(res.data);
-            } catch (e) { /* ignore */ }
-            finally { setTenantsLoading(false); }
-        };
         loadTenants();
     }, []);
 
@@ -87,7 +100,8 @@ export const SuperAdminDashboard: React.FC<SuperAdminDashboardProps> = ({ onNavi
             // Refresh tenant directory
             try {
                 const res: any = await api.get('/admin/tenants');
-                if (res.success) setTenants(res.data);
+                const list = normalizeList(res);
+                setTenants(list);
             } catch (e) { /* ignore */ }
         } catch (error: any) {
             setErrorMsg(error.message || 'Error al crear la peluquería.');
@@ -99,7 +113,8 @@ export const SuperAdminDashboard: React.FC<SuperAdminDashboardProps> = ({ onNavi
     const refreshTenants = async () => {
         try {
             const res: any = await api.get('/admin/tenants');
-            if (res.success) setTenants(res.data);
+            const list = normalizeList(res);
+            setTenants(list);
         } catch (e) { /* ignore */ }
     };
 
@@ -147,11 +162,12 @@ export const SuperAdminDashboard: React.FC<SuperAdminDashboardProps> = ({ onNavi
             {/* Sidebar */}
             <aside className="w-64 flex flex-col bg-white border-r border-gray-200 h-full transition-all shadow-sm">
                 <div className="p-6 flex items-center gap-3">
-                    <div className="size-10 rounded-lg bg-gray-900 text-white flex items-center justify-center shadow-lg shadow-gray-900/30">
-                        <span className="material-symbols-outlined font-bold text-2xl">shield_person</span>
-                    </div>
+                    <img
+                        src="/images/logo-izichamba.png"
+                        alt="Izichamba"
+                        className="h-10 w-auto"
+                    />
                     <div>
-                        <h1 className="text-lg font-bold tracking-tight text-gray-900">mi pagina.com</h1>
                         <p className="text-[10px] uppercase tracking-[0.2em] text-gray-900 font-bold">superadmin</p>
                     </div>
                 </div>
@@ -349,11 +365,21 @@ export const SuperAdminDashboard: React.FC<SuperAdminDashboardProps> = ({ onNavi
                                 <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight">Directorio de Peluquerías</h2>
                                 <p className="text-gray-500 mt-1">Todas las peluquerías registradas con su dueño y equipo.</p>
                             </div>
-                            <span className="bg-gray-100 text-gray-700 font-bold text-sm px-4 py-2 rounded-full">{tenants.length} registradas</span>
+                            <div className="flex items-center gap-2">
+                                <span className="bg-gray-100 text-gray-700 font-bold text-sm px-4 py-2 rounded-full">{tenants.length} registradas</span>
+                                <button
+                                    onClick={loadTenants}
+                                    className="px-3 py-2 rounded-full bg-white border border-gray-200 text-gray-700 text-xs font-bold hover:bg-gray-50"
+                                >
+                                    Recargar
+                                </button>
+                            </div>
                         </div>
 
                         {tenantsLoading ? (
                             <div className="text-center py-20 text-gray-400 font-medium">Cargando...</div>
+                        ) : tenantsError ? (
+                            <div className="text-center py-20 text-red-500 font-semibold">{tenantsError}</div>
                         ) : tenants.length === 0 ? (
                             <div className="text-center py-20 text-gray-400 font-medium">No hay peluquerías registradas aún.</div>
                         ) : (
@@ -377,7 +403,13 @@ export const SuperAdminDashboard: React.FC<SuperAdminDashboardProps> = ({ onNavi
                                                         <div>
                                                             <h3 className="text-lg font-extrabold text-gray-900">{tenant.name}</h3>
                                                             <span className="text-xs font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full">
-                                                                {tenant.subscriptionPlan?.name?.toUpperCase() || 'SIN PLAN'}
+                                                                {(() => {
+                                                                    const planName = tenant.subscriptionPlan?.name;
+                                                                    const trialEndsAt = tenant.trialEndsAt ? new Date(tenant.trialEndsAt).getTime() : null;
+                                                                    const trialActive = trialEndsAt ? trialEndsAt > Date.now() : false;
+                                                                    if (!planName && trialActive) return 'GRATUITO';
+                                                                    return planName?.toUpperCase() || 'SIN PLAN';
+                                                                })()}
                                                             </span>
                                                         </div>
                                                     </div>

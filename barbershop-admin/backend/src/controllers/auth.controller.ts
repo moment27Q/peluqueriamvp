@@ -111,6 +111,9 @@ export class AuthController {
             subscriptionPlan: {
               select: { id: true, name: true, price: true, maxEmployees: true } as any,
             },
+            trialStartedAt: true,
+            trialEndsAt: true,
+            trialUsed: true,
           },
         })
       : null;
@@ -140,5 +143,83 @@ export class AuthController {
       success: true,
       message: 'Contraseña actualizada exitosamente',
     });
+  });
+
+  static activateTrial = asyncHandler(async (req: Request, res: Response) => {
+    if (!req.user?.tenantId) {
+      res.status(400).json({ error: 'El usuario no tiene peluquerÃ­a asociada' });
+      return;
+    }
+
+    const tenant = await prisma.tenant.findUnique({ where: { id: req.user.tenantId } });
+    if (!tenant) {
+      res.status(404).json({ error: 'PeluquerÃ­a no encontrada' });
+      return;
+    }
+
+    if (tenant.planId) {
+      res.status(400).json({ error: 'Ya tienes un plan activo' });
+      return;
+    }
+
+    if (tenant.trialUsed && tenant.trialEndsAt && tenant.trialEndsAt < new Date()) {
+      res.status(400).json({ error: 'La prueba gratuita ya fue utilizada' });
+      return;
+    }
+
+    const now = new Date();
+    const endsAt = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
+
+    const updated = await prisma.tenant.update({
+      where: { id: tenant.id },
+      data: {
+        trialStartedAt: now,
+        trialEndsAt: endsAt,
+        trialUsed: true,
+      },
+      select: {
+        id: true,
+        name: true,
+        subscriptionPlan: { select: { id: true, name: true, price: true } as any },
+        trialStartedAt: true,
+        trialEndsAt: true,
+        trialUsed: true,
+      },
+    });
+
+    res.json({ success: true, data: updated });
+  });
+
+  static updateMyPlan = asyncHandler(async (req: Request, res: Response) => {
+    if (!req.user?.tenantId) {
+      res.status(400).json({ error: 'El usuario no tiene peluquerÃ­a asociada' });
+      return;
+    }
+
+    const { planId } = req.body as { planId?: string | null };
+
+    if (planId === null || planId === undefined || planId === '') {
+      const updated = await prisma.tenant.update({
+        where: { id: req.user.tenantId },
+        data: { planId: null },
+        select: { id: true, name: true, subscriptionPlan: { select: { id: true, name: true, price: true } as any } },
+      });
+      res.json({ success: true, data: updated });
+      return;
+    }
+
+    const plan = await prisma.subscriptionPlan.findUnique({ where: { id: planId } });
+    if (!plan) {
+      res.status(404).json({ error: 'Plan no encontrado' });
+      return;
+    }
+
+    const updated = await prisma.tenant.update({
+      where: { id: req.user.tenantId },
+      data: { planId },
+      select: { id: true, name: true, subscriptionPlan: { select: { id: true, name: true, price: true } as any } },
+    });
+
+    res.json({ success: true, data: updated });
   });
 }

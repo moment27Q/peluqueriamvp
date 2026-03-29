@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { AuthController } from '../controllers/auth.controller';
-import { authenticate } from '../middleware/auth.middleware';
+import { authenticate, requireAdmin } from '../middleware/auth.middleware';
 
 const router = Router();
 
@@ -12,8 +12,10 @@ router.post('/logout', authenticate, AuthController.logout);
 router.post('/refresh', AuthController.refreshToken);
 router.get('/me', authenticate, AuthController.getMe);
 router.post('/change-password', authenticate, AuthController.changePassword);
+router.patch('/trial', authenticate, requireAdmin, AuthController.activateTrial);
+router.patch('/plan', authenticate, requireAdmin, AuthController.updateMyPlan);
 
-// Admin only - registration
-router.post('/register', authenticate, AuthController.register);
+// Public registration
+router.post('/register', AuthController.register);
 
 export default router;

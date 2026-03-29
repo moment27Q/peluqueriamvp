@@ -8,12 +8,13 @@ const router = Router();
 // Public endpoint
 router.get('/active', PlanController.getActivePlans);
 
-// Protected routes (SuperAdmin only)
+// Protected routes (Admin & SuperAdmin for read)
 router.use(authenticate);
-router.use(requireRole([UserRole.SUPERADMIN]));
+router.get('/', requireRole([UserRole.SUPERADMIN, UserRole.ADMIN]), PlanController.getAllPlans);
+router.get('/:id', requireRole([UserRole.SUPERADMIN, UserRole.ADMIN]), PlanController.getPlanById);
 
-router.get('/', PlanController.getAllPlans);
-router.get('/:id', PlanController.getPlanById);
+// Protected routes (SuperAdmin only for write)
+router.use(requireRole([UserRole.SUPERADMIN]));
 router.post('/', PlanController.createPlan);
 router.put('/:id', PlanController.updatePlan);
 router.delete('/:id', PlanController.deletePlan);

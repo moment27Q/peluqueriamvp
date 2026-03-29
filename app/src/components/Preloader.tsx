@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Wine } from 'lucide-react';
 import { preloaderConfig } from '../config';
 
 export function Preloader({ onComplete }: { onComplete: () => void }) {
@@ -26,17 +25,13 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
         phase === 'fading' ? 'opacity-0' : 'opacity-100'
       }`}
     >
-      {/* Logo Icon */}
+      {/* Logo */}
       <div className="preloader-text mb-6">
-        <Wine className="w-12 h-12 text-gold-500" />
-      </div>
-
-      {/* Brand Name */}
-      <div className="preloader-text text-center" style={{ animationDelay: '0.2s' }}>
-        <h1 className="font-serif text-3xl md:text-4xl text-white tracking-wide mb-2">
-          {preloaderConfig.brandName}
-        </h1>
-        <p className="font-script text-2xl text-gold-400">{preloaderConfig.brandSubname}</p>
+        <img
+          src="/images/logo-izichamba.png"
+          alt="Izichamba"
+          className="h-16 w-auto"
+        />
       </div>
 
       {/* Loading Line */}

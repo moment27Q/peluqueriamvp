@@ -196,7 +196,7 @@ export const PlansManager: React.FC = () => {
                     ))}
                     {plans.length === 0 && (
                         <div className="col-span-3 text-center py-20 text-gray-500 font-medium">
-                            No hay planes configurados todavÃ­a. Haz clic en "Crear Nuevo Plan" para empezar.
+                            No hay planes configurados todavía. Haz clic en "Crear Nuevo Plan" para empezar.
                         </div>
                     )}
                 </div>
@@ -258,7 +258,7 @@ export const PlansManager: React.FC = () => {
                                             {isOrderTaken && (
                                                 <p className="mt-1 text-xs font-semibold text-red-600 flex items-center gap-1">
                                                     <span className="material-symbols-outlined text-sm">warning</span>
-                                                    Ya en uso. NÃºmeros ocupados: {usedOrders}
+                                                    Ya en uso. Números ocupados: {usedOrders}
                                                 </p>
                                             )}
                                             {!isOrderTaken && usedOrders && (
